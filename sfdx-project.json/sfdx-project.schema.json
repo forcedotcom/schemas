@@ -8,7 +8,24 @@
     "packageDirectories": {
       "type": "array",
       "description": "The list of package or org directories in your project.",
-      "minItems": 1
+      "minItems": 1,
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "package": {
+          "type": "string"
+        },
+        "versionNumber": {
+          "type": "string"
+        },
+        "versionName": {
+          "type": "string"
+        }
+      }
     },
     "namespace": {
       "type": "string"
