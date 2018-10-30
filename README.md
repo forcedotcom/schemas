@@ -4,8 +4,8 @@
 
 Below are the schemas that are availible in this repository.
 
-- Schema: [project-scratch-def.json](https://forcedotcom.github.io/schemas/project-scratch-def.schema.json)
-- Schema: [sfdx-project.json](https://forcedotcom.github.io/schemas/sfdx-project.schema.json)
+- Schema: [project-scratch-def.json](https://forcedotcom.github.io/schemas/project-scratch-def.json/project-scratch-def.schema.json)
+- Schema: [sfdx-project.json](https://forcedotcom.github.io/schemas/sfdx-project.json/sfdx-project.schema.json)
 
 ## Using the Schemas
 
