@@ -1,0 +1,6 @@
+{
+  "$schema": "../project-scratch-def.schema.json",
+  "orgName": "Dreamhouse",
+  "edition": "Developer",
+  "hasSampleData": "false"
+}

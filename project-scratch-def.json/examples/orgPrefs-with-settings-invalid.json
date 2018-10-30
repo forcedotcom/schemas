@@ -1,0 +1,25 @@
+{
+  "$schema": "../project-scratch-def.schema.json",
+  "orgName": "Dreamhouse",
+  "edition": "Developer",
+  "hasSampleData": "false",
+  "orgPreferences": {
+    "enabled": ["S1DesktopEnabled"],
+    "disabled": ["S1EncryptedStoragePref2"]
+  },
+  "settings": {
+    "orgPreferenceSettings": {
+      "networksEnabled": true,
+
+      "s1DesktopEnabled": true,
+
+      "s1EncryptedStoragePref2": false
+    },
+    "omniChannelSettings": {
+      "enableOmniChannel": true
+    },
+    "caseSettings": {
+      "systemUserEmail": "support@acme.com"
+    }
+  }
+}

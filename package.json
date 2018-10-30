@@ -1,0 +1,27 @@
+{
+  "name": "sfdx-schemas",
+  "version": "1.0.0",
+  "description": "This repository contains the spec and schema for the Scratch Org Definition Configuration file and `sfdx-project.json` file.",
+  "main": "index.js",
+  "scripts": {
+    "precommit": "npm run prettier && npm test",
+    "test": "jest",
+    "prettier": "prettier ./**/*.* --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forcedotcom/schemas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/forcedotcom/schemas/issues"
+  },
+  "homepage": "https://github.com/forcedotcom/schemas#readme",
+  "devDependencies": {
+    "ajv": "^6.5.4",
+    "git-pre-commit": "^2.1.4",
+    "jest": "^23.6.0",
+    "prettier": "^1.14.3"
+  }
+}

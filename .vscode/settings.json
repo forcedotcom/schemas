@@ -1,0 +1,8 @@
+{
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  // Controls the printing of spaces inside object literals
+  "prettier.bracketSpacing": true,
+  // Number of spaces it should use per tab
+  "prettier.tabWidth": 2
+}
