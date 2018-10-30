@@ -1,0 +1,511 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.salesforce.com/project-scratch-def.json",
+  "title": "Scratch Org Definition Configuration",
+  "description": "The scratch org definition file contains the configuration values that determine the shape of the scratch org.",
+  "type": "object",
+  "oneOf": [
+    {
+      "additionalProperties": false,
+      "$ref": "#/definitions/base"
+    },
+    {
+      "allOf": [
+        {
+          "$ref": "#/definitions/base"
+        },
+        {
+          "required": ["orgPreferences"],
+          "properties": {
+            "orgPreferences": {
+              "$ref": "#/definitions/orgPreferences"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "allOf": [
+        {
+          "$ref": "#/definitions/base"
+        },
+        {
+          "required": ["settings"],
+          "properties": {
+            "settings": {
+              "$ref": "#/definitions/settings"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "definitions": {
+    "base": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "orgName": { "$ref": "#/definitions/orgName" },
+        "edition": { "$ref": "#/definitions/edition" },
+        "country": { "$ref": "#/definitions/country" },
+        "username": { "$ref": "#/definitions/username" },
+        "adminEmail": { "$ref": "#/definitions/adminEmail" },
+        "description": { "$ref": "#/definitions/description" },
+        "hasSampleData": { "$ref": "#/definitions/hasSampleData" },
+        "features": { "$ref": "#/definitions/features" }
+      }
+    },
+    "orgName": {
+      "type": "string",
+      "title": "Organization Name",
+      "description": "The name of the scratch org."
+    },
+    "edition": {
+      "type": "string",
+      "enum": ["Developer", "Group", "Professional", "Enterprise"]
+    },
+    "country": {
+      "title": "Country",
+      "type": "string",
+      "description": "Dev Hub's country. Scratch orgs are located in a data center based on the specified country.",
+      "maximum": 2
+    },
+    "username": {
+      "title": "Username",
+      "type": "string",
+      "description": "A user name formatted like test-unique_identifier@orgName.net."
+    },
+    "adminEmail": {
+      "title": "Administrator Email Address",
+      "type": "string",
+      "description": "Email address of the Dev Hub user making the scratch org creation request."
+    },
+    "description": {
+      "title": "Description of the Org",
+      "type": "string",
+      "description": "The description is a good way to document the scratch org’s purpose. You can view or edit the description in the Dev Hub. From App Launcher, select Scratch Org Info or Active Scratch Orgs, then click the scratch org number."
+    },
+    "language": {
+      "title": "Default Language",
+      "type": "string",
+      "description": "Default language for the country.",
+      "enum": [
+        "English",
+        "German",
+        "Spanish",
+        "French",
+        "Italian",
+        "Japanese",
+        "Swedish",
+        "Korean",
+        "Chinese (Traditional)",
+        "Chinese (Simplified)",
+        "Portuguese (Brazil)",
+        "Dutch",
+        "Danish",
+        "Thai",
+        "Finnish",
+        "Russian",
+        "Spanish (Mexico)",
+        "Norwegian"
+      ]
+    },
+    "features": {
+      "type": "array",
+      "additionalItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "AddCustomApps:<value>",
+          "AddCustomTabs:<value>",
+          "AddHistoryFieldsPerEntity:<value>",
+          "API",
+          "AuthorApex",
+          "Chatbot",
+          "Communities",
+          "ContactsToMultipleAccounts",
+          "ContractApprovals",
+          "CascadeDelete",
+          "CustomerSelfService",
+          "CustomApps (to be deprecated in Spring ’19)",
+          "CustomTabs (to be deprecated in Spring ’19)",
+          "DebugApex",
+          "DefaultWorkflowUser",
+          "Entitlements",
+          "ExternalSharing (not available in Group Edition)",
+          "ForceComPlatform",
+          "Interaction",
+          "IoT",
+          "Knowledge",
+          "LightningSalesConsole",
+          "LightningServiceConsole",
+          "LiveAgent",
+          "LiveMessage",
+          "MaxApexCodeSize:<value>",
+          "MaxCustomLabels:<value>",
+          "MultiCurrency",
+          "PersonAccounts",
+          "ProcessBuilder",
+          "SalesWave",
+          "ServiceCloud",
+          "ServiceWave",
+          "SiteDotCom",
+          "SiteForceContributor",
+          "Sites",
+          "StateAndCountryPicklist",
+          "Workflow"
+        ]
+      }
+    },
+    "hasSampleData": {
+      "type": "string",
+      "$comment": "This is a string, but it really should be a boolean. Need to test if boolean actually works or not.",
+      "title": "Include Sample Data",
+      "description": "If true, sample data for standard objects will be added to the scratch org, if false it won't",
+      "default": "false"
+    },
+    "orgPreferences": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "array",
+          "title": "Enabled preferences",
+          "description": "The preferences that will be disabled.",
+          "additionalItems": true,
+          "items": { "$ref": "#/definitions/orgPreferenceValues" }
+        },
+        "disabled": {
+          "type": "array",
+          "title": "Enabled Preferences",
+          "description": "The preferences that will be enabled.",
+          "additionalItems": true,
+          "items": { "$ref": "#/definitions/orgPreferenceValues" }
+        }
+      }
+    },
+    "orgPreferenceValues": {
+      "type": "string",
+      "enum": [
+        "AnalyticsSharingEnable",
+        "AsyncSaveEnabled",
+        "ChatterEnabled",
+        "DisableParallelApexTesting",
+        "EnhancedEmailEnabled",
+        "EventLogWaveIntegEnabled",
+        "LoginForensicsEnabled",
+        "NetworksEnabled",
+        "OfflineDraftsEnabled",
+        "PathAssistantsEnabled",
+        "S1DesktopEnabled",
+        "S1EncryptedStoragePref2",
+        "S1OfflinePref",
+        "SelfSetPasswordInApi",
+        "SendThroughGmailPref",
+        "SocialProfilesEnable",
+        "Translation",
+        "VoiceEnabled",
+        "IsAccountTeamsEnabled",
+        "ShowViewHierarchyLink",
+        "IsActivityRemindersEnabled",
+        "IsDragAndDropSchedulingEnabled",
+        "IsEmailTrackingEnabled",
+        "IsGroupTasksEnabled",
+        "IsMultidayEventsEnabled",
+        "IsRecurringEventsEnabled",
+        "IsRecurringTasksEnabled",
+        "IsSidebarCalendarShortcutEnabled",
+        "IsSimpleTaskCreateUIEnabled",
+        "ShowEventDetailsMultiUserCalendar",
+        "ShowHomePageHoverLinksForEvents",
+        "ShowMyTasksHoverLinks",
+        "AutoCalculateEndDate",
+        "IsContractHistoryTrackingEnabled",
+        "NotifyOwnersOnContractExpiration",
+        "AssetLookupLimitedToActiveEntitlementsOnAccount",
+        "AssetLookupLimitedToActiveEntitlementsOnContact",
+        "AssetLookupLimitedToSameAccount",
+        "AssetLookupLimitedToSameContact",
+        "IsEntitlementsEnabled",
+        "EntitlementLookupLimitedToActiveStatus",
+        "EntitlementLookupLimitedToSameAccount",
+        "EntitlementLookupLimitedToSameAsset",
+        "EntitlementLookupLimitedToSameContact",
+        "IsForecastsEnabled",
+        "IsChatterProfileEnabled",
+        "IsIdeaThemesEnabled",
+        "IsIdeasEnabled",
+        "IsIdeasReputationEnabled",
+        "IsCreateEditOnArticlesTabEnabled",
+        "IsExternalMediaContentEnabled",
+        "IsKnowledgeEnabled",
+        "ShowArticleSummariesCustomerPortal",
+        "ShowArticleSummariesInternalApp",
+        "ShowArticleSummariesPartnerPortal",
+        "ShowValidationStatusField",
+        "IsLiveAgentEnabled",
+        "IsMarketingActionEnabled",
+        "IsMiddleNameEnabled",
+        "IsNameSuffixEnabled",
+        "IsOpportunityTeamEnabled",
+        "IsNegativeQuantityEnabled",
+        "IsOrdersEnabled",
+        "IsReductionOrdersEnabled",
+        "IsExactTargetForSalesforceAppsEnabled",
+        "IsCascadeActivateToRelatedPricesEnabled",
+        "IsQuantityScheduleEnabled",
+        "IsRevenueScheduleEnabled",
+        "IsQuoteEnabled",
+        "DocumentContentSearchEnabled",
+        "OptimizeSearchForCjkEnabled",
+        "RecentlyViewedUsersForBlankLookupEnabled",
+        "SidebarAutoCompleteEnabled",
+        "SidebarDropDownListEnabled",
+        "SidebarLimitToItemsIownCheckboxEnabled",
+        "SingleSearchResultShortcutEnabled",
+        "SpellCorrectKnowledgeSearchEnabled"
+      ]
+    },
+    "settings": {
+      "type": "object",
+      "properties": {
+        "orgPreferenceSettings": {
+          "type": "object",
+          "properties": {
+            "analyticsSharingEnable": {
+              "type": "boolean"
+            },
+            "asyncSaveEnabled": {
+              "type": "boolean"
+            },
+            "chatterEnabled": {
+              "type": "boolean"
+            },
+            "disableParallelApexTesting": {
+              "type": "boolean"
+            },
+            "enhancedEmailEnabled": {
+              "type": "boolean"
+            },
+            "eventLogWaveIntegEnabled": {
+              "type": "boolean"
+            },
+            "loginForensicsEnabled": {
+              "type": "boolean"
+            },
+            "networksEnabled": {
+              "type": "boolean"
+            },
+            "offlineDraftsEnabled": {
+              "type": "boolean"
+            },
+            "pathAssistantsEnabled": {
+              "type": "boolean"
+            },
+            "s1DesktopEnabled": {
+              "type": "boolean"
+            },
+            "s1EncryptedStoragePref2": {
+              "type": "boolean"
+            },
+            "s1OfflinePref": {
+              "type": "boolean"
+            },
+            "selfSetPasswordInApi": {
+              "type": "boolean"
+            },
+            "sendThroughGmailPref": {
+              "type": "boolean"
+            },
+            "socialProfilesEnable": {
+              "type": "boolean"
+            },
+            "translation": {
+              "type": "boolean"
+            },
+            "voiceEnabled": {
+              "type": "boolean"
+            },
+            "accountTeamsEnabled": {
+              "type": "boolean"
+            },
+            "showViewHierarchyLink": {
+              "type": "boolean"
+            },
+            "activityRemindersEnabled": {
+              "type": "boolean"
+            },
+            "dragAndDropSchedulingEnabled": {
+              "type": "boolean"
+            },
+            "emailTrackingEnabled": {
+              "type": "boolean"
+            },
+            "groupTasksEnabled": {
+              "type": "boolean"
+            },
+            "multidayEventsEnabled": {
+              "type": "boolean"
+            },
+            "recurringEventsEnabled": {
+              "type": "boolean"
+            },
+            "recurringTasksEnabled": {
+              "type": "boolean"
+            },
+            "sidebarCalendarShortcutEnabled": {
+              "type": "boolean"
+            },
+            "simpleTaskCreateUIEnabled": {
+              "type": "boolean"
+            },
+            "showEventDetailsMultiUserCalendar": {
+              "type": "boolean"
+            },
+            "showHomePageHoverLinksForEvents": {
+              "type": "boolean"
+            },
+            "showMyTasksHoverLinks": {
+              "type": "boolean"
+            },
+            "autoCalculateEndDate": {
+              "type": "boolean"
+            },
+            "contractHistoryTrackingEnabled": {
+              "type": "boolean"
+            },
+            "notifyOwnersOnContractExpiration": {
+              "type": "boolean"
+            },
+            "assetLookupLimitedToActiveEntitlementsOnAccount": {
+              "type": "boolean"
+            },
+            "assetLookupLimitedToActiveEntitlementsOnContact": {
+              "type": "boolean"
+            },
+            "assetLookupLimitedToSameAccount": {
+              "type": "boolean"
+            },
+            "assetLookupLimitedToSameContact": {
+              "type": "boolean"
+            },
+            "entitlementsEnabled": {
+              "type": "boolean"
+            },
+            "entitlementLookupLimitedToActiveStatus": {
+              "type": "boolean"
+            },
+            "entitlementLookupLimitedToSameAccount": {
+              "type": "boolean"
+            },
+            "entitlementLookupLimitedToSameAsset": {
+              "type": "boolean"
+            },
+            "entitlementLookupLimitedToSameContact": {
+              "type": "boolean"
+            },
+            "forecastsEnabled": {
+              "type": "boolean"
+            },
+            "chatterProfileEnabled": {
+              "type": "boolean"
+            },
+            "ideaThemesEnabled": {
+              "type": "boolean"
+            },
+            "ideasEnabled": {
+              "type": "boolean"
+            },
+            "ideasReputationEnabled": {
+              "type": "boolean"
+            },
+            "createEditOnArticlesTabEnabled": {
+              "type": "boolean"
+            },
+            "externalMediaContentEnabled": {
+              "type": "boolean"
+            },
+            "knowledgeEnabled": {
+              "type": "boolean"
+            },
+            "showArticleSummariesCustomerPortal": {
+              "type": "boolean"
+            },
+            "showArticleSummariesInternalApp": {
+              "type": "boolean"
+            },
+            "showArticleSummariesPartnerPortal": {
+              "type": "boolean"
+            },
+            "showValidationStatusField": {
+              "type": "boolean"
+            },
+            "liveAgentEnabled": {
+              "type": "boolean"
+            },
+            "marketingActionEnabled": {
+              "type": "boolean"
+            },
+            "middleNameEnabled": {
+              "type": "boolean"
+            },
+            "nameSuffixEnabled": {
+              "type": "boolean"
+            },
+            "opportunityTeamEnabled": {
+              "type": "boolean"
+            },
+            "negativeQuantityEnabled": {
+              "type": "boolean"
+            },
+            "ordersEnabled": {
+              "type": "boolean"
+            },
+            "reductionOrdersEnabled": {
+              "type": "boolean"
+            },
+            "exactTargetForSalesforceAppsEnabled": {
+              "type": "boolean"
+            },
+            "cascadeActivateToRelatedPricesEnabled": {
+              "type": "boolean"
+            },
+            "quantityScheduleEnabled": {
+              "type": "boolean"
+            },
+            "revenueScheduleEnabled": {
+              "type": "boolean"
+            },
+            "quoteEnabled": {
+              "type": "boolean"
+            },
+            "documentContentSearchEnabled": {
+              "type": "boolean"
+            },
+            "optimizeSearchForCjkEnabled": {
+              "type": "boolean"
+            },
+            "recentlyViewedUsersForBlankLookupEnabled": {
+              "type": "boolean"
+            },
+            "sidebarAutoCompleteEnabled": {
+              "type": "boolean"
+            },
+            "sidebarDropDownListEnabled": {
+              "type": "boolean"
+            },
+            "sidebarLimitToItemsIownCheckboxEnabled": {
+              "type": "boolean"
+            },
+            "singleSearchResultShortcutEnabled": {
+              "type": "boolean"
+            },
+            "spellCorrectKnowledgeSearchEnabled": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  }
+}
