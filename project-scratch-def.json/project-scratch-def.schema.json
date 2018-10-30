@@ -6,46 +6,9 @@
   "type": "object",
   "oneOf": [
     {
+      "required": ["edition"],
       "additionalProperties": false,
-      "$ref": "#/definitions/base"
-    },
-    {
-      "allOf": [
-        {
-          "$ref": "#/definitions/base"
-        },
-        {
-          "required": ["orgPreferences"],
-          "properties": {
-            "orgPreferences": {
-              "$ref": "#/definitions/orgPreferences"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "allOf": [
-        {
-          "$ref": "#/definitions/base"
-        },
-        {
-          "required": ["settings"],
-          "properties": {
-            "settings": {
-              "$ref": "#/definitions/settings"
-            }
-          }
-        }
-      ]
-    }
-  ],
-  "definitions": {
-    "base": {
       "properties": {
-        "$schema": {
-          "type": "string"
-        },
         "orgName": { "$ref": "#/definitions/orgName" },
         "edition": { "$ref": "#/definitions/edition" },
         "country": { "$ref": "#/definitions/country" },
@@ -56,6 +19,43 @@
         "features": { "$ref": "#/definitions/features" }
       }
     },
+    {
+      "$comment": "This is the legacy format, will be removed Spring `19",
+      "required": ["edition", "orgPreferences"],
+      "additionalProperties": false,
+      "properties": {
+        "orgName": { "$ref": "#/definitions/orgName" },
+        "edition": { "$ref": "#/definitions/edition" },
+        "country": { "$ref": "#/definitions/country" },
+        "username": { "$ref": "#/definitions/username" },
+        "adminEmail": { "$ref": "#/definitions/adminEmail" },
+        "description": { "$ref": "#/definitions/description" },
+        "hasSampleData": { "$ref": "#/definitions/hasSampleData" },
+        "features": { "$ref": "#/definitions/features" },
+        "orgPreferences": {
+          "$ref": "#/definitions/orgPreferences"
+        }
+      }
+    },
+    {
+      "required": ["edition", "settings"],
+      "additionalProperties": false,
+      "properties": {
+        "orgName": { "$ref": "#/definitions/orgName" },
+        "edition": { "$ref": "#/definitions/edition" },
+        "country": { "$ref": "#/definitions/country" },
+        "username": { "$ref": "#/definitions/username" },
+        "adminEmail": { "$ref": "#/definitions/adminEmail" },
+        "description": { "$ref": "#/definitions/description" },
+        "hasSampleData": { "$ref": "#/definitions/hasSampleData" },
+        "features": { "$ref": "#/definitions/features" },
+        "settings": {
+          "$ref": "#/definitions/settings"
+        }
+      }
+    }
+  ],
+  "definitions": {
     "orgName": {
       "type": "string",
       "title": "Organization Name",
