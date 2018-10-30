@@ -1,5 +1,7 @@
 # Salesforce DX Schemas
 
+> WARNING: This project is a work in progress.
+
 Below are the schemas that are availible in this repository.
 
 - Schema: [project-scratch-def.json](https://forcedotcom.github.io/schemas/project-scratch-def.schema.json)
