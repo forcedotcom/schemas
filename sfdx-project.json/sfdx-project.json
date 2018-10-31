@@ -1,11 +1,9 @@
 {
+  "$schema": "./sfdx-project.schema.json",
   "packageDirectories": [
     {
       "path": "force-app",
-      "default": true,
-      "package": "dreamhouse",
-      "versionNumber": "2.0.0.NEXT",
-      "versionName": "Summer '18"
+      "default": true
     }
   ],
   "namespace": "",
