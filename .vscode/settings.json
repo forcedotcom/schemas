@@ -4,5 +4,15 @@
   // Controls the printing of spaces inside object literals
   "prettier.bracketSpacing": true,
   // Number of spaces it should use per tab
-  "prettier.tabWidth": 2
+  "prettier.tabWidth": 2,
+  "json.schemas": [
+    {
+      "fileMatch": ["/project-scratch-def.json/examples/*.json"],
+      "url": "/project-scratch-def.json/project-scratch-def.schema.json"
+    },
+    {
+      "fileMatch": ["/sfdx-project.json/examples/*.json"],
+      "url": "/sfdx-project.json/sfdx-project.schema.json"
+    }
+  ]
 }
