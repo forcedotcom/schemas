@@ -4,60 +4,21 @@
   "title": "Scratch Org Definition Configuration",
   "description": "The scratch org definition file contains the configuration values that determine the shape of the scratch org.",
   "type": "object",
-  "oneOf": [
-    {
-      "required": ["edition"],
-      "additionalProperties": false,
-      "properties": {
-        "orgName": { "$ref": "#/definitions/orgName" },
-        "edition": { "$ref": "#/definitions/edition" },
-        "country": { "$ref": "#/definitions/country" },
-        "username": { "$ref": "#/definitions/username" },
-        "adminEmail": { "$ref": "#/definitions/adminEmail" },
-        "description": { "$ref": "#/definitions/description" },
-        "hasSampleData": { "$ref": "#/definitions/hasSampleData" },
-        "features": { "$ref": "#/definitions/features" },
-        "template": { "$ref": "#/definitions/template" }
-      }
-    },
-    {
-      "$comment": "This is the legacy format, will be removed Spring `19",
-      "required": ["edition", "orgPreferences"],
-      "additionalProperties": false,
-      "properties": {
-        "orgName": { "$ref": "#/definitions/orgName" },
-        "edition": { "$ref": "#/definitions/edition" },
-        "country": { "$ref": "#/definitions/country" },
-        "username": { "$ref": "#/definitions/username" },
-        "adminEmail": { "$ref": "#/definitions/adminEmail" },
-        "description": { "$ref": "#/definitions/description" },
-        "hasSampleData": { "$ref": "#/definitions/hasSampleData" },
-        "features": { "$ref": "#/definitions/features" },
-        "template": { "$ref": "#/definitions/template" },
-        "orgPreferences": {
-          "$ref": "#/definitions/orgPreferences"
-        }
-      }
-    },
-    {
-      "required": ["edition", "settings"],
-      "additionalProperties": false,
-      "properties": {
-        "orgName": { "$ref": "#/definitions/orgName" },
-        "edition": { "$ref": "#/definitions/edition" },
-        "country": { "$ref": "#/definitions/country" },
-        "username": { "$ref": "#/definitions/username" },
-        "adminEmail": { "$ref": "#/definitions/adminEmail" },
-        "description": { "$ref": "#/definitions/description" },
-        "hasSampleData": { "$ref": "#/definitions/hasSampleData" },
-        "features": { "$ref": "#/definitions/features" },
-        "template": { "$ref": "#/definitions/template" },
-        "settings": {
-          "$ref": "#/definitions/settings"
-        }
-      }
+  "required": ["edition"],
+  "properties": {
+    "orgName": { "$ref": "#/definitions/orgName" },
+    "edition": { "$ref": "#/definitions/edition" },
+    "country": { "$ref": "#/definitions/country" },
+    "username": { "$ref": "#/definitions/username" },
+    "adminEmail": { "$ref": "#/definitions/adminEmail" },
+    "description": { "$ref": "#/definitions/description" },
+    "hasSampleData": { "$ref": "#/definitions/hasSampleData" },
+    "features": { "$ref": "#/definitions/features" },
+    "template": { "$ref": "#/definitions/template" },
+    "settings": {
+      "$ref": "#/definitions/settings"
     }
-  ],
+  },
   "definitions": {
     "orgName": {
       "type": "string",
