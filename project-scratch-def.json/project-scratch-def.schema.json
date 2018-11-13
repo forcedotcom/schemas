@@ -16,7 +16,8 @@
         "adminEmail": { "$ref": "#/definitions/adminEmail" },
         "description": { "$ref": "#/definitions/description" },
         "hasSampleData": { "$ref": "#/definitions/hasSampleData" },
-        "features": { "$ref": "#/definitions/features" }
+        "features": { "$ref": "#/definitions/features" },
+        "template": { "$ref": "#/definitions/template" }
       }
     },
     {
@@ -32,6 +33,7 @@
         "description": { "$ref": "#/definitions/description" },
         "hasSampleData": { "$ref": "#/definitions/hasSampleData" },
         "features": { "$ref": "#/definitions/features" },
+        "template": { "$ref": "#/definitions/template" },
         "orgPreferences": {
           "$ref": "#/definitions/orgPreferences"
         }
@@ -49,6 +51,7 @@
         "description": { "$ref": "#/definitions/description" },
         "hasSampleData": { "$ref": "#/definitions/hasSampleData" },
         "features": { "$ref": "#/definitions/features" },
+        "template": { "$ref": "#/definitions/template" },
         "settings": {
           "$ref": "#/definitions/settings"
         }
@@ -85,6 +88,11 @@
       "title": "Description of the Org",
       "type": "string",
       "description": "The description is a good way to document the scratch org’s purpose. You can view or edit the description in the Dev Hub. From App Launcher, select Scratch Org Info or Active Scratch Orgs, then click the scratch org number."
+    },
+    "template": {
+      "title": "Template ID",
+      "type": "string",
+      "description": "The template id for the scratch org shape. (Pilot)"
     },
     "language": {
       "title": "Default Language",

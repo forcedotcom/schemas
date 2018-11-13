@@ -29,4 +29,8 @@ describe("project-stract-def.json", () => {
     "deprecated orgPreferences option with settings is invalid",
     testFile("./examples/orgPrefs-with-settings-invalid.json", false)
   );
+  test(
+    "template pilot property option is valid",
+    testFile("./examples/with-template.json", false)
+  );
 });
