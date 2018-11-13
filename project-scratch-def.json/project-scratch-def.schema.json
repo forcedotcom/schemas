@@ -147,14 +147,12 @@
           "type": "array",
           "title": "Enabled preferences",
           "description": "The preferences that will be disabled.",
-          "additionalItems": true,
           "items": { "$ref": "#/definitions/orgPreferenceValues" }
         },
         "disabled": {
           "type": "array",
           "title": "Enabled Preferences",
           "description": "The preferences that will be enabled.",
-          "additionalItems": true,
           "items": { "$ref": "#/definitions/orgPreferenceValues" }
         }
       }
