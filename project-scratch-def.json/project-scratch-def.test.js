@@ -7,8 +7,8 @@ var validate = ajv.compile(schema);
 function testFile(path, shouldValidate) {
   return async () => {
     let data = require(path);
-    let result = validate(data);
-    expect(result === shouldValidate);
+    let result = await validate(data);
+    expect(result).toBe(shouldValidate);
   };
 }
 
@@ -25,9 +25,17 @@ describe("project-stract-def.json", () => {
     "deprecated orgPreferences option is valid",
     testFile("./examples/with-orgPrefs.json", true)
   );
-  test("settings is valid", testFile("./examples/with-settings.json", false));
+  test("settings is valid", testFile("./examples/with-settings.json", true));
+  test(
+    "settings with unlisted property is valid",
+    testFile("./examples/with-settings-extra-property.json", true)
+  );
   test(
     "template pilot property option is valid",
-    testFile("./examples/with-template.json", false)
+    testFile("./examples/with-template.json", true)
+  );
+  test(
+    "features not in enum are valid",
+    testFile("./examples/features-not-in-schema.json", true)
   );
 });

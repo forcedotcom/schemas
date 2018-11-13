@@ -7,8 +7,8 @@ var validate = ajv.compile(schema);
 function testFile(path, shouldValidate) {
   return async () => {
     let data = require(path);
-    let result = validate(data);
-    expect(result === shouldValidate);
+    let result = await validate(data);
+    expect(result).toBe(shouldValidate);
   };
 }
 
