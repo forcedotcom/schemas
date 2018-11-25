@@ -75,6 +75,10 @@
       "description": "The login URL that the force:auth commands use. If not specified, the default is login.salesforce.com. Override the default value if you want users to authorize to a specific Salesforce instance. For example, if you want to authorize into a sandbox org, set this parameter to test.salesforce.com.",
       "default": "https://login.salesforce.com"
     },
+    "signupTargetLoginUrl": {
+      "type": "string",
+      "description": "The url that is used when creating new scratch orgs. This is typically only used for testing prerelease environments."
+    },
     "oauthLocalPort": {
       "type": "number",
       "description": "By default, the OAuth port is 1717. However, change this port if this port is already in use, and you plan to create a connected app in your Dev Hub org to support JWT-based authorization."
