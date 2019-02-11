@@ -23,7 +23,7 @@ describe("project-stract-def.json", () => {
   );
   test(
     "deprecated orgPreferences option is valid",
-    testFile("./examples/with-orgPrefs.json", true)
+    testFile("./examples/with-orgPrefs.json", false)
   );
   test("settings is valid", testFile("./examples/with-settings.json", true));
   test(
