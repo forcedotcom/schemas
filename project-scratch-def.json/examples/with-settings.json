@@ -1,7 +1,7 @@
 {
   "orgName": "Dreamhouse",
   "edition": "Developer",
-  "hasSampleData": "false",
+  "hasSampleData": false,
   "settings": {
     "orgPreferenceSettings": {
       "networksEnabled": true,

@@ -1,7 +1,7 @@
 const schema = require("./project-scratch-def.schema.json");
 const Ajv = require("ajv");
 
-const ajv = new Ajv();
+const ajv = new Ajv({});
 var validate = ajv.compile(schema);
 
 function testFile(path, shouldValidate) {
@@ -21,10 +21,7 @@ describe("project-stract-def.json", () => {
     "simple configuration is valid",
     testFile("./examples/simple.json", true)
   );
-  test(
-    "deprecated orgPreferences option is valid",
-    testFile("./examples/with-orgPrefs.json", false)
-  );
+  test("custom field is valid", testFile("./examples/with-custom.json", true));
   test("settings is valid", testFile("./examples/with-settings.json", true));
   test(
     "settings with unlisted property is valid",

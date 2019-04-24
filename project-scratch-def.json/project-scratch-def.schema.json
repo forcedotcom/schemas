@@ -5,7 +5,7 @@
   "description": "The scratch org definition file contains the configuration values that determine the shape of the scratch org.",
   "type": "object",
   "required": ["edition"],
-  "additionalProperties": false,
+  "additionalProperties": true,
   "properties": {
     "orgName": { "$ref": "#/definitions/orgName" },
     "edition": { "$ref": "#/definitions/edition" },
@@ -14,6 +14,7 @@
     "adminEmail": { "$ref": "#/definitions/adminEmail" },
     "description": { "$ref": "#/definitions/description" },
     "hasSampleData": { "$ref": "#/definitions/hasSampleData" },
+    "language": { "$ref": "#/definitions/language" },
     "features": { "$ref": "#/definitions/features" },
     "template": { "$ref": "#/definitions/template" },
     "settings": {
@@ -33,7 +34,7 @@
     "country": {
       "title": "Country",
       "type": "string",
-      "description": "Dev Hub's country. Scratch orgs are located in a data center based on the specified country.",
+      "description": "Dev Hub's country. If you want to override this value, enter the two-character, upper-case ISO-3166 country code (Alpha-2 code). You can find a full list of these codes at several sites, such as: https://www.iso.org/obp/ui/#search. This value sets the locale of the scratch org.",
       "maximum": 2
     },
     "username": {
@@ -59,27 +60,8 @@
     "language": {
       "title": "Default Language",
       "type": "string",
-      "description": "Default language for the country.",
-      "enum": [
-        "English",
-        "German",
-        "Spanish",
-        "French",
-        "Italian",
-        "Japanese",
-        "Swedish",
-        "Korean",
-        "Chinese (Traditional)",
-        "Chinese (Simplified)",
-        "Portuguese (Brazil)",
-        "Dutch",
-        "Danish",
-        "Thai",
-        "Finnish",
-        "Russian",
-        "Spanish (Mexico)",
-        "Norwegian"
-      ]
+      "description": "Default language for the country. To override the language set by the Dev Hub locale, see Supported Languages (https://help.salesforce.com/articleView?id=faq_getstart_what_languages_does.htm&type=5&language=en_US) for the codes to use in this field.",
+      "maximum": 5
     },
     "features": {
       "type": "array",
@@ -135,10 +117,9 @@
       }
     },
     "hasSampleData": {
-      "type": "string",
-      "$comment": "This is a string, but it really should be a boolean. Need to test if boolean actually works or not.",
+      "type": "boolean",
       "title": "Include Sample Data",
-      "description": "If true, sample data for standard objects will be added to the scratch org, if false it won't",
+      "description": "Valid values are true and false. False is the default, which creates an org without sample data.",
       "default": "false"
     },
     "settings": {
