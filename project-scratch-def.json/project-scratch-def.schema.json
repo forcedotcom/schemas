@@ -83,12 +83,16 @@
               "ContactsToMultipleAccounts",
               "ContractApprovals",
               "CascadeDelete",
+              "ChatterAnswers",
               "CustomerSelfService",
               "CustomApps",
+              "CustomNotificationType",
               "CustomTabs",
               "DebugApex",
               "DefaultWorkflowUser",
+              "DevelopmentWave",
               "Entitlements",
+              "EinsteinAssistant",
               "ExternalSharing",
               "ForceComPlatform",
               "Interaction",
@@ -101,6 +105,7 @@
               "MaxApexCodeSize:<value>",
               "MaxCustomLabels:<value>",
               "MultiCurrency",
+              "Pardot",
               "PersonAccounts",
               "ProcessBuilder",
               "SalesWave",
@@ -110,6 +115,8 @@
               "SiteForceContributor",
               "Sites",
               "StateAndCountryPicklist",
+              "TerritoryManagement",
+              "TimeSheetTemplateSettings",
               "Workflow"
             ]
           }
