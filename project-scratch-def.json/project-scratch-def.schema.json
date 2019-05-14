@@ -117,6 +117,7 @@
               "StateAndCountryPicklist",
               "TerritoryManagement",
               "TimeSheetTemplateSettings",
+              "UiPlugin",              
               "Workflow"
             ]
           }
