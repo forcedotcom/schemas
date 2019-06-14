@@ -7,16 +7,36 @@
   "required": ["edition"],
   "additionalProperties": true,
   "properties": {
-    "orgName": { "$ref": "#/definitions/orgName" },
-    "edition": { "$ref": "#/definitions/edition" },
-    "country": { "$ref": "#/definitions/country" },
-    "username": { "$ref": "#/definitions/username" },
-    "adminEmail": { "$ref": "#/definitions/adminEmail" },
-    "description": { "$ref": "#/definitions/description" },
-    "hasSampleData": { "$ref": "#/definitions/hasSampleData" },
-    "language": { "$ref": "#/definitions/language" },
-    "features": { "$ref": "#/definitions/features" },
-    "template": { "$ref": "#/definitions/template" },
+    "orgName": {
+      "$ref": "#/definitions/orgName"
+    },
+    "edition": {
+      "$ref": "#/definitions/edition"
+    },
+    "country": {
+      "$ref": "#/definitions/country"
+    },
+    "username": {
+      "$ref": "#/definitions/username"
+    },
+    "adminEmail": {
+      "$ref": "#/definitions/adminEmail"
+    },
+    "description": {
+      "$ref": "#/definitions/description"
+    },
+    "hasSampleData": {
+      "$ref": "#/definitions/hasSampleData"
+    },
+    "language": {
+      "$ref": "#/definitions/language"
+    },
+    "features": {
+      "$ref": "#/definitions/features"
+    },
+    "template": {
+      "$ref": "#/definitions/template"
+    },
     "settings": {
       "$ref": "#/definitions/settings"
     }
@@ -73,51 +93,80 @@
           {
             "type": "string",
             "enum": [
+              "ActionPlans",
               "AddCustomApps:<value>",
+              "AddCustomObjects:<value>",
+              "AddCustomRelationships:<value>",
               "AddCustomTabs:<value>",
+              "AddDatacomCrmRecordCredit:<value>",
+              "AddInsightsQueryLimit:<value>",
               "AddHistoryFieldsPerEntity:<value>",
+              "AnalyticsAdminPerms",
               "API",
               "AuthorApex",
+              "CascadeDelete",
               "Chatbot",
+              "ChatterAnswers",
+              "ChatterAnswersUser",
               "Communities",
               "ContactsToMultipleAccounts",
               "ContractApprovals",
-              "CascadeDelete",
-              "ChatterAnswers",
+              "CPQ",
               "CustomerSelfService",
-              "CustomApps",
               "CustomNotificationType",
-              "CustomTabs",
+              "DatacomDnbAccounts",
+              "DatacomFullClean",
               "DebugApex",
               "DefaultWorkflowUser",
+              "DeferSharingCalc",
               "DevelopmentWave",
-              "Entitlements",
+              "EinsteinAnalyticsPlus",
               "EinsteinAssistant",
+              "EinsteinBuilder",
+              "Entitlements",
+              "EventLogFile",
+              "ExternalIdentityLogin",
               "ExternalSharing",
+              "FieldService",
+              "FlowSites",
               "ForceComPlatform",
+              "HealthCloudUser",
+              "IndustriesManufacturing",
+              "InsightsPlatform",
               "Interaction",
               "IoT",
+              "JigsawUser",
               "Knowledge",
               "LightningSalesConsole",
               "LightningServiceConsole",
               "LiveAgent",
               "LiveMessage",
+              "MarketingUser",
               "MaxApexCodeSize:<value>",
               "MaxCustomLabels:<value>",
+              "MobileUser",
               "MultiCurrency",
+              "OfflineUser",
               "Pardot",
               "PersonAccounts",
+              "PlatformCache",
+              "PlatformEncryption",
               "ProcessBuilder",
-              "SalesWave",
+              "ProductsAndSchedules",
+              "RecordTypes",
+              "RetainFieldHistory",
+              "SalesUser",
               "ServiceCloud",
-              "ServiceWave",
+              "ServiceUser",
               "SiteDotCom",
               "SiteForceContributor",
               "Sites",
               "StateAndCountryPicklist",
-              "TerritoryManagement",
+              "SurveyCreatorUser",
+              "TerritoryManagement2",
               "TimeSheetTemplateSettings",
-              "UiPlugin",              
+              "UiPlugin",
+              "WavePlatform",
               "Workflow"
             ]
           }
