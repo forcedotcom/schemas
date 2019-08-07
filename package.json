@@ -4,7 +4,6 @@
   "description": "This repository contains the spec and schema for the Scratch Org Definition Configuration file and `sfdx-project.json` file.",
   "main": "index.js",
   "scripts": {
-    "precommit": "npm run prettier && npm test",
     "test": "jest",
     "prettier": "prettier ./**/*.* --write"
   },
@@ -19,9 +18,14 @@
   },
   "homepage": "https://github.com/forcedotcom/schemas#readme",
   "devDependencies": {
-    "ajv": "^6.5.4",
-    "git-pre-commit": "^2.1.4",
-    "jest": "^23.6.0",
-    "prettier": "^1.14.3"
+    "ajv": "^6.10.2",
+    "husky": "^3.0.2",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier && npm test"
+    }
   }
 }
