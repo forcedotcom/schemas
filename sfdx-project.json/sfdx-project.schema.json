@@ -10,7 +10,7 @@
     "packageDirectories": {
       "type": "array",
       "description": "Package directories indicate which directories to target when syncing source to and from the scratch org. These directories can contain source from your managed package, unmanaged package, or unpackaged source, for example, ant tool or change set.",
-      "$comment": "The properties ancestorID & ancestorVersion cannot be included together, but this schema optimizes for VS Code code completion rather than pure validation.",
+      "$comment": "The properties ancestorId & ancestorVersion cannot be included together, but this schema optimizes for VS Code code completion rather than pure validation.",
       "minItems": 1,
       "additionalItems": false,
       "items": {
@@ -22,7 +22,7 @@
           "versionDescription": ["package", "versionNumber"],
           "definitionFile": ["package", "versionNumber"],
           "dependencies": ["package", "versionNumber"],
-          "ancestorID": ["package", "versionNumber"],
+          "ancestorId": ["package", "versionNumber"],
           "ancestorVersion": ["package", "versionNumber"]
         },
         "required": ["path"],
@@ -52,8 +52,8 @@
           "dependencies": {
             "$ref": "#/definitions/packageDirectory.dependencies"
           },
-          "ancestorID": {
-            "$ref": "#/definitions/packageDirectory.ancestorID"
+          "ancestorId": {
+            "$ref": "#/definitions/packageDirectory.ancestorId"
           },
           "ancestorVersion": {
             "$ref": "#/definitions/packageDirectory.ancestorVersion"
@@ -138,7 +138,7 @@
         }
       }
     },
-    "packageDirectory.ancestorID": {
+    "packageDirectory.ancestorId": {
       "type": "string",
       "description": "The ancestor that’s the immediate parent of the version that you’re creating. The package version ID to supply starts with '05i'."
     },
