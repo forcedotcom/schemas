@@ -15,9 +15,6 @@
     },
     "caseSettings": {
       "systemUserEmail": "support@acme.com"
-    },
-    "foo": {
-      "fdafds": true
     }
   }
 }

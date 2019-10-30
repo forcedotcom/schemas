@@ -24,15 +24,15 @@ describe("project-stract-def.json", () => {
   test("custom field is valid", testFile("./examples/with-custom.json", true));
   test("settings is valid", testFile("./examples/with-settings.json", true));
   test(
-    "settings with unlisted property is valid",
-    testFile("./examples/with-settings-extra-property.json", true)
-  );
-  test(
     "template pilot property option is valid",
     testFile("./examples/with-template.json", true)
   );
   test(
     "features not in enum are valid",
     testFile("./examples/features-not-in-schema.json", true)
+  );
+  test(
+    "with orgPreferenceSetting is invalid",
+    testFile("./examples/with-orgPreferenceSetting.json", false)
   );
 });
