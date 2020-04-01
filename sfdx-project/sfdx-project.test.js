@@ -5,9 +5,6 @@ const ajv = new Ajv();
 var validate = ajv.compile(schema);
 
 function testFile(path, shouldValidate) {
-  console.log(path);
-  console.log(shouldValidate);
-
   return async () => {
     let data = require(path);
     let result = await validate(data);
