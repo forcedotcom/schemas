@@ -1,6 +1,5 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://schemas.salesforce.com/project-scratch-def.json",
   "title": "Scratch Org Definition Configuration",
   "description": "The scratch org definition file contains the configuration values that determine the shape of the scratch org.",
   "type": "object",

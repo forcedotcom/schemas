@@ -2,9 +2,7 @@
   "packageDirectories": [
     {
       "path": "force-app",
-      "default": true,
-      "package": "Foo",
-      "versionNumber": "1234"
+      "default": true
     }
   ],
   "namespace": "",

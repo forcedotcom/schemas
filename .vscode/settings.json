@@ -7,13 +7,12 @@
   "prettier.tabWidth": 2,
   "json.schemas": [
     {
-      "fileMatch": ["/project-scratch-def.json/examples/*.json"],
-      "url": "/project-scratch-def.json/project-scratch-def.schema.json"
+      "fileMatch": ["/project-scratch-def/examples/*.json"],
+      "url": "/project-scratch-def/project-scratch-def.schema.json"
     },
     {
-      "fileMatch": ["/sfdx-project.json/examples/*.json"],
-      "url": "/sfdx-project.json/sfdx-project.schema.json"
+      "fileMatch": ["/sfdx-project/examples/*.json"],
+      "url": "/sfdx-project/sfdx-project.schema.json"
     }
-  ],
-  "eslint.nodePath": "/Users/ntotten/.vscode/extensions/salesforce.salesforcedx-vscode-lwc-47.3.0/node_modules"
+  ]
 }
