@@ -111,7 +111,7 @@
     "plugins": {
       "title": "CLI Plugins custom settings",
       "type": "object",
-      "description": "Salesforce CLI plugins and configuration used with this project.",
+      "description": "Salesforce CLI plugin configurations used with this project.",
       "additionalProperties": true
     },
     "packageAliases": {
