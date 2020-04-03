@@ -42,7 +42,6 @@
   "plugins": {
     "fooPlugin": "plugin"
   },
-  "enableTokenEncryption": false,
   "oauthLocalPort": 3000,
   "signupTargetLoginUrl": "http://login.salesforce.com",
   "packageAliases": {

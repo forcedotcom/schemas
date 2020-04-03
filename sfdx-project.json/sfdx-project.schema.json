@@ -88,11 +88,6 @@
       "type": "string",
       "description": "The global namespace that is used with a package. The namespace must be registered with an org that is associated with your Dev Hub org. This namespace is assigned to scratch orgs created with the org:create command. If you’re creating an unlocked package, you have the option to create a package with no namespace."
     },
-    "enableTokenEncryption": {
-      "type": "boolean",
-      "title": "Enable Token Encryption",
-      "description": "Enable or disable token encryption"
-    },
     "sourceApiVersion": {
       "title": "Source API Version",
       "type": "string",
