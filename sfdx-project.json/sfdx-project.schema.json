@@ -92,7 +92,7 @@
       "title": "Source API Version",
       "type": "string",
       "description": "The API version that the source is compatible with. The default is the same version as the Salesforce CLI.",
-      "default": "47.0"
+      "default": "48.0"
     },
     "sfdcLoginUrl": {
       "title": "SFDC Login URL",
