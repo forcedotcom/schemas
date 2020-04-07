@@ -47,9 +47,6 @@
           "dependencies": {
             "$ref": "#/definitions/packageDirectory.dependencies"
           },
-          "id": {
-            "$ref": "#/definitions/packageDirectory.id"
-          },
           "includeProfileUserLicenses": {
             "$ref": "#/definitions/packageDirectory.includeProfileUserLicenses"
           },
@@ -130,7 +127,7 @@
     "features": {
       "type": "array",
       "title": "Features",
-      "description": "The list of features names to enable",
+      "description": "The list of feature names to enable",
       "oneOf": [
         {
           "type": "string",
@@ -149,42 +146,10 @@
         }
       ]
     },
-    "orgPreferences": {
-      "type": "object",
-      "title": "Org Preferences",
-      "description": "The list of org preferences",
-      "properties": {
-        "enabled": {
-          "type": "array",
-          "title": "Enabled Org Preferences",
-          "description": "The list of org preferences to enable",
-          "items": {
-            "type": "string",
-            "title": "Org Preference Name",
-            "description": "Name of the org preference to enable"
-          }
-        },
-        "disabled": {
-          "type": "array",
-          "title": "Disabled Org Preferences",
-          "description": "The list of org preferences to disable",
-          "items": {
-            "type": "string",
-            "title": "Org Preference Name",
-            "description": "Name of the org preference to disable"
-          }
-        }
-      }
-    },
     "packageDirectory.path": {
       "title": "Path",
       "type": "string",
       "description": "If you don’t specify a path, the Salesforce CLI uses a placeholder when you create a package."
-    },
-    "packageDirectory.id": {
-      "type": "string",
-      "title": "ID",
-      "description": "ID of the package2 for the source directory (starts with 0Ho)"
     },
     "packageDirectory.default": {
       "title": "Default",
