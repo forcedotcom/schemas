@@ -7,39 +7,17 @@
   "required": ["edition"],
   "additionalProperties": true,
   "properties": {
-    "orgName": {
-      "$ref": "#/definitions/orgName"
-    },
-    "edition": {
-      "$ref": "#/definitions/edition"
-    },
-    "country": {
-      "$ref": "#/definitions/country"
-    },
-    "username": {
-      "$ref": "#/definitions/username"
-    },
-    "adminEmail": {
-      "$ref": "#/definitions/adminEmail"
-    },
-    "description": {
-      "$ref": "#/definitions/description"
-    },
-    "hasSampleData": {
-      "$ref": "#/definitions/hasSampleData"
-    },
-    "language": {
-      "$ref": "#/definitions/language"
-    },
-    "features": {
-      "$ref": "#/definitions/features"
-    },
-    "template": {
-      "$ref": "#/definitions/template"
-    },
-    "settings": {
-      "$ref": "#/definitions/settings"
-    }
+    "orgName": { "$ref": "#/definitions/orgName" },
+    "edition": { "$ref": "#/definitions/edition" },
+    "country": { "$ref": "#/definitions/country" },
+    "username": { "$ref": "#/definitions/username" },
+    "adminEmail": { "$ref": "#/definitions/adminEmail" },
+    "description": { "$ref": "#/definitions/description" },
+    "hasSampleData": { "$ref": "#/definitions/hasSampleData" },
+    "language": { "$ref": "#/definitions/language" },
+    "features": { "$ref": "#/definitions/features" },
+    "template": { "$ref": "#/definitions/template" },
+    "settings": { "$ref": "#/definitions/settings" }
   },
   "definitions": {
     "orgName": {
@@ -98,14 +76,153 @@
     "features": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "enum": [
+          "API",
+          "AddCustomApps:<value>",
+          "AddCustomObjects:<value>",
+          "AddCustomRelationships:<value>",
+          "AddCustomTabs:<value>",
+          "AddDataComCRMRecordCredit:<value>",
+          "AddInsightsQueryLimit:<value>",
+          "AdditionalFieldHistory:<value>",
+          "AnalyticsAdminPerms",
+          "AuthorApex",
+          "BigObjectsBulkAPI",
+          "CMSMaxContType",
+          "CMSMaxNodesPerContType",
+          "CMSUnlimitedUse",
+          "CPQ",
+          "CalloutSizeMB:<value>",
+          "CascadeDelete",
+          "CaseClassification",
+          "ChangeDataCapture",
+          "Chatbot",
+          "Communities",
+          "ConAppPluginExecuteAsUser",
+          "ConcStreamingClients:<value>",
+          "ConnectedAppToolingAPI",
+          "ConsolePersistenceInterval:<value>",
+          "ContactsToMultipleAccounts",
+          "ContractApprovals",
+          "CustomNotificationType",
+          "DataComDnbAccounts",
+          "DataComFullClean",
+          "DataMaskUser",
+          "DebugApex",
+          "DefaultWorkflowUser",
+          "DeferSharingCalc",
+          "DensityValue",
+          "DevelopmentWave",
+          "DeviceTrackingEnabled",
+          "DisableManageIdConfAPI",
+          "Division",
+          "DocumentChecklist",
+          "DurableClassicStreamingAPI",
+          "DurableGenericStreamingAPI",
+          "DynamicClientCreationLimit",
+          "EinsteinAnalyticsPlus",
+          "EinsteinArticleRecommendations",
+          "EinsteinBuilderFree",
+          "EmbeddedLoginForIE",
+          "EmpPublishRateLimit:<value>",
+          "EnableManageIdConfUI",
+          "EnablePRM",
+          "Entitlements",
+          "EventLogFile",
+          "ExternalIdentityLogin",
+          "ExternalSharing",
+          "FieldAuditTrail",
+          "FieldService",
+          "FinancialServicesCommunityUser:<value>",
+          "FinancialServicesUser:<value>",
+          "FlowSites",
+          "ForceComPlatform",
+          "GenStreamingEventsPerDay:<value>",
+          "GenericStreaming",
+          "HealthCloudUser",
+          "HighVelocitySales",
+          "HoursBetweenCoverageJob:<value>",
+          "IdentityProvisioningFeatures",
+          "IgnoreQueryParamWhitelist",
+          "IndustriesActionPlan",
+          "IndustriesManufacturing",
+          "IndustriesManufacturingCmty",
+          "IndustriesMfgAccountForecast",
+          "InsightsPlatform",
+          "Interaction",
+          "IoT",
+          "JigsawUser",
+          "Knowledge",
+          "LegacyLiveAgentRouting",
+          "LightningSalesConsole",
+          "LightningScheduler",
+          "LightningServiceConsole",
+          "ListCustomSettingCreation",
+          "LiveAgent",
+          "LiveMessage",
+          "Macros",
+          "MarketingUser",
+          "MaxApexCodeSize",
+          "MaxAudTypeCriterionPerAud",
+          "MaxCustomLabels:<value>",
+          "MaxFavoritesAllowed:<value>",
+          "MaxNoOfLexThemesAllowed:<value>",
+          "MaxStreamingTopics:<value>",
+          "MaxUserNavItemsAllowed:<value>",
+          "MaxUserStreamingChannels:<value>",
+          "MedVisDescriptorLimit:<value>",
+          "MobileExtMaxFileSizeMB:<value>",
+          "MobileSecurity",
+          "MultiCurrency",
+          "MultiLevelMasterDetail",
+          "MutualAuthentication",
+          "NumPlatformEvents:<value>",
+          "ObjectLinking",
+          "OutboundMessageHTTPSession",
+          "PardotScFeaturesCampaignInfluence",
+          "PersonAccounts",
+          "PlatformCache",
+          "PlatformConnect",
+          "PlatformEncryption",
+          "PlatformEventsPerDay",
+          "ProcessBuilder",
+          "ProductsAndSchedules",
+          "RecordTypes",
+          "RefreshOnInvalidSession",
+          "S1ClientComponentCacheSize",
+          "SAML20SingleLogout",
+          "SCIMProtocol",
+          "SalesCloudEinstein",
+          "SalesUser",
+          "SalesforceContentUser",
+          "SalesforceIdentityForCommunities",
+          "SecurityEventEnabled",
+          "ServiceCloud",
+          "ServiceUser",
+          "SessionIdInLogEnabled",
+          "SingleSignOn",
+          "Sites",
+          "SocialCustomerService",
+          "StateAndCountryPicklist",
+          "StreamingAPI",
+          "StreamingEventsPerDay:<value>",
+          "SubPerStreamingChannel:<value>",
+          "SubPerStreamingTopic",
+          "SustainabilityCloud",
+          "TerritoryManagement",
+          "TimeSheetTemplateSettings",
+          "TransactionFinalizers",
+          "WavePlatform",
+          "WorkThanksPref",
+          "Workflow",
+          "WorkflowFlowActionFeature"
+        ]
       }
     },
     "settings": {
       "type": "object",
-      "not": {
-        "required": ["orgPreferenceSettings"]
-      }
+      "not": { "required": ["orgPreferenceSettings"] }
     }
   }
 }
