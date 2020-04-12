@@ -1,0 +1,2133 @@
+{
+  "content_document_id": "meta_intro",
+  "title": "Understanding Metadata API",
+  "content": "<a name=\"meta_intro\"><!-- --></a><h1 class=\"helpHead1\"><span class=\"ph\" id=\"topic-title\"><a name=\"topic-title\"><!-- --></a>Understanding Metadata API</span></h1><div class=\"body\">\n  <p class=\"p\"><span class=\"ph\" id=\"metadata_api_usage\"><a name=\"metadata_api_usage\"><!-- --></a>Use Metadata API to retrieve, deploy, create, update or delete\n        customization information, such as custom object definitions and page layouts, for your\n        organization. This API is intended for managing customizations and for building tools that\n        can manage the metadata model, not the data itself.</span> To create, retrieve, update or\n      delete records, such as accounts or leads, use data <a class=\"xref\" href=\"https://developer.salesforce.com/docs/atlas.en-us.224.0.api.meta/api/\" target=\"_blank\" title=\"HTML (New Window)\">SOAP API</a> or <a class=\"xref\" href=\"https://developer.salesforce.com/docs/atlas.en-us.224.0.api_rest.meta/api_rest/\" target=\"_blank\" title=\"HTML (New Window)\">REST API</a>.</p>\n\n  <div class=\"p\">The easiest way to access the functionality\n                                        in Metadata API is to use the Salesforce Extensions for\n                                        Visual Studio Code or the Ant Migration Tool. Both tools are\n                                        built on top of Metadata API and use the standard tools to\n                                        simplify working with Metadata API. \n      <ul class=\"ul bulletList\">\n                                        <li class=\"li\">The Salesforce Extensions for Visual Studio Code\n                                                includes tools for developing on the Salesforce\n                                                platform in the lightweight, extensible VS Code\n                                                editor. These tools provide features for working\n                                                with development orgs (scratch orgs, sandboxes, and\n                                                DE orgs), Apex, Aura components, and Visualforce. </li>\n\n                                        <li class=\"li\">The Ant Migration Tool is ideal if you use a script\n                                                  or the command line for moving metadata between a\n                                                  local directory and a Salesforce org.</li>\n\n                                </ul>\n</div>\n\n  <p class=\"p\" id=\"metadata_api_tools\"><a name=\"metadata_api_tools\"><!-- --></a>For more information about the Salesforce Extensions for Visual Studio\n      Code or the Ant Migration Tool, see <a class=\"xref\" href=\"http://developer.salesforce.com/tools\" target=\"_blank\" title=\"HTML (New Window)\">Salesforce Tools and Toolkits</a>.</p>\n\n  <p class=\"p\">The underlying calls of Metadata API have been exposed for you to use directly, if you prefer\n      to build your own client applications. This guide gives you more information about working\n      directly with Metadata API.</p>\n\n  <p class=\"p\">You can use the Metadata API to manage setup and customization information (metadata) for your\n      organizations. For example:</p>\n\n  <ul class=\"ul bulletList\">\n   <li class=\"li\">Export the customizations in your organization as XML metadata files. See <a class=\"xref\" href=\"atlas.en-us.224.0.api_meta.meta/api_meta/file_based_zip_file.htm\" title=\"The deploy() and retrieve() calls are used to deploy and retrieve a .zip file. Within the .zip file is a project manifest (package.xml) that lists what to retrieve or deploy, and one or more XML components that are organized into folders.\">Working with the Zip File</a> and <a class=\"xref\" href=\"atlas.en-us.224.0.api_meta.meta/api_meta/meta_retrieve.htm\" title=\"The retrieve() call retrieves XML file representations of components in an organization.\"><samp class=\"codeph nolang\">retrieve()</samp></a>.</li>\n\n   <li class=\"li\">Migrate configuration changes between organizations. See <a class=\"xref\" href=\"atlas.en-us.224.0.api_meta.meta/api_meta/meta_deploy.htm\" title=\"Uses file representations of components to create, update, or delete those components in a Salesforce org.\"><samp class=\"codeph nolang\">deploy()</samp></a> and <a class=\"xref\" href=\"atlas.en-us.224.0.api_meta.meta/api_meta/meta_retrieve.htm\" title=\"The retrieve() call retrieves XML file representations of components in an organization.\"><samp class=\"codeph nolang\">retrieve()</samp></a>.</li>\n\n   <li class=\"li\">Modify existing customizations in your organization using XML metadata files. See <a class=\"xref\" href=\"atlas.en-us.224.0.api_meta.meta/api_meta/meta_deploy.htm\" title=\"Uses file representations of components to create, update, or delete those components in a Salesforce org.\"><samp class=\"codeph nolang\">deploy()</samp></a> and <a class=\"xref\" href=\"atlas.en-us.224.0.api_meta.meta/api_meta/meta_retrieve.htm\" title=\"The retrieve() call retrieves XML file representations of components in an organization.\"><samp class=\"codeph nolang\">retrieve()</samp></a>.</li>\n\n   <li class=\"li\">Manage customizations in your organization programmatically. See <a class=\"xref\" href=\"atlas.en-us.224.0.api_meta.meta/api_meta/meta_calls_intro.htm\">CRUD-Based Metadata\n          Development</a>.</li>\n\n  </ul>\n\n  <p class=\"p\">You can modify metadata in test organizations on Developer Edition or sandbox, and then deploy\n      tested changes to production organizations on Enterprise, Unlimited, or Performance Editions.\n      You can also create scripts to populate a new organization with your custom objects, custom\n      fields, and other components.</p>\n\n </div><div id=\"sfdc:seealso\" class=\"related-links\">\n<div class=\"relinfo\">\n<h4>See Also</h4>\n<ul class=\"unstyled\">\n<li><div><a class=\"link\" href=\"atlas.en-us.224.0.api_meta.meta/api_meta/file_based.htm\">Deploying and Retrieving Metadata</a></div></li>\n<li><div><a class=\"link\" href=\"atlas.en-us.224.0.api_meta.meta/api_meta/meta_calls_intro.htm\">CRUD-Based Metadata Development</a></div></li>\n<li><div><a class=\"link\" href=\"atlas.en-us.224.0.api_meta.meta/api_meta/meta_objects_intro.htm\" title=\"Metadata components are not based on sObjects, like objects in the API. Instead, they are based on metadata types, such as ApexClass and CustomObject, which extend Metadata, the base class for all metadata types. A component is an instance of a metadata type.\">Metadata Components and Types</a></div></li>\n</ul>\n</div>\n</div><!--DRC 224.17-->",
+  "toc": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "text": "Supported Salesforce Editions",
+              "a_attr": { "href": "meta_editions.htm" },
+              "id": "meta_editions"
+            },
+            {
+              "text": "Modify Metadata Through Metadata API Functions Permission",
+              "a_attr": { "href": "meta_modify_metadata_perm.htm" },
+              "id": "meta_modify_metadata_perm"
+            },
+            {
+              "text": "Development Platforms",
+              "a_attr": { "href": "meta_dev_platforms.htm" },
+              "id": "meta_dev_platforms"
+            },
+            {
+              "text": "Standards Compliance",
+              "a_attr": { "href": "meta_standards.htm" },
+              "id": "meta_standards"
+            },
+            {
+              "text": "Metadata API Support Policy",
+              "a_attr": { "href": "meta_support_policy.htm" },
+              "id": "meta_support_policy"
+            },
+            {
+              "text": "API End-of-Life",
+              "a_attr": { "href": "meta_api_eol.htm" },
+              "id": "meta_api_eol"
+            },
+            {
+              "text": "Related Resources",
+              "a_attr": { "href": "meta_related_resources.htm" },
+              "id": "meta_related_resources"
+            }
+          ],
+          "text": "Understanding Metadata API",
+          "a_attr": { "href": "meta_intro.htm" },
+          "id": "meta_intro"
+        },
+        {
+          "children": [
+            {
+              "text": "Prerequisites",
+              "a_attr": { "href": "meta_quickstart_prereqs.htm" },
+              "id": "meta_quickstart_prereqs"
+            },
+            {
+              "text": "Step 1: Generate or Obtain the Web Service WSDLs for Your Organization",
+              "a_attr": { "href": "meta_quickstart_get_WSDLs.htm" },
+              "id": "meta_quickstart_get_WSDLs"
+            },
+            {
+              "text": "Step 2: Import the WSDL Files Into Your Development Platform",
+              "a_attr": { "href": "meta_quickstart_import_WSDLs.htm" },
+              "id": "meta_quickstart_import_WSDLs"
+            },
+            {
+              "text": "Step 3: Walk Through the Java Sample Code",
+              "a_attr": { "href": "meta_quickstart_java_sample.htm" },
+              "id": "meta_quickstart_java_sample"
+            }
+          ],
+          "text": "Quick Start",
+          "a_attr": { "href": "meta_quickstart.htm" },
+          "id": "meta_quickstart"
+        }
+      ],
+      "text": "Getting Started"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "text": "Deploying and Retrieving Metadata with the Zip File",
+              "a_attr": { "href": "file_based_zip_file.htm" },
+              "id": "file_based_zip_file"
+            },
+            {
+              "text": "Does a Retrieve Job Have a Status of Pending?",
+              "a_attr": { "href": "meta_deploy_concurrent_retrieve.htm" },
+              "id": "meta_deploy_concurrent_retrieve"
+            },
+            {
+              "text": "Sample package.xml Manifest Files",
+              "a_attr": { "href": "manifest_samples.htm" },
+              "id": "manifest_samples"
+            },
+            {
+              "text": "Running Tests in a Deployment",
+              "a_attr": { "href": "meta_deploy_running_tests.htm" },
+              "id": "meta_deploy_running_tests"
+            },
+            {
+              "text": "Running a Subset of Tests in a Deployment",
+              "a_attr": { "href": "meta_deploy_run_specific_tests.htm" },
+              "id": "meta_deploy_run_specific_tests"
+            },
+            {
+              "text": "Run the Same Tests in Sandbox and Production Deployments",
+              "a_attr": { "href": "meta_deploy_run_local_tests.htm" },
+              "id": "meta_deploy_run_local_tests"
+            },
+            {
+              "text": "Maintaining User References",
+              "a_attr": { "href": "meta_user_references.htm" },
+              "id": "meta_user_references"
+            }
+          ],
+          "text": "Deploying and Retrieving Metadata",
+          "a_attr": { "href": "file_based.htm" },
+          "id": "file_based"
+        },
+        {
+          "text": "CRUD-Based Metadata Development",
+          "a_attr": { "href": "meta_calls_intro.htm" },
+          "id": "meta_calls_intro"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "text": "Check the Status of Your Deployment Using REST Resources",
+                  "a_attr": { "href": "meta_rest_deploy_checkstatus.htm" },
+                  "id": "meta_rest_deploy_checkstatus"
+                },
+                {
+                  "text": "Deploy a Recently Validated Component Set Without Tests",
+                  "a_attr": { "href": "meta_rest_deploy_recentvalidation.htm" },
+                  "id": "meta_rest_deploy_recentvalidation"
+                },
+                {
+                  "text": "Cancel a Deployment in Progress Using REST",
+                  "a_attr": { "href": "meta_rest_deploy_cancel.htm" },
+                  "id": "meta_rest_deploy_cancel"
+                }
+              ],
+              "text": "Deploy Metadata with Apex Testing Using REST",
+              "a_attr": { "href": "meta_rest_deploy.htm" },
+              "id": "meta_rest_deploy"
+            },
+            {
+              "text": "Use the Metadata REST API with the Salesforce CLI",
+              "a_attr": { "href": "meta_rest_deploy_enable_cli.htm" },
+              "id": "meta_rest_deploy_enable_cli"
+            }
+          ],
+          "text": "REST Resources",
+          "a_attr": { "href": "meta_rest_intro.htm" },
+          "id": "meta_rest_intro"
+        },
+        {
+          "children": [
+            {
+              "text": "Error Handling for Session Expiration",
+              "a_attr": { "href": "meta_error_handling_session_exp.htm" },
+              "id": "meta_error_handling_session_exp"
+            }
+          ],
+          "text": "Error Handling",
+          "a_attr": { "href": "meta_error_handling.htm" },
+          "id": "meta_error_handling"
+        }
+      ],
+      "text": "Using Metadata API"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "text": "Deleting Components from an Organization",
+                  "a_attr": { "href": "meta_deploy_deleting_files.htm" },
+                  "id": "meta_deploy_deleting_files"
+                },
+                {
+                  "text": "checkDeployStatus()",
+                  "a_attr": { "href": "meta_checkdeploystatus.htm" },
+                  "id": "meta_checkdeploystatus"
+                },
+                {
+                  "text": "cancelDeploy()",
+                  "a_attr": { "href": "meta_canceldeploy.htm" },
+                  "id": "meta_canceldeploy"
+                }
+              ],
+              "text": "deploy()",
+              "a_attr": { "href": "meta_deploy.htm" },
+              "id": "meta_deploy"
+            },
+            {
+              "text": "deployRecentValidation()",
+              "a_attr": { "href": "meta_deployRecentValidation.htm" },
+              "id": "meta_deployRecentValidation"
+            },
+            {
+              "children": [
+                {
+                  "text": "RetrieveRequest",
+                  "a_attr": { "href": "meta_retrieve_request.htm" },
+                  "id": "meta_retrieve_request"
+                },
+                {
+                  "text": "checkRetrieveStatus()",
+                  "a_attr": { "href": "meta_checkretrievestatus.htm" },
+                  "id": "meta_checkretrievestatus"
+                }
+              ],
+              "text": "retrieve()",
+              "a_attr": { "href": "meta_retrieve.htm" },
+              "id": "meta_retrieve"
+            }
+          ],
+          "text": "File-Based Calls",
+          "a_attr": { "href": "meta_file_based_calls_intro.htm" },
+          "id": "meta_file_based_calls_intro"
+        },
+        {
+          "children": [
+            {
+              "text": "createMetadata()",
+              "a_attr": { "href": "meta_createMetadata.htm" },
+              "id": "meta_createMetadata"
+            },
+            {
+              "text": "readMetadata()",
+              "a_attr": { "href": "meta_readMetadata.htm" },
+              "id": "meta_readMetadata"
+            },
+            {
+              "text": "updateMetadata()",
+              "a_attr": { "href": "meta_updateMetadata.htm" },
+              "id": "meta_updateMetadata"
+            },
+            {
+              "text": "upsertMetadata()",
+              "a_attr": { "href": "meta_upsertMetadata.htm" },
+              "id": "meta_upsertMetadata"
+            },
+            {
+              "text": "deleteMetadata()",
+              "a_attr": { "href": "meta_deleteMetadata.htm" },
+              "id": "meta_deleteMetadata"
+            },
+            {
+              "text": "renameMetadata()",
+              "a_attr": { "href": "meta_renameMetadata.htm" },
+              "id": "meta_renameMetadata"
+            },
+            {
+              "text": "create()",
+              "a_attr": { "href": "meta_create.htm" },
+              "id": "meta_create"
+            },
+            {
+              "text": "delete()",
+              "a_attr": { "href": "meta_delete.htm" },
+              "id": "meta_delete"
+            },
+            {
+              "text": "update()",
+              "a_attr": { "href": "meta_update.htm" },
+              "id": "meta_update"
+            }
+          ],
+          "text": "CRUD-Based Calls",
+          "a_attr": { "href": "meta_crud_based_calls_intro.htm" },
+          "id": "meta_crud_based_calls_intro"
+        },
+        {
+          "children": [
+            {
+              "text": "checkStatus()",
+              "a_attr": { "href": "meta_checkstatus.htm" },
+              "id": "meta_checkstatus"
+            },
+            {
+              "text": "describeMetadata()",
+              "a_attr": { "href": "meta_describe.htm" },
+              "id": "meta_describe"
+            },
+            {
+              "text": "describeValueType()",
+              "a_attr": { "href": "meta_describeValueType.htm" },
+              "id": "meta_describeValueType"
+            },
+            {
+              "children": [
+                {
+                  "text": "ListMetadataQuery",
+                  "a_attr": { "href": "meta_listmetadataquery.htm" },
+                  "id": "meta_listmetadataquery"
+                }
+              ],
+              "text": "listMetadata()",
+              "a_attr": { "href": "meta_listmetadata.htm" },
+              "id": "meta_listmetadata"
+            }
+          ],
+          "text": "Utility Calls",
+          "a_attr": { "href": "meta_utility_calls_intro.htm" },
+          "id": "meta_utility_calls_intro"
+        },
+        {
+          "children": [
+            {
+              "text": "AsyncResult",
+              "a_attr": { "href": "meta_asyncresult.htm" },
+              "id": "meta_asyncresult"
+            },
+            {
+              "text": "CancelDeployResult",
+              "a_attr": { "href": "meta_canceldeployresult.htm" },
+              "id": "meta_canceldeployresult"
+            },
+            {
+              "text": "DeployResult",
+              "a_attr": { "href": "meta_deployresult.htm" },
+              "id": "meta_deployresult"
+            },
+            {
+              "text": "DescribeMetadataResult",
+              "a_attr": { "href": "meta_describemeta_result.htm" },
+              "id": "meta_describemeta_result"
+            },
+            {
+              "text": "DescribeValueTypeResult",
+              "a_attr": { "href": "meta_describeValueTypeResult.htm" },
+              "id": "meta_describeValueTypeResult"
+            },
+            {
+              "text": "ReadResult",
+              "a_attr": { "href": "meta_readResult.htm" },
+              "id": "meta_readResult"
+            },
+            {
+              "text": "RetrieveResult",
+              "a_attr": { "href": "meta_retrieveresult.htm" },
+              "id": "meta_retrieveresult"
+            },
+            {
+              "text": "SaveResult",
+              "a_attr": { "href": "meta_saveResult.htm" },
+              "id": "meta_saveResult"
+            },
+            {
+              "text": "DeleteResult",
+              "a_attr": { "href": "meta_deleteResult.htm" },
+              "id": "meta_deleteResult"
+            },
+            {
+              "text": "UpsertResult",
+              "a_attr": { "href": "meta_upsertResult.htm" },
+              "id": "meta_upsertResult"
+            },
+            {
+              "text": "Error",
+              "a_attr": { "href": "meta_error.htm" },
+              "id": "meta_error"
+            }
+          ],
+          "text": "Result Objects",
+          "a_attr": { "href": "meta_result_objects.htm" },
+          "id": "meta_result_objects"
+        },
+        {
+          "children": [
+            {
+              "text": "Metadata Components and Types",
+              "a_attr": { "href": "meta_objects_intro.htm" },
+              "id": "meta_objects_intro"
+            },
+            {
+              "text": "Metadata Coverage Report",
+              "a_attr": { "href": "meta_coverage_report.htm" },
+              "id": "meta_coverage_report"
+            },
+            {
+              "text": "Unsupported Metadata Types",
+              "a_attr": { "href": "meta_unsupported_types.htm" },
+              "id": "meta_unsupported_types"
+            },
+            {
+              "text": "Special Behavior in Metadata API Deployments",
+              "a_attr": { "href": "meta_special_behavior.htm" },
+              "id": "meta_special_behavior"
+            },
+            {
+              "text": "AccountRelationshipShareRule",
+              "a_attr": { "href": "meta_accountrelationshipsharerule.htm" },
+              "id": "meta_accountrelationshipsharerule"
+            },
+            {
+              "text": "ActionLinkGroupTemplate",
+              "a_attr": { "href": "meta_actionlinkgrouptemplate.htm" },
+              "id": "meta_actionlinkgrouptemplate"
+            },
+            {
+              "text": "ActionPlanTemplate",
+              "a_attr": { "href": "meta_actionplantemplate.htm" },
+              "id": "meta_actionplantemplate"
+            },
+            {
+              "text": "AnalyticSnapshot",
+              "a_attr": { "href": "meta_analyticsnapshot.htm" },
+              "id": "meta_analyticsnapshot"
+            },
+            {
+              "text": "AnimationRule",
+              "a_attr": { "href": "meta_animationrule.htm" },
+              "id": "meta_animationrule"
+            },
+            {
+              "children": [
+                {
+                  "text": "ArticleType Layout",
+                  "a_attr": { "href": "meta_articletype_layout.htm" },
+                  "id": "meta_articletype_layout"
+                },
+                {
+                  "text": "ChannelLayout",
+                  "a_attr": { "href": "meta_articletype_channellayout.htm" },
+                  "id": "meta_articletype_channellayout"
+                },
+                {
+                  "text": "ArticleType CustomField",
+                  "a_attr": { "href": "meta_articletype_customfield.htm" },
+                  "id": "meta_articletype_customfield"
+                }
+              ],
+              "text": "ArticleType",
+              "a_attr": { "href": "meta_articletype.htm" },
+              "id": "meta_articletype"
+            },
+            {
+              "text": "ApexClass",
+              "a_attr": { "href": "meta_classes.htm" },
+              "id": "meta_classes"
+            },
+            {
+              "text": "ApexComponent",
+              "a_attr": { "href": "meta_component.htm" },
+              "id": "meta_component"
+            },
+            {
+              "text": "ApexPage",
+              "a_attr": { "href": "meta_pages.htm" },
+              "id": "meta_pages"
+            },
+            {
+              "text": "ApexTestSuite",
+              "a_attr": { "href": "meta_apextestsuite.htm" },
+              "id": "meta_apextestsuite"
+            },
+            {
+              "text": "ApexTrigger",
+              "a_attr": { "href": "meta_triggers.htm" },
+              "id": "meta_triggers"
+            },
+            {
+              "text": "AppMenu",
+              "a_attr": { "href": "meta_appmenu.htm" },
+              "id": "meta_appmenu"
+            },
+            {
+              "text": "AppointmentSchedulingPolicy",
+              "a_attr": { "href": "meta_appointmentschedulingpolicy.htm" },
+              "id": "meta_appointmentschedulingpolicy"
+            },
+            {
+              "text": "ApprovalProcess",
+              "a_attr": { "href": "meta_approvalprocess.htm" },
+              "id": "meta_approvalprocess"
+            },
+            {
+              "text": "AssignmentRules",
+              "a_attr": { "href": "meta_assignmentrule.htm" },
+              "id": "meta_assignmentrule"
+            },
+            {
+              "text": "AssistantContextItem (Beta)",
+              "a_attr": { "href": "meta_assistantcontextitem.htm" },
+              "id": "meta_assistantcontextitem"
+            },
+            {
+              "text": "AssistantDefinition (Beta)",
+              "a_attr": { "href": "meta_assistantdefinition.htm" },
+              "id": "meta_assistantdefinition"
+            },
+            {
+              "text": "AssistantSkillQuickAction (Beta)",
+              "a_attr": { "href": "meta_assistantskillquickaction.htm" },
+              "id": "meta_assistantskillquickaction"
+            },
+            {
+              "text": "AssistantSkillSobjectAction (Beta)",
+              "a_attr": { "href": "meta_assistantskillsobjectaction.htm" },
+              "id": "meta_assistantskillsobjectaction"
+            },
+            {
+              "text": "AssistantVersion (Beta)",
+              "a_attr": { "href": "meta_assistantversion.htm" },
+              "id": "meta_assistantversion"
+            },
+            {
+              "text": "Audience",
+              "a_attr": { "href": "meta_audience.htm" },
+              "id": "meta_audience"
+            },
+            {
+              "text": "AuraDefinitionBundle",
+              "a_attr": { "href": "meta_auradefinitionbundle.htm" },
+              "id": "meta_auradefinitionbundle"
+            },
+            {
+              "text": "AuthProvider",
+              "a_attr": { "href": "meta_authproviders.htm" },
+              "id": "meta_authproviders"
+            },
+            {
+              "text": "AutoResponseRules",
+              "a_attr": { "href": "meta_autoresponserules.htm" },
+              "id": "meta_autoresponserules"
+            },
+            {
+              "text": "Bot",
+              "a_attr": { "href": "meta_bot.htm" },
+              "id": "meta_bot"
+            },
+            {
+              "text": "BotVersion",
+              "a_attr": { "href": "meta_botversion.htm" },
+              "id": "meta_botversion"
+            },
+            {
+              "text": "BrandingSet",
+              "a_attr": { "href": "meta_brandingset.htm" },
+              "id": "meta_brandingset"
+            },
+            {
+              "text": "CallCenter",
+              "a_attr": { "href": "meta_callcenter.htm" },
+              "id": "meta_callcenter"
+            },
+            {
+              "text": "CampaignInfluenceModel",
+              "a_attr": { "href": "meta_campaigninfluencemodel.htm" },
+              "id": "meta_campaigninfluencemodel"
+            },
+            {
+              "text": "CaseSubjectParticle",
+              "a_attr": { "href": "meta_casesubjectparticle.htm" },
+              "id": "meta_casesubjectparticle"
+            },
+            {
+              "text": "Certificate",
+              "a_attr": { "href": "meta_certificate.htm" },
+              "id": "meta_certificate"
+            },
+            {
+              "text": "ChatterExtension",
+              "a_attr": { "href": "meta_chatterextensions.htm" },
+              "id": "meta_chatterextensions"
+            },
+            {
+              "text": "CleanDataService",
+              "a_attr": { "href": "meta_cleandataservice.htm" },
+              "id": "meta_cleandataservice"
+            },
+            {
+              "text": "CMSConnectSource",
+              "a_attr": { "href": "meta_cmsconnectsource.htm" },
+              "id": "meta_cmsconnectsource"
+            },
+            {
+              "text": "Community (Zone)",
+              "a_attr": { "href": "meta_community.htm" },
+              "id": "meta_community"
+            },
+            {
+              "text": "CommunityTemplateDefinition",
+              "a_attr": { "href": "meta_communitytemplatedefinition.htm" },
+              "id": "meta_communitytemplatedefinition"
+            },
+            {
+              "text": "CommunityThemeDefinition",
+              "a_attr": { "href": "meta_communitythemedefinition.htm" },
+              "id": "meta_communitythemedefinition"
+            },
+            {
+              "text": "ConnectedApp",
+              "a_attr": { "href": "meta_connectedapp.htm" },
+              "id": "meta_connectedapp"
+            },
+            {
+              "text": "ContentAsset",
+              "a_attr": { "href": "meta_contentasset.htm" },
+              "id": "meta_contentasset"
+            },
+            {
+              "text": "CorsWhitelistOrigin",
+              "a_attr": { "href": "meta_corswhitelistorigin.htm" },
+              "id": "meta_corswhitelistorigin"
+            },
+            {
+              "text": "CspTrustedSite",
+              "a_attr": { "href": "meta_csptrustedsite.htm" },
+              "id": "meta_csptrustedsite"
+            },
+            {
+              "text": "CustomApplication",
+              "a_attr": { "href": "meta_customapplication.htm" },
+              "id": "meta_customapplication"
+            },
+            {
+              "text": "CustomApplicationComponent",
+              "a_attr": { "href": "meta_customapplicationcomponent.htm" },
+              "id": "meta_customapplicationcomponent"
+            },
+            {
+              "text": "CustomFeedFilter",
+              "a_attr": { "href": "meta_customfeedfilter.htm" },
+              "id": "meta_customfeedfilter"
+            },
+            {
+              "text": "CustomHelpMenuSection",
+              "a_attr": { "href": "meta_customhelpmenusection.htm" },
+              "id": "meta_customhelpmenusection"
+            },
+            {
+              "text": "CustomLabels",
+              "a_attr": { "href": "meta_customlabels.htm" },
+              "id": "meta_customlabels"
+            },
+            {
+              "children": [
+                {
+                  "text": "CustomMetadata",
+                  "a_attr": { "href": "meta_custommetadata.htm" },
+                  "id": "meta_custommetadata"
+                }
+              ],
+              "text": "Custom Metadata Types (CustomObject)",
+              "a_attr": { "href": "meta_custommetadatatypes.htm" },
+              "id": "meta_custommetadatatypes"
+            },
+            {
+              "text": "CustomNotificationType",
+              "a_attr": { "href": "meta_customnotificationtype.htm" },
+              "id": "meta_customnotificationtype"
+            },
+            {
+              "children": [
+                {
+                  "text": "ActionOverride",
+                  "a_attr": { "href": "actionoverride.htm" },
+                  "id": "actionoverride"
+                },
+                {
+                  "text": "BusinessProcess",
+                  "a_attr": { "href": "meta_businessprocess.htm" },
+                  "id": "meta_businessprocess"
+                },
+                {
+                  "text": "CompactLayout",
+                  "a_attr": { "href": "meta_compactlayout.htm" },
+                  "id": "meta_compactlayout"
+                },
+                {
+                  "text": "CustomField",
+                  "a_attr": { "href": "customfield.htm" },
+                  "id": "customfield"
+                },
+                {
+                  "text": "FieldSet",
+                  "a_attr": { "href": "meta_fieldset.htm" },
+                  "id": "meta_fieldset"
+                },
+                {
+                  "text": "HistoryRetentionPolicy",
+                  "a_attr": { "href": "meta_historyretentionpolicy.htm" },
+                  "id": "meta_historyretentionpolicy"
+                },
+                {
+                  "text": "Index",
+                  "a_attr": { "href": "meta_index.htm" },
+                  "id": "meta_index"
+                },
+                {
+                  "text": "ListView",
+                  "a_attr": { "href": "meta_listview.htm" },
+                  "id": "meta_listview"
+                },
+                {
+                  "text": "NamedFilter",
+                  "a_attr": { "href": "namedfilter.htm" },
+                  "id": "namedfilter"
+                },
+                {
+                  "text": "Picklist (Including Dependent Picklist)",
+                  "a_attr": { "href": "meta_picklist.htm" },
+                  "id": "meta_picklist"
+                },
+                {
+                  "text": "ProfileSearchLayouts",
+                  "a_attr": { "href": "meta_profilesearchlayouts.htm" },
+                  "id": "meta_profilesearchlayouts"
+                },
+                {
+                  "text": "RecordType",
+                  "a_attr": { "href": "meta_recordtype.htm" },
+                  "id": "meta_recordtype"
+                },
+                {
+                  "text": "SearchLayouts",
+                  "a_attr": { "href": "meta_searchlayouts.htm" },
+                  "id": "meta_searchlayouts"
+                },
+                {
+                  "text": "SharingReason",
+                  "a_attr": { "href": "meta_apexsharingreason.htm" },
+                  "id": "meta_apexsharingreason"
+                },
+                {
+                  "text": "SharingRecalculation",
+                  "a_attr": { "href": "meta_apexsharingrecalculation.htm" },
+                  "id": "meta_apexsharingrecalculation"
+                },
+                {
+                  "text": "ValidationRule",
+                  "a_attr": { "href": "meta_validationformulas.htm" },
+                  "id": "meta_validationformulas"
+                },
+                {
+                  "text": "WebLink",
+                  "a_attr": { "href": "meta_weblink.htm" },
+                  "id": "meta_weblink"
+                },
+                {
+                  "text": "Metadata Field Types",
+                  "a_attr": { "href": "meta_field_types.htm" },
+                  "id": "meta_field_types"
+                }
+              ],
+              "text": "CustomObject",
+              "a_attr": { "href": "customobject.htm" },
+              "id": "customobject"
+            },
+            {
+              "text": "CustomObjectTranslation",
+              "a_attr": { "href": "meta_customobjecttranslation.htm" },
+              "id": "meta_customobjecttranslation"
+            },
+            {
+              "text": "CustomPageWebLink",
+              "a_attr": { "href": "custompageweblink.htm" },
+              "id": "custompageweblink"
+            },
+            {
+              "text": "CustomPermission",
+              "a_attr": { "href": "meta_custompermission.htm" },
+              "id": "meta_custompermission"
+            },
+            {
+              "text": "CustomSite",
+              "a_attr": { "href": "meta_sites.htm" },
+              "id": "meta_sites"
+            },
+            {
+              "text": "CustomTab",
+              "a_attr": { "href": "meta_tab.htm" },
+              "id": "meta_tab"
+            },
+            {
+              "text": "CustomValue",
+              "a_attr": { "href": "meta_customvalue.htm" },
+              "id": "meta_customvalue"
+            },
+            {
+              "text": "Dashboard",
+              "a_attr": { "href": "meta_dashboard.htm" },
+              "id": "meta_dashboard"
+            },
+            {
+              "text": "DataCategoryGroup",
+              "a_attr": { "href": "meta_datacategorygroup.htm" },
+              "id": "meta_datacategorygroup"
+            },
+            {
+              "text": "DelegateGroup",
+              "a_attr": { "href": "meta_delegategroup.htm" },
+              "id": "meta_delegategroup"
+            },
+            {
+              "text": "Document",
+              "a_attr": { "href": "meta_document.htm" },
+              "id": "meta_document"
+            },
+            {
+              "text": "DuplicateRule",
+              "a_attr": { "href": "meta_duplicaterule.htm" },
+              "id": "meta_duplicaterule"
+            },
+            {
+              "text": "EclairGeoData",
+              "a_attr": { "href": "meta_eclairgeodata.htm" },
+              "id": "meta_eclairgeodata"
+            },
+            {
+              "text": "EmailServicesFunction",
+              "a_attr": { "href": "meta_emailservicesfunction.htm" },
+              "id": "meta_emailservicesfunction"
+            },
+            {
+              "text": "EmailTemplate",
+              "a_attr": { "href": "meta_emailtemplate.htm" },
+              "id": "meta_emailtemplate"
+            },
+            {
+              "text": "EmbeddedServiceBranding",
+              "a_attr": { "href": "meta_embeddedservicebranding.htm" },
+              "id": "meta_embeddedservicebranding"
+            },
+            {
+              "text": "EmbeddedServiceConfig",
+              "a_attr": { "href": "meta_embeddedserviceconfig.htm" },
+              "id": "meta_embeddedserviceconfig"
+            },
+            {
+              "text": "EmbeddedServiceFieldService",
+              "a_attr": { "href": "meta_embeddedservicefieldservice.htm" },
+              "id": "meta_embeddedservicefieldservice"
+            },
+            {
+              "text": "EmbeddedServiceFlowConfig",
+              "a_attr": { "href": "meta_embeddedserviceflowconfig.htm" },
+              "id": "meta_embeddedserviceflowconfig"
+            },
+            {
+              "text": "EmbeddedServiceLiveAgent",
+              "a_attr": { "href": "meta_embeddedserviceliveagent.htm" },
+              "id": "meta_embeddedserviceliveagent"
+            },
+            {
+              "text": "EmbeddedServiceMenuSettings",
+              "a_attr": { "href": "meta_embeddedservicemenusettings.htm" },
+              "id": "meta_embeddedservicemenusettings"
+            },
+            {
+              "text": "EntitlementProcess",
+              "a_attr": { "href": "meta_entitlementprocess.htm" },
+              "id": "meta_entitlementprocess"
+            },
+            {
+              "text": "EntitlementTemplate",
+              "a_attr": { "href": "meta_entitlementtemplate.htm" },
+              "id": "meta_entitlementtemplate"
+            },
+            {
+              "text": "EscalationRules",
+              "a_attr": { "href": "meta_escalationrules.htm" },
+              "id": "meta_escalationrules"
+            },
+            {
+              "text": "EventDelivery",
+              "a_attr": { "href": "meta_eventdelivery.htm" },
+              "id": "meta_eventdelivery"
+            },
+            {
+              "text": "EventSubscription",
+              "a_attr": { "href": "meta_eventsubscription.htm" },
+              "id": "meta_eventsubscription"
+            },
+            {
+              "text": "ExperienceBundle",
+              "a_attr": { "href": "meta_experiencebundle.htm" },
+              "id": "meta_experiencebundle"
+            },
+            {
+              "text": "ExternalDataSource",
+              "a_attr": { "href": "meta_externaldatasource.htm" },
+              "id": "meta_externaldatasource"
+            },
+            {
+              "text": "ExternalServiceRegistration",
+              "a_attr": { "href": "meta_externalserviceregistration.htm" },
+              "id": "meta_externalserviceregistration"
+            },
+            {
+              "text": "FeatureParameterBoolean",
+              "a_attr": { "href": "meta_featureparameterboolean.htm" },
+              "id": "meta_featureparameterboolean"
+            },
+            {
+              "text": "FeatureParameterDate",
+              "a_attr": { "href": "meta_featureparameterdate.htm" },
+              "id": "meta_featureparameterdate"
+            },
+            {
+              "text": "FeatureParameterInteger",
+              "a_attr": { "href": "meta_featureparameterinteger.htm" },
+              "id": "meta_featureparameterinteger"
+            },
+            {
+              "text": "FlexiPage",
+              "a_attr": { "href": "meta_flexipage.htm" },
+              "id": "meta_flexipage"
+            },
+            {
+              "text": "Flow",
+              "a_attr": { "href": "meta_visual_workflow.htm" },
+              "id": "meta_visual_workflow"
+            },
+            {
+              "text": "FlowCategory",
+              "a_attr": { "href": "meta_flowcategory.htm" },
+              "id": "meta_flowcategory"
+            },
+            {
+              "text": "FlowDefinition",
+              "a_attr": { "href": "meta_flowdefinition.htm" },
+              "id": "meta_flowdefinition"
+            },
+            {
+              "children": [
+                {
+                  "text": "FolderShare",
+                  "a_attr": { "href": "meta_foldershare.htm" },
+                  "id": "meta_foldershare"
+                }
+              ],
+              "text": "Folder",
+              "a_attr": { "href": "meta_folder.htm" },
+              "id": "meta_folder"
+            },
+            {
+              "text": "GlobalPicklist",
+              "a_attr": { "href": "meta_globalpicklist.htm" },
+              "id": "meta_globalpicklist"
+            },
+            {
+              "text": "GlobalPicklistValue",
+              "a_attr": { "href": "meta_globalpicklistvalue.htm" },
+              "id": "meta_globalpicklistvalue"
+            },
+            {
+              "text": "GlobalValueSet",
+              "a_attr": { "href": "meta_globalvalueset.htm" },
+              "id": "meta_globalvalueset"
+            },
+            {
+              "text": "GlobalValueSetTranslation",
+              "a_attr": { "href": "meta_globalvaluesettranslation.htm" },
+              "id": "meta_globalvaluesettranslation"
+            },
+            {
+              "text": "Group",
+              "a_attr": { "href": "meta_group.htm" },
+              "id": "meta_group"
+            },
+            {
+              "text": "HomePageComponent",
+              "a_attr": { "href": "meta_homepagecomponent.htm" },
+              "id": "meta_homepagecomponent"
+            },
+            {
+              "text": "HomePageLayout",
+              "a_attr": { "href": "meta_homepagelayouts.htm" },
+              "id": "meta_homepagelayouts"
+            },
+            {
+              "text": "InstalledPackage",
+              "a_attr": { "href": "meta_installedpackage.htm" },
+              "id": "meta_installedpackage"
+            },
+            {
+              "text": "KeywordList",
+              "a_attr": { "href": "meta_keywordlist.htm" },
+              "id": "meta_keywordlist"
+            },
+            {
+              "text": "Layout",
+              "a_attr": { "href": "meta_layouts.htm" },
+              "id": "meta_layouts"
+            },
+            {
+              "text": "Letterhead",
+              "a_attr": { "href": "meta_letterhead.htm" },
+              "id": "meta_letterhead"
+            },
+            {
+              "text": "LightningBolt",
+              "a_attr": { "href": "meta_lightningbolt.htm" },
+              "id": "meta_lightningbolt"
+            },
+            {
+              "text": "LightningComponentBundle",
+              "a_attr": { "href": "meta_lightningcomponentbundle.htm" },
+              "id": "meta_lightningcomponentbundle"
+            },
+            {
+              "text": "LightningExperienceTheme",
+              "a_attr": { "href": "meta_lightningexperiencetheme.htm" },
+              "id": "meta_lightningexperiencetheme"
+            },
+            {
+              "text": "LightningMessageChannel (Beta)",
+              "a_attr": { "href": "meta_lightningmessagechannel.htm" },
+              "id": "meta_lightningmessagechannel"
+            },
+            {
+              "text": "LiveChatAgentConfig",
+              "a_attr": { "href": "meta_livechatagentconfig.htm" },
+              "id": "meta_livechatagentconfig"
+            },
+            {
+              "text": "LiveChatButton",
+              "a_attr": { "href": "meta_livechatbutton.htm" },
+              "id": "meta_livechatbutton"
+            },
+            {
+              "text": "LiveChatDeployment",
+              "a_attr": { "href": "meta_livechatdeployment.htm" },
+              "id": "meta_livechatdeployment"
+            },
+            {
+              "text": "LiveChatSensitiveDataRule",
+              "a_attr": { "href": "meta_livechatsensitivedatarule.htm" },
+              "id": "meta_livechatsensitivedatarule"
+            },
+            {
+              "text": "ManagedContentType",
+              "a_attr": { "href": "meta_managedcontenttype.htm" },
+              "id": "meta_managedcontenttype"
+            },
+            {
+              "text": "ManagedTopics",
+              "a_attr": { "href": "meta_managedtopics.htm" },
+              "id": "meta_managedtopics"
+            },
+            {
+              "text": "MatchingRule",
+              "a_attr": { "href": "meta_matchingrule.htm" },
+              "id": "meta_matchingrule"
+            },
+            {
+              "text": "Metadata",
+              "a_attr": { "href": "metadata.htm" },
+              "id": "metadata"
+            },
+            {
+              "text": "MetadataWithContent",
+              "a_attr": { "href": "meta_metadatawithcontent.htm" },
+              "id": "meta_metadatawithcontent"
+            },
+            {
+              "text": "MilestoneType",
+              "a_attr": { "href": "meta_milestonetype.htm" },
+              "id": "meta_milestonetype"
+            },
+            {
+              "text": "MlDomain (Beta)",
+              "a_attr": { "href": "meta_mldomain.htm" },
+              "id": "meta_mldomain"
+            },
+            {
+              "text": "MobileApplicationDetail",
+              "a_attr": { "href": "meta_mobileapplicationdetail.htm" },
+              "id": "meta_mobileapplicationdetail"
+            },
+            {
+              "text": "ModerationRule",
+              "a_attr": { "href": "meta_moderationrule.htm" },
+              "id": "meta_moderationrule"
+            },
+            {
+              "text": "MyDomainDiscoverableLogin",
+              "a_attr": { "href": "meta_mydomaindiscoverablelogin.htm" },
+              "id": "meta_mydomaindiscoverablelogin"
+            },
+            {
+              "text": "NamedCredential",
+              "a_attr": { "href": "meta_namedcredential.htm" },
+              "id": "meta_namedcredential"
+            },
+            {
+              "text": "NavigationMenu",
+              "a_attr": { "href": "meta_navigationmenu.htm" },
+              "id": "meta_navigationmenu"
+            },
+            {
+              "text": "Network",
+              "a_attr": { "href": "meta_network.htm" },
+              "id": "meta_network"
+            },
+            {
+              "text": "NetworkBranding",
+              "a_attr": { "href": "meta_networkbranding.htm" },
+              "id": "meta_networkbranding"
+            },
+            {
+              "text": "NotificationTypeConfig",
+              "a_attr": { "href": "meta_notificationtypeconfig.htm" },
+              "id": "meta_notificationtypeconfig"
+            },
+            {
+              "text": "OauthCustomScope",
+              "a_attr": { "href": "meta_oauthcustomscope.htm" },
+              "id": "meta_oauthcustomscope"
+            },
+            {
+              "text": "Package",
+              "a_attr": { "href": "meta_package.htm" },
+              "id": "meta_package"
+            },
+            {
+              "text": "PathAssistant",
+              "a_attr": { "href": "meta_pathassistant.htm" },
+              "id": "meta_pathassistant"
+            },
+            {
+              "text": "PaymentGatewayProvider",
+              "a_attr": { "href": "meta_paymentgatewayprovider.htm" },
+              "id": "meta_paymentgatewayprovider"
+            },
+            {
+              "text": "PermissionSet",
+              "a_attr": { "href": "meta_permissionset.htm" },
+              "id": "meta_permissionset"
+            },
+            {
+              "text": "PermissionSetGroup",
+              "a_attr": { "href": "meta_permissionsetgroup.htm" },
+              "id": "meta_permissionsetgroup"
+            },
+            {
+              "text": "PlatformCachePartition",
+              "a_attr": { "href": "meta_platformcachepartition.htm" },
+              "id": "meta_platformcachepartition"
+            },
+            {
+              "text": "PlatformEventChannel",
+              "a_attr": { "href": "meta_platformeventchannel.htm" },
+              "id": "meta_platformeventchannel"
+            },
+            {
+              "text": "PlatformEventChannelMember",
+              "a_attr": { "href": "meta_platformeventchannelmember.htm" },
+              "id": "meta_platformeventchannelmember"
+            },
+            {
+              "text": "Portal",
+              "a_attr": { "href": "meta_portal.htm" },
+              "id": "meta_portal"
+            },
+            {
+              "text": "PostTemplate",
+              "a_attr": { "href": "meta_posttemplate.htm" },
+              "id": "meta_posttemplate"
+            },
+            {
+              "text": "PresenceDeclineReason",
+              "a_attr": { "href": "meta_presencedeclinereason.htm" },
+              "id": "meta_presencedeclinereason"
+            },
+            {
+              "text": "PresenceUserConfig",
+              "a_attr": { "href": "meta_presenceuserconfig.htm" },
+              "id": "meta_presenceuserconfig"
+            },
+            {
+              "text": "Profile",
+              "a_attr": { "href": "meta_profile.htm" },
+              "id": "meta_profile"
+            },
+            {
+              "text": "ProfileActionOverride",
+              "a_attr": { "href": "meta_profileactionoverride.htm" },
+              "id": "meta_profileactionoverride"
+            },
+            {
+              "text": "ProfilePasswordPolicy",
+              "a_attr": { "href": "meta_profilepasswordpolicy.htm" },
+              "id": "meta_profilepasswordpolicy"
+            },
+            {
+              "text": "ProfileSessionSetting",
+              "a_attr": { "href": "meta_profilesessionsetting.htm" },
+              "id": "meta_profilesessionsetting"
+            },
+            {
+              "text": "Prompt",
+              "a_attr": { "href": "meta_prompt.htm" },
+              "id": "meta_prompt"
+            },
+            {
+              "text": "Queue",
+              "a_attr": { "href": "meta_queue.htm" },
+              "id": "meta_queue"
+            },
+            {
+              "text": "QueueRoutingConfig",
+              "a_attr": { "href": "meta_queueroutingconfig.htm" },
+              "id": "meta_queueroutingconfig"
+            },
+            {
+              "text": "QuickAction",
+              "a_attr": { "href": "meta_quickaction.htm" },
+              "id": "meta_quickaction"
+            },
+            {
+              "text": "RedirectWhitelistUrl",
+              "a_attr": { "href": "meta_redirectwhitelisturl.htm" },
+              "id": "meta_redirectwhitelisturl"
+            },
+            {
+              "text": "RecommendationStrategy",
+              "a_attr": { "href": "meta_recommendationstrategy.htm" },
+              "id": "meta_recommendationstrategy"
+            },
+            {
+              "text": "RecordActionDeployment",
+              "a_attr": { "href": "meta_recordactiondeployment.htm" },
+              "id": "meta_recordactiondeployment"
+            },
+            {
+              "text": "RemoteSiteSetting",
+              "a_attr": { "href": "meta_remotesitesetting.htm" },
+              "id": "meta_remotesitesetting"
+            },
+            {
+              "text": "Report",
+              "a_attr": { "href": "meta_report.htm" },
+              "id": "meta_report"
+            },
+            {
+              "text": "ReportType",
+              "a_attr": { "href": "meta_reporttype.htm" },
+              "id": "meta_reporttype"
+            },
+            {
+              "text": "Role",
+              "a_attr": { "href": "meta_role.htm" },
+              "id": "meta_role"
+            },
+            {
+              "text": "RoleOrTerritory",
+              "a_attr": { "href": "meta_roleorterritory.htm" },
+              "id": "meta_roleorterritory"
+            },
+            {
+              "text": "SamlSsoConfig",
+              "a_attr": { "href": "meta_samlssoconfig.htm" },
+              "id": "meta_samlssoconfig"
+            },
+            {
+              "text": "Scontrol",
+              "a_attr": { "href": "meta_scontrol.htm" },
+              "id": "meta_scontrol"
+            },
+            {
+              "text": "ServiceChannel",
+              "a_attr": { "href": "meta_servicechannel.htm" },
+              "id": "meta_servicechannel"
+            },
+            {
+              "text": "ServicePresenceStatus",
+              "a_attr": { "href": "meta_servicepresencestatus.htm" },
+              "id": "meta_servicepresencestatus"
+            },
+            {
+              "children": [
+                {
+                  "text": "AccountSettings",
+                  "a_attr": { "href": "meta_accountsettings.htm" },
+                  "id": "meta_accountsettings"
+                },
+                {
+                  "text": "AccountInsightsSettings",
+                  "a_attr": { "href": "meta_accountinsightssettings.htm" },
+                  "id": "meta_accountinsightssettings"
+                },
+                {
+                  "text": "AccountIntelligenceSettings",
+                  "a_attr": { "href": "meta_accountintelligencesettings.htm" },
+                  "id": "meta_accountintelligencesettings"
+                },
+                {
+                  "text": "ActionsSettings",
+                  "a_attr": { "href": "meta_actionssettings.htm" },
+                  "id": "meta_actionssettings"
+                },
+                {
+                  "text": "ActivitiesSettings",
+                  "a_attr": { "href": "meta_activitiessettings.htm" },
+                  "id": "meta_activitiessettings"
+                },
+                {
+                  "text": "AddressSettings",
+                  "a_attr": { "href": "meta_addresssettings.htm" },
+                  "id": "meta_addresssettings"
+                },
+                {
+                  "text": "AnalyticsSettings",
+                  "a_attr": { "href": "meta_analyticssettings.htm" },
+                  "id": "meta_analyticssettings"
+                },
+                {
+                  "text": "ApexSettings",
+                  "a_attr": { "href": "meta_apexsettings.htm" },
+                  "id": "meta_apexsettings"
+                },
+                {
+                  "text": "AppExperienceSettings",
+                  "a_attr": { "href": "meta_appexperiencesettings.htm" },
+                  "id": "meta_appexperiencesettings"
+                },
+                {
+                  "text": "AutomatedContactsSettings",
+                  "a_attr": { "href": "meta_automatedcontactssettings.htm" },
+                  "id": "meta_automatedcontactssettings"
+                },
+                {
+                  "text": "BotSettings",
+                  "a_attr": { "href": "meta_botsettings.htm" },
+                  "id": "meta_botsettings"
+                },
+                {
+                  "text": "BusinessHoursSettings",
+                  "a_attr": { "href": "meta_businesshourssettings.htm" },
+                  "id": "meta_businesshourssettings"
+                },
+                {
+                  "text": "CampaignSettings",
+                  "a_attr": { "href": "meta_campaignsettings.htm" },
+                  "id": "meta_campaignsettings"
+                },
+                {
+                  "text": "CaseClassificationSettings",
+                  "a_attr": { "href": "meta_caseclassificationsettings.htm" },
+                  "id": "meta_caseclassificationsettings"
+                },
+                {
+                  "text": "CaseSettings",
+                  "a_attr": { "href": "meta_casesettings.htm" },
+                  "id": "meta_casesettings"
+                },
+                {
+                  "text": "ChatterAnswersSettings",
+                  "a_attr": { "href": "meta_chatteranswerssettings.htm" },
+                  "id": "meta_chatteranswerssettings"
+                },
+                {
+                  "text": "ChatterEmailMDSettings",
+                  "a_attr": { "href": "meta_chatteremailmdsettings.htm" },
+                  "id": "meta_chatteremailmdsettings"
+                },
+                {
+                  "text": "ChatterSettings",
+                  "a_attr": { "href": "meta_chattersettings.htm" },
+                  "id": "meta_chattersettings"
+                },
+                {
+                  "text": "CommunitiesSettings",
+                  "a_attr": { "href": "meta_communitiessettings.htm" },
+                  "id": "meta_communitiessettings"
+                },
+                {
+                  "text": "CompanySettings",
+                  "a_attr": { "href": "meta_companyprofilesettings.htm" },
+                  "id": "meta_companyprofilesettings"
+                },
+                {
+                  "text": "ConnectedAppSettings",
+                  "a_attr": { "href": "meta_connectedappsettings.htm" },
+                  "id": "meta_connectedappsettings"
+                },
+                {
+                  "text": "ContentSettings",
+                  "a_attr": { "href": "meta_contentsettings.htm" },
+                  "id": "meta_contentsettings"
+                },
+                {
+                  "text": "ContractSettings",
+                  "a_attr": { "href": "meta_contractsettings.htm" },
+                  "id": "meta_contractsettings"
+                },
+                {
+                  "text": "CurrencySettings",
+                  "a_attr": { "href": "meta_currencysettings.htm" },
+                  "id": "meta_currencysettings"
+                },
+                {
+                  "text": "DataDotComSettings",
+                  "a_attr": { "href": "meta_datadotcomsettings.htm" },
+                  "id": "meta_datadotcomsettings"
+                },
+                {
+                  "text": "DeploymentSettings",
+                  "a_attr": { "href": "meta_deploymentsettings.htm" },
+                  "id": "meta_deploymentsettings"
+                },
+                {
+                  "text": "DevHubSettings",
+                  "a_attr": { "href": "meta_devhubsettings.htm" },
+                  "id": "meta_devhubsettings"
+                },
+                {
+                  "text": "EACSettings",
+                  "a_attr": { "href": "meta_eacsettings.htm" },
+                  "id": "meta_eacsettings"
+                },
+                {
+                  "text": "EmailAdministrationSettings",
+                  "a_attr": { "href": "meta_emailadministrationsettings.htm" },
+                  "id": "meta_emailadministrationsettings"
+                },
+                {
+                  "text": "EmailIntegrationSettings",
+                  "a_attr": { "href": "meta_emailintegrationsettings.htm" },
+                  "id": "meta_emailintegrationsettings"
+                },
+                {
+                  "text": "EmailTemplateSettings",
+                  "a_attr": { "href": "meta_emailtemplatesettings.htm" },
+                  "id": "meta_emailtemplatesettings"
+                },
+                {
+                  "text": "EnhancedNotesSettings",
+                  "a_attr": { "href": "meta_enhancednotessettings.htm" },
+                  "id": "meta_enhancednotessettings"
+                },
+                {
+                  "text": "EncryptionKeySettings",
+                  "a_attr": { "href": "meta_encryptionkeysettings.htm" },
+                  "id": "meta_encryptionkeysettings"
+                },
+                {
+                  "text": "EntitlementSettings",
+                  "a_attr": { "href": "meta_entitlementsettings.htm" },
+                  "id": "meta_entitlementsettings"
+                },
+                {
+                  "text": "EventSettings",
+                  "a_attr": { "href": "meta_eventsettings.htm" },
+                  "id": "meta_eventsettings"
+                },
+                {
+                  "text": "ExperienceBundleSettings",
+                  "a_attr": { "href": "meta_experiencebundlesettings.htm" },
+                  "id": "meta_experiencebundlesettings"
+                },
+                {
+                  "text": "FieldServiceSettings",
+                  "a_attr": { "href": "meta_fieldservicesettings.htm" },
+                  "id": "meta_fieldservicesettings"
+                },
+                {
+                  "text": "FileUploadAndDownloadSecuritySettings",
+                  "a_attr": {
+                    "href": "meta_fileuploadanddownloadsecuritysettings.htm"
+                  },
+                  "id": "meta_fileuploadanddownloadsecuritysettings"
+                },
+                {
+                  "text": "FlowSettings",
+                  "a_attr": { "href": "meta_flowsettings.htm" },
+                  "id": "meta_flowsettings"
+                },
+                {
+                  "text": "ForecastingSettings",
+                  "a_attr": { "href": "meta_forecastingsettings.htm" },
+                  "id": "meta_forecastingsettings"
+                },
+                {
+                  "text": "HighVelocitySalesSettings",
+                  "a_attr": { "href": "meta_highvelocitysalessettings.htm" },
+                  "id": "meta_highvelocitysalessettings"
+                },
+                {
+                  "text": "IdeasSettings",
+                  "a_attr": { "href": "meta_ideassettings.htm" },
+                  "id": "meta_ideassettings"
+                },
+                {
+                  "text": "IndustriesSettings",
+                  "a_attr": { "href": "meta_industriessettings.htm" },
+                  "id": "meta_industriessettings"
+                },
+                {
+                  "text": "InvocableActionSettings",
+                  "a_attr": { "href": "meta_invocableactionsettings.htm" },
+                  "id": "meta_invocableactionsettings"
+                },
+                {
+                  "text": "IoTSettings",
+                  "a_attr": { "href": "meta_iotsettings.htm" },
+                  "id": "meta_iotsettings"
+                },
+                {
+                  "text": "KnowledgeSettings",
+                  "a_attr": { "href": "meta_knowledgesettings.htm" },
+                  "id": "meta_knowledgesettings"
+                },
+                {
+                  "text": "LanguageSettings",
+                  "a_attr": { "href": "meta_languagesettings.htm" },
+                  "id": "meta_languagesettings"
+                },
+                {
+                  "text": "LeadConfigSettings",
+                  "a_attr": { "href": "meta_leadconfigsettings.htm" },
+                  "id": "meta_leadconfigsettings"
+                },
+                {
+                  "text": "LeadConvertSettings",
+                  "a_attr": { "href": "meta_leadconvertsettings.htm" },
+                  "id": "meta_leadconvertsettings"
+                },
+                {
+                  "text": "LiveAgentSettings",
+                  "a_attr": { "href": "meta_liveagentsettings.htm" },
+                  "id": "meta_liveagentsettings"
+                },
+                {
+                  "text": "LightningExperienceSettings",
+                  "a_attr": { "href": "meta_lightningexperiencesettings.htm" },
+                  "id": "meta_lightningexperiencesettings"
+                },
+                {
+                  "text": "LiveMessageSettings",
+                  "a_attr": { "href": "meta_livemessagesettings.htm" },
+                  "id": "meta_livemessagesettings"
+                },
+                {
+                  "text": "MacroSettings",
+                  "a_attr": { "href": "meta_macrosettings.htm" },
+                  "id": "meta_macrosettings"
+                },
+                {
+                  "text": "MapAndLocationSettings",
+                  "a_attr": { "href": "meta_mapandlocationsettings.htm" },
+                  "id": "meta_mapandlocationsettings"
+                },
+                {
+                  "text": "MobileSettings",
+                  "a_attr": { "href": "meta_mobilesettings.htm" },
+                  "id": "meta_mobilesettings"
+                },
+                {
+                  "text": "MyDomainSettings",
+                  "a_attr": { "href": "meta_mydomainsettings.htm" },
+                  "id": "meta_mydomainsettings"
+                },
+                {
+                  "text": "NameSettings",
+                  "a_attr": { "href": "meta_namesettings.htm" },
+                  "id": "meta_namesettings"
+                },
+                {
+                  "text": "NotificationsSettings",
+                  "a_attr": { "href": "meta_notificationssettings.htm" },
+                  "id": "meta_notificationssettings"
+                },
+                {
+                  "text": "ObjectLinkingSettings (Beta)",
+                  "a_attr": { "href": "meta_objectlinkingsettings.htm" },
+                  "id": "meta_objectlinkingsettings"
+                },
+                {
+                  "text": "OmniChannelSettings",
+                  "a_attr": { "href": "meta_omnichannelsettings.htm" },
+                  "id": "meta_omnichannelsettings"
+                },
+                {
+                  "text": "OpportunityInsightsSettings",
+                  "a_attr": { "href": "meta_opportunityinsightssettings.htm" },
+                  "id": "meta_opportunityinsightssettings"
+                },
+                {
+                  "text": "OpportunitySettings",
+                  "a_attr": { "href": "meta_opportunityssettings.htm" },
+                  "id": "meta_opportunityssettings"
+                },
+                {
+                  "text": "OrderManagementSettings",
+                  "a_attr": { "href": "meta_ordermanagementsettings.htm" },
+                  "id": "meta_ordermanagementsettings"
+                },
+                {
+                  "text": "OrderSettings",
+                  "a_attr": { "href": "meta_ordersettings.htm" },
+                  "id": "meta_ordersettings"
+                },
+                {
+                  "text": "OrgPreferenceSettings",
+                  "a_attr": { "href": "meta_orgpreferencesettings.htm" },
+                  "id": "meta_orgpreferencesettings"
+                },
+                {
+                  "text": "OrgSettings",
+                  "a_attr": { "href": "meta_orgsettings.htm" },
+                  "id": "meta_orgsettings"
+                },
+                {
+                  "text": "PartyDataModelSettings",
+                  "a_attr": { "href": "meta_partydatamodelsettings.htm" },
+                  "id": "meta_partydatamodelsettings"
+                },
+                {
+                  "text": "PardotSettings",
+                  "a_attr": { "href": "meta_pardotsettings.htm" },
+                  "id": "meta_pardotsettings"
+                },
+                {
+                  "text": "PardotEinsteinSettings",
+                  "a_attr": { "href": "meta_pardoteinsteinsettings.htm" },
+                  "id": "meta_pardoteinsteinsettings"
+                },
+                {
+                  "text": "PathAssistantSettings",
+                  "a_attr": { "href": "meta_pathassistantsettings.htm" },
+                  "id": "meta_pathassistantsettings"
+                },
+                {
+                  "text": "PicklistSettings",
+                  "a_attr": { "href": "meta_picklistsettings.htm" },
+                  "id": "meta_picklistsettings"
+                },
+                {
+                  "text": "PlatformEncryptionSettings",
+                  "a_attr": { "href": "meta_platformencryptionsettings.htm" },
+                  "id": "meta_platformencryptionsettings"
+                },
+                {
+                  "text": "PredictionBuilderSettings",
+                  "a_attr": { "href": "meta_predictionbuildersettings.htm" },
+                  "id": "meta_predictionbuildersettings"
+                },
+                {
+                  "text": "PrivacySettings",
+                  "a_attr": { "href": "meta_privacysettings.htm" },
+                  "id": "meta_privacysettings"
+                },
+                {
+                  "text": "ProductSettings",
+                  "a_attr": { "href": "meta_productsettings.htm" },
+                  "id": "meta_productsettings"
+                },
+                {
+                  "text": "QuoteSettings",
+                  "a_attr": { "href": "meta_quotessettings.htm" },
+                  "id": "meta_quotessettings"
+                },
+                {
+                  "text": "RecordPageSettings",
+                  "a_attr": { "href": "meta_recordpagesettings.htm" },
+                  "id": "meta_recordpagesettings"
+                },
+                {
+                  "text": "SchemaSettings",
+                  "a_attr": { "href": "meta_schemasettings.htm" },
+                  "id": "meta_schemasettings"
+                },
+                {
+                  "text": "SearchSettings",
+                  "a_attr": { "href": "meta_searchsettings.htm" },
+                  "id": "meta_searchsettings"
+                },
+                {
+                  "text": "SecuritySettings",
+                  "a_attr": { "href": "meta_securitysettings.htm" },
+                  "id": "meta_securitysettings"
+                },
+                {
+                  "text": "SharingSettings",
+                  "a_attr": { "href": "meta_sharingsettings.htm" },
+                  "id": "meta_sharingsettings"
+                },
+                {
+                  "text": "SiteSettings",
+                  "a_attr": { "href": "meta_sitesettings.htm" },
+                  "id": "meta_sitesettings"
+                },
+                {
+                  "text": "SocialCustomerServiceSettings",
+                  "a_attr": {
+                    "href": "meta_socialcustomerservicesettings.htm"
+                  },
+                  "id": "meta_socialcustomerservicesettings"
+                },
+                {
+                  "text": "SocialProfileSettings",
+                  "a_attr": { "href": "meta_socialprofilesettings.htm" },
+                  "id": "meta_socialprofilesettings"
+                },
+                {
+                  "text": "SurveySettings",
+                  "a_attr": { "href": "meta_surveysettings.htm" },
+                  "id": "meta_surveysettings"
+                },
+                {
+                  "text": "Territory2Settings",
+                  "a_attr": { "href": "meta_territory2settings.htm" },
+                  "id": "meta_territory2settings"
+                },
+                {
+                  "text": "TrailheadSettings",
+                  "a_attr": { "href": "meta_trailheadsettings.htm" },
+                  "id": "meta_trailheadsettings"
+                },
+                {
+                  "text": "TrialOrgSettings",
+                  "a_attr": { "href": "meta_trialorgsettings.htm" },
+                  "id": "meta_trialorgsettings"
+                },
+                {
+                  "text": "UserEngagementSettings",
+                  "a_attr": { "href": "meta_userengagementsettings.htm" },
+                  "id": "meta_userengagementsettings"
+                },
+                {
+                  "text": "UserInterfaceSettings",
+                  "a_attr": { "href": "meta_userinterfacesettings.htm" },
+                  "id": "meta_userinterfacesettings"
+                },
+                {
+                  "text": "UserManagementSettings",
+                  "a_attr": { "href": "meta_usermanagementsettings.htm" },
+                  "id": "meta_usermanagementsettings"
+                },
+                {
+                  "text": "VoiceSettings",
+                  "a_attr": { "href": "meta_voicesettings.htm" },
+                  "id": "meta_voicesettings"
+                },
+                {
+                  "text": "WorkDotComSettings",
+                  "a_attr": { "href": "meta_WorkDotComSettings.htm" },
+                  "id": "meta_WorkDotComSettings"
+                }
+              ],
+              "text": "Settings",
+              "a_attr": { "href": "meta_settings.htm" },
+              "id": "meta_settings"
+            },
+            {
+              "text": "SharedTo",
+              "a_attr": { "href": "meta_sharedto.htm" },
+              "id": "meta_sharedto"
+            },
+            {
+              "text": "SharingBaseRule",
+              "a_attr": { "href": "meta_sharingbaserule.htm" },
+              "id": "meta_sharingbaserule"
+            },
+            {
+              "children": [
+                {
+                  "text": "BaseSharingRule",
+                  "a_attr": { "href": "meta_basesharingrule.htm" },
+                  "id": "meta_basesharingrule"
+                },
+                {
+                  "text": "CriteriaBasedSharingRule",
+                  "a_attr": { "href": "meta_cbsrule.htm" },
+                  "id": "meta_cbsrule"
+                },
+                {
+                  "text": "OwnerSharingRule",
+                  "a_attr": { "href": "meta_ownersharingrule.htm" },
+                  "id": "meta_ownersharingrule"
+                }
+              ],
+              "text": "SharingRules",
+              "a_attr": { "href": "meta_sharingrules.htm" },
+              "id": "meta_sharingrules"
+            },
+            {
+              "text": "SharingSet",
+              "a_attr": { "href": "meta_sharingset.htm" },
+              "id": "meta_sharingset"
+            },
+            {
+              "text": "SiteDotCom",
+              "a_attr": { "href": "meta_sitedotcom.htm" },
+              "id": "meta_sitedotcom"
+            },
+            {
+              "text": "Skill",
+              "a_attr": { "href": "meta_skills.htm" },
+              "id": "meta_skills"
+            },
+            {
+              "text": "StandardValueSet",
+              "a_attr": { "href": "meta_standardvalueset.htm" },
+              "id": "meta_standardvalueset"
+            },
+            {
+              "text": "StandardValueSetTranslation",
+              "a_attr": { "href": "meta_standardvaluesettranslation.htm" },
+              "id": "meta_standardvaluesettranslation"
+            },
+            {
+              "text": "StaticResource",
+              "a_attr": { "href": "meta_staticresource.htm" },
+              "id": "meta_staticresource"
+            },
+            {
+              "text": "SynonymDictionary",
+              "a_attr": { "href": "meta_synonymdictionary.htm" },
+              "id": "meta_synonymdictionary"
+            },
+            {
+              "text": "Territory",
+              "a_attr": { "href": "meta_territory.htm" },
+              "id": "meta_territory"
+            },
+            {
+              "text": "Territory2",
+              "a_attr": { "href": "meta_territory2.htm" },
+              "id": "meta_territory2"
+            },
+            {
+              "text": "Territory2Model",
+              "a_attr": { "href": "meta_territory2model.htm" },
+              "id": "meta_territory2model"
+            },
+            {
+              "text": "Territory2Rule",
+              "a_attr": { "href": "meta_territory2rule.htm" },
+              "id": "meta_territory2rule"
+            },
+            {
+              "text": "Territory2Type",
+              "a_attr": { "href": "meta_territory2type.htm" },
+              "id": "meta_territory2type"
+            },
+            {
+              "text": "TimeSheetTemplate",
+              "a_attr": { "href": "meta_timesheettemplate.htm" },
+              "id": "meta_timesheettemplate"
+            },
+            {
+              "text": "TopicsForObjects",
+              "a_attr": { "href": "meta_topicsforobjects.htm" },
+              "id": "meta_topicsforobjects"
+            },
+            {
+              "text": "TransactionSecurityPolicy",
+              "a_attr": { "href": "meta_transactionsecurity.htm" },
+              "id": "meta_transactionsecurity"
+            },
+            {
+              "text": "Translations",
+              "a_attr": { "href": "meta_translations.htm" },
+              "id": "meta_translations"
+            },
+            {
+              "text": "UserCriteria",
+              "a_attr": { "href": "meta_usercriteria.htm" },
+              "id": "meta_usercriteria"
+            },
+            {
+              "text": "WaveApplication",
+              "a_attr": { "href": "meta_waveapplication.htm" },
+              "id": "meta_waveapplication"
+            },
+            {
+              "text": "WaveDataflow",
+              "a_attr": { "href": "meta_wavedataflow.htm" },
+              "id": "meta_wavedataflow"
+            },
+            {
+              "text": "WaveDashboard",
+              "a_attr": { "href": "meta_wavedashboard.htm" },
+              "id": "meta_wavedashboard"
+            },
+            {
+              "text": "WaveDataset",
+              "a_attr": { "href": "meta_wavedataset.htm" },
+              "id": "meta_wavedataset"
+            },
+            {
+              "text": "WaveLens",
+              "a_attr": { "href": "meta_wavelens.htm" },
+              "id": "meta_wavelens"
+            },
+            {
+              "text": "WaveRecipe",
+              "a_attr": { "href": "meta_waverecipe.htm" },
+              "id": "meta_waverecipe"
+            },
+            {
+              "text": "WaveTemplateBundle",
+              "a_attr": { "href": "meta_wavetemplatebundle.htm" },
+              "id": "meta_wavetemplatebundle"
+            },
+            {
+              "text": "WaveXmd",
+              "a_attr": { "href": "meta_wavexmd.htm" },
+              "id": "meta_wavexmd"
+            },
+            {
+              "text": "Workflow",
+              "a_attr": { "href": "meta_workflow.htm" },
+              "id": "meta_workflow"
+            },
+            {
+              "text": "WorkSkillRouting",
+              "a_attr": { "href": "meta_workskillrouting.htm" },
+              "id": "meta_workskillrouting"
+            }
+          ],
+          "text": "Metadata Types",
+          "a_attr": { "href": "meta_types_list.htm" },
+          "id": "meta_types_list"
+        },
+        {
+          "children": [
+            {
+              "text": "AllOrNoneHeader",
+              "a_attr": { "href": "meta_allornoneheader.htm" },
+              "id": "meta_allornoneheader"
+            },
+            {
+              "text": "CallOptions",
+              "a_attr": { "href": "meta_calloptions.htm" },
+              "id": "meta_calloptions"
+            },
+            {
+              "text": "DebuggingHeader",
+              "a_attr": { "href": "meta_debuggingheader.htm" },
+              "id": "meta_debuggingheader"
+            },
+            {
+              "text": "SessionHeader",
+              "a_attr": { "href": "meta_sessionheader.htm" },
+              "id": "meta_sessionheader"
+            }
+          ],
+          "text": "Headers",
+          "a_attr": { "href": "meta_headers.htm" },
+          "id": "meta_headers"
+        }
+      ],
+      "text": "Reference"
+    },
+    {
+      "children": [
+        {
+          "text": "CustomObjectTranslation Language Support: Fully Supported Languages",
+          "a_attr": {
+            "href": "customobjectranslation_language_support_standard.htm"
+          },
+          "id": "customobjectranslation_language_support_standard"
+        },
+        {
+          "text": "CustomObjectTranslation Language Support: End-User Languages",
+          "a_attr": {
+            "href": "customobjectranslation_language_support_enduser.htm"
+          },
+          "id": "customobjectranslation_language_support_enduser"
+        },
+        {
+          "text": "StandardValueSet Names and Standard Picklist Fields",
+          "a_attr": { "href": "standardvalueset_names.htm" },
+          "id": "standardvalueset_names"
+        }
+      ],
+      "text": "Appendices"
+    },
+    {
+      "text": "Glossary",
+      "a_attr": { "href": "glossary_meta.htm" },
+      "id": "glossary_meta"
+    }
+  ],
+  "deliverable": "api_meta",
+  "pdf_url": "https://resources.docs.salesforce.com/224/latest/en-us/sfdc/pdf/api_meta.pdf",
+  "version": {
+    "version_text": "Spring '20 (API version 48.0)",
+    "release_version": "48.0",
+    "doc_version": "224.0",
+    "version_url": "atlas.en-us.api_meta.meta"
+  },
+  "language": {
+    "label": "ENGLISH",
+    "code": "EN",
+    "locale": "en-us",
+    "url": "atlas.en-us.224.0.api_meta.meta"
+  },
+  "locale": "en-us",
+  "doc_title": "Metadata API Developer Guide",
+  "available_versions": [
+    {
+      "version_text": "Spring '20 (API version 48.0)",
+      "release_version": "48.0",
+      "doc_version": "224.0",
+      "version_url": "atlas.en-us.api_meta.meta"
+    },
+    {
+      "version_text": "Winter '20 (API version 47.0)",
+      "release_version": "47.0",
+      "doc_version": "222.0",
+      "version_url": "atlas.en-us.222.0.api_meta.meta"
+    },
+    {
+      "version_text": "Summer '19 (API version 46.0)",
+      "release_version": "46.0",
+      "doc_version": "220.0",
+      "version_url": "atlas.en-us.220.0.api_meta.meta"
+    },
+    {
+      "version_text": "Spring '19 (API version 45.0)",
+      "release_version": "45.0",
+      "doc_version": "218.0",
+      "version_url": "atlas.en-us.218.0.api_meta.meta"
+    },
+    {
+      "version_text": "Winter '19 (API version 44.0)",
+      "release_version": "44.0",
+      "doc_version": "216.0",
+      "version_url": "atlas.en-us.216.0.api_meta.meta"
+    },
+    {
+      "version_text": "Summer '18 (API version 43.0)",
+      "release_version": "43.0",
+      "doc_version": "214.0",
+      "version_url": "atlas.en-us.214.0.api_meta.meta"
+    },
+    {
+      "version_text": "Spring '18 (API version 42.0)",
+      "release_version": "42.0",
+      "doc_version": "212.0",
+      "version_url": "atlas.en-us.212.0.api_meta.meta"
+    },
+    {
+      "version_text": "Winter '18 (API version 41.0)",
+      "release_version": "41.0",
+      "doc_version": "210.0",
+      "version_url": "atlas.en-us.210.0.api_meta.meta"
+    },
+    {
+      "version_text": "Summer '17 (API version 40.0)",
+      "release_version": "40.0",
+      "doc_version": "208.0",
+      "version_url": "atlas.en-us.208.0.api_meta.meta"
+    },
+    {
+      "version_text": "Spring '17 (API version 39.0)",
+      "release_version": "39.0",
+      "doc_version": "206.0",
+      "version_url": "atlas.en-us.206.0.api_meta.meta"
+    },
+    {
+      "version_text": "Winter '17 (API version 38.0)",
+      "release_version": "38.0",
+      "doc_version": "204.0",
+      "version_url": "atlas.en-us.204.0.api_meta.meta"
+    },
+    {
+      "version_text": "Summer '16 (API version 37.0)",
+      "release_version": "37.0",
+      "doc_version": "202.0",
+      "version_url": "atlas.en-us.202.0.api_meta.meta"
+    },
+    {
+      "version_text": "Spring '16 (API version 36.0)",
+      "release_version": "36.0",
+      "doc_version": "200.0",
+      "version_url": "atlas.en-us.200.0.api_meta.meta"
+    },
+    {
+      "version_text": "Winter '16 (API version 35.0)",
+      "release_version": "35.0",
+      "doc_version": "198.0",
+      "version_url": "atlas.en-us.198.0.api_meta.meta"
+    },
+    {
+      "version_text": "Summer '15 (API version 34.0)",
+      "release_version": "34.0",
+      "doc_version": "196.0",
+      "version_url": "atlas.en-us.196.0.api_meta.meta"
+    },
+    {
+      "version_text": "Spring '15 (API version 33.0)",
+      "release_version": "33.0",
+      "doc_version": "194.0",
+      "version_url": "atlas.en-us.194.0.api_meta.meta"
+    },
+    {
+      "version_text": "Winter '15 (API version 32.0)",
+      "release_version": "32.0",
+      "doc_version": "192.0",
+      "version_url": "atlas.en-us.192.0.api_meta.meta"
+    },
+    {
+      "version_text": "Spring '14 (API version 30.0)",
+      "release_version": "30.0",
+      "doc_version": "188.0",
+      "version_url": "atlas.en-us.188.0.api_meta.meta"
+    }
+  ],
+  "available_languages": [
+    {
+      "label": "ENGLISH",
+      "code": "EN",
+      "locale": "en-us",
+      "url": "atlas.en-us.224.0.api_meta.meta"
+    },
+    {
+      "label": "JAPANESE",
+      "code": "JA",
+      "locale": "ja-jp",
+      "url": "atlas.ja-jp.224.0.api_meta.meta"
+    }
+  ],
+  "html_toc": null
+}

@@ -1,0 +1,1995 @@
+{
+  "content_document_id": "sfdx_dev_intro",
+  "title": "How Salesforce Developer Experience Changes the Way You Work",
+  "content": "<a name=\"sfdx_dev_intro\"><!-- --></a><h1 class=\"helpHead1\"><span class=\"ph\" id=\"topic-title\"><a name=\"topic-title\"><!-- --></a>How Salesforce Developer Experience Changes the Way You Work</span></h1><div class=\"body conbody\">\n<div class=\"shortdesc\">Salesforce Developer Experience (DX) is a new way to manage and develop apps on the\n    Lightning Platform across their entire life cycle. It brings together the best of the Lightning\n    Platform to enable source-driven development, team collaboration with governance, and new levels\n    of agility for custom app development on Salesforce.</div>\n\n<p class=\"p\">Highlights of Salesforce DX include:</p>\n\n<ul class=\"ul bulletList\">\n  <li class=\"li\">Your tools, your way. With Salesforce DX, you use the developer tools you already know.</li>\n\n  <li class=\"li\">The ability to apply best practices to software development. Source code and metadata exist\n        outside of the org and provide more agility to develop Salesforce apps in a team\n        environment. Instead of the org, your version control system is the source of truth.</li>\n\n  <li class=\"li\">A powerful command-line interface (CLI) removes the complexity of working with your Salesforce\n        org for development, continuous integration, and delivery.</li>\n\n  <li class=\"li\">Flexible and configurable scratch orgs that you build for development and automated\n        environments. This new type of org makes it easier to build your apps and packages.</li>\n\n  <li class=\"li\">You can use any IDE or text editor you want with the CLI and externalized source.</li>\n\n  <li class=\"li\">\n<a class=\"xref\" href=\"https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode\" target=\"_blank\">Salesforce Extensions for VS Code</a> to accelerate app\n        development. These tools provide features for working with scratch orgs, Apex, Lightning\n        components, and Visualforce.</li>\n\n</ul>\n\n  <div class=\"section\">\n<h2 class=\"helpHead2\">Are You Ready to Begin?</h2>\n\n      \n      <p class=\"p\">Here’s the basic order for doing your work using Salesforce DX. These workflows include the\n        most common CLI commands. For all commands, see the <cite class=\"cite\">Salesforce CLI Command Reference</cite>.</p>\n\n      <ul class=\"ul bulletList\">\n        <li class=\"li\">\n<a class=\"xref\" href=\"https://developer.salesforce.com/docs/atlas.en-us.224.0.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm\" target=\"_blank\">Enable Dev Hub and install Salesforce CLI</a> in\n            <cite class=\"cite\">Salesforce DX Setup Guide</cite>\n</li>\n\n        <li class=\"li\"><a class=\"xref\" href=\"atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro_sample_repo.htm\" title=\"The quickest way to get going with Salesforce DX is to clone the sfdx-simple GitHub repo. Use its configuration files and Salesforce application to try some commonly used Salesforce CLI commands.\">Use a Sample Repo to Get Started</a></li>\n\n        <li class=\"li\"><a class=\"xref\" href=\"atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro_create_new_app.htm\" title=\"Follow the basic workflow when you are starting from scratch to create and develop an app that runs on the Lightning Platform.\">Create an Application</a></li>\n\n        <li class=\"li\"><a class=\"xref\" href=\"atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro_existing_app.htm\" title=\"Use the Metadata API to retrieve the code, and then convert your source for use in a Salesforce DX project.\">Migrate or Import Existing Source</a></li>\n\n      </ul>\n\n    </div>\n\n</div><div id=\"sfdc:seealso\" class=\"related-links\">\n<ul class=\"ullinks\">\n<li class=\"link ulchildlink\">\n<strong><a href=\"atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro_sample_repo.htm\">Use a Sample Repo to Get Started</a></strong><br>\nThe quickest way to get going with Salesforce DX is to clone the <samp class=\"codeph nolang\">sfdx-simple</samp> GitHub repo. Use its configuration files and \t\tSalesforce application to try some commonly used Salesforce CLI commands.</li>\n<li class=\"link ulchildlink\">\n<strong><a href=\"atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro_create_new_app.htm\">Create an Application</a></strong><br>\nFollow the basic workflow when you are starting from scratch to create and develop an   app that runs on the Lightning Platform.</li>\n<li class=\"link ulchildlink\">\n<strong><a href=\"atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro_existing_app.htm\">Migrate or Import Existing Source</a></strong><br>\nUse the Metadata API to retrieve the code, and then convert your source for use in a     Salesforce DX project. </li>\n</ul>\n<div class=\"relinfo\">\n<h4>See Also</h4>\n<ul class=\"unstyled\">\n<li><div><a class=\"link\" href=\"https://developer.salesforce.com/platform/dx\" target=\"_blank\" title=\"Salesforce DX (Salesforce Developer Center Web Site) - HTML (New Window)\">Salesforce DX (Salesforce Developer Center Web Site)</a></div></li>\n<li><div><a class=\"link\" href=\"https://developer.salesforce.com/blogs/developer-relations/2016/10/salesforce-dx-ux-developers.html\" target=\"_blank\" title=\"Salesforce DX = UX for Developers (Salesforce Developer Blog) - HTML (New Window)\">Salesforce DX = UX for Developers (Salesforce Developer Blog)</a></div></li>\n<li><div><a class=\"link\" href=\"https://developer.salesforce.com/docs/atlas.en-us.224.0.sfdx_cli_reference.meta/sfdx_cli_reference\" target=\"_blank\" title=\"Salesforce CLI Command Reference - HTML (New Window)\"><em class=\"ph i\">Salesforce CLI Command Reference</em></a></div></li>\n</ul>\n</div>\n</div><!--DRC 224.17-->",
+  "toc": [
+    {
+      "children": [
+        {
+          "text": "Use a Sample Repo to Get Started",
+          "a_attr": { "href": "sfdx_dev_intro_sample_repo.htm" },
+          "id": "sfdx_dev_intro_sample_repo"
+        },
+        {
+          "text": "Create an Application",
+          "a_attr": { "href": "sfdx_dev_intro_create_new_app.htm" },
+          "id": "sfdx_dev_intro_create_new_app"
+        },
+        {
+          "text": "Migrate or Import Existing Source",
+          "a_attr": { "href": "sfdx_dev_intro_existing_app.htm" },
+          "id": "sfdx_dev_intro_existing_app"
+        }
+      ],
+      "text": "How Salesforce Developer Experience Changes the Way You Work",
+      "a_attr": { "href": "sfdx_dev_intro.htm" },
+      "id": "sfdx_dev_intro"
+    },
+    {
+      "children": [
+        {
+          "text": "CLI Runtime Configuration Values",
+          "a_attr": { "href": "sfdx_dev_cli_config_values.htm" },
+          "id": "sfdx_dev_cli_config_values"
+        },
+        {
+          "text": "Environment Variables",
+          "a_attr": { "href": "sfdx_dev_cli_env_variables.htm" },
+          "id": "sfdx_dev_cli_env_variables"
+        },
+        {
+          "text": "Autocomplete CLI Commands, Parameters, and File Names",
+          "a_attr": { "href": "sfdx_dev_cli_autocomplete.htm" },
+          "id": "sfdx_dev_cli_autocomplete"
+        },
+        {
+          "text": "Salesforce DX Usernames and Orgs",
+          "a_attr": { "href": "sfdx_dev_cli_usernames_orgs.htm" },
+          "id": "sfdx_dev_cli_usernames_orgs"
+        },
+        {
+          "text": "Override or Add Definition File Options at the Command Line",
+          "a_attr": { "href": "sfdx_dev_cli_override.htm" },
+          "id": "sfdx_dev_cli_override"
+        },
+        {
+          "text": "CLI Parameter Resolution Order",
+          "a_attr": { "href": "sfdx_dev_cli_param_resolution.htm" },
+          "id": "sfdx_dev_cli_param_resolution"
+        },
+        {
+          "text": "Support for JSON Responses",
+          "a_attr": { "href": "sfdx_dev_cli_json_support.htm" },
+          "id": "sfdx_dev_cli_json_support"
+        },
+        {
+          "text": "Log Messages and Log Levels",
+          "a_attr": { "href": "sfdx_dev_cli_log_messages.htm" },
+          "id": "sfdx_dev_cli_log_messages"
+        },
+        {
+          "text": "CLI Deprecation Policy",
+          "a_attr": { "href": "sfdx_dev_cli_deprecation.htm" },
+          "id": "sfdx_dev_cli_deprecation"
+        }
+      ],
+      "text": "Salesforce CLI Configuration and Tips",
+      "a_attr": { "href": "sfdx_dev_cli.htm" },
+      "id": "sfdx_dev_cli"
+    },
+    {
+      "children": [
+        {
+          "text": "Sample Repository on GitHub",
+          "a_attr": { "href": "sfdx_dev_ws_clone_repo.htm" },
+          "id": "sfdx_dev_ws_clone_repo"
+        },
+        {
+          "text": "Create a Salesforce DX Project",
+          "a_attr": { "href": "sfdx_dev_ws_create_new.htm" },
+          "id": "sfdx_dev_ws_create_new"
+        },
+        {
+          "text": "Create a Salesforce DX Project from Existing Source",
+          "a_attr": { "href": "sfdx_dev_ws_create_from_existing.htm" },
+          "id": "sfdx_dev_ws_create_from_existing"
+        },
+        {
+          "text": "Retrieve Source from an Existing Managed Package",
+          "a_attr": { "href": "sfdx_dev_ws_retrieve_man_pack.htm" },
+          "id": "sfdx_dev_ws_retrieve_man_pack"
+        },
+        {
+          "text": "Retrieve Unpackaged Source Defined in a package.xml File",
+          "a_attr": { "href": "sfdx_dev_ws_retrieve_pack_xml.htm" },
+          "id": "sfdx_dev_ws_retrieve_pack_xml"
+        },
+        {
+          "text": "Convert the Metadata Source to Source Format",
+          "a_attr": { "href": "sfdx_dev_ws_convert_mdapi.htm" },
+          "id": "sfdx_dev_ws_convert_mdapi"
+        },
+        {
+          "text": "Link a Namespace to a Dev Hub Org",
+          "a_attr": { "href": "sfdx_dev_reg_namespace.htm" },
+          "id": "sfdx_dev_reg_namespace"
+        },
+        {
+          "text": "Salesforce DX Project Configuration",
+          "a_attr": { "href": "sfdx_dev_ws_config.htm" },
+          "id": "sfdx_dev_ws_config"
+        }
+      ],
+      "text": "Project Setup",
+      "a_attr": { "href": "sfdx_dev_workspace_setup.htm" },
+      "id": "sfdx_dev_workspace_setup"
+    },
+    {
+      "children": [
+        {
+          "text": "Authorize an Org Using the Web-Based Flow",
+          "a_attr": { "href": "sfdx_dev_auth_web_flow.htm" },
+          "id": "sfdx_dev_auth_web_flow"
+        },
+        {
+          "children": [
+            {
+              "text": "Authorize a Scratch Org",
+              "a_attr": {
+                "href": "sfdx_dev_auth_jwt_flow.htm#sfdx_dev_auth_jwt_scratch"
+              },
+              "id": "sfdx_dev_auth_jwt_flow-sfdx_dev_auth_jwt_scratch"
+            }
+          ],
+          "text": "Authorize an Org Using the JWT-Based Flow",
+          "a_attr": {
+            "href": "sfdx_dev_auth_jwt_flow.htm#sfdx_dev_auth_jwt_flow"
+          },
+          "id": "sfdx_dev_auth_jwt_flow-sfdx_dev_auth_jwt_flow"
+        },
+        {
+          "text": "Create a Private Key and Self-Signed Digital Certificate",
+          "a_attr": { "href": "sfdx_dev_auth_key_and_cert.htm" },
+          "id": "sfdx_dev_auth_key_and_cert"
+        },
+        {
+          "text": "Create a Connected App",
+          "a_attr": { "href": "sfdx_dev_auth_connected_app.htm" },
+          "id": "sfdx_dev_auth_connected_app"
+        },
+        {
+          "text": "Use an Existing Access Token Instead of Authorizing",
+          "a_attr": { "href": "sfdx_dev_auth_existing_access_token.htm" },
+          "id": "sfdx_dev_auth_existing_access_token"
+        },
+        {
+          "text": "Authorization Information for an Org",
+          "a_attr": { "href": "sfdx_dev_auth_view_info.htm" },
+          "id": "sfdx_dev_auth_view_info"
+        },
+        {
+          "text": "Log Out of an Org",
+          "a_attr": { "href": "sfdx_dev_auth_logout.htm" },
+          "id": "sfdx_dev_auth_logout"
+        }
+      ],
+      "text": "Authorization",
+      "a_attr": { "href": "sfdx_dev_auth.htm" },
+      "id": "sfdx_dev_auth"
+    },
+    {
+      "text": "Metadata Coverage",
+      "a_attr": { "href": "sfdx_dev_supported_mdapi_types.htm" },
+      "id": "sfdx_dev_supported_mdapi_types"
+    },
+    {
+      "children": [
+        {
+          "text": "Scratch Org Definition File",
+          "a_attr": { "href": "sfdx_dev_scratch_orgs_def_file.htm" },
+          "id": "sfdx_dev_scratch_orgs_def_file"
+        },
+        {
+          "children": [
+            {
+              "text": "AddCustomApps:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_addcustomapps"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_addcustomapps"
+            },
+            {
+              "text": "AddCustomObjects:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_addcustomobjects"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_addcustomobjects"
+            },
+            {
+              "text": "AddCustomRelationships:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_addcustomrelationships"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_addcustomrelationships"
+            },
+            {
+              "text": "AddCustomTabs:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_addcustomtabs"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_addcustomtabs"
+            },
+            {
+              "text": "AddDataComCRMRecordCredit:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_adddatacomcrmrecordcredit"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_adddatacomcrmrecordcredit"
+            },
+            {
+              "text": "AddInsightsQueryLimit:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_addinsightsquerylimit"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_addinsightsquerylimit"
+            },
+            {
+              "text": "AdditionalFieldHistory:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_additionalfieldhistory"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_additionalfieldhistory"
+            },
+            {
+              "text": "AnalyticsAdminPerms",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_analyticsadminperms"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_analyticsadminperms"
+            },
+            {
+              "text": "API",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_api"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_api"
+            },
+            {
+              "text": "AuthorApex",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_authorapex"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_authorapex"
+            },
+            {
+              "text": "BigObjectsBulkAPI",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_bigobjectsbulkapi"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_bigobjectsbulkapi"
+            },
+            {
+              "text": "CalloutSizeMB:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_calloutsizemb"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_calloutsizemb"
+            },
+            {
+              "text": "CascadeDelete",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_cascadedelete"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_cascadedelete"
+            },
+            {
+              "text": "CaseClassification",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_caseclassification"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_caseclassification"
+            },
+            {
+              "text": "ChangeDataCapture",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_changedatacapture"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_changedatacapture"
+            },
+            {
+              "text": "Chatbot",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_chatbot"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_chatbot"
+            },
+            {
+              "text": "CMSMaxContType",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_cmsmaxconttype"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_cmsmaxconttype"
+            },
+            {
+              "text": "CMSMaxNodesPerContType",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_cmsmaxnodesperconttype"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_cmsmaxnodesperconttype"
+            },
+            {
+              "text": "CMSUnlimitedUse",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_cmsunlimiteduse"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_cmsunlimiteduse"
+            },
+            {
+              "text": "Communities",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_communities"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_communities"
+            },
+            {
+              "text": "ConAppPluginExecuteAsUser",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_conapppluginexecuteasuser"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_conapppluginexecuteasuser"
+            },
+            {
+              "text": "ConcStreamingClients:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_concstreamingclients"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_concstreamingclients"
+            },
+            {
+              "text": "ConnectedAppToolingAPI",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_connectedapptoolingapi"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_connectedapptoolingapi"
+            },
+            {
+              "text": "ConsolePersistenceInterval:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_consolepersistenceinterval"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_consolepersistenceinterval"
+            },
+            {
+              "text": "ContactsToMultipleAccounts",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_contactstomultipleaccounts"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_contactstomultipleaccounts"
+            },
+            {
+              "text": "ContractApprovals",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_contractapprovals"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_contractapprovals"
+            },
+            {
+              "text": "CPQ",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_cpq"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_cpq"
+            },
+            {
+              "text": "CustomNotificationType",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_customnotificationtype"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_customnotificationtype"
+            },
+            {
+              "text": "DataComDnbAccounts",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_datacomdnbaccounts"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_datacomdnbaccounts"
+            },
+            {
+              "text": "DataComFullClean",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_datacomfullclean"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_datacomfullclean"
+            },
+            {
+              "text": "DataMaskUser",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_datamaskuser"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_datamaskuser"
+            },
+            {
+              "text": "DebugApex",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_debugapex"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_debugapex"
+            },
+            {
+              "text": "DefaultWorkflowUser",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_defaultworkflowuser"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_defaultworkflowuser"
+            },
+            {
+              "text": "DeferSharingCalc",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_defersharingcalc"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_defersharingcalc"
+            },
+            {
+              "text": "DensityValue",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_densityvalue"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_densityvalue"
+            },
+            {
+              "text": "DevelopmentWave",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_developmentwave"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_developmentwave"
+            },
+            {
+              "text": "DeviceTrackingEnabled",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_devicetrackingenabled"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_devicetrackingenabled"
+            },
+            {
+              "text": "DisableManageIdConfAPI",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_disablemanageidconfapi"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_disablemanageidconfapi"
+            },
+            {
+              "text": "Division",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_division"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_division"
+            },
+            {
+              "text": "DocumentChecklist",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_documentchecklist"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_documentchecklist"
+            },
+            {
+              "text": "DurableClassicStreamingAPI",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_durableclassicstreamingapi"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_durableclassicstreamingapi"
+            },
+            {
+              "text": "DurableGenericStreamingAPI",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_durablegenericstreamingapi"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_durablegenericstreamingapi"
+            },
+            {
+              "text": "DynamicClientCreationLimit",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_dynamicclientcreationlimit"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_dynamicclientcreationlimit"
+            },
+            {
+              "text": "EinsteinAnalyticsPlus",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_einsteinanalyticsplus"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_einsteinanalyticsplus"
+            },
+            {
+              "text": "EinsteinArticleRecommendations",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_einsteinarticlerecommendations"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_einsteinarticlerecommendations"
+            },
+            {
+              "text": "EinsteinBuilderFree",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_einsteinbuilderfree"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_einsteinbuilderfree"
+            },
+            {
+              "text": "EmbeddedLoginForIE",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_embeddedloginforie"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_embeddedloginforie"
+            },
+            {
+              "text": "EmpPublishRateLimit:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_emppublishratelimit"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_emppublishratelimit"
+            },
+            {
+              "text": "EnablePRM",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_enableprm"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_enableprm"
+            },
+            {
+              "text": "EnableManageIdConfUI",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_enablemanageidconfui"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_enablemanageidconfui"
+            },
+            {
+              "text": "Entitlements",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_entitlements"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_entitlements"
+            },
+            {
+              "text": "EventLogFile",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_eventlogfile"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_eventlogfile"
+            },
+            {
+              "text": "ExternalIdentityLogin",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_externalidentitylogin"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_externalidentitylogin"
+            },
+            {
+              "text": "ExternalSharing",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_externalsharing"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_externalsharing"
+            },
+            {
+              "text": "FieldAuditTrail",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_fieldaudittrail"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_fieldaudittrail"
+            },
+            {
+              "text": "FieldService",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_fieldservice"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_fieldservice"
+            },
+            {
+              "text": "FinancialServicesCommunityUser:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_financialservicescommunityuser"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_financialservicescommunityuser"
+            },
+            {
+              "text": "FinancialServicesUser:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_financialservicesuser"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_financialservicesuser"
+            },
+            {
+              "text": "FlowSites",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_flowsites"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_flowsites"
+            },
+            {
+              "text": "ForceComPlatform",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_forcecomplatform"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_forcecomplatform"
+            },
+            {
+              "text": "GenericStreaming",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_genericstreaming"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_genericstreaming"
+            },
+            {
+              "text": "GenStreamingEventsPerDay:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_genstreamingeventsperday"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_genstreamingeventsperday"
+            },
+            {
+              "text": "HealthCloudUser",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_healthclouduser"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_healthclouduser"
+            },
+            {
+              "text": "HighVelocitySales",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_highvelocitysales"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_highvelocitysales"
+            },
+            {
+              "text": "HoursBetweenCoverageJob:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_hoursbetweencoveragejob"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_hoursbetweencoveragejob"
+            },
+            {
+              "text": "IdentityProvisioningFeatures",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_identityprovisioningfeatures"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_identityprovisioningfeatures"
+            },
+            {
+              "text": "IgnoreQueryParamWhitelist",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_ignorequeryparamwhitelist"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_ignorequeryparamwhitelist"
+            },
+            {
+              "text": "IndustriesActionPlan",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_industriesactionplan"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_industriesactionplan"
+            },
+            {
+              "text": "IndustriesManufacturing",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_industriesmanufacturing"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_industriesmanufacturing"
+            },
+            {
+              "text": "IndustriesManufacturingCmty",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_industriesmanufacturingcmty"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_industriesmanufacturingcmty"
+            },
+            {
+              "text": "IndustriesMfgAccountForecast",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_industriesmfgaccountforecast"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_industriesmfgaccountforecast"
+            },
+            {
+              "text": "InsightsPlatform",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_insightsplatform"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_insightsplatform"
+            },
+            {
+              "text": "Interaction",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_interaction"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_interaction"
+            },
+            {
+              "text": "IoT",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_iot"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_iot"
+            },
+            {
+              "text": "JigsawUser",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_jigsawuser"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_jigsawuser"
+            },
+            {
+              "text": "Knowledge",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_knowledge"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_knowledge"
+            },
+            {
+              "text": "LegacyLiveAgentRouting",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_legacyliveagentrouting"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_legacyliveagentrouting"
+            },
+            {
+              "text": "LightningSalesConsole",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_lightningsalesconsole"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_lightningsalesconsole"
+            },
+            {
+              "text": "LightningScheduler",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_lightningscheduler"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_lightningscheduler"
+            },
+            {
+              "text": "LightningServiceConsole",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_lightningserviceconsole"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_lightningserviceconsole"
+            },
+            {
+              "text": "ListCustomSettingCreation",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_listcustomsettingcreation"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_listcustomsettingcreation"
+            },
+            {
+              "text": "LiveAgent",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_liveagent"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_liveagent"
+            },
+            {
+              "text": "LiveMessage",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_livemessage"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_livemessage"
+            },
+            {
+              "text": "Macros",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_macros"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_macros"
+            },
+            {
+              "text": "MarketingUser",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_marketinguser"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_marketinguser"
+            },
+            {
+              "text": "MaxApexCodeSize",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_maxapexcodesize"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_maxapexcodesize"
+            },
+            {
+              "text": "MaxAudTypeCriterionPerAud",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_maxaudtypecriterionperaud"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_maxaudtypecriterionperaud"
+            },
+            {
+              "text": "MaxCustomLabels:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_maxcustomlabels"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_maxcustomlabels"
+            },
+            {
+              "text": "MaxFavoritesAllowed:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_maxfavoritesallowed"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_maxfavoritesallowed"
+            },
+            {
+              "text": "MaxNoOfLexThemesAllowed:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_maxnooflexthemesallowed"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_maxnooflexthemesallowed"
+            },
+            {
+              "text": "MaxStreamingTopics:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_maxstreamingtopics"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_maxstreamingtopics"
+            },
+            {
+              "text": "MaxUserNavItemsAllowed:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_maxusernavitemsallowed"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_maxusernavitemsallowed"
+            },
+            {
+              "text": "MaxUserStreamingChannels:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_maxuserstreamingchannels"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_maxuserstreamingchannels"
+            },
+            {
+              "text": "MedVisDescriptorLimit:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_medvisdescriptorlimit"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_medvisdescriptorlimit"
+            },
+            {
+              "text": "MobileExtMaxFileSizeMB:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_mobileextmaxfilesizemb"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_mobileextmaxfilesizemb"
+            },
+            {
+              "text": "MobileSecurity",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_mobilesecurity"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_mobilesecurity"
+            },
+            {
+              "text": "MultiCurrency",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_multicurrency"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_multicurrency"
+            },
+            {
+              "text": "MultiLevelMasterDetail",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_multilevelmasterdetail"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_multilevelmasterdetail"
+            },
+            {
+              "text": "MutualAuthentication",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_mutualauthentication"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_mutualauthentication"
+            },
+            {
+              "text": "NumPlatformEvents:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_numplatformevents"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_numplatformevents"
+            },
+            {
+              "text": "ObjectLinking",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_objectlinking"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_objectlinking"
+            },
+            {
+              "text": "OutboundMessageHTTPSession",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_outboundmessagehttpsession"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_outboundmessagehttpsession"
+            },
+            {
+              "text": "PardotScFeaturesCampaignInfluence",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_pardotscfeaturescampaigninfluence"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_pardotscfeaturescampaigninfluence"
+            },
+            {
+              "text": "PersonAccounts",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_personaccounts"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_personaccounts"
+            },
+            {
+              "text": "PlatformCache",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_platformcache"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_platformcache"
+            },
+            {
+              "text": "PlatformConnect",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_platformconnect"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_platformconnect"
+            },
+            {
+              "text": "PlatformEncryption",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_platformencryption"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_platformencryption"
+            },
+            {
+              "text": "PlatformEventsPerDay",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_platformeventsperday"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_platformeventsperday"
+            },
+            {
+              "text": "ProcessBuilder",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_processbuilder"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_processbuilder"
+            },
+            {
+              "text": "ProductsAndSchedules",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_productsandschedules"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_productsandschedules"
+            },
+            {
+              "text": "RecordTypes",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_recordtypes"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_recordtypes"
+            },
+            {
+              "text": "RefreshOnInvalidSession",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_refreshoninvalidsession"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_refreshoninvalidsession"
+            },
+            {
+              "text": "S1ClientComponentCacheSize",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_s1clientcomponentcachesize"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_s1clientcomponentcachesize"
+            },
+            {
+              "text": "SalesCloudEinstein",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_salescloudeinstein"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_salescloudeinstein"
+            },
+            {
+              "text": "SalesforceContentUser",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_salesforcecontentuser"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_salesforcecontentuser"
+            },
+            {
+              "text": "SalesforceIdentityForCommunities",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_salesforceidentityforcommunities"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_salesforceidentityforcommunities"
+            },
+            {
+              "text": "SalesUser",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_salesuser"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_salesuser"
+            },
+            {
+              "text": "SAML20SingleLogout",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_saml20singlelogout"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_saml20singlelogout"
+            },
+            {
+              "text": "SCIMProtocol",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_scimprotocol"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_scimprotocol"
+            },
+            {
+              "text": "SecurityEventEnabled",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_securityeventenabled"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_securityeventenabled"
+            },
+            {
+              "text": "ServiceCloud",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_servicecloud"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_servicecloud"
+            },
+            {
+              "text": "ServiceUser",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_serviceuser"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_serviceuser"
+            },
+            {
+              "text": "SessionIdInLogEnabled",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_sessionidinlogenabled"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_sessionidinlogenabled"
+            },
+            {
+              "text": "SingleSignOn",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_singlesignon"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_singlesignon"
+            },
+            {
+              "text": "Sites",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_sites"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_sites"
+            },
+            {
+              "text": "SocialCustomerService",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_socialcustomerservice"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_socialcustomerservice"
+            },
+            {
+              "text": "StateAndCountryPicklist",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_stateandcountrypicklist"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_stateandcountrypicklist"
+            },
+            {
+              "text": "StreamingAPI",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_streamingapi"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_streamingapi"
+            },
+            {
+              "text": "StreamingEventsPerDay:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_streamingeventsperday"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_streamingeventsperday"
+            },
+            {
+              "text": "SubPerStreamingChannel:<value>",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_subperstreamingchannel"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_subperstreamingchannel"
+            },
+            {
+              "text": "SubPerStreamingTopic",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_subperstreamingtopic"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_subperstreamingtopic"
+            },
+            {
+              "text": "SustainabilityCloud",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_sustainabilitycloud"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_sustainabilitycloud"
+            },
+            {
+              "text": "TerritoryManagement",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_territorymanagement"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_territorymanagement"
+            },
+            {
+              "text": "TimeSheetTemplateSettings",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_timesheettemplatesettings"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_timesheettemplatesettings"
+            },
+            {
+              "text": "TransactionFinalizers",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_transactionfinalizers"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_transactionfinalizers"
+            },
+            {
+              "text": "WavePlatform",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_waveplatform"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_waveplatform"
+            },
+            {
+              "text": "Workflow",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_workflow"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_workflow"
+            },
+            {
+              "text": "WorkflowFlowActionFeature",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_workflowflowactionfeature"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_workflowflowactionfeature"
+            },
+            {
+              "text": "WorkThanksPref",
+              "a_attr": {
+                "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#so_workthankspref"
+              },
+              "id": "sfdx_dev_scratch_orgs_def_file_config_values-so_workthankspref"
+            }
+          ],
+          "text": "Scratch Org Definition Configuration Values",
+          "a_attr": {
+            "href": "sfdx_dev_scratch_orgs_def_file_config_values.htm#sfdx_dev_scratch_orgs_def_file_config_values"
+          },
+          "id": "sfdx_dev_scratch_orgs_def_file_config_values-sfdx_dev_scratch_orgs_def_file_config_values"
+        },
+        {
+          "text": "Scratch Org Settings",
+          "a_attr": { "href": "sfdx_dev_scratch_orgs_settings.htm" },
+          "id": "sfdx_dev_scratch_orgs_settings"
+        },
+        {
+          "text": "Create Scratch Orgs",
+          "a_attr": { "href": "sfdx_dev_scratch_orgs_create.htm" },
+          "id": "sfdx_dev_scratch_orgs_create"
+        },
+        {
+          "text": "Select the Salesforce Release for a Scratch Org",
+          "a_attr": { "href": "sfdx_dev_scratch_orgs_version_selection.htm" },
+          "id": "sfdx_dev_scratch_orgs_version_selection"
+        },
+        {
+          "text": "Salesforce DX Project Structure and Source Format",
+          "a_attr": { "href": "sfdx_dev_source_file_format.htm" },
+          "id": "sfdx_dev_source_file_format"
+        },
+        {
+          "children": [
+            {
+              "text": "How to Exclude Source When Syncing or Converting",
+              "a_attr": { "href": "sfdx_dev_exclude_source.htm" },
+              "id": "sfdx_dev_exclude_source"
+            }
+          ],
+          "text": "Push Source to the Scratch Org",
+          "a_attr": { "href": "sfdx_dev_push_md_to_scratch_org.htm" },
+          "id": "sfdx_dev_push_md_to_scratch_org"
+        },
+        {
+          "text": "Assign a Permission Set",
+          "a_attr": { "href": "sfdx_dev_assign_permset.htm" },
+          "id": "sfdx_dev_assign_permset"
+        },
+        {
+          "children": [
+            {
+              "text": "Example: Export and Import Data Between Orgs",
+              "a_attr": { "href": "sfdx_dev_test_data_example.htm" },
+              "id": "sfdx_dev_test_data_example"
+            }
+          ],
+          "text": "Ways to Add Data to Your Scratch Org",
+          "a_attr": { "href": "sfdx_dev_test_data.htm" },
+          "id": "sfdx_dev_test_data"
+        },
+        {
+          "text": "Pull Source from the Scratch Org to Your Project",
+          "a_attr": { "href": "sfdx_dev_pull_md_from_scratch_org.htm" },
+          "id": "sfdx_dev_pull_md_from_scratch_org"
+        },
+        {
+          "text": "Track Changes Between the Project and Scratch Org",
+          "a_attr": { "href": "sfdx_dev_track_changes.htm" },
+          "id": "sfdx_dev_track_changes"
+        },
+        {
+          "children": [
+            {
+              "text": "Create a Scratch Org User",
+              "a_attr": { "href": "sfdx_dev_scratch_orgs_create_users.htm" },
+              "id": "sfdx_dev_scratch_orgs_create_users"
+            },
+            {
+              "text": "User Definition File for Customizing a Scratch Org User",
+              "a_attr": { "href": "sfdx_dev_scratch_orgs_users_def_file.htm" },
+              "id": "sfdx_dev_scratch_orgs_users_def_file"
+            },
+            {
+              "text": "Generate or Change a Password for a Scratch Org User",
+              "a_attr": { "href": "sfdx_dev_scratch_orgs_passwd.htm" },
+              "id": "sfdx_dev_scratch_orgs_passwd"
+            }
+          ],
+          "text": "Scratch Org Users",
+          "a_attr": { "href": "sfdx_dev_scratch_orgs_users.htm" },
+          "id": "sfdx_dev_scratch_orgs_users"
+        },
+        {
+          "text": "Manage Scratch Orgs from Dev Hub",
+          "a_attr": { "href": "sfdx_dev_scratch_orgs_view_lex.htm" },
+          "id": "sfdx_dev_scratch_orgs_view_lex"
+        }
+      ],
+      "text": "Scratch Orgs",
+      "a_attr": { "href": "sfdx_dev_scratch_orgs.htm" },
+      "id": "sfdx_dev_scratch_orgs"
+    },
+    {
+      "children": [
+        {
+          "text": "Authorize in to Your Production Org",
+          "a_attr": { "href": "sfdx_dev_auth_prod_org.htm" },
+          "id": "sfdx_dev_auth_prod_org"
+        },
+        {
+          "text": "Create a Sandbox Definition File (Beta)",
+          "a_attr": { "href": "sfdx_dev_sandbox_definition.htm" },
+          "id": "sfdx_dev_sandbox_definition"
+        },
+        {
+          "text": "Create, Clone, or Delete a Sandbox (Beta)",
+          "a_attr": { "href": "sfdx_dev_create_clone_sandboxes.htm" },
+          "id": "sfdx_dev_create_clone_sandboxes"
+        }
+      ],
+      "text": "Sandboxes",
+      "a_attr": { "href": "sfdx_dev_sandboxes.htm" },
+      "id": "sfdx_dev_sandboxes"
+    },
+    {
+      "children": [
+        {
+          "text": "Develop Against Any Org",
+          "a_attr": { "href": "sfdx_dev_develop_any_org.htm" },
+          "id": "sfdx_dev_develop_any_org"
+        },
+        {
+          "text": "Create Lightning Apps and Aura Components",
+          "a_attr": { "href": "sfdx_dev_develop_create_lightning.htm" },
+          "id": "sfdx_dev_develop_create_lightning"
+        },
+        {
+          "text": "Create Lightning Web Components",
+          "a_attr": { "href": "sfdx_dev_develop_create_lwc.htm" },
+          "id": "sfdx_dev_develop_create_lwc"
+        },
+        {
+          "text": "Create an Apex Class",
+          "a_attr": { "href": "sfdx_dev_develop_create_apex.htm" },
+          "id": "sfdx_dev_develop_create_apex"
+        },
+        {
+          "text": "Create an Apex Trigger",
+          "a_attr": { "href": "sfdx_dev_develop_create_trigger.htm" },
+          "id": "sfdx_dev_develop_create_trigger"
+        },
+        {
+          "text": "Testing",
+          "a_attr": { "href": "sfdx_dev_testing.htm" },
+          "id": "sfdx_dev_testing"
+        },
+        {
+          "text": "View Apex Debug Logs",
+          "a_attr": { "href": "sfdx_dev_develop_view_apex_debug_logs.htm" },
+          "id": "sfdx_dev_develop_view_apex_debug_logs"
+        },
+        {
+          "text": "Apex Debugger",
+          "a_attr": { "href": "sfdx_dev_develop_apex_debugger.htm" },
+          "id": "sfdx_dev_develop_apex_debugger"
+        }
+      ],
+      "text": "Development",
+      "a_attr": { "href": "sfdx_dev_develop.htm" },
+      "id": "sfdx_dev_develop"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "text": "Develop and Test Changes Locally",
+              "a_attr": { "href": "sfdx_dev_build_mdapi_deploy.htm" },
+              "id": "sfdx_dev_build_mdapi_deploy"
+            },
+            {
+              "text": "Build and Test the Release Artifact",
+              "a_attr": { "href": "sfdx_dev_build_release_artifact.htm" },
+              "id": "sfdx_dev_build_release_artifact"
+            },
+            {
+              "text": "Test the Release Artifact in a Staging Environment",
+              "a_attr": { "href": "sfdx_dev_build_mdapi_staging.htm" },
+              "id": "sfdx_dev_build_mdapi_staging"
+            },
+            {
+              "text": "Release Your App to Production",
+              "a_attr": { "href": "sfdx_dev_build_mdapi_production.htm" },
+              "id": "sfdx_dev_build_mdapi_production"
+            },
+            {
+              "text": "Cancel a Metadata Deployment",
+              "a_attr": { "href": "sfdx_dev_build_mdapi_cancel_deploy.htm" },
+              "id": "sfdx_dev_build_mdapi_cancel_deploy"
+            }
+          ],
+          "text": "Build and Release Your App with Metadata API",
+          "a_attr": { "href": "sfdx_dev_build_mdapi.htm" },
+          "id": "sfdx_dev_build_mdapi"
+        }
+      ],
+      "text": "Build and Release Your App",
+      "a_attr": { "href": "sfdx_dev_build_and_release_your_app.htm" },
+      "id": "sfdx_dev_build_and_release_your_app"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "text": "Packaging Checklist",
+              "a_attr": { "href": "sfdx_dev_build_package_checklist.htm" },
+              "id": "sfdx_dev_build_package_checklist"
+            },
+            {
+              "text": "Deploy the Package Metadata to the Packaging Org",
+              "a_attr": { "href": "sfdx_dev_build_man_pack_deploy.htm" },
+              "id": "sfdx_dev_build_man_pack_deploy"
+            },
+            {
+              "text": "Create a Beta Version of Your App",
+              "a_attr": { "href": "sfdx_dev_build_man_pack_beta.htm" },
+              "id": "sfdx_dev_build_man_pack_beta"
+            },
+            {
+              "text": "Install the Package in a Target Org",
+              "a_attr": { "href": "sfdx_dev_build_man_pack_install.htm" },
+              "id": "sfdx_dev_build_man_pack_install"
+            },
+            {
+              "text": "Create a Managed Package Version of Your App",
+              "a_attr": { "href": "sfdx_dev_build_man_pack_create.htm" },
+              "id": "sfdx_dev_build_man_pack_create"
+            }
+          ],
+          "text": "Build and Release Your App with Managed Packages",
+          "a_attr": { "href": "sfdx_dev_build_man_pack.htm" },
+          "id": "sfdx_dev_build_man_pack"
+        },
+        {
+          "children": [
+            {
+              "text": "View All Package Versions in the Org",
+              "a_attr": {
+                "href": "sfdx_dev_build_man_pack_viewinfo_all_pack.htm"
+              },
+              "id": "sfdx_dev_build_man_pack_viewinfo_all_pack"
+            },
+            {
+              "text": "Package IDs",
+              "a_attr": { "href": "sfdx_dev_build_package_ids.htm" },
+              "id": "sfdx_dev_build_package_ids"
+            }
+          ],
+          "text": "View Information About a Package",
+          "a_attr": { "href": "sfdx_dev_build_man_pack_viewinfo.htm" },
+          "id": "sfdx_dev_build_man_pack_viewinfo"
+        }
+      ],
+      "text": "First-Generation Managed Packages",
+      "a_attr": { "href": "sfdx_dev_build_release.htm" },
+      "id": "sfdx_dev_build_release"
+    },
+    {
+      "children": [
+        {
+          "text": "What’s a Package?",
+          "a_attr": { "href": "sfdx_dev_dev2gp_pkg_whats_a_package.htm" },
+          "id": "sfdx_dev_dev2gp_pkg_whats_a_package"
+        },
+        {
+          "text": "Comparison of 2GP and 1GP Managed Packages",
+          "a_attr": { "href": "sfdx_dev_dev2gp_comparison.htm" },
+          "id": "sfdx_dev_dev2gp_comparison"
+        },
+        {
+          "children": [
+            {
+              "text": "Create and Register Your Namespace",
+              "a_attr": { "href": "sfdx_dev_dev2gp_create_namespace.htm" },
+              "id": "sfdx_dev_dev2gp_create_namespace"
+            }
+          ],
+          "text": "Namespaces",
+          "a_attr": { "href": "sfdx_dev_dev2gp_plan_namespaces.htm" },
+          "id": "sfdx_dev_dev2gp_plan_namespaces"
+        },
+        {
+          "text": "Package IDs and Aliases",
+          "a_attr": { "href": "sfdx_dev_dev2gp_plan_pkg_types_pkg_ids.htm" },
+          "id": "sfdx_dev_dev2gp_plan_pkg_types_pkg_ids"
+        },
+        {
+          "children": [
+            {
+              "text": "Know Your Orgs",
+              "a_attr": { "href": "sfdx_dev_dev2gp_before_know_orgs.htm" },
+              "id": "sfdx_dev_dev2gp_before_know_orgs"
+            }
+          ],
+          "text": "Before You Create Second-Generation Managed Packages",
+          "a_attr": { "href": "sfdx_dev_dev2gp_before.htm" },
+          "id": "sfdx_dev_dev2gp_before"
+        },
+        {
+          "text": "Workflow for Second-Generation Packages",
+          "a_attr": { "href": "sfdx_dev_dev2gp_workflow.htm" },
+          "id": "sfdx_dev_dev2gp_workflow"
+        },
+        {
+          "children": [
+            {
+              "text": "Project Configuration File for Packages",
+              "a_attr": { "href": "sfdx_dev2gp_config_file.htm" },
+              "id": "sfdx_dev2gp_config_file"
+            },
+            {
+              "text": "Keywords",
+              "a_attr": { "href": "sfdx_dev_dev2gp_config_keywords.htm" },
+              "id": "sfdx_dev_dev2gp_config_keywords"
+            },
+            {
+              "text": "Package Installation Key",
+              "a_attr": { "href": "sfdx_dev_dev2gp_config_installkey.htm" },
+              "id": "sfdx_dev_dev2gp_config_installkey"
+            },
+            {
+              "text": "Customize Package Installs and Uninstalls Using Scripts",
+              "a_attr": { "href": "sfdx_dev_dev2gp_customize_installs.htm" },
+              "id": "sfdx_dev_dev2gp_customize_installs"
+            },
+            {
+              "text": "Share Release Notes and Post-Install Instructions",
+              "a_attr": { "href": "sfdx_dev_dev2gp_release_note_urls.htm" },
+              "id": "sfdx_dev_dev2gp_release_note_urls"
+            }
+          ],
+          "text": "Configure Packages",
+          "a_attr": { "href": "sfdx_dev_dev2gp_config.htm" },
+          "id": "sfdx_dev_dev2gp_config"
+        },
+        {
+          "text": "Best Practices for Second-Generation Managed Packages",
+          "a_attr": { "href": "sfdx_dev_dev2gp_plan_best_practices.htm" },
+          "id": "sfdx_dev_dev2gp_plan_best_practices"
+        },
+        {
+          "text": "Frequently Used Packaging Operations",
+          "a_attr": { "href": "sfdx_dev_dev2gp_packaging_operations.htm" },
+          "id": "sfdx_dev_dev2gp_packaging_operations"
+        },
+        {
+          "children": [
+            {
+              "text": "Generate the Package",
+              "a_attr": { "href": "sfdx_dev_dev2gp_create_pkg_base.htm" },
+              "id": "sfdx_dev_dev2gp_create_pkg_base"
+            },
+            {
+              "text": "Generate a Package Version",
+              "a_attr": { "href": "sfdx_dev_dev2gp_create_pkg_ver.htm" },
+              "id": "sfdx_dev_dev2gp_create_pkg_ver"
+            },
+            {
+              "text": "Create a Patch Version",
+              "a_attr": { "href": "sfdx_dev_dev2gp_create_patch_version.htm" },
+              "id": "sfdx_dev_dev2gp_create_patch_version"
+            },
+            {
+              "text": "Package Ancestors",
+              "a_attr": { "href": "sfdx_dev_dev2gp_config_ancestors.htm" },
+              "id": "sfdx_dev_dev2gp_config_ancestors"
+            },
+            {
+              "text": "Package Upgrades in Second-Generation Managed Packaging",
+              "a_attr": { "href": "sfdx_dev_dev2gp_config_upgrades.htm" },
+              "id": "sfdx_dev_dev2gp_config_upgrades"
+            },
+            {
+              "text": "Code Coverage for 2GP Managed Packages",
+              "a_attr": { "href": "sfdx_dev_dev2gp_code_coverage.htm" },
+              "id": "sfdx_dev_dev2gp_code_coverage"
+            },
+            {
+              "text": "Release a Second-Generation Managed Package",
+              "a_attr": {
+                "href": "sfdx_dev_dev2gp_create_pkg_ver_promote.htm"
+              },
+              "id": "sfdx_dev_dev2gp_create_pkg_ver_promote"
+            },
+            {
+              "text": "Update a Package Version",
+              "a_attr": { "href": "sfdx_dev_dev2gp_create_pkg_ver_update.htm" },
+              "id": "sfdx_dev_dev2gp_create_pkg_ver_update"
+            },
+            {
+              "text": "View Package Details",
+              "a_attr": { "href": "sfdx_dev_dev2gp_view_pkg_details.htm" },
+              "id": "sfdx_dev_dev2gp_view_pkg_details"
+            }
+          ],
+          "text": "Create a Package",
+          "a_attr": { "href": "sfdx_dev_dev2gp_create_pkg.htm" },
+          "id": "sfdx_dev_dev2gp_create_pkg"
+        },
+        {
+          "children": [
+            {
+              "text": "Install Packages with the CLI",
+              "a_attr": { "href": "sfdx_dev_dev2gp_install_pkg_cli.htm" },
+              "id": "sfdx_dev_dev2gp_install_pkg_cli"
+            },
+            {
+              "text": "Install Packages from a URL",
+              "a_attr": { "href": "sfdx_dev_dev2gp_install_pkg_ui.htm" },
+              "id": "sfdx_dev_dev2gp_install_pkg_ui"
+            },
+            {
+              "text": "Upgrade a Package Version",
+              "a_attr": { "href": "sfdx_dev_dev2gp_install_pkg_upgrade.htm" },
+              "id": "sfdx_dev_dev2gp_install_pkg_upgrade"
+            },
+            {
+              "text": "Sample Script for Installing Packages with Dependencies",
+              "a_attr": {
+                "href": "sfdx_dev_dev2gp_install_pkg_sample_script.htm"
+              },
+              "id": "sfdx_dev_dev2gp_install_pkg_sample_script"
+            }
+          ],
+          "text": "Install a Package",
+          "a_attr": { "href": "sfdx_dev_dev2gp_install_pkg.htm" },
+          "id": "sfdx_dev_dev2gp_install_pkg"
+        },
+        {
+          "text": "Uninstall a Package",
+          "a_attr": { "href": "sfdx_dev_dev2gp_installed_pkgs_uninstall.htm" },
+          "id": "sfdx_dev_dev2gp_installed_pkgs_uninstall"
+        },
+        {
+          "text": "Publishing Your App on AppExchange",
+          "a_attr": { "href": "sfdx_dev_dev2gp_publish_appexchange.htm" },
+          "id": "sfdx_dev_dev2gp_publish_appexchange"
+        }
+      ],
+      "text": "Second-Generation Managed Packages",
+      "a_attr": { "href": "sfdx_dev_dev2gp.htm" },
+      "id": "sfdx_dev_dev2gp"
+    },
+    {
+      "children": [
+        {
+          "text": "What’s a Package",
+          "a_attr": { "href": "sfdx_dev_unlocked_pkg_whats_a_package.htm" },
+          "id": "sfdx_dev_unlocked_pkg_whats_a_package"
+        },
+        {
+          "text": "Package-Based Development Model",
+          "a_attr": { "href": "sfdx_dev_unlocked_pkg_pkg_dev.htm" },
+          "id": "sfdx_dev_unlocked_pkg_pkg_dev"
+        },
+        {
+          "text": "Before You Create Unlocked Packages",
+          "a_attr": { "href": "sfdx_dev_unlocked_pkg_before.htm" },
+          "id": "sfdx_dev_unlocked_pkg_before"
+        },
+        {
+          "text": "Know Your Orgs",
+          "a_attr": { "href": "sfdx_dev_unlocked_pkg_before_know_orgs.htm" },
+          "id": "sfdx_dev_unlocked_pkg_before_know_orgs"
+        },
+        {
+          "text": "Workflow for Unlocked Packages",
+          "a_attr": { "href": "sfdx_dev_unlocked_pkg_workflow.htm" },
+          "id": "sfdx_dev_unlocked_pkg_workflow"
+        },
+        {
+          "children": [
+            {
+              "text": "Project Configuration File for Packages",
+              "a_attr": { "href": "sfdx_dev_unlocked_pkg_config_file.htm" },
+              "id": "sfdx_dev_unlocked_pkg_config_file"
+            },
+            {
+              "text": "Keywords",
+              "a_attr": { "href": "sfdx_dev_unlocked_pkg_config_keywords.htm" },
+              "id": "sfdx_dev_unlocked_pkg_config_keywords"
+            },
+            {
+              "text": "Package Installation Key",
+              "a_attr": {
+                "href": "sfdx_dev_unlocked_pkg_config_installkey.htm"
+              },
+              "id": "sfdx_dev_unlocked_pkg_config_installkey"
+            },
+            {
+              "text": "Extract Dependency Information from Unlocked Packages",
+              "a_attr": {
+                "href": "sfdx_dev_unlocked_pkg_extract_dependency_info.htm"
+              },
+              "id": "sfdx_dev_unlocked_pkg_extract_dependency_info"
+            },
+            {
+              "text": "Understanding Namespaces",
+              "a_attr": { "href": "sfdx_dev_unlocked_pkg_plan_namespaces.htm" },
+              "id": "sfdx_dev_unlocked_pkg_plan_namespaces"
+            },
+            {
+              "text": "Create and Register Your Namespace",
+              "a_attr": {
+                "href": "sfdx_dev_unlocked_pkg_create_namespace.htm"
+              },
+              "id": "sfdx_dev_unlocked_pkg_create_namespace"
+            },
+            {
+              "text": "Share Release Notes and Post-Install Instructions",
+              "a_attr": {
+                "href": "sfdx_dev_unlocked_pkg_release_note_urls.htm"
+              },
+              "id": "sfdx_dev_unlocked_pkg_release_note_urls"
+            },
+            {
+              "text": "Best Practices for Unlocked Packages",
+              "a_attr": { "href": "sfdx_dev_unlocked_pkg_best_practices.htm" },
+              "id": "sfdx_dev_unlocked_pkg_best_practices"
+            },
+            {
+              "text": "Package IDs and Aliases",
+              "a_attr": { "href": "sfdx_dev_unlocked_pkg_pkg_ids.htm" },
+              "id": "sfdx_dev_unlocked_pkg_pkg_ids"
+            },
+            {
+              "text": "Frequently Used Packaging Operations",
+              "a_attr": {
+                "href": "sfdx_dev_unlocked_pkg_packaging_operations.htm"
+              },
+              "id": "sfdx_dev_unlocked_pkg_packaging_operations"
+            }
+          ],
+          "text": "Configure Packages",
+          "a_attr": { "href": "sfdx_dev_unlocked_pkg_config.htm" },
+          "id": "sfdx_dev_unlocked_pkg_config"
+        },
+        {
+          "children": [
+            {
+              "text": "Generate the Package",
+              "a_attr": { "href": "sfdx_dev_unlocked_pkg_create_pkg_base.htm" },
+              "id": "sfdx_dev_unlocked_pkg_create_pkg_base"
+            },
+            {
+              "text": "Generate a Package Version",
+              "a_attr": { "href": "sfdx_dev_unlocked_pkg_create_pkg_ver.htm" },
+              "id": "sfdx_dev_unlocked_pkg_create_pkg_ver"
+            },
+            {
+              "text": "Code Coverage for Unlocked Packages",
+              "a_attr": { "href": "sfdx_dev_unlocked_pkg_code_coverage.htm" },
+              "id": "sfdx_dev_unlocked_pkg_code_coverage"
+            },
+            {
+              "text": "Release an Unlocked Package",
+              "a_attr": {
+                "href": "sfdx_dev_unlocked_pkg_create_pkg_ver_promote.htm"
+              },
+              "id": "sfdx_dev_unlocked_pkg_create_pkg_ver_promote"
+            },
+            {
+              "text": "Update a Package Version",
+              "a_attr": {
+                "href": "sfdx_dev_unlocked_pkg_create_pkg_ver_update.htm"
+              },
+              "id": "sfdx_dev_unlocked_pkg_create_pkg_ver_update"
+            },
+            {
+              "text": "View Package Details",
+              "a_attr": {
+                "href": "sfdx_dev_unlocked_pkg_view_pkg_details.htm"
+              },
+              "id": "sfdx_dev_unlocked_pkg_view_pkg_details"
+            }
+          ],
+          "text": "Create a Package",
+          "a_attr": { "href": "sfdx_dev_unlocked_pkg_create_pkg.htm" },
+          "id": "sfdx_dev_unlocked_pkg_create_pkg"
+        },
+        {
+          "children": [
+            {
+              "text": "Install Packages with the CLI",
+              "a_attr": { "href": "sfdx_dev_unlocked_pkg_install_pkg_cli.htm" },
+              "id": "sfdx_dev_unlocked_pkg_install_pkg_cli"
+            },
+            {
+              "text": "Install Packages from a URL",
+              "a_attr": { "href": "sfdx_dev_unlocked_pkg_install_pkg_ui.htm" },
+              "id": "sfdx_dev_unlocked_pkg_install_pkg_ui"
+            },
+            {
+              "text": "Upgrade a Package Version",
+              "a_attr": {
+                "href": "sfdx_dev_unlocked_pkg_install_pkg_upgrade.htm"
+              },
+              "id": "sfdx_dev_unlocked_pkg_install_pkg_upgrade"
+            },
+            {
+              "text": "Sample Script for Installing Packages with Dependencies",
+              "a_attr": {
+                "href": "sfdx_dev_unlocked_pkg_install_pkg_sample_script.htm"
+              },
+              "id": "sfdx_dev_unlocked_pkg_install_pkg_sample_script"
+            }
+          ],
+          "text": "Install a Package",
+          "a_attr": { "href": "sfdx_dev_unlocked_pkg_install_pkg.htm" },
+          "id": "sfdx_dev_unlocked_pkg_install_pkg"
+        },
+        {
+          "text": "Migrate Deprecated Metadata from Unlocked Packages",
+          "a_attr": { "href": "sfdx_dev_unlocked_pkg_migrate_metadata.htm" },
+          "id": "sfdx_dev_unlocked_pkg_migrate_metadata"
+        },
+        {
+          "text": "Uninstall a Package",
+          "a_attr": {
+            "href": "sfdx_dev_unlocked_pkg_installed_pkgs_uninstall.htm"
+          },
+          "id": "sfdx_dev_unlocked_pkg_installed_pkgs_uninstall"
+        }
+      ],
+      "text": "Unlocked Packages",
+      "a_attr": { "href": "sfdx_dev_unlocked_pkg_intro.htm" },
+      "id": "sfdx_dev_unlocked_pkg_intro"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "text": "Configure Your Environment for CircleCI",
+              "a_attr": { "href": "sfdx_dev_ci_circle_config_env.htm" },
+              "id": "sfdx_dev_ci_circle_config_env"
+            },
+            {
+              "text": "Connect CircleCI to Your DevHub",
+              "a_attr": { "href": "sfdx_dev_ci_circle_connect.htm" },
+              "id": "sfdx_dev_ci_circle_connect"
+            }
+          ],
+          "text": "Continuous Integration Using CircleCI",
+          "a_attr": { "href": "sfdx_dev_ci_circle.htm" },
+          "id": "sfdx_dev_ci_circle"
+        },
+        {
+          "children": [
+            {
+              "text": "Configure Your Environment for Jenkins",
+              "a_attr": { "href": "sfdx_dev_ci_jenkins_config_env.htm" },
+              "id": "sfdx_dev_ci_jenkins_config_env"
+            },
+            {
+              "text": "Jenkinsfile Walkthrough",
+              "a_attr": {
+                "href": "sfdx_dev_ci_jenkins_sample_walkthrough.htm"
+              },
+              "id": "sfdx_dev_ci_jenkins_sample_walkthrough"
+            },
+            {
+              "text": "Sample Jenkinsfile",
+              "a_attr": { "href": "sfdx_dev_ci_jenkins_code.htm" },
+              "id": "sfdx_dev_ci_jenkins_code"
+            }
+          ],
+          "text": "Continuous Integration Using Jenkins",
+          "a_attr": { "href": "sfdx_dev_ci_jenkins.htm" },
+          "id": "sfdx_dev_ci_jenkins"
+        },
+        {
+          "text": "Continuous Integration with Travis CI",
+          "a_attr": { "href": "sfdx_dev_ci_travis.htm" },
+          "id": "sfdx_dev_ci_travis"
+        },
+        {
+          "text": "Sample CI Repos for Org Development Model",
+          "a_attr": { "href": "sfdx_dev_ci_org_dev_repos.htm" },
+          "id": "sfdx_dev_ci_org_dev_repos"
+        },
+        {
+          "text": "Sample CI Repos for Package Development Model",
+          "a_attr": { "href": "sfdx_dev_ci_package_dev.htm" },
+          "id": "sfdx_dev_ci_package_dev"
+        }
+      ],
+      "text": "Continuous Integration",
+      "a_attr": { "href": "sfdx_dev_ci.htm" },
+      "id": "sfdx_dev_ci"
+    },
+    {
+      "children": [
+        {
+          "text": "Error: API Version Mismatch",
+          "a_attr": { "href": "sfdx_dev_troubleshoot_api_sync.htm" },
+          "id": "sfdx_dev_troubleshoot_api_sync"
+        },
+        {
+          "text": "CLI Version Information",
+          "a_attr": { "href": "sfdx_dev_troubleshoot_cli_version.htm" },
+          "id": "sfdx_dev_troubleshoot_cli_version"
+        },
+        {
+          "text": "Run CLI Commands on macOS Sierra (Version 10.12)",
+          "a_attr": { "href": "sfdx_dev_troubleshoot_cli_macos.htm" },
+          "id": "sfdx_dev_troubleshoot_cli_macos"
+        },
+        {
+          "text": "Error: No defaultdevhubusername org found",
+          "a_attr": { "href": "sfdx_dev_troubleshoot_devhub_error.htm" },
+          "id": "sfdx_dev_troubleshoot_devhub_error"
+        },
+        {
+          "text": "Unable to Work After Failed Org Authorization",
+          "a_attr": { "href": "sfdx_dev_troubleshoot_cancel_auth.htm" },
+          "id": "sfdx_dev_troubleshoot_cancel_auth"
+        },
+        {
+          "text": "Error: Lightning Experience-Enabled Custom Domain Is Unavailable",
+          "a_attr": { "href": "sfdx_dev_troubleshoot_domainretry.htm" },
+          "id": "sfdx_dev_troubleshoot_domainretry"
+        }
+      ],
+      "text": "Troubleshoot Salesforce DX",
+      "a_attr": { "href": "sfdx_dev_troubleshoot.htm" },
+      "id": "sfdx_dev_troubleshoot"
+    },
+    {
+      "text": "Limitations for Salesforce DX",
+      "a_attr": { "href": "sfdx_dev_considerations.htm" },
+      "id": "sfdx_dev_considerations"
+    }
+  ],
+  "deliverable": "sfdx_dev",
+  "pdf_url": "https://resources.docs.salesforce.com/224/latest/en-us/sfdc/pdf/sfdx_dev.pdf",
+  "version": {
+    "version_text": "Spring '20 (API version 48.0)",
+    "release_version": "48.0",
+    "doc_version": "224.0",
+    "version_url": "atlas.en-us.sfdx_dev.meta"
+  },
+  "language": {
+    "label": "ENGLISH",
+    "code": "EN",
+    "locale": "en-us",
+    "url": "atlas.en-us.224.0.sfdx_dev.meta"
+  },
+  "locale": "en-us",
+  "doc_title": "Salesforce DX Developer Guide",
+  "available_versions": [
+    {
+      "version_text": "Spring '20 (API version 48.0)",
+      "release_version": "48.0",
+      "doc_version": "224.0",
+      "version_url": "atlas.en-us.sfdx_dev.meta"
+    },
+    {
+      "version_text": "Winter '20 (API version 47.0)",
+      "release_version": "47.0",
+      "doc_version": "222.0",
+      "version_url": "atlas.en-us.222.0.sfdx_dev.meta"
+    },
+    {
+      "version_text": "Summer '19 (API version 46.0)",
+      "release_version": "46.0",
+      "doc_version": "220.0",
+      "version_url": "atlas.en-us.220.0.sfdx_dev.meta"
+    },
+    {
+      "version_text": "Spring '19 (API version 45.0)",
+      "release_version": "45.0",
+      "doc_version": "218.0",
+      "version_url": "atlas.en-us.218.0.sfdx_dev.meta"
+    },
+    {
+      "version_text": "Winter '19 (API version 44.0)",
+      "release_version": "44.0",
+      "doc_version": "216.0",
+      "version_url": "atlas.en-us.216.0.sfdx_dev.meta"
+    },
+    {
+      "version_text": "Summer '18 (API version 43.0)",
+      "release_version": "43.0",
+      "doc_version": "214.0",
+      "version_url": "atlas.en-us.214.0.sfdx_dev.meta"
+    },
+    {
+      "version_text": "Spring '18 (API version 42.0)",
+      "release_version": "42.0",
+      "doc_version": "212.0",
+      "version_url": "atlas.en-us.212.0.sfdx_dev.meta"
+    },
+    {
+      "version_text": "Winter '18 (API version 41.0)",
+      "release_version": "41.0",
+      "doc_version": "210.0",
+      "version_url": "atlas.en-us.210.0.sfdx_dev.meta"
+    },
+    {
+      "version_text": "Summer '17 (API version 40.0)",
+      "release_version": "40.0",
+      "doc_version": "208.0",
+      "version_url": "atlas.en-us.208.0.sfdx_dev.meta"
+    }
+  ],
+  "available_languages": [
+    {
+      "label": "ENGLISH",
+      "code": "EN",
+      "locale": "en-us",
+      "url": "atlas.en-us.224.0.sfdx_dev.meta"
+    },
+    {
+      "label": "JAPANESE",
+      "code": "JA",
+      "locale": "ja-jp",
+      "url": "atlas.ja-jp.224.0.sfdx_dev.meta"
+    }
+  ],
+  "html_toc": null
+}
