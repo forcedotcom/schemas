@@ -27,7 +27,16 @@
     },
     "edition": {
       "type": "string",
-      "enum": ["Developer", "Group", "Professional", "Enterprise"]
+      "enum": [
+        "Developer",
+        "Enterprise",
+        "Group",
+        "Partner Developer",
+        "Partner Enterprise",
+        "Partner Group",
+        "Partner Professional",
+        "Professional"
+      ]
     },
     "country": {
       "title": "Country",
