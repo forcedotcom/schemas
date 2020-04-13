@@ -7,39 +7,17 @@
   "required": ["edition"],
   "additionalProperties": true,
   "properties": {
-    "orgName": {
-      "$ref": "#/definitions/orgName"
-    },
-    "edition": {
-      "$ref": "#/definitions/edition"
-    },
-    "country": {
-      "$ref": "#/definitions/country"
-    },
-    "username": {
-      "$ref": "#/definitions/username"
-    },
-    "adminEmail": {
-      "$ref": "#/definitions/adminEmail"
-    },
-    "description": {
-      "$ref": "#/definitions/description"
-    },
-    "hasSampleData": {
-      "$ref": "#/definitions/hasSampleData"
-    },
-    "language": {
-      "$ref": "#/definitions/language"
-    },
-    "features": {
-      "$ref": "#/definitions/features"
-    },
-    "template": {
-      "$ref": "#/definitions/template"
-    },
-    "settings": {
-      "$ref": "#/definitions/settings"
-    }
+    "orgName": { "$ref": "#/definitions/orgName" },
+    "edition": { "$ref": "#/definitions/edition" },
+    "country": { "$ref": "#/definitions/country" },
+    "username": { "$ref": "#/definitions/username" },
+    "adminEmail": { "$ref": "#/definitions/adminEmail" },
+    "description": { "$ref": "#/definitions/description" },
+    "hasSampleData": { "$ref": "#/definitions/hasSampleData" },
+    "language": { "$ref": "#/definitions/language" },
+    "features": { "$ref": "#/definitions/features" },
+    "template": { "$ref": "#/definitions/template" },
+    "settings": { "$ref": "#/definitions/settings" }
   },
   "definitions": {
     "orgName": {
@@ -98,14 +76,261 @@
     "features": {
       "type": "array",
       "items": {
-        "type": "string"
+        "anyOf": [
+          {
+            "type": "string",
+            "title": "AddCustomApps:<value>",
+            "pattern": "^(AddCustomApps\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "AddCustomObjects:<value>",
+            "pattern": "^(AddCustomObjects\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "AddCustomRelationships:<value>",
+            "pattern": "^(AddCustomRelationships\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "AddCustomTabs:<value>",
+            "pattern": "^(AddCustomTabs\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "AddDataComCRMRecordCredit:<value>",
+            "pattern": "^(AddDataComCRMRecordCredit\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "AddInsightsQueryLimit:<value>",
+            "pattern": "^(AddInsightsQueryLimit\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "AdditionalFieldHistory:<value>",
+            "pattern": "^(AdditionalFieldHistory\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "CalloutSizeMB:<value>",
+            "pattern": "^(CalloutSizeMB\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "ConcStreamingClients:<value>",
+            "pattern": "^(ConcStreamingClients\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "ConsolePersistenceInterval:<value>",
+            "pattern": "^(ConsolePersistenceInterval\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "EmpPublishRateLimit:<value>",
+            "pattern": "^(EmpPublishRateLimit\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "FinancialServicesCommunityUser:<value>",
+            "pattern": "^(FinancialServicesCommunityUser\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "FinancialServicesUser:<value>",
+            "pattern": "^(FinancialServicesUser\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "GenStreamingEventsPerDay:<value>",
+            "pattern": "^(GenStreamingEventsPerDay\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "HoursBetweenCoverageJob:<value>",
+            "pattern": "^(HoursBetweenCoverageJob\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MaxCustomLabels:<value>",
+            "pattern": "^(MaxCustomLabels\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MaxFavoritesAllowed:<value>",
+            "pattern": "^(MaxFavoritesAllowed\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MaxNoOfLexThemesAllowed:<value>",
+            "pattern": "^(MaxNoOfLexThemesAllowed\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MaxStreamingTopics:<value>",
+            "pattern": "^(MaxStreamingTopics\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MaxUserNavItemsAllowed:<value>",
+            "pattern": "^(MaxUserNavItemsAllowed\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MaxUserStreamingChannels:<value>",
+            "pattern": "^(MaxUserStreamingChannels\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MedVisDescriptorLimit:<value>",
+            "pattern": "^(MedVisDescriptorLimit\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MobileExtMaxFileSizeMB:<value>",
+            "pattern": "^(MobileExtMaxFileSizeMB\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "NumPlatformEvents:<value>",
+            "pattern": "^(NumPlatformEvents\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "StreamingEventsPerDay:<value>",
+            "pattern": "^(StreamingEventsPerDay\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "SubPerStreamingChannel:<value>",
+            "pattern": "^(SubPerStreamingChannel\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "API",
+              "AnalyticsAdminPerms",
+              "AuthorApex",
+              "BigObjectsBulkAPI",
+              "CMSMaxContType",
+              "CMSMaxNodesPerContType",
+              "CMSUnlimitedUse",
+              "CPQ",
+              "CascadeDelete",
+              "CaseClassification",
+              "ChangeDataCapture",
+              "Chatbot",
+              "Communities",
+              "ConAppPluginExecuteAsUser",
+              "ConnectedAppToolingAPI",
+              "ContactsToMultipleAccounts",
+              "ContractApprovals",
+              "CustomNotificationType",
+              "DataComDnbAccounts",
+              "DataComFullClean",
+              "DataMaskUser",
+              "DebugApex",
+              "DefaultWorkflowUser",
+              "DeferSharingCalc",
+              "DensityValue",
+              "DevelopmentWave",
+              "DeviceTrackingEnabled",
+              "DisableManageIdConfAPI",
+              "Division",
+              "DocumentChecklist",
+              "DurableClassicStreamingAPI",
+              "DurableGenericStreamingAPI",
+              "DynamicClientCreationLimit",
+              "EinsteinAnalyticsPlus",
+              "EinsteinArticleRecommendations",
+              "EinsteinBuilderFree",
+              "EmbeddedLoginForIE",
+              "EnableManageIdConfUI",
+              "EnablePRM",
+              "Entitlements",
+              "EventLogFile",
+              "ExternalIdentityLogin",
+              "ExternalSharing",
+              "FieldAuditTrail",
+              "FieldService",
+              "FlowSites",
+              "ForceComPlatform",
+              "GenericStreaming",
+              "HealthCloudUser",
+              "HighVelocitySales",
+              "IdentityProvisioningFeatures",
+              "IgnoreQueryParamWhitelist",
+              "IndustriesActionPlan",
+              "IndustriesManufacturing",
+              "IndustriesManufacturingCmty",
+              "IndustriesMfgAccountForecast",
+              "InsightsPlatform",
+              "Interaction",
+              "IoT",
+              "JigsawUser",
+              "Knowledge",
+              "LegacyLiveAgentRouting",
+              "LightningSalesConsole",
+              "LightningScheduler",
+              "LightningServiceConsole",
+              "ListCustomSettingCreation",
+              "LiveAgent",
+              "LiveMessage",
+              "Macros",
+              "MarketingUser",
+              "MaxApexCodeSize",
+              "MaxAudTypeCriterionPerAud",
+              "MobileSecurity",
+              "MultiCurrency",
+              "MultiLevelMasterDetail",
+              "MutualAuthentication",
+              "ObjectLinking",
+              "OutboundMessageHTTPSession",
+              "PardotScFeaturesCampaignInfluence",
+              "PersonAccounts",
+              "PlatformCache",
+              "PlatformConnect",
+              "PlatformEncryption",
+              "PlatformEventsPerDay",
+              "ProcessBuilder",
+              "ProductsAndSchedules",
+              "RecordTypes",
+              "RefreshOnInvalidSession",
+              "S1ClientComponentCacheSize",
+              "SAML20SingleLogout",
+              "SCIMProtocol",
+              "SalesCloudEinstein",
+              "SalesUser",
+              "SalesforceContentUser",
+              "SalesforceIdentityForCommunities",
+              "SecurityEventEnabled",
+              "ServiceCloud",
+              "ServiceUser",
+              "SessionIdInLogEnabled",
+              "SingleSignOn",
+              "Sites",
+              "SocialCustomerService",
+              "StateAndCountryPicklist",
+              "StreamingAPI",
+              "SubPerStreamingTopic",
+              "SustainabilityCloud",
+              "TerritoryManagement",
+              "TimeSheetTemplateSettings",
+              "TransactionFinalizers",
+              "WavePlatform",
+              "WorkThanksPref",
+              "Workflow",
+              "WorkflowFlowActionFeature"
+            ]
+          }
+        ]
       }
     },
     "settings": {
       "type": "object",
-      "not": {
-        "required": ["orgPreferenceSettings"]
-      }
+      "not": { "required": ["orgPreferenceSettings"] }
     }
   }
 }
