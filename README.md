@@ -14,7 +14,7 @@ For most other editors, you can use the schemas by adding the `$schema` property
 
 ```json
 {
-  "$schema": "https://forcedotcom.github.io/schemas/project-scratch-def.schema.json"
+  "$schema": "https://forcedotcom.github.io/schemas/project-scratch-def.json/project-scratch-def.schema.json"
   //...
 }
 ```
