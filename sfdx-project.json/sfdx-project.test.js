@@ -28,6 +28,10 @@ describe("sfdx-project.json", () => {
     testFile("./examples/package-complex.json", true)
   );
   test(
+    "package without path is invalid",
+    testFile("./examples/package-no-path-invalid.json", false)
+  );
+  test(
     "package without versionNumber is invalid",
     testFile("./examples/package-no-versionNumber-invalid.json", false)
   );

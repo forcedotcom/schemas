@@ -25,7 +25,6 @@
       "postInstallUrl": "https://expenser.com/post-install-instructions.html",
       "releaseNotesUrl": "https://expenser.com/winter-2020-release-notes.html",
       "definitionFile": "config/scratch-org-def.json",
-      "id": "4",
       "ancestorId": "3",
       "includeProfileUserLicenses": false,
       "dependencies": [
