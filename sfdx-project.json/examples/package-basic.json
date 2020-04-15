@@ -2,14 +2,12 @@
   "packageDirectories": [
     {
       "path": "force-app",
-      "default": true,
-      "package": "Foo",
-      "versionNumber": "1234"
+      "default": true
     }
   ],
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "43.0",
+  "sourceApiVersion": "48.0",
   "packageAliases": {
     "dreamhouse": "0Ho1I000000XZDVSA4"
   }

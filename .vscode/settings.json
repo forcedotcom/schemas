@@ -14,6 +14,5 @@
       "fileMatch": ["/sfdx-project.json/examples/*.json"],
       "url": "/sfdx-project.json/sfdx-project.schema.json"
     }
-  ],
-  "eslint.nodePath": "/Users/ntotten/.vscode/extensions/salesforce.salesforcedx-vscode-lwc-47.3.0/node_modules"
+  ]
 }

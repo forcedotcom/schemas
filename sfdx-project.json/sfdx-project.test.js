@@ -8,6 +8,7 @@ function testFile(path, shouldValidate) {
   return async () => {
     let data = require(path);
     let result = await validate(data);
+
     expect(result).toBe(shouldValidate);
   };
 }
@@ -21,6 +22,14 @@ describe("sfdx-project.json", () => {
   test(
     "package config is valid",
     testFile("./examples/package-basic.json", true)
+  );
+  test(
+    "complex package config is valid",
+    testFile("./examples/package-complex.json", true)
+  );
+  test(
+    "package without path is invalid",
+    testFile("./examples/package-no-path-invalid.json", false)
   );
   test(
     "package without versionNumber is invalid",
