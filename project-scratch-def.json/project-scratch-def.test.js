@@ -29,10 +29,10 @@ describe("project-stract-def.json", () => {
   );
   test(
     "features not in enum are valid",
-    testFile("./examples/features-not-in-schema.json", true)
+    testFile("./examples/features-not-in-schema.json", false)
   );
   test(
-    "with orgPreferenceSetting is invalid",
-    testFile("./examples/with-orgPreferenceSetting.json", false)
+    "with orgPreferenceSetting is valid",
+    testFile("./examples/with-orgPreferenceSetting.json", true)
   );
 });

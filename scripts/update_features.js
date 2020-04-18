@@ -1,39 +1,78 @@
 #!/usr/bin/env node
+
+/**
+ * This script updates project-scratch-def.schema.json based on the Salesforce's
+ * doc site results from https://developer.salesforce.com/docs/get_document/atlas.en-us.sfdx_dev.meta
+ */
 const fs = require("fs");
 const { join } = require("path");
+const shell = require("shelljs");
+shell.set("-e");
+shell.set("+v");
 
-// TODO: Replace with api call
-const report = JSON.parse(
-  fs.readFileSync(join(__dirname, "mdReport_v48.json"))
+const SFDX_DEV_URL =
+  "https://developer.salesforce.com/docs/get_document/atlas.en-us.sfdx_dev.meta";
+
+const reportPayload = shell
+  .exec(`curl ${SFDX_DEV_URL}`, {
+    silent: true
+  })
+  .stdout.trim();
+
+const report = JSON.parse(reportPayload);
+if (report && report.length === 0) {
+  logger.error(`Looks like url ${SFDX_DEV_URL} is not returning a valid JSON`);
+  process.exit(-1);
+}
+
+const entries = report.toc;
+let featureSet = new Set();
+let anyOfArray = [];
+
+console.log(
+  "Start processing report JSON to update scratch definition features:"
 );
 
-const entries = report.types;
-let featureSet = new Set();
+entries.forEach(item => {
+  if (item.hasOwnProperty("children") && Array.isArray(item.children)) {
+    const firstLevelChildren = item.children;
+    firstLevelChildren.forEach(childItem => {
+      if (
+        childItem.hasOwnProperty("children") &&
+        Array.isArray(childItem.children)
+      ) {
+        const secondLevelChildren = childItem.children;
 
-Object.keys(entries).forEach(key => {
-  //console.log(key, entries[key]);
-  const entityDetails = entries[key];
-  if (entityDetails.hasOwnProperty("scratchDefinitions")) {
-    console.log(`Currently processing data from ${key}`);
-    if (entityDetails.scratchDefinitions !== null) {
-      // iterate over different scratch definitions to get features
-      Object.keys(entityDetails.scratchDefinitions).forEach(types => {
-        const parsedConfig = JSON.parse(
-          entityDetails.scratchDefinitions[types]
-        );
-        console.log(parsedConfig);
-
-        if (parsedConfig.hasOwnProperty("features")) {
-          console.log(`features ===> ${parsedConfig.features}`);
-          parsedConfig.features.forEach(item => featureSet.add(item));
-        }
-      });
-    }
+        secondLevelChildren.forEach(secLevelItem => {
+          if (
+            secLevelItem.id.startsWith(
+              "sfdx_dev_scratch_orgs_def_file_config_values"
+            )
+          ) {
+            if (secLevelItem.text.endsWith(":<value>")) {
+              const patternVal = `^(${secLevelItem.text.replace(
+                ":<value>",
+                ""
+              )}\\:[0-9]+$)`;
+              anyOfArray.push({
+                type: "string",
+                title: secLevelItem.text,
+                pattern: patternVal
+              });
+            } else {
+              featureSet.add(secLevelItem.text);
+            }
+          }
+        });
+      }
+    });
   }
 });
 
-console.log("Feature set :");
-console.log(`Size : ${featureSet.size}`);
+console.log(`Processed features : ${featureSet.size}`);
+
+// Merge the featureSet enum
+anyOfArray.push({ type: "string", enum: Array.from(featureSet).sort() });
 
 const scratchSchemaDefPath = join(
   __dirname,
@@ -42,8 +81,24 @@ const scratchSchemaDefPath = join(
   "project-scratch-def.schema.json"
 );
 const scratchDef = JSON.parse(fs.readFileSync(scratchSchemaDefPath));
-scratchDef.definitions.features.items.enum = Array.from(featureSet).sort();
+scratchDef.definitions.features.items.anyOf = anyOfArray;
 
 fs.writeFileSync(scratchSchemaDefPath, JSON.stringify(scratchDef));
 
 // reformat using prettier
+const prettierExecutable = join(
+  __dirname,
+  "..",
+  "node_modules",
+  ".bin",
+  "prettier"
+);
+
+shell.exec(
+  `${prettierExecutable} --config .prettierrc --write "${scratchSchemaDefPath}"`,
+  {
+    cwd: join(__dirname, "..")
+  }
+);
+
+console.log(`Successfully updated features for ${scratchSchemaDefPath}`);
