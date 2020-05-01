@@ -1,8 +1,11 @@
 {
-  "name": "sfdx-schemas",
+  "name": "@salesforce/schemas",
   "version": "1.0.0",
   "description": "This repository contains the spec and schema for the Scratch Org Definition Configuration file and `sfdx-project.json` file.",
   "main": "index.js",
+  "files": [
+    "schemas"
+  ],
   "scripts": {
     "test": "jest",
     "prettier": "prettier ./**/*.* --write"
