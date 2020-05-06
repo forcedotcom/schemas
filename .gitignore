@@ -1,3 +1,7 @@
 node_modules
 .sfdx
 yarn.lock
+
+# Publish artifacts
+/*.schema.json
+/index.js
