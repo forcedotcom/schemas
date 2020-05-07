@@ -21,10 +21,10 @@ For most other editors, you can use the schemas by adding the `$schema` property
 You can also use these schemas programatially. For example, Salesforce CLI uses these schema to do certain validation.
 
 ```javascript
-const schemas = require('@salesforce/schemas');
-const projectJsonSchema = require(schemas['sfdx-project']);
+const schemas = require("@salesforce/schemas");
+const projectJsonSchema = require(schemas["sfdx-project"]);
 // OR
-const projectJsonSchema = require('@salesforce/schema/sfdx-project-schema.json']);
+const projectJsonSchema = require("@salesforce/schema/sfdx-project-schema.json");
 ```
 
 ## Bugs and Feedback
