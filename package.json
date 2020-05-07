@@ -1,9 +1,15 @@
 {
-  "name": "sfdx-schemas",
-  "version": "1.0.0",
+  "name": "@salesforce/schemas",
+  "version": "1.0.1",
   "description": "This repository contains the spec and schema for the Scratch Org Definition Configuration file and `sfdx-project.json` file.",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "*.schema.json"
+  ],
   "scripts": {
+    "prepublish": "npx shx cp -r schemas/* ./",
+    "postpublish": "npx shx rm -f index.js ./*.schema.json",
     "test": "jest",
     "prettier": "prettier ./**/*.* --write"
   },

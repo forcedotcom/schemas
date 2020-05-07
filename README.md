@@ -1,6 +1,6 @@
 # Salesforce DX Schemas
 
-JSON Schemas help with validation and code completion of json files. Below are the schemas that are availible in this repository.
+JSON Schemas help with validation and code completion of json files. Below are the schemas that are available in this repository.
 
 - Schema: [project-scratch-def.json](https://forcedotcom.github.io/schemas/project-scratch-def.json/project-scratch-def.schema.json)
 - Schema: [sfdx-project.json](https://forcedotcom.github.io/schemas/sfdx-project.json/sfdx-project.schema.json)
@@ -13,9 +13,18 @@ For most other editors, you can use the schemas by adding the `$schema` property
 
 ```json
 {
-  "$schema": "https://forcedotcom.github.io/schemas/project-scratch-def.json/project-scratch-def.schema.json"
+  "$schema": "https://raw.githubusercontent.com/forcedotcom/schemas/master/schemas/sfdx-project.schema.json"
   //...
 }
+```
+
+You can also use these schemas programatially. For example, Salesforce CLI uses these schema to do certain validation.
+
+```javascript
+const schemas = require('@salesforce/schemas');
+const projectJsonSchema = require(schemas['sfdx-project']);
+// OR
+const projectJsonSchema = require('@salesforce/schema/sfdx-project-schema.json']);
 ```
 
 ## Bugs and Feedback
