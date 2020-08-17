@@ -343,7 +343,16 @@
         "accountSettings": {
           "type": "object",
           "title": "AccountSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_accountsettings.htm"
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_accountsettings.htm",
+          "properties": {
+            "enableAccountHistoryTracking": { "type": "boolean" },
+            "enableAccountInsightsInMobile": { "type": "boolean" },
+            "enableAccountOwnerReport": { "type": "boolean" },
+            "enableAccountTeams": { "type": "boolean" },
+            "enableContactHistoryTracking": { "type": "boolean" },
+            "enableRelateContactToMultipleAccounts": { "type": "boolean" },
+            "showViewHierarchyLink": { "type": "boolean" }
+          }
         },
         "accountInsightsSettings": {
           "type": "object",
