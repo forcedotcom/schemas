@@ -26,6 +26,7 @@
           "postInstallUrl": ["package", "versionNumber"],
           "releaseNotesUrl": ["package", "versionNumber"],
           "uninstallScript": ["package", "versionNumber"],
+          "unpackagedMetadata": ["package", "versionNumber"],
           "versionDescription": ["package", "versionNumber"],
           "versionName": ["package", "versionNumber"],
           "versionNumber": ["package"]
@@ -68,6 +69,9 @@
           },
           "uninstallScript": {
             "$ref": "#/definitions/packageDirectory.uninstallScript"
+          },
+          "unpackagedMetadata": {
+            "$ref": "#/definitions/packageDirectory.unpackagedMetadata"
           },
           "versionDescription": {
             "$ref": "#/definitions/packageDirectory.versionDescription"
@@ -206,6 +210,19 @@
       "type": "string",
       "title": "Uninstall Script",
       "description": "The uninstall script."
+    },
+    "packageDirectory.unpackagedMetadata": {
+      "type": "object",
+      "title": "Unpackaged Metadata",
+      "description": "Metadata not meant to be packaged, but deployed when testing packaged metadata",
+      "required": ["path"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "title": "Path",
+          "description": "The path name of the package directory containing the unpackaged metadata"
+        }
+      }
     },
     "packageDirectory.includeProfileUserLicenses": {
       "type": "boolean",
