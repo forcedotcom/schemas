@@ -221,6 +221,7 @@
             "enum": [
               "API",
               "AnalyticsAdminPerms",
+              "AnalyticsAppEmbedded",
               "AuthorApex",
               "BigObjectsBulkAPI",
               "CMSMaxContType",
