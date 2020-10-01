@@ -1,0 +1,16 @@
+# Dev config folders
+/.circleci
+/.vscode
+/examples
+/project-scratch-def.json
+/schemas
+/sfdx-project.json
+/tests
+/scripts
+/contributing
+
+# Configuration files
+.prettierrc
+
+# Ignore artifacts
+*.tgz

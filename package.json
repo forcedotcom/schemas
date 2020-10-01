@@ -8,7 +8,7 @@
     "*.schema.json"
   ],
   "scripts": {
-    "prepublish": "npx shx cp -r schemas/* ./",
+    "prepare": "npx shx cp -r schemas/* ./",
     "postpublish": "npx shx rm -f index.js ./*.schema.json",
     "test": "jest",
     "prettier": "prettier ./**/*.* --write"
@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/forcedotcom/schemas.git"
   },
-  "author": "",
+  "author": "Salesforce",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/forcedotcom/schemas/issues"
@@ -33,5 +33,8 @@
     "hooks": {
       "pre-commit": "npm run prettier && npm test"
     }
+  },
+  "volta": {
+    "node": "12.4.0"
   }
 }
