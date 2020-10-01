@@ -19,7 +19,7 @@ _refs:
       - image: node:12
   ssh-config: &ssh-config
     fingerprints:
-      - ""
+      - "b9:23:16:10:0e:93:d1:68:0e:76:4e:90:a0:ed:01:a5"
   restore_cache: &restore_cache
     keys:
       - v1-npm-{{checksum ".circleci/config.yml"}}-{{checksum "package.json"}}
