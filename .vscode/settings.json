@@ -1,6 +1,17 @@
 {
-  "editor.tabSize": 2,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true
+  },
+  "search.exclude": {
+    "**/lib": true,
+    "**/bin": true
+  },
   "editor.formatOnSave": true,
+  "editor.tabSize": 2,
   // Controls the printing of spaces inside object literals
   "prettier.bracketSpacing": true,
   // Number of spaces it should use per tab
