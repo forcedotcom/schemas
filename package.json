@@ -11,7 +11,7 @@
     "prepare": "npx shx cp -r schemas/* ./",
     "postpublish": "npx shx rm -f index.js ./*.schema.json",
     "test": "jest",
-    "prettier": "prettier ./**/*.* --write"
+    "prettier": "prettier ./**/*.{js,json,ts,md} --write"
   },
   "repository": {
     "type": "git",
