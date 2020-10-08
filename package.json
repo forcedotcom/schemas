@@ -10,7 +10,7 @@
   "scripts": {
     "commit-init": "commitizen init cz-conventional-changelog --save-dev --save-exact --force",
     "commit": "git-cz",
-    "prepare": "npx shx cp -r schemas/* ./",
+    "build": "npx shx cp -r schemas/* ./",
     "postpublish": "npx shx rm -f index.js ./*.schema.json",
     "test": "jest",
     "prettier": "prettier ./**/*.{js,json,ts,md} --write"
