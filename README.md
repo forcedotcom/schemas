@@ -1,5 +1,7 @@
 # Salesforce DX Schemas
 
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 JSON Schemas help with validation and code completion of json files. Below are the schemas that are available in this repository.
 
 - Schema: [project-scratch-def.json](https://forcedotcom.github.io/schemas/project-scratch-def.json/project-scratch-def.schema.json)
