@@ -33,6 +33,8 @@ _refs:
   install: &install
     name: Install dependencies
     command: |
+      apt-get update && apt-get install -y git
+      git --version
       npm --version
       node --version
       npm install
@@ -72,8 +74,6 @@ jobs:
         - restore_cache: *restore_cache
         - run: *install
         - run: ls
-        - run: npm run build
-        - run: ls
         - run: npm pack
         - run:
             name: Staging artifact
@@ -95,7 +95,6 @@ jobs:
       - restore_cache: *restore_cache
       - run: *gh-config
       - run: *install
-      - run: npm run build
       - run:
           name: Bump package version
           command: |
