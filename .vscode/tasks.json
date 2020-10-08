@@ -6,6 +6,28 @@
       "command": "./scripts/publish-workflow.sh",
       "type": "shell",
       "args": ["${input:circleCiId}", "${input:publishType}"]
+    },
+    {
+      "label": "Commit",
+      "command": "npm",
+      "type": "shell",
+      "presentation": {
+        "focus": true,
+        "panel": "shared"
+      },
+      "args": ["run", "commit"],
+      "isBackground": false
+    },
+    {
+      "label": "Commitizen Initialization",
+      "command": "npm",
+      "type": "shell",
+      "presentation": {
+        "focus": false,
+        "panel": "shared"
+      },
+      "args": ["run", "commit-init"],
+      "isBackground": false
     }
   ],
   "inputs": [
@@ -15,11 +37,11 @@
       "description": "CircleCi Token"
     },
     {
-        "id": "publishType",
-        "type": "pickString",
-        "description": "Type of version to publish",
-        "options": ["minor", "patch", "major"],
-        "default": "patch"
+      "id": "publishType",
+      "type": "pickString",
+      "description": "Type of version to publish",
+      "options": ["minor", "patch", "major"],
+      "default": "patch"
     }
   ]
 }
