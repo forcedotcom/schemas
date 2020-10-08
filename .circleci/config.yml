@@ -63,6 +63,23 @@ jobs:
           key: v1-npm-{{checksum ".circleci/config.yml"}}-{{checksum "package.json"}}
           paths:
             - ~/cli/node_modules
+
+  build-artifact:
+    description: 'Building and archiving tarball'
+    executor: default-executor
+    steps:
+        - checkout
+        - restore_cache: *restore_cache
+        - run: *install
+        - run: npm pack
+        - run:
+            name: Staging artifact
+            command: |
+                mkdir artifact
+                find . -name "*.tgz" -type f -exec cp {} ./artifact \;
+        - store_artifacts:
+            path: ./artifact
+  
   publish:
     <<: *defaults
     steps:
@@ -110,6 +127,7 @@ workflows:
     jobs:
       - node-latest
       - node-12
+      - build-artifact
       - cache:
           filters:
             tags:
@@ -126,6 +144,7 @@ workflows:
           color: "#0E1111"
       - node-latest
       - node-12
+      - build-artifact
       - hold: # Requires manual approval in Circle Ci
           type: approval
       - publish:
@@ -137,6 +156,7 @@ workflows:
           requires:
             - node-latest
             - node-12
+            - build-artifact
             - hold
 
   scheduled-workflow:
