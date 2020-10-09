@@ -1,6 +1,8 @@
 const fs = require("fs");
 const path = require("path");
-const schemas = require("../schemas");
+const schemas = fs
+  .readdirSync(path.join(__dirname, ".."))
+  .filter(filename => filename.endsWith("schema.json"));
 const Ajv = require("ajv");
 
 function testFile(path, validate, shouldValidate) {
@@ -15,9 +17,14 @@ function testFile(path, validate, shouldValidate) {
   };
 }
 
-for (const schema of Object.keys(schemas)) {
-  const schemaPath = schemas[schema];
-  const examplePath = path.join(__dirname, "..", "examples", schema);
+schemas.forEach(schema => {
+  const schemaPath = path.join(__dirname, "..", schema);
+  const examplePath = path.join(
+    __dirname,
+    "..",
+    "examples",
+    schema.replace(".schema.json", "")
+  );
   const examples = fs.readdirSync(examplePath);
 
   if (examples && examples.length) {
@@ -39,4 +46,4 @@ for (const schema of Object.keys(schemas)) {
   } else {
     process.stderr(`Warning! No examples for ${schema}`);
   }
-}
+});
