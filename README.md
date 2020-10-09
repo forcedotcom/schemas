@@ -15,7 +15,7 @@ For most other editors, you can use the schemas by adding the `$schema` property
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/forcedotcom/schemas/master/schemas/sfdx-project.schema.json"
+  "$schema": "https://raw.githubusercontent.com/forcedotcom/schemas/main/sfdx-project.schema.json"
   //...
 }
 ```

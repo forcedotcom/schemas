@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const schemas = fs
-  .readdirSync(path.join(__dirname, '..'))
+  .readdirSync(path.join(__dirname, ".."))
   .filter(filename => filename.endsWith("schema.json"));
 const Ajv = require("ajv");
 
@@ -18,8 +18,13 @@ function testFile(path, validate, shouldValidate) {
 }
 
 schemas.forEach(schema => {
-  const schemaPath = path.join(__dirname, '..', schema);
-  const examplePath = path.join(__dirname, "..", "examples", schema.replace('.schema.json', ''));
+  const schemaPath = path.join(__dirname, "..", schema);
+  const examplePath = path.join(
+    __dirname,
+    "..",
+    "examples",
+    schema.replace(".schema.json", "")
+  );
   const examples = fs.readdirSync(examplePath);
 
   if (examples && examples.length) {
