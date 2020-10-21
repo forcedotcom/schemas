@@ -24,7 +24,7 @@ You can also use these schemas programatially. For example, Salesforce CLI uses 
 const schemas = require('@salesforce/schemas');
 const projectJsonSchema = require(schemas['sfdx-project']);
 // OR
-const projectJsonSchema = require('@salesforce/schema/sfdx-project-schema.json']);
+const projectJsonSchema = require('@salesforce/schemas/sfdx-project-schema.json']);
 ```
 
 ## Bugs and Feedback
