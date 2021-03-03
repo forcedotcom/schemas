@@ -259,6 +259,7 @@
               "EmbeddedLoginForIE",
               "EnableManageIdConfUI",
               "EnablePRM",
+              "EnableSetPasswordInApi",
               "Entitlements",
               "EventLogFile",
               "ExternalIdentityLogin",
