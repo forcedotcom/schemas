@@ -432,6 +432,11 @@
           "title": "AddressSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_addresssettings.htm"
         },
+        "aIReplyRecommendationsSettings": {
+          "type": "object",
+          "title": "AIReplyRecommendationsSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_aireplyrecommendationssettings.htm"
+        },
         "analyticsSettings": {
           "type": "object",
           "title": "AnalyticsSettings",
@@ -441,6 +446,11 @@
           "type": "object",
           "title": "ApexSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_apexsettings.htm"
+        },
+        "appAnalyticsSettings": {
+          "type": "object",
+          "title": "AppAnalyticsSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_appanalyticssettings.htm"
         },
         "appExperienceSettings": {
           "type": "object",
@@ -482,9 +492,9 @@
           "title": "ChatterAnswersSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_chatteranswerssettings.htm"
         },
-        "chatterEmailMDSettings": {
+        "chatterEmailsMDSettings": {
           "type": "object",
-          "title": "ChatterEmailMDSettings",
+          "title": "ChatterEmailsMDSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_chatteremailmdsettings.htm"
         },
         "chatterSettings": {
@@ -516,6 +526,11 @@
           "type": "object",
           "title": "ContractSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_contractsettings.htm"
+        },
+        "conversationalIntelligenceSettings": {
+          "type": "object",
+          "title": "ConversationalIntelligenceSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_conversationalintelligencesettings.htm"
         },
         "currencySettings": {
           "type": "object",
@@ -556,6 +571,11 @@
           "type": "object",
           "title": "EmailTemplateSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_emailtemplatesettings.htm"
+        },
+        "employeeUserSettings": {
+          "type": "object",
+          "title": "EmployeeUserSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_employeeusersettings.htm"
         },
         "enhancedNotesSettings": {
           "type": "object",
@@ -612,10 +632,20 @@
           "title": "IdeasSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_ideassettings.htm"
         },
+        "iframeWhiteListUrlSettings": {
+          "type": "object",
+          "title": "IframeWhiteListUrlSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_iframewhitelisturlsettings.htm"
+        },
         "industriesSettings": {
           "type": "object",
           "title": "IndustriesSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_industriessettings.htm"
+        },
+        "inventorySettings": {
+          "type": "object",
+          "title": "InventorySettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_inventorysettings.htm"
         },
         "invocableActionSettings": {
           "type": "object",
@@ -707,6 +737,11 @@
           "title": "OpportunitySettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_opportunityssettings.htm"
         },
+        "opportunityScoreSettings": {
+          "type": "object",
+          "title": "OpportunityScoreSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_opportunityscoresettings.htm"
+        },
         "orderManagementSettings": {
           "type": "object",
           "title": "OrderManagementSettings",
@@ -776,6 +811,11 @@
           "type": "object",
           "title": "QuoteSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_quotessettings.htm"
+        },
+        "realTimeEventSettings": {
+          "type": "object",
+          "title": "RealTimeEventSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_realtimeeventsettings.htm"
         },
         "recordPageSettings": {
           "type": "object",
