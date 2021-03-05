@@ -143,8 +143,43 @@
           },
           {
             "type": "string",
+            "title": "EncryptionStatisticsInterval:<value>",
+            "pattern": "^(EncryptionStatisticsInterval\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "EncryptionSyncInterval:<value>",
+            "pattern": "^(EncryptionSyncInterval\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "FieldService:<value>",
+            "pattern": "^(FieldService\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "FieldServiceDispatcherUser:<value>",
+            "pattern": "^(FieldServiceDispatcherUser\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "FieldServiceMobileUser:<value>",
+            "pattern": "^(FieldServiceMobileUser\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "FieldServiceSchedulingUser:<value>",
+            "pattern": "^(FieldServiceSchedulingUser\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
             "title": "FinancialServicesCommunityUser:<value>",
             "pattern": "^(FinancialServicesCommunityUser\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "FinancialServicesInsuranceUser:<value>",
+            "pattern": "^(FinancialServicesInsuranceUser\\:[0-9]+$)"
           },
           {
             "type": "string",
@@ -160,6 +195,11 @@
             "type": "string",
             "title": "HoursBetweenCoverageJob:<value>",
             "pattern": "^(HoursBetweenCoverageJob\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MaxApexCodeSize:<value>",
+            "pattern": "^(MaxApexCodeSize\\:[0-9]+$)"
           },
           {
             "type": "string",
@@ -208,6 +248,16 @@
           },
           {
             "type": "string",
+            "title": "PlatformConnect:<value>",
+            "pattern": "^(PlatformConnect\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "PlatformEventsPerDay:<value>",
+            "pattern": "^(PlatformEventsPerDay\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
             "title": "StreamingEventsPerDay:<value>",
             "pattern": "^(StreamingEventsPerDay\\:[0-9]+$)"
           },
@@ -218,16 +268,23 @@
           },
           {
             "type": "string",
+            "title": "SubPerStreamingTopic:<value>",
+            "pattern": "^(SubPerStreamingTopic\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
             "enum": [
               "API",
               "AnalyticsAdminPerms",
-              "AnalyticsAppEmbedded",
               "AuthorApex",
+              "B2BCommerce",
               "BigObjectsBulkAPI",
+              "Briefcase",
               "CMSMaxContType",
               "CMSMaxNodesPerContType",
               "CMSUnlimitedUse",
               "CPQ",
+              "CacheOnlyKeys",
               "CascadeDelete",
               "CaseClassification",
               "ChangeDataCapture",
@@ -244,7 +301,6 @@
               "DebugApex",
               "DefaultWorkflowUser",
               "DeferSharingCalc",
-              "DensityValue",
               "DevelopmentWave",
               "DeviceTrackingEnabled",
               "DisableManageIdConfAPI",
@@ -256,6 +312,9 @@
               "EinsteinAnalyticsPlus",
               "EinsteinArticleRecommendations",
               "EinsteinBuilderFree",
+              "EinsteinRecommendationBuilder",
+              "EinsteinRecommendationBuilderMetadata",
+              "EinsteinVisits",
               "EmbeddedLoginForIE",
               "EnableManageIdConfUI",
               "EnablePRM",
@@ -263,16 +322,13 @@
               "Entitlements",
               "EventLogFile",
               "ExternalIdentityLogin",
-              "ExternalSharing",
               "FieldAuditTrail",
-              "FieldService",
               "FlowSites",
               "ForceComPlatform",
               "GenericStreaming",
               "HealthCloudUser",
               "HighVelocitySales",
               "IdentityProvisioningFeatures",
-              "IgnoreQueryParamWhitelist",
               "IndustriesActionPlan",
               "IndustriesManufacturing",
               "IndustriesManufacturingCmty",
@@ -286,32 +342,35 @@
               "LightningSalesConsole",
               "LightningScheduler",
               "LightningServiceConsole",
-              "ListCustomSettingCreation",
               "LiveAgent",
               "LiveMessage",
               "Macros",
               "MarketingUser",
-              "MaxApexCodeSize",
               "MaxAudTypeCriterionPerAud",
+              "MinKeyRotationInterval",
               "MobileSecurity",
               "MultiCurrency",
               "MultiLevelMasterDetail",
               "MutualAuthentication",
+              "NonprofitCloudCaseManagementUser",
               "ObjectLinking",
+              "OrderManagement",
+              "OrderSaveBehaviorBoth",
+              "OrderSaveLogicEnabled",
               "OutboundMessageHTTPSession",
               "PardotScFeaturesCampaignInfluence",
               "PersonAccounts",
               "PlatformCache",
-              "PlatformConnect",
               "PlatformEncryption",
-              "PlatformEventsPerDay",
               "ProcessBuilder",
               "ProductsAndSchedules",
+              "ProviderFreePlatformCache",
               "RecordTypes",
               "RefreshOnInvalidSession",
               "S1ClientComponentCacheSize",
               "SAML20SingleLogout",
               "SCIMProtocol",
+              "SFDOInsightsDataIntegrityUser",
               "SalesCloudEinstein",
               "SalesUser",
               "SalesforceContentUser",
@@ -320,12 +379,12 @@
               "ServiceCloud",
               "ServiceUser",
               "SessionIdInLogEnabled",
+              "SharedActivities",
               "SingleSignOn",
               "Sites",
               "SocialCustomerService",
               "StateAndCountryPicklist",
               "StreamingAPI",
-              "SubPerStreamingTopic",
               "SustainabilityCloud",
               "TerritoryManagement",
               "TimeSheetTemplateSettings",
@@ -333,7 +392,8 @@
               "WavePlatform",
               "WorkThanksPref",
               "Workflow",
-              "WorkflowFlowActionFeature"
+              "WorkflowFlowActionFeature",
+              "WorkplaceCommandCenterUser"
             ]
           }
         ]
