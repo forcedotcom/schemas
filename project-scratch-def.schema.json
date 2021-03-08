@@ -276,6 +276,7 @@
             "enum": [
               "API",
               "AnalyticsAdminPerms",
+              "AnalyticsAppEmbedded",
               "AuthorApex",
               "B2BCommerce",
               "BigObjectsBulkAPI",
