@@ -143,8 +143,43 @@
           },
           {
             "type": "string",
+            "title": "EncryptionStatisticsInterval:<value>",
+            "pattern": "^(EncryptionStatisticsInterval\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "EncryptionSyncInterval:<value>",
+            "pattern": "^(EncryptionSyncInterval\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "FieldService:<value>",
+            "pattern": "^(FieldService\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "FieldServiceDispatcherUser:<value>",
+            "pattern": "^(FieldServiceDispatcherUser\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "FieldServiceMobileUser:<value>",
+            "pattern": "^(FieldServiceMobileUser\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "FieldServiceSchedulingUser:<value>",
+            "pattern": "^(FieldServiceSchedulingUser\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
             "title": "FinancialServicesCommunityUser:<value>",
             "pattern": "^(FinancialServicesCommunityUser\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "FinancialServicesInsuranceUser:<value>",
+            "pattern": "^(FinancialServicesInsuranceUser\\:[0-9]+$)"
           },
           {
             "type": "string",
@@ -160,6 +195,11 @@
             "type": "string",
             "title": "HoursBetweenCoverageJob:<value>",
             "pattern": "^(HoursBetweenCoverageJob\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MaxApexCodeSize:<value>",
+            "pattern": "^(MaxApexCodeSize\\:[0-9]+$)"
           },
           {
             "type": "string",
@@ -208,6 +248,16 @@
           },
           {
             "type": "string",
+            "title": "PlatformConnect:<value>",
+            "pattern": "^(PlatformConnect\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "PlatformEventsPerDay:<value>",
+            "pattern": "^(PlatformEventsPerDay\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
             "title": "StreamingEventsPerDay:<value>",
             "pattern": "^(StreamingEventsPerDay\\:[0-9]+$)"
           },
@@ -218,16 +268,24 @@
           },
           {
             "type": "string",
+            "title": "SubPerStreamingTopic:<value>",
+            "pattern": "^(SubPerStreamingTopic\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
             "enum": [
               "API",
               "AnalyticsAdminPerms",
               "AnalyticsAppEmbedded",
               "AuthorApex",
+              "B2BCommerce",
               "BigObjectsBulkAPI",
+              "Briefcase",
               "CMSMaxContType",
               "CMSMaxNodesPerContType",
               "CMSUnlimitedUse",
               "CPQ",
+              "CacheOnlyKeys",
               "CascadeDelete",
               "CaseClassification",
               "ChangeDataCapture",
@@ -244,7 +302,6 @@
               "DebugApex",
               "DefaultWorkflowUser",
               "DeferSharingCalc",
-              "DensityValue",
               "DevelopmentWave",
               "DeviceTrackingEnabled",
               "DisableManageIdConfAPI",
@@ -256,6 +313,9 @@
               "EinsteinAnalyticsPlus",
               "EinsteinArticleRecommendations",
               "EinsteinBuilderFree",
+              "EinsteinRecommendationBuilder",
+              "EinsteinRecommendationBuilderMetadata",
+              "EinsteinVisits",
               "EmbeddedLoginForIE",
               "EnableManageIdConfUI",
               "EnablePRM",
@@ -263,16 +323,13 @@
               "Entitlements",
               "EventLogFile",
               "ExternalIdentityLogin",
-              "ExternalSharing",
               "FieldAuditTrail",
-              "FieldService",
               "FlowSites",
               "ForceComPlatform",
               "GenericStreaming",
               "HealthCloudUser",
               "HighVelocitySales",
               "IdentityProvisioningFeatures",
-              "IgnoreQueryParamWhitelist",
               "IndustriesActionPlan",
               "IndustriesManufacturing",
               "IndustriesManufacturingCmty",
@@ -286,32 +343,35 @@
               "LightningSalesConsole",
               "LightningScheduler",
               "LightningServiceConsole",
-              "ListCustomSettingCreation",
               "LiveAgent",
               "LiveMessage",
               "Macros",
               "MarketingUser",
-              "MaxApexCodeSize",
               "MaxAudTypeCriterionPerAud",
+              "MinKeyRotationInterval",
               "MobileSecurity",
               "MultiCurrency",
               "MultiLevelMasterDetail",
               "MutualAuthentication",
+              "NonprofitCloudCaseManagementUser",
               "ObjectLinking",
+              "OrderManagement",
+              "OrderSaveBehaviorBoth",
+              "OrderSaveLogicEnabled",
               "OutboundMessageHTTPSession",
               "PardotScFeaturesCampaignInfluence",
               "PersonAccounts",
               "PlatformCache",
-              "PlatformConnect",
               "PlatformEncryption",
-              "PlatformEventsPerDay",
               "ProcessBuilder",
               "ProductsAndSchedules",
+              "ProviderFreePlatformCache",
               "RecordTypes",
               "RefreshOnInvalidSession",
               "S1ClientComponentCacheSize",
               "SAML20SingleLogout",
               "SCIMProtocol",
+              "SFDOInsightsDataIntegrityUser",
               "SalesCloudEinstein",
               "SalesUser",
               "SalesforceContentUser",
@@ -320,12 +380,12 @@
               "ServiceCloud",
               "ServiceUser",
               "SessionIdInLogEnabled",
+              "SharedActivities",
               "SingleSignOn",
               "Sites",
               "SocialCustomerService",
               "StateAndCountryPicklist",
               "StreamingAPI",
-              "SubPerStreamingTopic",
               "SustainabilityCloud",
               "TerritoryManagement",
               "TimeSheetTemplateSettings",
@@ -333,7 +393,8 @@
               "WavePlatform",
               "WorkThanksPref",
               "Workflow",
-              "WorkflowFlowActionFeature"
+              "WorkflowFlowActionFeature",
+              "WorkplaceCommandCenterUser"
             ]
           }
         ]
@@ -372,6 +433,11 @@
           "title": "AddressSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_addresssettings.htm"
         },
+        "aIReplyRecommendationsSettings": {
+          "type": "object",
+          "title": "AIReplyRecommendationsSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_aireplyrecommendationssettings.htm"
+        },
         "analyticsSettings": {
           "type": "object",
           "title": "AnalyticsSettings",
@@ -381,6 +447,11 @@
           "type": "object",
           "title": "ApexSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_apexsettings.htm"
+        },
+        "appAnalyticsSettings": {
+          "type": "object",
+          "title": "AppAnalyticsSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_appanalyticssettings.htm"
         },
         "appExperienceSettings": {
           "type": "object",
@@ -422,9 +493,9 @@
           "title": "ChatterAnswersSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_chatteranswerssettings.htm"
         },
-        "chatterEmailMDSettings": {
+        "chatterEmailsMDSettings": {
           "type": "object",
-          "title": "ChatterEmailMDSettings",
+          "title": "ChatterEmailsMDSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_chatteremailmdsettings.htm"
         },
         "chatterSettings": {
@@ -456,6 +527,11 @@
           "type": "object",
           "title": "ContractSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_contractsettings.htm"
+        },
+        "conversationalIntelligenceSettings": {
+          "type": "object",
+          "title": "ConversationalIntelligenceSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_conversationalintelligencesettings.htm"
         },
         "currencySettings": {
           "type": "object",
@@ -496,6 +572,11 @@
           "type": "object",
           "title": "EmailTemplateSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_emailtemplatesettings.htm"
+        },
+        "employeeUserSettings": {
+          "type": "object",
+          "title": "EmployeeUserSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_employeeusersettings.htm"
         },
         "enhancedNotesSettings": {
           "type": "object",
@@ -552,10 +633,20 @@
           "title": "IdeasSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_ideassettings.htm"
         },
+        "iframeWhiteListUrlSettings": {
+          "type": "object",
+          "title": "IframeWhiteListUrlSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_iframewhitelisturlsettings.htm"
+        },
         "industriesSettings": {
           "type": "object",
           "title": "IndustriesSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_industriessettings.htm"
+        },
+        "inventorySettings": {
+          "type": "object",
+          "title": "InventorySettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_inventorysettings.htm"
         },
         "invocableActionSettings": {
           "type": "object",
@@ -647,6 +738,11 @@
           "title": "OpportunitySettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_opportunityssettings.htm"
         },
+        "opportunityScoreSettings": {
+          "type": "object",
+          "title": "OpportunityScoreSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_opportunityscoresettings.htm"
+        },
         "orderManagementSettings": {
           "type": "object",
           "title": "OrderManagementSettings",
@@ -716,6 +812,11 @@
           "type": "object",
           "title": "QuoteSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_quotessettings.htm"
+        },
+        "realTimeEventSettings": {
+          "type": "object",
+          "title": "RealTimeEventSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_realtimeeventsettings.htm"
         },
         "recordPageSettings": {
           "type": "object",
