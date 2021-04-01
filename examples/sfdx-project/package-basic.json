@@ -1,4 +1,5 @@
 {
+  "name": "project-name",
   "packageDirectories": [
     {
       "path": "force-app",
