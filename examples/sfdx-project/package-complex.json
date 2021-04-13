@@ -1,4 +1,5 @@
 {
+  "name": "project-name",
   "namespace": "exp-mgr",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "47.0",
