@@ -85,6 +85,11 @@
         }
       }
     },
+    "name": {
+      "title": "name",
+      "type": "string",
+      "description": "The name of your Salesforce project."
+    },
     "namespace": {
       "title": "Namespace",
       "type": "string",
