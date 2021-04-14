@@ -19,6 +19,7 @@
         "dependencies": {
           "ancestorId": ["package", "versionNumber"],
           "ancestorVersion": ["package", "versionNumber"],
+          "apexTestAccess": ["package", "versionNumber"],
           "definitionFile": ["package", "versionNumber"],
           "dependencies": ["package", "versionNumber"],
           "package": ["versionNumber"],
@@ -39,6 +40,9 @@
           },
           "ancestorVersion": {
             "$ref": "#/definitions/packageDirectory.ancestorVersion"
+          },
+          "apexTestAccess" : {
+            "$ref": "#/definitions/packageDirectory.apexTestAccess"
           },
           "default": {
             "$ref": "#/definitions/packageDirectory.default"
@@ -233,6 +237,55 @@
       "type": "boolean",
       "title": "Include Profile User Licenses",
       "description": "Whether to include <userLicense> elements in profile metadata "
+    },
+    "packageDirectory.apexTestAccess": {
+      "type": "object",
+      "title": "Apex Test Access",
+      "description": "Additional access that should be granted to the user when running package Apex tests",
+      "properties": {
+        "permissionSets": {
+          "title": "Permission Sets",
+          "description": "The list of permission sets to enable while running Apex tests",
+          "oneOf": [
+            {
+              "type": "string",
+              "title": "Permission Set String",
+              "description": "The list of permission set to enable while running Apex tests as a string"
+            },
+            {
+              "type": "array",
+              "title": "Permission Set Array",
+              "description": "The list of permission set to enable while running Apex tests as an array",
+              "items": {
+                "type": "string",
+                "title": "Permission Set Name",
+                "description": "Name of the permission set to enable while running Apex tests"
+              }
+            }
+          ]
+        },
+        "permissionSetLicenses": {
+          "title": "Permission Set License",
+          "description": "The list of permission sets licenses to enable while running Apex tests",
+          "oneOf": [
+            {
+              "type": "string",
+              "title": "Permission Set Licenses String",
+              "description": "The list of permission set licenses to enable while running Apex tests as a string"
+            },
+            {
+              "type": "array",
+              "title": "Permission Set Licenses Array",
+              "description": "The list of permission set licenses to enable while running Apex tests as an array",
+              "items": {
+                "type": "string",
+                "title": "Permission Set Licenses Developer Name",
+                "description": "Name of the permission set to enable while running Apex tests"
+              }
+            }
+          ]
+        }
+      }
     }
   }
 }
