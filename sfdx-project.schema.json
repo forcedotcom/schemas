@@ -85,6 +85,9 @@
           },
           "versionNumber": {
             "$ref": "#/definitions/packageDirectory.versionNumber"
+          },
+          "branch": {
+            "$ref": "#/definitions/packageDirectory.branch"
           }
         }
       }
@@ -186,6 +189,9 @@
           },
           "versionNumber": {
             "type": "string"
+          },
+          "branch": {
+            "type": "string"
           }
         }
       }
@@ -286,6 +292,11 @@
           ]
         }
       }
+    },
+    "packageDirectory.branch": {
+      "type": "string",
+      "title": "Branch",
+      "description": "The name of the branch to be assigned to the package version"
     }
   }
 }
