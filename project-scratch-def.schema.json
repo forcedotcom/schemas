@@ -123,6 +123,11 @@
           },
           {
             "type": "string",
+            "title": "AssetScheduling:<value>",
+            "pattern": "^(AssetScheduling\\:[0-9]+$)"
+          },
+          {
+            "type": "string",
             "title": "CalloutSizeMB:<value>",
             "pattern": "^(CalloutSizeMB\\:[0-9]+$)"
           },
@@ -288,6 +293,7 @@
               "CacheOnlyKeys",
               "CascadeDelete",
               "CaseClassification",
+              "CaseWrapUp",
               "ChangeDataCapture",
               "Chatbot",
               "Communities",
@@ -315,6 +321,7 @@
               "EinsteinBuilderFree",
               "EinsteinRecommendationBuilder",
               "EinsteinRecommendationBuilderMetadata",
+              "EinsteinSearch",
               "EinsteinVisits",
               "EmbeddedLoginForIE",
               "EnableManageIdConfUI",
@@ -361,11 +368,15 @@
               "OutboundMessageHTTPSession",
               "PardotScFeaturesCampaignInfluence",
               "PersonAccounts",
+              "PipelineInspection",
               "PlatformCache",
               "PlatformEncryption",
               "ProcessBuilder",
               "ProductsAndSchedules",
               "ProviderFreePlatformCache",
+              "PublicSectorAccess",
+              "PublicSectorApplicationUsageCreditsAddOn",
+              "PublicSectorSiteTemplate",
               "RecordTypes",
               "RefreshOnInvalidSession",
               "S1ClientComponentCacheSize",
@@ -377,17 +388,17 @@
               "SalesforceContentUser",
               "SalesforceIdentityForCommunities",
               "SecurityEventEnabled",
+              "ServiceCatalog",
               "ServiceCloud",
+              "ServiceCloudVoicePartnerTelephony",
               "ServiceUser",
               "SessionIdInLogEnabled",
               "SharedActivities",
-              "SingleSignOn",
               "Sites",
               "SocialCustomerService",
               "StateAndCountryPicklist",
               "StreamingAPI",
               "SustainabilityCloud",
-              "TerritoryManagement",
               "TimeSheetTemplateSettings",
               "TransactionFinalizers",
               "WavePlatform",
@@ -478,10 +489,10 @@
           "title": "CampaignSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_campaignsettings.htm"
         },
-        "caseClassificationSettings": {
+        "einsteinAgentSettings": {
           "type": "object",
-          "title": "CaseClassificationSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_caseclassificationsettings.htm"
+          "title": "EinsteinAgentSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_einsteinagentsettings.htm"
         },
         "caseSettings": {
           "type": "object",
@@ -603,10 +614,20 @@
           "title": "ExperienceBundleSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_experiencebundlesettings.htm"
         },
+        "externalServicesSettings": {
+          "type": "object",
+          "title": "ExternalServicesSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_externalservicessettings.htm"
+        },
         "fieldServiceSettings": {
           "type": "object",
           "title": "FieldServiceSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_fieldservicesettings.htm"
+        },
+        "filesConnectSettings": {
+          "type": "object",
+          "title": "FilesConnectSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_filesconnectsettings.htm"
         },
         "fileUploadAndDownloadSecuritySettings": {
           "type": "object",
@@ -617,6 +638,11 @@
           "type": "object",
           "title": "FlowSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_flowsettings.htm"
+        },
+        "forecastingObjectListSettings": {
+          "type": "object",
+          "title": "ForecastingObjectListSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_forecastingobjectlistsettings.htm"
         },
         "forecastingSettings": {
           "type": "object",
@@ -637,6 +663,11 @@
           "type": "object",
           "title": "IframeWhiteListUrlSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_iframewhitelisturlsettings.htm"
+        },
+        "industriesLoyaltySettings": {
+          "type": "object",
+          "title": "IndustriesLoyaltySettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/industriesloyaltysettings_metadata_api.htm"
         },
         "industriesSettings": {
           "type": "object",
@@ -698,10 +729,20 @@
           "title": "MacroSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_macrosettings.htm"
         },
+        "mailMergeSettings": {
+          "type": "object",
+          "title": "MailMergeSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_mailmergesettings.htm"
+        },
         "mapAndLocationSettings": {
           "type": "object",
           "title": "MapAndLocationSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_mapandlocationsettings.htm"
+        },
+        "meetingsSettings": {
+          "type": "object",
+          "title": "MeetingsSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_meetingssettings.htm"
         },
         "mobileSettings": {
           "type": "object",
@@ -838,6 +879,16 @@
           "title": "SecuritySettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_securitysettings.htm"
         },
+        "serviceCloudVoiceSettings": {
+          "type": "object",
+          "title": "ServiceCloudVoiceSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_servicecloudvoicesettings.htm"
+        },
+        "serviceSetupAssistantSettings": {
+          "type": "object",
+          "title": "ServiceSetupAssistantSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_servicesetupassistantsettings.htm"
+        },
         "sharingSettings": {
           "type": "object",
           "title": "SharingSettings",
@@ -902,6 +953,11 @@
           "type": "object",
           "title": "WorkDotComSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_WorkDotComSettings.htm"
+        },
+        "workforceEngagementSettings": {
+          "type": "object",
+          "title": "WorkforceEngagementSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_workforceengagementsettings.htm"
         }
       }
     }
