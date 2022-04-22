@@ -5,7 +5,9 @@
   "description": "The properties and shape of the SFDX project",
   "type": "object",
   "additionalProperties": false,
-  "required": ["packageDirectories"],
+  "required": [
+    "packageDirectories"
+  ],
   "properties": {
     "packageDirectories": {
       "title": "Package Directories",
@@ -17,22 +19,64 @@
       "items": {
         "type": "object",
         "dependencies": {
-          "ancestorId": ["package", "versionNumber"],
-          "ancestorVersion": ["package", "versionNumber"],
-          "apexTestAccess": ["package", "versionNumber"],
-          "definitionFile": ["package", "versionNumber"],
-          "dependencies": ["package", "versionNumber"],
-          "package": ["versionNumber"],
-          "postInstallScript": ["package", "versionNumber"],
-          "postInstallUrl": ["package", "versionNumber"],
-          "releaseNotesUrl": ["package", "versionNumber"],
-          "uninstallScript": ["package", "versionNumber"],
-          "unpackagedMetadata": ["package", "versionNumber"],
-          "versionDescription": ["package", "versionNumber"],
-          "versionName": ["package", "versionNumber"],
-          "versionNumber": ["package"]
+          "ancestorId": [
+            "package",
+            "versionNumber"
+          ],
+          "ancestorVersion": [
+            "package",
+            "versionNumber"
+          ],
+          "apexTestAccess": [
+            "package",
+            "versionNumber"
+          ],
+          "definitionFile": [
+            "package",
+            "versionNumber"
+          ],
+          "dependencies": [
+            "package",
+            "versionNumber"
+          ],
+          "package": [
+            "versionNumber"
+          ],
+          "postInstallScript": [
+            "package",
+            "versionNumber"
+          ],
+          "postInstallUrl": [
+            "package",
+            "versionNumber"
+          ],
+          "releaseNotesUrl": [
+            "package",
+            "versionNumber"
+          ],
+          "uninstallScript": [
+            "package",
+            "versionNumber"
+          ],
+          "unpackagedMetadata": [
+            "package",
+            "versionNumber"
+          ],
+          "versionDescription": [
+            "package",
+            "versionNumber"
+          ],
+          "versionName": [
+            "package",
+            "versionNumber"
+          ],
+          "versionNumber": [
+            "package"
+          ]
         },
-        "required": ["path"],
+        "required": [
+          "path"
+        ],
         "additionalProperties": false,
         "properties": {
           "ancestorId": {
@@ -41,7 +85,7 @@
           "ancestorVersion": {
             "$ref": "#/definitions/packageDirectory.ancestorVersion"
           },
-          "apexTestAccess" : {
+          "apexTestAccess": {
             "$ref": "#/definitions/packageDirectory.apexTestAccess"
           },
           "default": {
@@ -85,6 +129,9 @@
           },
           "versionNumber": {
             "$ref": "#/definitions/packageDirectory.versionNumber"
+          },
+          "branch": {
+            "$ref": "#/definitions/packageDirectory.branch"
           }
         }
       }
@@ -118,6 +165,10 @@
     "oauthLocalPort": {
       "type": "number",
       "description": "By default, the OAuth port is 1717. However, change this port if this port is already in use, and you plan to create a connected app in your Dev Hub org to support JWT-based authorization."
+    },
+    "pushPackageDirectoriesSequentially": {
+      "type": "boolean",
+      "description": "Whether to push package directories sequentially. If true, the package directories are pushed in the order they are listed in the project file. By default, the package directories are pushed in one deployment."
     },
     "plugins": {
       "title": "CLI Plugins custom settings",
@@ -179,12 +230,17 @@
       "description": "To specify dependencies for 2GP within the same Dev Hub, use either the package version alias or a combination of the package name and the version number.",
       "items": {
         "type": "object",
-        "required": ["package"],
+        "required": [
+          "package"
+        ],
         "properties": {
           "package": {
             "type": "string"
           },
           "versionNumber": {
+            "type": "string"
+          },
+          "branch": {
             "type": "string"
           }
         }
@@ -224,7 +280,9 @@
       "type": "object",
       "title": "Unpackaged Metadata",
       "description": "Metadata not meant to be packaged, but deployed when testing packaged metadata",
-      "required": ["path"],
+      "required": [
+        "path"
+      ],
       "properties": {
         "path": {
           "type": "string",
@@ -286,6 +344,11 @@
           ]
         }
       }
+    },
+    "packageDirectory.branch": {
+      "type": "string",
+      "title": "Branch",
+      "description": "The name of the branch to be assigned to the package version"
     }
   }
 }
