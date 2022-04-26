@@ -53,7 +53,7 @@ entries.forEach(item => {
                 const patternVal = `^(${feature.text.replace(
                   ":<value>",
                   ""
-                )}\\:[0-9]+$)`;
+                )}:[0-9]+$)`;
                 anyOfArray.push({
                   type: "string",
                   title: feature.text,
