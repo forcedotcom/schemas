@@ -42,7 +42,7 @@
       "title": "Country",
       "type": "string",
       "description": "Dev Hub's country. If you want to override this value, enter the two-character, upper-case ISO-3166 country code (Alpha-2 code). You can find a full list of these codes at several sites, such as: https://www.iso.org/obp/ui/#search. This value sets the locale of the scratch org.",
-      "maximum": 2
+      "maxLength": 2
     },
     "username": {
       "title": "Username",
@@ -68,7 +68,7 @@
       "title": "Default Language",
       "type": "string",
       "description": "Default language for the country. To override the language set by the Dev Hub locale, see Supported Languages (https://help.salesforce.com/articleView?id=faq_getstart_what_languages_does.htm&type=5&language=en_US) for the codes to use in this field.",
-      "maximum": 5
+      "maxLength": 5
     },
     "release": {
       "title": "Release",
@@ -89,187 +89,192 @@
           {
             "type": "string",
             "title": "AddCustomApps:<value>",
-            "pattern": "^(AddCustomApps\\:[0-9]+$)"
+            "pattern": "^(AddCustomApps:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "AddCustomObjects:<value>",
-            "pattern": "^(AddCustomObjects\\:[0-9]+$)"
+            "pattern": "^(AddCustomObjects:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "AddCustomRelationships:<value>",
-            "pattern": "^(AddCustomRelationships\\:[0-9]+$)"
+            "pattern": "^(AddCustomRelationships:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "AddCustomTabs:<value>",
-            "pattern": "^(AddCustomTabs\\:[0-9]+$)"
+            "pattern": "^(AddCustomTabs:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "AddDataComCRMRecordCredit:<value>",
-            "pattern": "^(AddDataComCRMRecordCredit\\:[0-9]+$)"
+            "pattern": "^(AddDataComCRMRecordCredit:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "AddInsightsQueryLimit:<value>",
-            "pattern": "^(AddInsightsQueryLimit\\:[0-9]+$)"
+            "pattern": "^(AddInsightsQueryLimit:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "AdditionalFieldHistory:<value>",
-            "pattern": "^(AdditionalFieldHistory\\:[0-9]+$)"
+            "pattern": "^(AdditionalFieldHistory:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "AssetScheduling:<value>",
+            "pattern": "^(AssetScheduling:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "CalloutSizeMB:<value>",
-            "pattern": "^(CalloutSizeMB\\:[0-9]+$)"
+            "pattern": "^(CalloutSizeMB:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "ConcStreamingClients:<value>",
-            "pattern": "^(ConcStreamingClients\\:[0-9]+$)"
+            "pattern": "^(ConcStreamingClients:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "ConsolePersistenceInterval:<value>",
-            "pattern": "^(ConsolePersistenceInterval\\:[0-9]+$)"
+            "pattern": "^(ConsolePersistenceInterval:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "EmpPublishRateLimit:<value>",
-            "pattern": "^(EmpPublishRateLimit\\:[0-9]+$)"
+            "pattern": "^(EmpPublishRateLimit:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "EncryptionStatisticsInterval:<value>",
-            "pattern": "^(EncryptionStatisticsInterval\\:[0-9]+$)"
+            "pattern": "^(EncryptionStatisticsInterval:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "EncryptionSyncInterval:<value>",
-            "pattern": "^(EncryptionSyncInterval\\:[0-9]+$)"
+            "pattern": "^(EncryptionSyncInterval:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "FieldService:<value>",
-            "pattern": "^(FieldService\\:[0-9]+$)"
+            "pattern": "^(FieldService:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "FieldServiceDispatcherUser:<value>",
-            "pattern": "^(FieldServiceDispatcherUser\\:[0-9]+$)"
+            "pattern": "^(FieldServiceDispatcherUser:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "FieldServiceMobileUser:<value>",
-            "pattern": "^(FieldServiceMobileUser\\:[0-9]+$)"
+            "pattern": "^(FieldServiceMobileUser:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "FieldServiceSchedulingUser:<value>",
-            "pattern": "^(FieldServiceSchedulingUser\\:[0-9]+$)"
+            "pattern": "^(FieldServiceSchedulingUser:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "FinancialServicesCommunityUser:<value>",
-            "pattern": "^(FinancialServicesCommunityUser\\:[0-9]+$)"
+            "pattern": "^(FinancialServicesCommunityUser:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "FinancialServicesInsuranceUser:<value>",
-            "pattern": "^(FinancialServicesInsuranceUser\\:[0-9]+$)"
+            "pattern": "^(FinancialServicesInsuranceUser:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "FinancialServicesUser:<value>",
-            "pattern": "^(FinancialServicesUser\\:[0-9]+$)"
+            "pattern": "^(FinancialServicesUser:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "GenStreamingEventsPerDay:<value>",
-            "pattern": "^(GenStreamingEventsPerDay\\:[0-9]+$)"
+            "pattern": "^(GenStreamingEventsPerDay:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "HoursBetweenCoverageJob:<value>",
-            "pattern": "^(HoursBetweenCoverageJob\\:[0-9]+$)"
+            "pattern": "^(HoursBetweenCoverageJob:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "MaxApexCodeSize:<value>",
-            "pattern": "^(MaxApexCodeSize\\:[0-9]+$)"
+            "pattern": "^(MaxApexCodeSize:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "MaxCustomLabels:<value>",
-            "pattern": "^(MaxCustomLabels\\:[0-9]+$)"
+            "pattern": "^(MaxCustomLabels:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "MaxFavoritesAllowed:<value>",
-            "pattern": "^(MaxFavoritesAllowed\\:[0-9]+$)"
+            "pattern": "^(MaxFavoritesAllowed:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "MaxNoOfLexThemesAllowed:<value>",
-            "pattern": "^(MaxNoOfLexThemesAllowed\\:[0-9]+$)"
+            "pattern": "^(MaxNoOfLexThemesAllowed:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "MaxStreamingTopics:<value>",
-            "pattern": "^(MaxStreamingTopics\\:[0-9]+$)"
+            "pattern": "^(MaxStreamingTopics:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "MaxUserNavItemsAllowed:<value>",
-            "pattern": "^(MaxUserNavItemsAllowed\\:[0-9]+$)"
+            "pattern": "^(MaxUserNavItemsAllowed:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "MaxUserStreamingChannels:<value>",
-            "pattern": "^(MaxUserStreamingChannels\\:[0-9]+$)"
+            "pattern": "^(MaxUserStreamingChannels:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "MedVisDescriptorLimit:<value>",
-            "pattern": "^(MedVisDescriptorLimit\\:[0-9]+$)"
+            "pattern": "^(MedVisDescriptorLimit:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "MobileExtMaxFileSizeMB:<value>",
-            "pattern": "^(MobileExtMaxFileSizeMB\\:[0-9]+$)"
+            "pattern": "^(MobileExtMaxFileSizeMB:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "NumPlatformEvents:<value>",
-            "pattern": "^(NumPlatformEvents\\:[0-9]+$)"
+            "pattern": "^(NumPlatformEvents:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "PlatformConnect:<value>",
-            "pattern": "^(PlatformConnect\\:[0-9]+$)"
+            "pattern": "^(PlatformConnect:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "PlatformEventsPerDay:<value>",
-            "pattern": "^(PlatformEventsPerDay\\:[0-9]+$)"
+            "pattern": "^(PlatformEventsPerDay:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "StreamingEventsPerDay:<value>",
-            "pattern": "^(StreamingEventsPerDay\\:[0-9]+$)"
+            "pattern": "^(StreamingEventsPerDay:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "SubPerStreamingChannel:<value>",
-            "pattern": "^(SubPerStreamingChannel\\:[0-9]+$)"
+            "pattern": "^(SubPerStreamingChannel:[0-9]+$)"
           },
           {
             "type": "string",
             "title": "SubPerStreamingTopic:<value>",
-            "pattern": "^(SubPerStreamingTopic\\:[0-9]+$)"
+            "pattern": "^(SubPerStreamingTopic:[0-9]+$)"
           },
           {
             "type": "string",
@@ -288,6 +293,7 @@
               "CacheOnlyKeys",
               "CascadeDelete",
               "CaseClassification",
+              "CaseWrapUp",
               "ChangeDataCapture",
               "Chatbot",
               "Communities",
@@ -315,6 +321,7 @@
               "EinsteinBuilderFree",
               "EinsteinRecommendationBuilder",
               "EinsteinRecommendationBuilderMetadata",
+              "EinsteinSearch",
               "EinsteinVisits",
               "EmbeddedLoginForIE",
               "EnableManageIdConfUI",
@@ -324,6 +331,7 @@
               "EventLogFile",
               "ExternalIdentityLogin",
               "FieldAuditTrail",
+              "FinanceLogging",
               "FlowSites",
               "ForceComPlatform",
               "GenericStreaming",
@@ -361,11 +369,15 @@
               "OutboundMessageHTTPSession",
               "PardotScFeaturesCampaignInfluence",
               "PersonAccounts",
+              "PipelineInspection",
               "PlatformCache",
               "PlatformEncryption",
               "ProcessBuilder",
               "ProductsAndSchedules",
               "ProviderFreePlatformCache",
+              "PublicSectorAccess",
+              "PublicSectorApplicationUsageCreditsAddOn",
+              "PublicSectorSiteTemplate",
               "RecordTypes",
               "RefreshOnInvalidSession",
               "S1ClientComponentCacheSize",
@@ -377,17 +389,17 @@
               "SalesforceContentUser",
               "SalesforceIdentityForCommunities",
               "SecurityEventEnabled",
+              "ServiceCatalog",
               "ServiceCloud",
+              "ServiceCloudVoicePartnerTelephony",
               "ServiceUser",
               "SessionIdInLogEnabled",
               "SharedActivities",
-              "SingleSignOn",
               "Sites",
               "SocialCustomerService",
               "StateAndCountryPicklist",
               "StreamingAPI",
               "SustainabilityCloud",
-              "TerritoryManagement",
               "TimeSheetTemplateSettings",
               "TransactionFinalizers",
               "WavePlatform",
@@ -478,10 +490,10 @@
           "title": "CampaignSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_campaignsettings.htm"
         },
-        "caseClassificationSettings": {
+        "einsteinAgentSettings": {
           "type": "object",
-          "title": "CaseClassificationSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_caseclassificationsettings.htm"
+          "title": "EinsteinAgentSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_einsteinagentsettings.htm"
         },
         "caseSettings": {
           "type": "object",
@@ -603,10 +615,20 @@
           "title": "ExperienceBundleSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_experiencebundlesettings.htm"
         },
+        "externalServicesSettings": {
+          "type": "object",
+          "title": "ExternalServicesSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_externalservicessettings.htm"
+        },
         "fieldServiceSettings": {
           "type": "object",
           "title": "FieldServiceSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_fieldservicesettings.htm"
+        },
+        "filesConnectSettings": {
+          "type": "object",
+          "title": "FilesConnectSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_filesconnectsettings.htm"
         },
         "fileUploadAndDownloadSecuritySettings": {
           "type": "object",
@@ -617,6 +639,11 @@
           "type": "object",
           "title": "FlowSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_flowsettings.htm"
+        },
+        "forecastingObjectListSettings": {
+          "type": "object",
+          "title": "ForecastingObjectListSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_forecastingobjectlistsettings.htm"
         },
         "forecastingSettings": {
           "type": "object",
@@ -637,6 +664,11 @@
           "type": "object",
           "title": "IframeWhiteListUrlSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_iframewhitelisturlsettings.htm"
+        },
+        "industriesLoyaltySettings": {
+          "type": "object",
+          "title": "IndustriesLoyaltySettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/industriesloyaltysettings_metadata_api.htm"
         },
         "industriesSettings": {
           "type": "object",
@@ -698,10 +730,20 @@
           "title": "MacroSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_macrosettings.htm"
         },
+        "mailMergeSettings": {
+          "type": "object",
+          "title": "MailMergeSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_mailmergesettings.htm"
+        },
         "mapAndLocationSettings": {
           "type": "object",
           "title": "MapAndLocationSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_mapandlocationsettings.htm"
+        },
+        "meetingsSettings": {
+          "type": "object",
+          "title": "MeetingsSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_meetingssettings.htm"
         },
         "mobileSettings": {
           "type": "object",
@@ -838,6 +880,16 @@
           "title": "SecuritySettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_securitysettings.htm"
         },
+        "serviceCloudVoiceSettings": {
+          "type": "object",
+          "title": "ServiceCloudVoiceSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_servicecloudvoicesettings.htm"
+        },
+        "serviceSetupAssistantSettings": {
+          "type": "object",
+          "title": "ServiceSetupAssistantSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_servicesetupassistantsettings.htm"
+        },
         "sharingSettings": {
           "type": "object",
           "title": "SharingSettings",
@@ -902,6 +954,11 @@
           "type": "object",
           "title": "WorkDotComSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_WorkDotComSettings.htm"
+        },
+        "workforceEngagementSettings": {
+          "type": "object",
+          "title": "WorkforceEngagementSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_workforceengagementsettings.htm"
         }
       }
     }
