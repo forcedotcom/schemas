@@ -17,7 +17,8 @@
     "language": { "$ref": "#/definitions/language" },
     "features": { "$ref": "#/definitions/features" },
     "template": { "$ref": "#/definitions/template" },
-    "settings": { "$ref": "#/definitions/settings" }
+    "settings": { "$ref": "#/definitions/settings" },
+    "release": { "$ref": "#/definitions/release" }
   },
   "definitions": {
     "orgName": {
