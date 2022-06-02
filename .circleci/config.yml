@@ -150,8 +150,7 @@ workflows:
           type: approval
       - publish:
           context: 
-            - pdt-publish-restricted-context
-            - salesforce-cli
+            - IEAT_keys
           filters:
             branches:
               only:
