@@ -19,7 +19,7 @@ _refs:
       - image: node:12
   ssh-config: &ssh-config
     fingerprints:
-      - "b9:23:16:10:0e:93:d1:68:0e:76:4e:90:a0:ed:01:a5"
+      - "d5:4c:63:55:4f:05:be:17:ef:97:65:06:60:e8:4d:92"
   restore_cache: &restore_cache
     keys:
       - v1-npm-{{checksum ".circleci/config.yml"}}-{{checksum "package.json"}}
@@ -66,21 +66,21 @@ jobs:
             - ~/cli/node_modules
 
   build-artifact:
-    description: 'Building and archiving tarball'
+    description: "Building and archiving tarball"
     <<: *defaults
     steps:
-        - checkout
-        - restore_cache: *restore_cache
-        - run: *install
-        - run: npm pack
-        - run:
-            name: Staging artifact
-            command: |
-                mkdir artifact
-                find . -name "*.tgz" -type f -exec cp {} ./artifact \;
-        - store_artifacts:
-            path: ./artifact
-  
+      - checkout
+      - restore_cache: *restore_cache
+      - run: *install
+      - run: npm pack
+      - run:
+          name: Staging artifact
+          command: |
+            mkdir artifact
+            find . -name "*.tgz" -type f -exec cp {} ./artifact \;
+      - store_artifacts:
+          path: ./artifact
+
   publish:
     <<: *defaults
     steps:
@@ -149,7 +149,8 @@ workflows:
       - hold: # Requires manual approval in Circle Ci
           type: approval
       - publish:
-          context: pdt-publish-restricted-context
+          context:
+            - IEAT_keys
           filters:
             branches:
               only:
