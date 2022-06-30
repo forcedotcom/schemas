@@ -150,7 +150,8 @@ workflows:
           type: approval
       - publish:
           context:
-            - IEAT_keys
+            - salesforce-ide
+            - NPM_Salesforce-Releases
           filters:
             branches:
               only:
