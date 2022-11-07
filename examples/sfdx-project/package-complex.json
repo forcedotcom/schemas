@@ -12,7 +12,10 @@
       "versionDescription": "Welcome to Winter 2020 Release of Expense Manager Util Package",
       "versionNumber": "4.7.0.NEXT",
       "definitionFile": "config/scratch-org-def.json",
-      "functions": ["functions/myfunction", "funcitons/anotherfunction"]
+      "functions": [
+        "functions/myfunction",
+        "functions/anotherfunction"
+      ]
     },
     {
       "path": "exp-core",
