@@ -5,9 +5,7 @@
   "description": "The properties and shape of the SFDX project",
   "type": "object",
   "additionalProperties": false,
-  "required": [
-    "packageDirectories"
-  ],
+  "required": ["packageDirectories"],
   "properties": {
     "packageDirectories": {
       "title": "Package Directories",
@@ -18,64 +16,22 @@
       "items": {
         "type": "object",
         "dependencies": {
-          "ancestorId": [
-            "package",
-            "versionNumber"
-          ],
-          "ancestorVersion": [
-            "package",
-            "versionNumber"
-          ],
-          "apexTestAccess": [
-            "package",
-            "versionNumber"
-          ],
-          "definitionFile": [
-            "package",
-            "versionNumber"
-          ],
-          "dependencies": [
-            "package",
-            "versionNumber"
-          ],
-          "package": [
-            "versionNumber"
-          ],
-          "postInstallScript": [
-            "package",
-            "versionNumber"
-          ],
-          "postInstallUrl": [
-            "package",
-            "versionNumber"
-          ],
-          "releaseNotesUrl": [
-            "package",
-            "versionNumber"
-          ],
-          "uninstallScript": [
-            "package",
-            "versionNumber"
-          ],
-          "unpackagedMetadata": [
-            "package",
-            "versionNumber"
-          ],
-          "versionDescription": [
-            "package",
-            "versionNumber"
-          ],
-          "versionName": [
-            "package",
-            "versionNumber"
-          ],
-          "versionNumber": [
-            "package"
-          ]
+          "ancestorId": ["package", "versionNumber"],
+          "ancestorVersion": ["package", "versionNumber"],
+          "apexTestAccess": ["package", "versionNumber"],
+          "definitionFile": ["package", "versionNumber"],
+          "dependencies": ["package", "versionNumber"],
+          "package": ["versionNumber"],
+          "postInstallScript": ["package", "versionNumber"],
+          "postInstallUrl": ["package", "versionNumber"],
+          "releaseNotesUrl": ["package", "versionNumber"],
+          "uninstallScript": ["package", "versionNumber"],
+          "unpackagedMetadata": ["package", "versionNumber"],
+          "versionDescription": ["package", "versionNumber"],
+          "versionName": ["package", "versionNumber"],
+          "versionNumber": ["package"]
         },
-        "required": [
-          "path"
-        ],
+        "required": ["path"],
         "additionalProperties": false,
         "properties": {
           "ancestorId": {
@@ -201,17 +157,10 @@
                       "type": "string"
                     },
                     "value": {
-                      "type": [
-                        "string",
-                        "number",
-                        "boolean"
-                      ]
+                      "type": ["string", "number", "boolean"]
                     }
                   },
-                  "required": [
-                    "env",
-                    "value"
-                  ],
+                  "required": ["env", "value"],
                   "additionalProperties": false
                 },
                 "maxItems": 1
@@ -226,11 +175,7 @@
                 "$ref": "#/definitions/replacements.filename"
               }
             },
-            "required": [
-              "filename",
-              "replaceWithEnv",
-              "stringToReplace"
-            ]
+            "required": ["filename", "replaceWithEnv", "stringToReplace"]
           },
           {
             "type": "object",
@@ -245,17 +190,10 @@
                       "type": "string"
                     },
                     "value": {
-                      "type": [
-                        "string",
-                        "number",
-                        "boolean"
-                      ]
+                      "type": ["string", "number", "boolean"]
                     }
                   },
-                  "required": [
-                    "env",
-                    "value"
-                  ],
+                  "required": ["env", "value"],
                   "additionalProperties": false
                 },
                 "maxItems": 1
@@ -270,11 +208,7 @@
                 "$ref": "#/definitions/replacements.filename"
               }
             },
-            "required": [
-              "filename",
-              "regexToReplace",
-              "replaceWithEnv"
-            ]
+            "required": ["filename", "regexToReplace", "replaceWithEnv"]
           },
           {
             "type": "object",
@@ -289,17 +223,10 @@
                       "type": "string"
                     },
                     "value": {
-                      "type": [
-                        "string",
-                        "number",
-                        "boolean"
-                      ]
+                      "type": ["string", "number", "boolean"]
                     }
                   },
-                  "required": [
-                    "env",
-                    "value"
-                  ],
+                  "required": ["env", "value"],
                   "additionalProperties": false
                 }
               },
@@ -313,11 +240,7 @@
                 "$ref": "#/definitions/replacements.filename"
               }
             },
-            "required": [
-              "filename",
-              "replaceWithFile",
-              "stringToReplace"
-            ]
+            "required": ["filename", "replaceWithFile", "stringToReplace"]
           },
           {
             "type": "object",
@@ -332,17 +255,10 @@
                       "type": "string"
                     },
                     "value": {
-                      "type": [
-                        "string",
-                        "number",
-                        "boolean"
-                      ]
+                      "type": ["string", "number", "boolean"]
                     }
                   },
-                  "required": [
-                    "env",
-                    "value"
-                  ],
+                  "required": ["env", "value"],
                   "additionalProperties": false
                 },
                 "maxItems": 1
@@ -357,11 +273,7 @@
                 "$ref": "#/definitions/replacements.filename"
               }
             },
-            "required": [
-              "filename",
-              "regexToReplace",
-              "replaceWithFile"
-            ]
+            "required": ["filename", "regexToReplace", "replaceWithFile"]
           },
           {
             "type": "object",
@@ -376,17 +288,10 @@
                       "type": "string"
                     },
                     "value": {
-                      "type": [
-                        "string",
-                        "number",
-                        "boolean"
-                      ]
+                      "type": ["string", "number", "boolean"]
                     }
                   },
-                  "required": [
-                    "env",
-                    "value"
-                  ],
+                  "required": ["env", "value"],
                   "additionalProperties": false
                 },
                 "maxItems": 1
@@ -401,11 +306,7 @@
                 "$ref": "#/definitions/replacements.glob"
               }
             },
-            "required": [
-              "glob",
-              "replaceWithEnv",
-              "stringToReplace"
-            ]
+            "required": ["glob", "replaceWithEnv", "stringToReplace"]
           },
           {
             "type": "object",
@@ -420,17 +321,10 @@
                       "type": "string"
                     },
                     "value": {
-                      "type": [
-                        "string",
-                        "number",
-                        "boolean"
-                      ]
+                      "type": ["string", "number", "boolean"]
                     }
                   },
-                  "required": [
-                    "env",
-                    "value"
-                  ],
+                  "required": ["env", "value"],
                   "additionalProperties": false
                 },
                 "maxItems": 1
@@ -445,11 +339,7 @@
                 "$ref": "#/definitions/replacements.glob"
               }
             },
-            "required": [
-              "glob",
-              "regexToReplace",
-              "replaceWithEnv"
-            ]
+            "required": ["glob", "regexToReplace", "replaceWithEnv"]
           },
           {
             "type": "object",
@@ -464,17 +354,10 @@
                       "type": "string"
                     },
                     "value": {
-                      "type": [
-                        "string",
-                        "number",
-                        "boolean"
-                      ]
+                      "type": ["string", "number", "boolean"]
                     }
                   },
-                  "required": [
-                    "env",
-                    "value"
-                  ],
+                  "required": ["env", "value"],
                   "additionalProperties": false
                 },
                 "maxItems": 1
@@ -489,11 +372,7 @@
                 "$ref": "#/definitions/replacements.glob"
               }
             },
-            "required": [
-              "glob",
-              "replaceWithFile",
-              "stringToReplace"
-            ]
+            "required": ["glob", "replaceWithFile", "stringToReplace"]
           },
           {
             "type": "object",
@@ -508,17 +387,10 @@
                       "type": "string"
                     },
                     "value": {
-                      "type": [
-                        "string",
-                        "number",
-                        "boolean"
-                      ]
+                      "type": ["string", "number", "boolean"]
                     }
                   },
-                  "required": [
-                    "env",
-                    "value"
-                  ],
+                  "required": ["env", "value"],
                   "additionalProperties": false
                 },
                 "maxItems": 1
@@ -533,11 +405,7 @@
                 "$ref": "#/definitions/replacements.glob"
               }
             },
-            "required": [
-              "glob",
-              "regexToReplace",
-              "replaceWithFile"
-            ]
+            "required": ["glob", "regexToReplace", "replaceWithFile"]
           }
         ]
       }
@@ -585,9 +453,7 @@
       "description": "To specify dependencies for 2GP within the same Dev Hub, use either the package version alias or a combination of the package name and the version number.",
       "items": {
         "type": "object",
-        "required": [
-          "package"
-        ],
+        "required": ["package"],
         "properties": {
           "package": {
             "type": "string"
@@ -635,9 +501,7 @@
       "type": "object",
       "title": "Unpackaged Metadata",
       "description": "Metadata not meant to be packaged, but deployed when testing packaged metadata",
-      "required": [
-        "path"
-      ],
+      "required": ["path"],
       "properties": {
         "path": {
           "type": "string",
