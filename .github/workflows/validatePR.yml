@@ -1,0 +1,8 @@
+name: validate pr
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  pr-validation:
+    uses: salesforcecli/github-workflows/.github/workflows/validatePR.yml@main

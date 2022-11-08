@@ -2,12 +2,6 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Publish Schema",
-      "command": "./scripts/publish-workflow.sh",
-      "type": "shell",
-      "args": ["${input:circleCiId}", "${input:publishType}"]
-    },
-    {
       "label": "Commit",
       "command": "npm",
       "type": "shell",
@@ -15,7 +9,10 @@
         "focus": true,
         "panel": "shared"
       },
-      "args": ["run", "commit"],
+      "args": [
+        "run",
+        "commit"
+      ],
       "isBackground": false
     },
     {
@@ -26,22 +23,11 @@
         "focus": false,
         "panel": "shared"
       },
-      "args": ["run", "commit-init"],
+      "args": [
+        "run",
+        "commit-init"
+      ],
       "isBackground": false
-    }
-  ],
-  "inputs": [
-    {
-      "id": "circleCiId",
-      "type": "promptString",
-      "description": "CircleCi Token"
-    },
-    {
-      "id": "publishType",
-      "type": "pickString",
-      "description": "Type of version to publish",
-      "options": ["minor", "patch", "major"],
-      "default": "patch"
     }
   ]
 }
