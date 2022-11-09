@@ -8,10 +8,12 @@
     "*.schema.json"
   ],
   "scripts": {
+    "build": "node ./scripts/build.js",
     "commit-init": "commitizen init cz-conventional-changelog --save-dev --save-exact --force",
     "commit": "git-cz",
     "test": "jest",
-    "prettier": "prettier ./**/*.{js,json,ts,md} --write"
+    "prettier": "prettier ./**/*.{js,json,ts,md} --write",
+    "format:check": "prettier ./**/*.{js,json,ts,md} --debug-check"
   },
   "repository": {
     "type": "git",
@@ -36,7 +38,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run prettier && npm test",
+      "pre-commit": "yarn run prettier && yarn test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },

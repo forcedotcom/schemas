@@ -1,9 +1,6 @@
 # Salesforce cache
 .sfdx
 
-# yarn lock
-yarn.lock
-
 # Logs
 logs
 *.log
