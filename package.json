@@ -8,6 +8,7 @@
     "*.schema.json"
   ],
   "scripts": {
+    "build": "node ./scripts/build.js",
     "commit-init": "commitizen init cz-conventional-changelog --save-dev --save-exact --force",
     "commit": "git-cz",
     "test": "jest",
