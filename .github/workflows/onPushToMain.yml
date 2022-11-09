@@ -9,4 +9,4 @@ jobs:
     uses: salesforcecli/github-workflows/.github/workflows/githubRelease.yml@gbockus/updateReleaseToIncludeTokenInput
     with:
       githubToken: ${{ secrets.IDEE_GH_TOKEN }}
-    secrets: inherit
+      secrets: inherit
