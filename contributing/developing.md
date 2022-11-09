@@ -11,7 +11,7 @@ git clone git@github.com:forcedotcom/schemas.git
 2. Ensure you have [NodeJS](https://nodejs.org/) installed and run the following to build:
 
 ```
-npm install
+yarn install
 ```
 
 ## Branches
@@ -47,7 +47,7 @@ Take a look at [CONTRIBUTING](../CONTRIBUTING.md) doc for making and merging pul
 Run the following to test library and plugin:
 
 ```sh
-npm test
+yarn test
 ```
 
 If you are using VS Code for development, the following launch configurations are available: "Run All Tests", "Run Current Test", "Run Current Test Without Compile". Have `"debug.javascript.usePreview": true` in your user setting enabled so you can utilize [`vscode-js-debug`](https://github.com/microsoft/vscode-js-debug) debugger. This setting is enabled by default in VS Code version 1.47.

@@ -3,30 +3,24 @@
   "tasks": [
     {
       "label": "Commit",
-      "command": "npm",
+      "command": "yarn",
       "type": "shell",
       "presentation": {
         "focus": true,
         "panel": "shared"
       },
-      "args": [
-        "run",
-        "commit"
-      ],
+      "args": ["run", "commit"],
       "isBackground": false
     },
     {
       "label": "Commitizen Initialization",
-      "command": "npm",
+      "command": "yarn",
       "type": "shell",
       "presentation": {
         "focus": false,
         "panel": "shared"
       },
-      "args": [
-        "run",
-        "commit-init"
-      ],
+      "args": ["run", "commit-init"],
       "isBackground": false
     }
   ]
