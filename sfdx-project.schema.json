@@ -40,7 +40,7 @@
           "ancestorVersion": {
             "$ref": "#/definitions/packageDirectory.ancestorVersion"
           },
-          "apexTestAccess" : {
+          "apexTestAccess": {
             "$ref": "#/definitions/packageDirectory.apexTestAccess"
           },
           "default": {
