@@ -5,7 +5,9 @@
   "description": "The properties and shape of the SFDX project",
   "type": "object",
   "additionalProperties": false,
-  "required": ["packageDirectories"],
+  "required": [
+    "packageDirectories"
+  ],
   "properties": {
     "packageDirectories": {
       "title": "Package Directories",
@@ -16,22 +18,68 @@
       "items": {
         "type": "object",
         "dependencies": {
-          "ancestorId": ["package", "versionNumber"],
-          "ancestorVersion": ["package", "versionNumber"],
-          "apexTestAccess": ["package", "versionNumber"],
-          "definitionFile": ["package", "versionNumber"],
-          "dependencies": ["package", "versionNumber"],
-          "package": ["versionNumber"],
-          "postInstallScript": ["package", "versionNumber"],
-          "postInstallUrl": ["package", "versionNumber"],
-          "releaseNotesUrl": ["package", "versionNumber"],
-          "uninstallScript": ["package", "versionNumber"],
-          "unpackagedMetadata": ["package", "versionNumber"],
-          "versionDescription": ["package", "versionNumber"],
-          "versionName": ["package", "versionNumber"],
-          "versionNumber": ["package"]
+          "ancestorId": [
+            "package",
+            "versionNumber"
+          ],
+          "ancestorVersion": [
+            "package",
+            "versionNumber"
+          ],
+          "apexTestAccess": [
+            "package",
+            "versionNumber"
+          ],
+          "definitionFile": [
+            "package",
+            "versionNumber"
+          ],
+          "dependencies": [
+            "package",
+            "versionNumber"
+          ],
+          "functions": [
+            "package",
+            "versionNumber"
+          ],
+          "package": [
+            "versionNumber"
+          ],
+          "postInstallScript": [
+            "package",
+            "versionNumber"
+          ],
+          "postInstallUrl": [
+            "package",
+            "versionNumber"
+          ],
+          "releaseNotesUrl": [
+            "package",
+            "versionNumber"
+          ],
+          "uninstallScript": [
+            "package",
+            "versionNumber"
+          ],
+          "unpackagedMetadata": [
+            "package",
+            "versionNumber"
+          ],
+          "versionDescription": [
+            "package",
+            "versionNumber"
+          ],
+          "versionName": [
+            "package",
+            "versionNumber"
+          ],
+          "versionNumber": [
+            "package"
+          ]
         },
-        "required": ["path"],
+        "required": [
+          "path"
+        ],
         "additionalProperties": false,
         "properties": {
           "ancestorId": {
@@ -51,6 +99,9 @@
           },
           "dependencies": {
             "$ref": "#/definitions/packageDirectory.dependencies"
+          },
+          "functions": {
+            "$ref": "#/definitions/packageDirectory.functions"
           },
           "includeProfileUserLicenses": {
             "$ref": "#/definitions/packageDirectory.includeProfileUserLicenses"
@@ -185,7 +236,9 @@
       "description": "To specify dependencies for 2GP within the same Dev Hub, use either the package version alias or a combination of the package name and the version number.",
       "items": {
         "type": "object",
-        "required": ["package"],
+        "required": [
+          "package"
+        ],
         "properties": {
           "package": {
             "type": "string"
@@ -197,6 +250,14 @@
             "type": "string"
           }
         }
+      }
+    },
+    "packageDirectory.functions": {
+      "title": "Functions To Package",
+      "type": "array",
+      "description": "Relative path to function directories to be packaged.",
+      "items": {
+        "type": "string"
       }
     },
     "packageDirectory.ancestorId": {
@@ -233,7 +294,9 @@
       "type": "object",
       "title": "Unpackaged Metadata",
       "description": "Metadata not meant to be packaged, but deployed when testing packaged metadata",
-      "required": ["path"],
+      "required": [
+        "path"
+      ],
       "properties": {
         "path": {
           "type": "string",
