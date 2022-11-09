@@ -12,7 +12,8 @@
     "commit-init": "commitizen init cz-conventional-changelog --save-dev --save-exact --force",
     "commit": "git-cz",
     "test": "jest",
-    "prettier": "prettier ./**/*.{js,json,ts,md} --write"
+    "prettier": "prettier ./**/*.{js,json,ts,md} --write",
+    "format:check": "prettier ./**/*.{js,json,ts,md} --check"
   },
   "repository": {
     "type": "git",
