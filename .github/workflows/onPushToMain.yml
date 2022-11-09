@@ -6,5 +6,6 @@ on:
 
 jobs:
   release:
-    uses: salesforcecli/github-workflows/.github/workflows/githubRelease.yml@main
-    secrets: inherit
+    uses: salesforcecli/github-workflows/.github/workflows/githubRelease.yml@gbockus/updateReleaseToIncludeTokenInput
+    secrets: 
+      ALT_GITHUB_TOKEN: ${{ secrets.IDEE_GH_TOKEN }}
