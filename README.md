@@ -1,4 +1,4 @@
-# Salesforce DX Schemas - fun
+# Salesforce DX Schemas
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
