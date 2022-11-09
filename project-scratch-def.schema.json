@@ -204,6 +204,36 @@
           },
           {
             "type": "string",
+            "title": "LoyaltyMaximumPartners:<value>",
+            "pattern": "^(LoyaltyMaximumPartners:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "LoyaltyMaximumPrograms:<value>",
+            "pattern": "^(LoyaltyMaximumPrograms:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "LoyaltyMaxOrderLinePerHour:<value>",
+            "pattern": "^(LoyaltyMaxOrderLinePerHour:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "LoyaltyMaxProcExecPerHour:<value>",
+            "pattern": "^(LoyaltyMaxProcExecPerHour:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "LoyaltyMaxTransactions:<value>",
+            "pattern": "^(LoyaltyMaxTransactions:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MaxActiveDPEDefs:<value>",
+            "pattern": "^(MaxActiveDPEDefs:[0-9]+$)"
+          },
+          {
+            "type": "string",
             "title": "MaxApexCodeSize:<value>",
             "pattern": "^(MaxApexCodeSize:[0-9]+$)"
           },
@@ -214,13 +244,58 @@
           },
           {
             "type": "string",
+            "title": "MaxDatasetLinksPerDT:<value>",
+            "pattern": "^(MaxDatasetLinksPerDT:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MaxDataSourcesPerDPE:<value>",
+            "pattern": "^(MaxDataSourcesPerDPE:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MaxDecisionTableAllowed:<value>",
+            "pattern": "^(MaxDecisionTableAllowed:[0-9]+$)"
+          },
+          {
+            "type": "string",
             "title": "MaxFavoritesAllowed:<value>",
             "pattern": "^(MaxFavoritesAllowed:[0-9]+$)"
           },
           {
             "type": "string",
+            "title": "MaxFieldsPerNode:<value>",
+            "pattern": "^(MaxFieldsPerNode:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MaxInputColumnsPerDT:<value>",
+            "pattern": "^(MaxInputColumnsPerDT:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MaxLoyaltyProcessRules:<value>",
+            "pattern": "^(MaxLoyaltyProcessRules:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MaxNodesPerDPE:<value>",
+            "pattern": "^(MaxNodesPerDPE:[0-9]+$)"
+          },
+          {
+            "type": "string",
             "title": "MaxNoOfLexThemesAllowed:<value>",
             "pattern": "^(MaxNoOfLexThemesAllowed:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MaxOutputColumnsPerDT:<value>",
+            "pattern": "^(MaxOutputColumnsPerDT:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MaxSourceObjectPerDSL:<value>",
+            "pattern": "^(MaxSourceObjectPerDSL:[0-9]+$)"
           },
           {
             "type": "string",
@@ -236,6 +311,11 @@
             "type": "string",
             "title": "MaxUserStreamingChannels:<value>",
             "pattern": "^(MaxUserStreamingChannels:[0-9]+$)"
+          },
+          {
+            "type": "string",
+            "title": "MaxWritebacksPerDPE:<value>",
+            "pattern": "^(MaxWritebacksPerDPE:[0-9]+$)"
           },
           {
             "type": "string",
@@ -283,8 +363,14 @@
               "API",
               "AnalyticsAdminPerms",
               "AnalyticsAppEmbedded",
+              "Assessments",
               "AuthorApex",
               "B2BCommerce",
+              "B2BLoyaltyManagement",
+              "B2CCommerceGMV",
+              "B2CLoyaltyManagement",
+              "B2CLoyaltyManagementPlus",
+              "BatchManagement",
               "BigObjectsBulkAPI",
               "Briefcase",
               "CMSMaxContType",
@@ -306,14 +392,18 @@
               "DataComDnbAccounts",
               "DataComFullClean",
               "DataMaskUser",
+              "DataProcessingEngine",
               "DebugApex",
+              "DecisionTable",
               "DefaultWorkflowUser",
               "DeferSharingCalc",
+              "DevOpsCenter",
               "DevelopmentWave",
               "DeviceTrackingEnabled",
               "DisableManageIdConfAPI",
               "Division",
               "DocumentChecklist",
+              "DocumentReaderPageLimit",
               "DurableClassicStreamingAPI",
               "DurableGenericStreamingAPI",
               "DynamicClientCreationLimit",
@@ -336,13 +426,16 @@
               "FlowSites",
               "ForceComPlatform",
               "GenericStreaming",
-              "HealthCloudUser",
+              "HealthCloudAddOn",
+              "HealthCloudForCmty",
+              "HealthCloudMedicationReconciliation",
+              "HealthCloudPNMAddOn",
               "HighVelocitySales",
               "IdentityProvisioningFeatures",
               "IndustriesActionPlan",
-              "IndustriesManufacturing",
               "IndustriesManufacturingCmty",
               "IndustriesMfgAccountForecast",
+              "IndustriesMfgTargets",
               "InsightsPlatform",
               "Interaction",
               "IoT",
@@ -354,6 +447,9 @@
               "LightningServiceConsole",
               "LiveAgent",
               "LiveMessage",
+              "LoyaltyAnalytics",
+              "LoyaltyEngine",
+              "LoyaltyManagementStarter",
               "Macros",
               "MarketingUser",
               "MaxAudTypeCriterionPerAud",
@@ -381,6 +477,7 @@
               "PublicSectorSiteTemplate",
               "RecordTypes",
               "RefreshOnInvalidSession",
+              "RevSubscriptionManagement",
               "S1ClientComponentCacheSize",
               "SAML20SingleLogout",
               "SCIMProtocol",
@@ -388,6 +485,7 @@
               "SalesCloudEinstein",
               "SalesUser",
               "SalesforceContentUser",
+              "SalesforceFeedbackManagementStarter",
               "SalesforceIdentityForCommunities",
               "SecurityEventEnabled",
               "ServiceCatalog",
@@ -400,8 +498,14 @@
               "SocialCustomerService",
               "StateAndCountryPicklist",
               "StreamingAPI",
+              "SurveyAdvancedFeatures",
+              "SustainabilityApp",
               "SustainabilityCloud",
+              "TCRMforSustainability",
               "TimeSheetTemplateSettings",
+              "TimelineConditionsLimit",
+              "TimelineEventLimit",
+              "TimelineRecordTypeLimit",
               "TransactionFinalizers",
               "WavePlatform",
               "WorkThanksPref",
@@ -550,6 +654,11 @@
           "type": "object",
           "title": "CurrencySettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_currencysettings.htm"
+        },
+        "customAddressFieldSettings": {
+          "type": "object",
+          "title": "CustomAddressFieldSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_customaddressfieldsettings.htm"
         },
         "dataDotComSettings": {
           "type": "object",
@@ -766,6 +875,11 @@
           "title": "NotificationsSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_notificationssettings.htm"
         },
+        "oauthOidcSettings": {
+          "type": "object",
+          "title": "OauthOidcSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_oauthoidcsettings.htm"
+        },
         "omniChannelSettings": {
           "type": "object",
           "title": "OmniChannelSettings",
@@ -866,6 +980,16 @@
           "title": "RecordPageSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_recordpagesettings.htm"
         },
+        "retailExecutionSettings": {
+          "type": "object",
+          "title": "RetailExecutionSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/metadata_api_retexset.htm"
+        },
+        "sandboxSettings": {
+          "type": "object",
+          "title": "SandboxSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_sandboxsettings.htm"
+        },
         "schemaSettings": {
           "type": "object",
           "title": "SchemaSettings",
@@ -950,6 +1074,11 @@
           "type": "object",
           "title": "VoiceSettings",
           "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_voicesettings.htm"
+        },
+        "warrantyLifeCycleMgmtSettings": {
+          "type": "object",
+          "title": "WarrantyLifeCycleMgmtSettings",
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_mfg_warrantylifecyclemgmtsettings.htm"
         },
         "workDotComSettings": {
           "type": "object",

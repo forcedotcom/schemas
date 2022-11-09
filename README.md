@@ -31,7 +31,7 @@ const projectJsonSchema = require('@salesforce/schema/sfdx-project-schema.json']
 
 ## Updating project-scratch-def.schema.json
 
-Run the `update-scratch-def-*.js` scripts on every major release and open a PR with the new changes against the `main` branch to keep the schema files up to date.
+Run the `features-update` and `settings-update` scripts on every major release and open a PR with the new changes against the `main` branch to keep the schema files up to date
 
 ## Bugs and Feedback
 
