@@ -57,6 +57,10 @@
             "package",
             "versionNumber"
           ],
+          "seedMetadata": [
+            "package",
+            "versionNumber"
+          ],
           "uninstallScript": [
             "package",
             "versionNumber"
@@ -120,6 +124,9 @@
           },
           "releaseNotesUrl": {
             "$ref": "#/definitions/packageDirectory.releaseNotesUrl"
+          },
+          "seedMetadata": {
+            "$ref": "#/definitions/packageDirectory.seedMetadata"
           },
           "uninstallScript": {
             "$ref": "#/definitions/packageDirectory.uninstallScript"
@@ -552,6 +559,21 @@
       "type": "string",
       "title": "Post Install Script",
       "description": "The post install script."
+    },
+    "packageDirectory.seedMetadata": {
+      "type": "object",
+      "title": "Seed Metadata",
+      "description": "Metadata not meant to be packaged, but deployed before deploying packaged metadata",
+      "required": [
+        "path"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "title": "Path",
+          "description": "The path name of the package directory containing the seed metadata"
+        }
+      }
     },
     "packageDirectory.uninstallScript": {
       "type": "string",
