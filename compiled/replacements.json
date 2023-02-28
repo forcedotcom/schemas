@@ -29,19 +29,12 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "env",
-                  "value"
-                ],
+                "required": ["env", "value"],
                 "additionalProperties": false
               }
             }
           },
-          "required": [
-            "filename",
-            "replaceWithFile",
-            "stringToReplace"
-          ]
+          "required": ["filename", "replaceWithFile", "stringToReplace"]
         },
         {
           "type": "object",
@@ -68,19 +61,12 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "env",
-                  "value"
-                ],
+                "required": ["env", "value"],
                 "additionalProperties": false
               }
             }
           },
-          "required": [
-            "filename",
-            "replaceWithEnv",
-            "stringToReplace"
-          ]
+          "required": ["filename", "replaceWithEnv", "stringToReplace"]
         },
         {
           "type": "object",
@@ -107,19 +93,12 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "env",
-                  "value"
-                ],
+                "required": ["env", "value"],
                 "additionalProperties": false
               }
             }
           },
-          "required": [
-            "filename",
-            "regexToReplace",
-            "replaceWithFile"
-          ]
+          "required": ["filename", "regexToReplace", "replaceWithFile"]
         },
         {
           "type": "object",
@@ -146,19 +125,12 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "env",
-                  "value"
-                ],
+                "required": ["env", "value"],
                 "additionalProperties": false
               }
             }
           },
-          "required": [
-            "filename",
-            "regexToReplace",
-            "replaceWithEnv"
-          ]
+          "required": ["filename", "regexToReplace", "replaceWithEnv"]
         },
         {
           "type": "object",
@@ -185,19 +157,12 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "env",
-                  "value"
-                ],
+                "required": ["env", "value"],
                 "additionalProperties": false
               }
             }
           },
-          "required": [
-            "glob",
-            "replaceWithFile",
-            "stringToReplace"
-          ]
+          "required": ["glob", "replaceWithFile", "stringToReplace"]
         },
         {
           "type": "object",
@@ -224,19 +189,12 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "env",
-                  "value"
-                ],
+                "required": ["env", "value"],
                 "additionalProperties": false
               }
             }
           },
-          "required": [
-            "glob",
-            "replaceWithEnv",
-            "stringToReplace"
-          ]
+          "required": ["glob", "replaceWithEnv", "stringToReplace"]
         },
         {
           "type": "object",
@@ -263,19 +221,12 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "env",
-                  "value"
-                ],
+                "required": ["env", "value"],
                 "additionalProperties": false
               }
             }
           },
-          "required": [
-            "glob",
-            "regexToReplace",
-            "replaceWithFile"
-          ]
+          "required": ["glob", "regexToReplace", "replaceWithFile"]
         },
         {
           "type": "object",
@@ -302,19 +253,12 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "env",
-                  "value"
-                ],
+                "required": ["env", "value"],
                 "additionalProperties": false
               }
             }
           },
-          "required": [
-            "glob",
-            "regexToReplace",
-            "replaceWithEnv"
-          ]
+          "required": ["glob", "regexToReplace", "replaceWithEnv"]
         }
       ]
     }
