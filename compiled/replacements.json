@@ -1,0 +1,322 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/Replacements",
+  "definitions": {
+    "Replacements": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "replaceWithFile": {
+              "type": "string"
+            },
+            "stringToReplace": {
+              "type": "string"
+            },
+            "filename": {
+              "type": "string"
+            },
+            "replaceWhenEnv": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "env": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "env",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "filename",
+            "replaceWithFile",
+            "stringToReplace"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "replaceWithEnv": {
+              "type": "string"
+            },
+            "stringToReplace": {
+              "type": "string"
+            },
+            "filename": {
+              "type": "string"
+            },
+            "replaceWhenEnv": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "env": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "env",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "filename",
+            "replaceWithEnv",
+            "stringToReplace"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "replaceWithFile": {
+              "type": "string"
+            },
+            "regexToReplace": {
+              "type": "string"
+            },
+            "filename": {
+              "type": "string"
+            },
+            "replaceWhenEnv": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "env": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "env",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "filename",
+            "regexToReplace",
+            "replaceWithFile"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "replaceWithEnv": {
+              "type": "string"
+            },
+            "regexToReplace": {
+              "type": "string"
+            },
+            "filename": {
+              "type": "string"
+            },
+            "replaceWhenEnv": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "env": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "env",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "filename",
+            "regexToReplace",
+            "replaceWithEnv"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "replaceWithFile": {
+              "type": "string"
+            },
+            "stringToReplace": {
+              "type": "string"
+            },
+            "glob": {
+              "type": "string"
+            },
+            "replaceWhenEnv": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "env": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "env",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "glob",
+            "replaceWithFile",
+            "stringToReplace"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "replaceWithEnv": {
+              "type": "string"
+            },
+            "stringToReplace": {
+              "type": "string"
+            },
+            "glob": {
+              "type": "string"
+            },
+            "replaceWhenEnv": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "env": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "env",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "glob",
+            "replaceWithEnv",
+            "stringToReplace"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "replaceWithFile": {
+              "type": "string"
+            },
+            "regexToReplace": {
+              "type": "string"
+            },
+            "glob": {
+              "type": "string"
+            },
+            "replaceWhenEnv": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "env": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "env",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "glob",
+            "regexToReplace",
+            "replaceWithFile"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "replaceWithEnv": {
+              "type": "string"
+            },
+            "regexToReplace": {
+              "type": "string"
+            },
+            "glob": {
+              "type": "string"
+            },
+            "replaceWhenEnv": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "env": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "env",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "glob",
+            "regexToReplace",
+            "replaceWithEnv"
+          ]
+        }
+      ]
+    }
+  }
+}

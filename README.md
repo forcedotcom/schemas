@@ -33,6 +33,14 @@ const projectJsonSchema = require('@salesforce/schema/sfdx-project-schema.json']
 
 Run the `features-update` and `settings-update` scripts on every major release and open a PR with the new changes against the `main` branch to keep the schema files up to date
 
+## Generating Schema from TS files
+
+the /src folder contains the TS type used to generate the [`replacements`](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm?q=replacements) project property.
+
+You can define (or import and re-export) TS types and then use [this extension](https://marketplace.visualstudio.com/items?itemName=marcoq.vscode-typescript-to-json-schema). It adds a "Generate JSON Schema from type" action to your palette.
+
+The results go into `/compiled`, which can be used to copy-paste into the project.
+
 ## Bugs and Feedback
 
 To report issues or feedback with the schemas, open a bug on [GitHub](https://github.com/forcedotcom/schemas/issues).
