@@ -13,6 +13,11 @@
       "replaceWithEnv": "THE_REPLACEMENT"
     },
     {
+      "filename": "force-app/main/default/classes/myClass.cls",
+      "stringToReplace": "replaceMe",
+      "replaceWithFile": "~/substitutions.txt"
+    },
+    {
       "glob": "**/*.cls",
       "regexToReplace": "\\d",
       "replaceWithFile": "~/substitutions.txt"
