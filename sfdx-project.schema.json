@@ -248,6 +248,9 @@
               "replaceWithEnv": {
                 "type": "string"
               },
+              "allowUnsetEnvVariable": {
+                "type": "boolean"
+              },
               "stringToReplace": {
                 "type": "string"
               },
@@ -325,6 +328,9 @@
             "properties": {
               "replaceWithEnv": {
                 "type": "string"
+              },
+              "allowUnsetEnvVariable": {
+                "type": "boolean"
               },
               "regexToReplace": {
                 "type": "string"
@@ -404,6 +410,9 @@
               "replaceWithEnv": {
                 "type": "string"
               },
+              "allowUnsetEnvVariable": {
+                "type": "boolean"
+              },
               "stringToReplace": {
                 "type": "string"
               },
@@ -481,6 +490,9 @@
             "properties": {
               "replaceWithEnv": {
                 "type": "string"
+              },
+              "allowUnsetEnvVariable": {
+                "type": "boolean"
               },
               "regexToReplace": {
                 "type": "string"
