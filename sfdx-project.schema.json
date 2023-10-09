@@ -125,6 +125,9 @@
           "releaseNotesUrl": {
             "$ref": "#/definitions/packageDirectory.releaseNotesUrl"
           },
+          "scopeProfiles": {
+            "$ref": "#/definitions/packageDirectory.scopeProfiles"
+          },
           "seedMetadata": {
             "$ref": "#/definitions/packageDirectory.seedMetadata"
           },
@@ -157,12 +160,12 @@
     "namespace": {
       "title": "Namespace",
       "type": "string",
-      "description": "The global namespace that is used with a package. The namespace must be registered with an org that is associated with your Dev Hub org. This namespace is assigned to scratch orgs created with the org:create command. If you’re creating an unlocked package, you have the option to create a package with no namespace."
+      "description": "The global namespace that is used with a package. The namespace must be registered with an org that is associated with your Dev Hub org. This namespace is assigned to scratch orgs created by the CLI. If you’re creating an unlocked package, you have the option to create a package with no namespace."
     },
     "sourceApiVersion": {
       "title": "Source API Version",
       "type": "string",
-      "description": "The API version that the source is compatible with. The default is the same version as the Salesforce CLI.",
+      "description": "The API version that the source is compatible with. By default it matches the API version.",
       "default": "48.0"
     },
     "sfdcLoginUrl": {
@@ -621,6 +624,12 @@
       "title": "Post Install Script",
       "description": "The post install script."
     },
+    "packageDirectory.scopeProfiles": {
+      "type": "boolean",
+      "title": "Scope Profiles",
+      "description": "Whether to include profile metadata only from the directory being packaged. Defaults to false.",
+      "default": false
+    },
     "packageDirectory.seedMetadata": {
       "type": "object",
       "title": "Seed Metadata",
@@ -659,7 +668,8 @@
     "packageDirectory.includeProfileUserLicenses": {
       "type": "boolean",
       "title": "Include Profile User Licenses",
-      "description": "Whether to include <userLicense> elements in profile metadata "
+      "description": "Whether to include <userLicense> elements in profile metadata. Defaults to false.",
+      "default": false
     },
     "packageDirectory.apexTestAccess": {
       "type": "object",
