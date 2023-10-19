@@ -160,7 +160,7 @@
     "namespace": {
       "title": "Namespace",
       "type": "string",
-      "description": "The global namespace that is used with a package. The namespace must be registered with an org that is associated with your Dev Hub org. This namespace is assigned to scratch orgs created by the CLI. If you’re creating an unlocked package, you have the option to create a package with no namespace."
+      "description": "A namespace is an alphanumeric identifier that distinguishes your package and its contents from other packages in your customer’s org. For steps on how to register a namespace and link it to your Dev Hub org, see Create and Register Your Namespace for Second-Generation Managed Packages on developer.salesforce.com. If you’re creating an unlocked package, you can create it without a namespace."
     },
     "sourceApiVersion": {
       "title": "Source API Version",
@@ -627,7 +627,7 @@
     "packageDirectory.scopeProfiles": {
       "type": "boolean",
       "title": "Scope Profiles",
-      "description": "Whether to include profile metadata only from the directory being packaged. Defaults to false.",
+      "description": "Determines whether to include profile settings from only the directory being packaged (true), or whether to include profile settings from all package directories (false). If not specified, the default is false.",
       "default": false
     },
     "packageDirectory.seedMetadata": {
