@@ -99,6 +99,9 @@
           "apexTestAccess": {
             "$ref": "#/definitions/packageDirectory.apexTestAccess"
           },
+          "packageMetadataAccess": {
+            "$ref": "#/definitions/packageDirectory.apexTestAccess"
+          },
           "default": {
             "$ref": "#/definitions/packageDirectory.default"
           },
