@@ -30,6 +30,10 @@
             "package",
             "versionNumber"
           ],
+          "packageMetadataAccess": [
+            "package",
+            "versionNumber"
+          ],
           "definitionFile": [
             "package",
             "versionNumber"
@@ -683,12 +687,12 @@
             {
               "type": "string",
               "title": "Permission Set String",
-              "description": "The list of permission set to enable while running Apex tests as a string"
+              "description": "The list of permission sets to enable while running Apex tests as a string"
             },
             {
               "type": "array",
               "title": "Permission Set Array",
-              "description": "The list of permission set to enable while running Apex tests as an array",
+              "description": "The list of permission sets to enable while running Apex tests as an array",
               "items": {
                 "type": "string",
                 "title": "Permission Set Name",
@@ -714,6 +718,55 @@
                 "type": "string",
                 "title": "Permission Set Licenses Developer Name",
                 "description": "Name of the permission set to enable while running Apex tests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "packageDirectory.packageMetadataAccess": {
+      "type": "object",
+      "title": "Package Metadata Access",
+      "description": "Additional access that should be granted to the user while deploying package metadata, available in Salesforce API version 61.0 and above",
+      "properties": {
+        "permissionSets": {
+          "title": "Permission Sets",
+          "description": "The list of permission sets to enable while deploying package metadata",
+          "oneOf": [
+            {
+              "type": "string",
+              "title": "Permission Set String",
+              "description": "The list of permission sets to enable while deploying package metadata as a string"
+            },
+            {
+              "type": "array",
+              "title": "Permission Set Array",
+              "description": "The list of permission sets to enable while deploying package metadata as an array",
+              "items": {
+                "type": "string",
+                "title": "Permission Set Name",
+                "description": "Name of the permission set to enable while deploying package metadata"
+              }
+            }
+          ]
+        },
+        "permissionSetLicenses": {
+          "title": "Permission Set License",
+          "description": "The list of permission sets licenses to enable while deploying package metadata",
+          "oneOf": [
+            {
+              "type": "string",
+              "title": "Permission Set Licenses String",
+              "description": "The list of permission set licenses to enable while deploying package metadata as a string"
+            },
+            {
+              "type": "array",
+              "title": "Permission Set Licenses Array",
+              "description": "The list of permission set licenses to enable while deploying package metadata as an array",
+              "items": {
+                "type": "string",
+                "title": "Permission Set Licenses Developer Name",
+                "description": "Name of the permission set license to enable while deploying package metadata"
               }
             }
           ]
