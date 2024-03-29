@@ -25,5 +25,8 @@ jspm_packages/
 # Eclipse
 .project
 
+# Webstorm
+.idea
+
 # MacOS folder atttribute tracking
 **/.DS_Store
