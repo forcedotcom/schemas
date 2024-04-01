@@ -206,7 +206,7 @@
         }
       }
     },
-    "registryCustomizations": {
+    "registryCustomizations":  {
       "type": "object",
       "properties": {
         "types": {
@@ -223,14 +223,7 @@
               "directoryName": {
                 "type": "string"
               },
-              "inFolder": {
-                "type": "boolean",
-                "deprecated": "use `folderType` to get the related folder type, if one exists"
-              },
               "suffix": {
-                "type": "string"
-              },
-              "metaFileSuffix": {
                 "type": "string"
               },
               "strictDirectoryName": {
@@ -245,13 +238,7 @@
               "folderType": {
                 "type": "string"
               },
-              "ignoreParentName": {
-                "type": "boolean"
-              },
               "xmlElementName": {
-                "type": "string"
-              },
-              "legacySuffix": {
                 "type": "string"
               },
               "uniqueIdElement": {
@@ -274,131 +261,96 @@
               },
               "children": {
                 "type": "object",
-                "properties": {
-                  "types": {
-                    "type": "object",
-                    "additionalProperties": {
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "directoryName": {
+                      "type": "string"
+                    },
+                    "suffix": {
+                      "type": "string"
+                    },
+                    "strictDirectoryName": {
+                      "type": "boolean"
+                    },
+                    "ignoreParsedFullName": {
+                      "type": "boolean"
+                    },
+                    "folderContentType": {
+                      "type": "string"
+                    },
+                    "folderType": {
+                      "type": "string"
+                    },
+                    "xmlElementName": {
+                      "type": "string"
+                    },
+                    "uniqueIdElement": {
+                      "type": "string"
+                    },
+                    "isAddressable": {
+                      "type": "boolean"
+                    },
+                    "unaddressableWithoutParent": {
+                      "type": "boolean"
+                    },
+                    "supportsWildcardAndName": {
+                      "type": "boolean"
+                    },
+                    "supportsPartialDelete": {
+                      "type": "boolean"
+                    },
+                    "aliasFor": {
+                      "type": "string"
+                    },
+                    "strategies": {
                       "type": "object",
                       "properties": {
-                        "id": {
-                          "type": "string"
+                        "adapter": {
+                          "type": "string",
+                          "enum": [
+                            "mixedContent",
+                            "matchingContentFile",
+                            "decomposed",
+                            "bundle",
+                            "default"
+                          ]
                         },
-                        "name": {
-                          "type": "string"
+                        "transformer": {
+                          "type": "string",
+                          "enum": [
+                            "decomposed",
+                            "staticResource",
+                            "standard"
+                          ]
                         },
-                        "directoryName": {
-                          "type": "string"
-                        },
-                        "inFolder": {
-                          "type": "boolean",
-                          "deprecated": "use `folderType` to get the related folder type, if one exists"
-                        },
-                        "suffix": {
-                          "type": "string"
-                        },
-                        "metaFileSuffix": {
-                          "type": "string"
-                        },
-                        "strictDirectoryName": {
-                          "type": "boolean"
-                        },
-                        "ignoreParsedFullName": {
-                          "type": "boolean"
-                        },
-                        "folderContentType": {
-                          "type": "string"
-                        },
-                        "folderType": {
-                          "type": "string"
-                        },
-                        "ignoreParentName": {
-                          "type": "boolean"
-                        },
-                        "xmlElementName": {
-                          "type": "string"
-                        },
-                        "legacySuffix": {
-                          "type": "string"
-                        },
-                        "uniqueIdElement": {
-                          "type": "string"
-                        },
-                        "isAddressable": {
-                          "type": "boolean"
-                        },
-                        "unaddressableWithoutParent": {
-                          "type": "boolean"
-                        },
-                        "supportsWildcardAndName": {
-                          "type": "boolean"
-                        },
-                        "supportsPartialDelete": {
-                          "type": "boolean"
-                        },
-                        "aliasFor": {
-                          "type": "string"
-                        },
-                        "strategies": {
-                          "type": "object",
-                          "properties": {
-                            "adapter": {
-                              "type": "string",
-                              "enum": [
-                                "mixedContent",
-                                "matchingContentFile",
-                                "decomposed",
-                                "digitalExperience",
-                                "bundle",
-                                "default"
-                              ]
-                            },
-                            "transformer": {
-                              "type": "string",
-                              "enum": [
-                                "decomposed",
-                                "staticResource",
-                                "nonDecomposed",
-                                "standard"
-                              ]
-                            },
-                            "decomposition": {
-                              "type": "string",
-                              "enum": [
-                                "topLevel",
-                                "folderPerType"
-                              ]
-                            },
-                            "recomposition": {
-                              "type": "string",
-                              "const": "startEmpty"
-                            }
-                          },
-                          "required": [
-                            "adapter"
-                          ],
-                          "additionalProperties": false
+                        "decomposition": {
+                          "type": "string",
+                          "enum": [
+                            "topLevel",
+                            "folderPerType"
+                          ]
                         }
                       },
                       "required": [
-                        "id",
-                        "name",
-                        "directoryName"
+                        "adapter"
                       ],
                       "additionalProperties": false
                     }
                   },
-                  "directories": {
-                    "type": "object",
-                    "additionalProperties": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "required": [
-                  "types",
-                  "suffixes"
-                ],
-                "additionalProperties": false
+                  "required": [
+                    "id",
+                    "name",
+                    "directoryName"
+                  ],
+                  "additionalProperties": false
+                }
               },
               "strategies": {
                 "type": "object",
@@ -409,7 +361,6 @@
                       "mixedContent",
                       "matchingContentFile",
                       "decomposed",
-                      "digitalExperience",
                       "bundle",
                       "default"
                     ]
@@ -419,7 +370,6 @@
                     "enum": [
                       "decomposed",
                       "staticResource",
-                      "nonDecomposed",
                       "standard"
                     ]
                   },
@@ -429,10 +379,6 @@
                       "topLevel",
                       "folderPerType"
                     ]
-                  },
-                  "recomposition": {
-                    "type": "string",
-                    "const": "startEmpty"
                   }
                 },
                 "required": [

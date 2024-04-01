@@ -19,14 +19,7 @@
               "directoryName": {
                 "type": "string"
               },
-              "inFolder": {
-                "type": "boolean",
-                "deprecated": "use `folderType` to get the related folder type, if one exists"
-              },
               "suffix": {
-                "type": "string"
-              },
-              "metaFileSuffix": {
                 "type": "string"
               },
               "strictDirectoryName": {
@@ -41,13 +34,7 @@
               "folderType": {
                 "type": "string"
               },
-              "ignoreParentName": {
-                "type": "boolean"
-              },
               "xmlElementName": {
-                "type": "string"
-              },
-              "legacySuffix": {
                 "type": "string"
               },
               "uniqueIdElement": {
@@ -72,7 +59,7 @@
                 "type": "object",
                 "properties": {
                   "types": {
-                    "$ref": "#/definitions/alias-1220290513-277-335-1220290513-0-4459"
+                    "$ref": "#/definitions/alias-1220290513-257-1164-1220290513-0-1228"
                   },
                   "suffixes": {
                     "type": "object",
@@ -87,7 +74,10 @@
                     }
                   }
                 },
-                "required": ["types", "suffixes"],
+                "required": [
+                  "types",
+                  "suffixes"
+                ],
                 "additionalProperties": false
               },
               "strategies": {
@@ -99,7 +89,6 @@
                       "mixedContent",
                       "matchingContentFile",
                       "decomposed",
-                      "digitalExperience",
                       "bundle",
                       "default"
                     ]
@@ -109,24 +98,28 @@
                     "enum": [
                       "decomposed",
                       "staticResource",
-                      "nonDecomposed",
                       "standard"
                     ]
                   },
                   "decomposition": {
                     "type": "string",
-                    "enum": ["topLevel", "folderPerType"]
-                  },
-                  "recomposition": {
-                    "type": "string",
-                    "const": "startEmpty"
+                    "enum": [
+                      "topLevel",
+                      "folderPerType"
+                    ]
                   }
                 },
-                "required": ["adapter"],
+                "required": [
+                  "adapter"
+                ],
                 "additionalProperties": false
               }
             },
-            "required": ["id", "name", "directoryName"],
+            "required": [
+              "id",
+              "name",
+              "directoryName"
+            ],
             "additionalProperties": false
           }
         },
@@ -149,10 +142,15 @@
           }
         }
       },
-      "required": ["types", "suffixes", "strictDirectoryNames", "childTypes"],
+      "required": [
+        "types",
+        "suffixes",
+        "strictDirectoryNames",
+        "childTypes"
+      ],
       "additionalProperties": false
     },
-    "alias-1220290513-277-335-1220290513-0-4459": {
+    "alias-1220290513-257-1164-1220290513-0-1228": {
       "type": "object",
       "additionalProperties": {
         "type": "object",
@@ -166,14 +164,7 @@
           "directoryName": {
             "type": "string"
           },
-          "inFolder": {
-            "type": "boolean",
-            "deprecated": "use `folderType` to get the related folder type, if one exists"
-          },
           "suffix": {
-            "type": "string"
-          },
-          "metaFileSuffix": {
             "type": "string"
           },
           "strictDirectoryName": {
@@ -188,13 +179,7 @@
           "folderType": {
             "type": "string"
           },
-          "ignoreParentName": {
-            "type": "boolean"
-          },
           "xmlElementName": {
-            "type": "string"
-          },
-          "legacySuffix": {
             "type": "string"
           },
           "uniqueIdElement": {
@@ -219,7 +204,7 @@
             "type": "object",
             "properties": {
               "types": {
-                "$ref": "#/definitions/alias-1220290513-277-335-1220290513-0-4459"
+                "$ref": "#/definitions/alias-1220290513-257-1164-1220290513-0-1228"
               },
               "suffixes": {
                 "type": "object",
@@ -234,7 +219,10 @@
                 }
               }
             },
-            "required": ["types", "suffixes"],
+            "required": [
+              "types",
+              "suffixes"
+            ],
             "additionalProperties": false
           },
           "strategies": {
@@ -246,7 +234,6 @@
                   "mixedContent",
                   "matchingContentFile",
                   "decomposed",
-                  "digitalExperience",
                   "bundle",
                   "default"
                 ]
@@ -256,24 +243,28 @@
                 "enum": [
                   "decomposed",
                   "staticResource",
-                  "nonDecomposed",
                   "standard"
                 ]
               },
               "decomposition": {
                 "type": "string",
-                "enum": ["topLevel", "folderPerType"]
-              },
-              "recomposition": {
-                "type": "string",
-                "const": "startEmpty"
+                "enum": [
+                  "topLevel",
+                  "folderPerType"
+                ]
               }
             },
-            "required": ["adapter"],
+            "required": [
+              "adapter"
+            ],
             "additionalProperties": false
           }
         },
-        "required": ["id", "name", "directoryName"],
+        "required": [
+          "id",
+          "name",
+          "directoryName"
+        ],
         "additionalProperties": false
       }
     }
