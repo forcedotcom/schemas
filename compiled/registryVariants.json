@@ -74,10 +74,7 @@
                     }
                   }
                 },
-                "required": [
-                  "types",
-                  "suffixes"
-                ],
+                "required": ["types", "suffixes"],
                 "additionalProperties": false
               },
               "strategies": {
@@ -95,31 +92,18 @@
                   },
                   "transformer": {
                     "type": "string",
-                    "enum": [
-                      "decomposed",
-                      "staticResource",
-                      "standard"
-                    ]
+                    "enum": ["decomposed", "staticResource", "standard"]
                   },
                   "decomposition": {
                     "type": "string",
-                    "enum": [
-                      "topLevel",
-                      "folderPerType"
-                    ]
+                    "enum": ["topLevel", "folderPerType"]
                   }
                 },
-                "required": [
-                  "adapter"
-                ],
+                "required": ["adapter"],
                 "additionalProperties": false
               }
             },
-            "required": [
-              "id",
-              "name",
-              "directoryName"
-            ],
+            "required": ["id", "name", "directoryName"],
             "additionalProperties": false
           }
         },
@@ -142,12 +126,7 @@
           }
         }
       },
-      "required": [
-        "types",
-        "suffixes",
-        "strictDirectoryNames",
-        "childTypes"
-      ],
+      "required": ["types", "suffixes", "strictDirectoryNames", "childTypes"],
       "additionalProperties": false
     },
     "alias-1220290513-257-1164-1220290513-0-1228": {
@@ -219,10 +198,7 @@
                 }
               }
             },
-            "required": [
-              "types",
-              "suffixes"
-            ],
+            "required": ["types", "suffixes"],
             "additionalProperties": false
           },
           "strategies": {
@@ -240,31 +216,18 @@
               },
               "transformer": {
                 "type": "string",
-                "enum": [
-                  "decomposed",
-                  "staticResource",
-                  "standard"
-                ]
+                "enum": ["decomposed", "staticResource", "standard"]
               },
               "decomposition": {
                 "type": "string",
-                "enum": [
-                  "topLevel",
-                  "folderPerType"
-                ]
+                "enum": ["topLevel", "folderPerType"]
               }
             },
-            "required": [
-              "adapter"
-            ],
+            "required": ["adapter"],
             "additionalProperties": false
           }
         },
-        "required": [
-          "id",
-          "name",
-          "directoryName"
-        ],
+        "required": ["id", "name", "directoryName"],
         "additionalProperties": false
       }
     }

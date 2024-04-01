@@ -344,12 +344,7 @@
                       "additionalProperties": false
                     }
                   },
-                  "required": [
-                    "id",
-                    "name",
-                    "directoryName"
-                  ],
-                  "additionalProperties": false
+                  "additionalProperties": true
                 }
               },
               "strategies": {

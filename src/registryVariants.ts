@@ -42,10 +42,7 @@ type TypeIndex = {
         | "decomposed"
         | "bundle"
         | "default";
-      transformer?:
-        | "decomposed"
-        | "staticResource"
-        | "standard";
+      transformer?: "decomposed" | "staticResource" | "standard";
       decomposition?: "topLevel" | "folderPerType";
     };
   };
