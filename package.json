@@ -2,13 +2,14 @@
   "name": "@salesforce/schemas",
   "version": "1.7.0",
   "description": "This repository contains the spec and schema for the Scratch Org Definition Configuration file and `sfdx-project.json` file.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "files": [
     "index.js",
-    "*.schema.json"
+    "*.schema.json",
+    "lib"
   ],
   "scripts": {
-    "build": "ts-json-schema-generator --path src/sfdx-project/sfdxProjectJson.ts --type ProjectJson --out compiled/sfdx-project.schema.json -f tsconfig.json --no-top-ref --id http://schemas.salesforce.com/sfdx-project.json; cp compiled/sfdx-project.schema.json sfdx-project.schema.json",
+    "build": "tsc -p . --pretty; ts-json-schema-generator --path src/sfdx-project/sfdxProjectJson.ts --type ProjectJson --out compiled/sfdx-project.schema.json -f tsconfig.json --no-top-ref --id http://schemas.salesforce.com/sfdx-project.json; cp compiled/sfdx-project.schema.json sfdx-project.schema.json",
     "features-update": "node ./scripts/update-scratch-def-features.js",
     "settings-update": "node ./scripts/update-scratch-def-settings.js",
     "commit-init": "commitizen init cz-conventional-changelog --save-dev --save-exact --force",
@@ -31,6 +32,7 @@
     "@commitlint/cli": "^7",
     "@commitlint/config-conventional": "^7",
     "@salesforce/dev-config": "^3.1.0",
+    "@types/node": "^20.12.10",
     "ajv": "^8.11.0",
     "commitizen": "^3.0.5",
     "cz-conventional-changelog": "^2.1.0",
@@ -38,7 +40,8 @@
     "jest": "^24.8.0",
     "prettier": "^1.18.2",
     "shelljs": "0.8.5",
-    "ts-json-schema-generator": "^1.5.1"
+    "ts-json-schema-generator": "^1.5.1",
+    "typescript": "^5.4.5"
   },
   "husky": {
     "hooks": {

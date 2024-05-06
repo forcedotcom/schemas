@@ -1,5 +1,6 @@
 # Salesforce cache
 .sfdx
+.sf
 
 # Logs
 logs
@@ -30,3 +31,6 @@ jspm_packages/
 
 # MacOS folder atttribute tracking
 **/.DS_Store
+
+# typescript output
+lib
