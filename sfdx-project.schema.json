@@ -907,6 +907,10 @@
       "title": "CLI Plugins custom settings",
       "type": "object"
     },
+    "pushPackageDirectoriesSequentially": {
+      "deprecated": "only works with deprecated commands.  See https://github.com/forcedotcom/cli/discussions/2402",
+      "type": "boolean"
+    },
     "registryCustomizations": {
       "$ref": "#/definitions/MetadataRegistry"
     },
