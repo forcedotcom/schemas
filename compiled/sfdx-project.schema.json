@@ -50,7 +50,10 @@
                     "$ref": "#/definitions/alias-147831185-257-1138-147831185-0-1202"
                   }
                 },
-                "required": ["types", "suffixes"],
+                "required": [
+                  "types",
+                  "suffixes"
+                ],
                 "type": "object"
               },
               "directoryName": {
@@ -88,15 +91,24 @@
                     "type": "string"
                   },
                   "decomposition": {
-                    "enum": ["topLevel", "folderPerType"],
+                    "enum": [
+                      "topLevel",
+                      "folderPerType"
+                    ],
                     "type": "string"
                   },
                   "transformer": {
-                    "enum": ["decomposed", "staticResource", "standard"],
+                    "enum": [
+                      "decomposed",
+                      "staticResource",
+                      "standard"
+                    ],
                     "type": "string"
                   }
                 },
-                "required": ["adapter"],
+                "required": [
+                  "adapter"
+                ],
                 "type": "object"
               },
               "strictDirectoryName": {
@@ -121,215 +133,270 @@
                 "type": "string"
               }
             },
-            "required": ["id", "name", "directoryName"],
+            "required": [
+              "id",
+              "name",
+              "directoryName"
+            ],
             "type": "object"
           },
           "type": "object"
         }
       },
-      "required": ["types", "suffixes", "strictDirectoryNames", "childTypes"],
+      "required": [
+        "types",
+        "suffixes",
+        "strictDirectoryNames",
+        "childTypes"
+      ],
       "type": "object"
     },
     "PackageDir": {
-      "additionalProperties": false,
-      "properties": {
-        "ancestorId": {
-          "description": "The ancestor that’s the immediate parent of the version that you’re creating. The package version ID to supply starts with '05i'.",
-          "title": "Ancestor ID",
-          "type": "string"
-        },
-        "ancestorVersion": {
-          "description": "The ancestor that’s the immediate parent of the version that you’re creating. The ancestor version uses the format major.minor.patch.build.",
-          "title": "Ancestor Version",
-          "type": "string"
-        },
-        "apexTestAccess": {
+      "anyOf": [
+        {
           "additionalProperties": false,
-          "description": "Additional access that should be granted to the user when running package Apex tests",
+          "description": "type required just for projects, regardless of 1gp/2gp package use",
           "properties": {
-            "permissionSetLicenses": {
-              "anyOf": [
-                {
-                  "items": {
-                    "type": "string"
-                  },
-                  "type": "array"
-                },
-                {
-                  "type": "string"
-                }
-              ],
-              "description": "The list of permission sets licenses to enable while running Apex tests",
-              "title": "Permission Set Licenses"
+            "default": {
+              "default": true,
+              "description": "If you have specified more than one path, include this parameter for the default path to indicate which is the default package directory.",
+              "title": "default",
+              "type": "boolean"
             },
-            "permissionSets": {
-              "anyOf": [
-                {
-                  "items": {
-                    "type": "string"
-                  },
-                  "type": "array"
-                },
-                {
-                  "type": "string"
-                }
-              ],
-              "description": "The list of permission sets to enable while running Apex tests",
-              "title": "Permission Sets"
-            }
-          },
-          "required": ["permissionSets", "permissionSetLicenses"],
-          "type": "object"
-        },
-        "default": {
-          "default": true,
-          "description": "If you have specified more than one path, include this parameter for the default path to indicate which is the default package directory.",
-          "title": "default",
-          "type": "boolean"
-        },
-        "definitionFile": {
-          "description": "Reference an external .json file to specify the features and org preferences required for the metadata of your package, such as the scratch org definition.",
-          "title": "Definition File",
-          "type": "string"
-        },
-        "dependencies": {
-          "description": "To specify dependencies for 2GP within the same Dev Hub, use either the package version alias or a combination of the package name and the version number.",
-          "items": {
-            "$ref": "#/definitions/PackageDirDependency"
-          },
-          "type": "array"
-        },
-        "includeProfileUserLicenses": {
-          "default": false,
-          "description": "Whether to include <userLicense> elements in profile metadata. Defaults to false.",
-          "title": "Include Profile User Licenses",
-          "type": "boolean"
-        },
-        "package": {
-          "description": "The package name you specified when creating the package.",
-          "title": "Package Identifier",
-          "type": "string"
-        },
-        "packageMetadataAccess": {
-          "additionalProperties": false,
-          "description": "Additional access that should be granted to the user while deploying package metadata, available in Salesforce API version 61.0 and above",
-          "properties": {
-            "permissionSetLicenses": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "items": {
-                    "type": "string"
-                  },
-                  "type": "array"
-                }
-              ],
-              "description": "The list of permission set licenses to enable while deploying package metadata",
-              "title": "Permission Set Licenses"
-            },
-            "permissionSets": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "items": {
-                    "type": "string"
-                  },
-                  "type": "array"
-                }
-              ],
-              "description": "The list of permission sets to enable while deploying package metadata",
-              "title": "Permission Sets"
-            }
-          },
-          "required": ["permissionSets", "permissionSetLicenses"],
-          "title": "Package Metadata Access",
-          "type": "object"
-        },
-        "path": {
-          "description": "If you don’t specify a path, the Salesforce CLI uses a placeholder when you create a package.",
-          "title": "Path",
-          "type": "string"
-        },
-        "postInstallScript": {
-          "description": "The post install script.",
-          "title": "Post Install Script",
-          "type": "string"
-        },
-        "postInstallUrl": {
-          "description": "The post install url.",
-          "title": "Post Install Url",
-          "type": "string"
-        },
-        "releaseNotesUrl": {
-          "description": "The release notes url.",
-          "title": "Release Notes Url",
-          "type": "string"
-        },
-        "scopeProfiles": {
-          "default": false,
-          "description": "Determines whether to include profile settings from only the directory being packaged (true), or whether to include profile settings from all package directories (false). If not specified, the default is false.",
-          "title": "Scope Profiles",
-          "type": "boolean"
-        },
-        "seedMetadata": {
-          "additionalProperties": false,
-          "description": "Metadata not meant to be packaged, but deployed before deploying packaged metadata",
-          "properties": {
             "path": {
-              "description": "The path name of the package directory containing the seed metadata",
+              "description": "If you don’t specify a path, the Salesforce CLI uses a placeholder when you create a package.",
               "title": "Path",
               "type": "string"
             }
           },
-          "required": ["path"],
-          "title": "Seed Metadata",
+          "required": [
+            "path"
+          ],
           "type": "object"
         },
-        "uninstallScript": {
-          "description": "The uninstall script.",
-          "title": "Uninstall Script",
-          "type": "string"
-        },
-        "unpackagedMetadata": {
+        {
           "additionalProperties": false,
-          "description": "Metadata not meant to be packaged, but deployed when testing packaged metadata",
           "properties": {
+            "ancestorId": {
+              "description": "The ancestor that’s the immediate parent of the version that you’re creating. The package version ID to supply starts with '05i'.",
+              "title": "Ancestor ID",
+              "type": "string"
+            },
+            "ancestorVersion": {
+              "description": "The ancestor that’s the immediate parent of the version that you’re creating. The ancestor version uses the format major.minor.patch.build.",
+              "title": "Ancestor Version",
+              "type": "string"
+            },
+            "apexTestAccess": {
+              "additionalProperties": false,
+              "description": "Additional access that should be granted to the user when running package Apex tests",
+              "properties": {
+                "permissionSetLicenses": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "description": "The list of permission sets licenses to enable while running Apex tests",
+                  "title": "Permission Set Licenses"
+                },
+                "permissionSets": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "description": "The list of permission sets to enable while running Apex tests",
+                  "title": "Permission Sets"
+                }
+              },
+              "required": [
+                "permissionSets",
+                "permissionSetLicenses"
+              ],
+              "type": "object"
+            },
+            "default": {
+              "default": true,
+              "description": "If you have specified more than one path, include this parameter for the default path to indicate which is the default package directory.",
+              "title": "default",
+              "type": "boolean"
+            },
+            "definitionFile": {
+              "description": "Reference an external .json file to specify the features and org preferences required for the metadata of your package, such as the scratch org definition.",
+              "title": "Definition File",
+              "type": "string"
+            },
+            "dependencies": {
+              "description": "To specify dependencies for 2GP within the same Dev Hub, use either the package version alias or a combination of the package name and the version number.",
+              "items": {
+                "$ref": "#/definitions/PackageDirDependency"
+              },
+              "type": "array"
+            },
+            "functions": {
+              "deprecated": true,
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "includeProfileUserLicenses": {
+              "default": false,
+              "description": "Whether to include <userLicense> elements in profile metadata. Defaults to false.",
+              "title": "Include Profile User Licenses",
+              "type": "boolean"
+            },
+            "package": {
+              "description": "The package name you specified when creating the package.",
+              "title": "Package Identifier",
+              "type": "string"
+            },
+            "packageMetadataAccess": {
+              "additionalProperties": false,
+              "description": "Additional access that should be granted to the user while deploying package metadata, available in Salesforce API version 61.0 and above",
+              "properties": {
+                "permissionSetLicenses": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  ],
+                  "description": "The list of permission set licenses to enable while deploying package metadata",
+                  "title": "Permission Set Licenses"
+                },
+                "permissionSets": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  ],
+                  "description": "The list of permission sets to enable while deploying package metadata",
+                  "title": "Permission Sets"
+                }
+              },
+              "required": [
+                "permissionSets",
+                "permissionSetLicenses"
+              ],
+              "title": "Package Metadata Access",
+              "type": "object"
+            },
             "path": {
-              "description": "The path name of the package directory containing the unpackaged metadata",
+              "description": "If you don’t specify a path, the Salesforce CLI uses a placeholder when you create a package.",
               "title": "Path",
+              "type": "string"
+            },
+            "postInstallScript": {
+              "description": "The post install script.",
+              "title": "Post Install Script",
+              "type": "string"
+            },
+            "postInstallUrl": {
+              "description": "The post install url.",
+              "title": "Post Install Url",
+              "type": "string"
+            },
+            "releaseNotesUrl": {
+              "description": "The release notes url.",
+              "title": "Release Notes Url",
+              "type": "string"
+            },
+            "scopeProfiles": {
+              "default": false,
+              "description": "Determines whether to include profile settings from only the directory being packaged (true), or whether to include profile settings from all package directories (false). If not specified, the default is false.",
+              "title": "Scope Profiles",
+              "type": "boolean"
+            },
+            "seedMetadata": {
+              "additionalProperties": false,
+              "description": "Metadata not meant to be packaged, but deployed before deploying packaged metadata",
+              "properties": {
+                "path": {
+                  "description": "The path name of the package directory containing the seed metadata",
+                  "title": "Path",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path"
+              ],
+              "title": "Seed Metadata",
+              "type": "object"
+            },
+            "uninstallScript": {
+              "description": "The uninstall script.",
+              "title": "Uninstall Script",
+              "type": "string"
+            },
+            "unpackagedMetadata": {
+              "additionalProperties": false,
+              "description": "Metadata not meant to be packaged, but deployed when testing packaged metadata",
+              "properties": {
+                "path": {
+                  "description": "The path name of the package directory containing the unpackaged metadata",
+                  "title": "Path",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path"
+              ],
+              "title": "Unpackaged Metadata",
+              "type": "object"
+            },
+            "versionDescription": {
+              "description": "Human readable version information, format not specified.",
+              "title": "Version Description",
+              "type": "string"
+            },
+            "versionName": {
+              "description": "If not specified, the CLI uses versionNumber as the version name.",
+              "title": "Version Name",
+              "type": "string"
+            },
+            "versionNumber": {
+              "description": "Version numbers are formatted as major.minor.patch.build. For example, 1.2.1.8.",
+              "title": "Version Number",
               "type": "string"
             }
           },
-          "required": ["path"],
-          "title": "Unpackaged Metadata",
+          "required": [
+            "package",
+            "path",
+            "versionNumber"
+          ],
           "type": "object"
-        },
-        "versionDescription": {
-          "description": "Human readable version information, format not specified.",
-          "title": "Version Description",
-          "type": "string"
-        },
-        "versionName": {
-          "description": "If not specified, the CLI uses versionNumber as the version name.",
-          "title": "Version Name",
-          "type": "string"
-        },
-        "versionNumber": {
-          "description": "Version numbers are formatted as major.minor.patch.build. For example, 1.2.1.8.",
-          "title": "Version Number",
-          "type": "string"
         }
-      },
-      "required": ["path"],
-      "type": "object"
+      ]
     },
     "PackageDirDependency": {
       "additionalProperties": {},
-      "description": "Tips: Use jsdoc comments to provide descriptions for your properties. Use jsdoc tags to provide additional properties that TS doesn't (ex: title, minItems on an array) '@comment' becomes $comment, not sure why",
+      "description": "from packaging library.  Where does this go? export type PackageDescriptorJson = Partial<NamedPackageDir> & Partial<{  - id: string;  - features: string[];  - orgPreferences: string[];  - snapshot: string;  apexTestAccess: { permissionSets: string[] | string; permissionSetLicenses: string[] | string };  - permissionSetNames: string[];  - permissionSetLicenseDeveloperNames: string[];  - branch: string;  subscriberPackageVersionId: string;  packageId: string;  versionName: string;  language?: string; }>;",
       "properties": {
         "branch": {
           "type": "string"
@@ -341,8 +408,16 @@
           "type": "string"
         }
       },
-      "required": ["package"],
+      "required": [
+        "package"
+      ],
       "type": "object"
+    },
+    "RegistryPresets": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
     },
     "Replacements": {
       "anyOf": [
@@ -363,7 +438,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -375,7 +453,11 @@
               "type": "string"
             }
           },
-          "required": ["filename", "replaceWithFile", "stringToReplace"],
+          "required": [
+            "filename",
+            "replaceWithFile",
+            "stringToReplace"
+          ],
           "type": "object"
         },
         {
@@ -398,7 +480,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -410,7 +495,11 @@
               "type": "string"
             }
           },
-          "required": ["filename", "replaceWithEnv", "stringToReplace"],
+          "required": [
+            "filename",
+            "replaceWithEnv",
+            "stringToReplace"
+          ],
           "type": "object"
         },
         {
@@ -433,7 +522,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -442,7 +534,11 @@
               "type": "string"
             }
           },
-          "required": ["filename", "regexToReplace", "replaceWithFile"],
+          "required": [
+            "filename",
+            "regexToReplace",
+            "replaceWithFile"
+          ],
           "type": "object"
         },
         {
@@ -468,7 +564,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -477,7 +576,11 @@
               "type": "string"
             }
           },
-          "required": ["filename", "regexToReplace", "replaceWithEnv"],
+          "required": [
+            "filename",
+            "regexToReplace",
+            "replaceWithEnv"
+          ],
           "type": "object"
         },
         {
@@ -497,7 +600,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -509,7 +615,11 @@
               "type": "string"
             }
           },
-          "required": ["glob", "replaceWithFile", "stringToReplace"],
+          "required": [
+            "glob",
+            "replaceWithFile",
+            "stringToReplace"
+          ],
           "type": "object"
         },
         {
@@ -532,7 +642,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -544,7 +657,11 @@
               "type": "string"
             }
           },
-          "required": ["glob", "replaceWithEnv", "stringToReplace"],
+          "required": [
+            "glob",
+            "replaceWithEnv",
+            "stringToReplace"
+          ],
           "type": "object"
         },
         {
@@ -567,7 +684,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -576,7 +696,11 @@
               "type": "string"
             }
           },
-          "required": ["glob", "regexToReplace", "replaceWithFile"],
+          "required": [
+            "glob",
+            "regexToReplace",
+            "replaceWithFile"
+          ],
           "type": "object"
         },
         {
@@ -602,7 +726,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -611,7 +738,11 @@
               "type": "string"
             }
           },
-          "required": ["glob", "regexToReplace", "replaceWithEnv"],
+          "required": [
+            "glob",
+            "regexToReplace",
+            "replaceWithEnv"
+          ],
           "type": "object"
         }
       ]
@@ -642,7 +773,10 @@
                 "$ref": "#/definitions/alias-147831185-257-1138-147831185-0-1202"
               }
             },
-            "required": ["types", "suffixes"],
+            "required": [
+              "types",
+              "suffixes"
+            ],
             "type": "object"
           },
           "directoryName": {
@@ -680,15 +814,24 @@
                 "type": "string"
               },
               "decomposition": {
-                "enum": ["topLevel", "folderPerType"],
+                "enum": [
+                  "topLevel",
+                  "folderPerType"
+                ],
                 "type": "string"
               },
               "transformer": {
-                "enum": ["decomposed", "staticResource", "standard"],
+                "enum": [
+                  "decomposed",
+                  "staticResource",
+                  "standard"
+                ],
                 "type": "string"
               }
             },
-            "required": ["adapter"],
+            "required": [
+              "adapter"
+            ],
             "type": "object"
           },
           "strictDirectoryName": {
@@ -713,16 +856,14 @@
             "type": "string"
           }
         },
-        "required": ["id", "name", "directoryName"],
+        "required": [
+          "id",
+          "name",
+          "directoryName"
+        ],
         "type": "object"
       },
       "type": "object"
-    },
-    "registryPresets": {
-      "items": {
-        "type": "string"
-      },
-      "type": "array"
     }
   },
   "description": "The properties and shape of the SFDX project",
@@ -770,7 +911,7 @@
       "$ref": "#/definitions/MetadataRegistry"
     },
     "registryPresets": {
-      "$ref": "#/definitions/registryPresets",
+      "$ref": "#/definitions/RegistryPresets",
       "description": "filenames from https://github.com/forcedotcom/source-deploy-retrieve/tree/main/src/registry/presets",
       "title": "Custom predefined presets for decomposing metadata types"
     },
@@ -798,7 +939,9 @@
       "type": "string"
     }
   },
-  "required": ["packageDirectories"],
+  "required": [
+    "packageDirectories"
+  ],
   "title": "Salesforce DX Project File",
   "type": "object"
 }

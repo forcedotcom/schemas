@@ -33,7 +33,22 @@ export type PackageDirDependency = {
   branch?: string;
 };
 
-export type PackageDir = {
+/** type required just for projects, regardless of 1gp/2gp package use */
+type BasePackageDir = {
+  /**
+   * If you have specified more than one path, include this parameter for the default path to indicate which is the default package directory.
+   * @title default
+   * @default true
+   */
+  default?: boolean;
+  /**
+   * If you don’t specify a path, the Salesforce CLI uses a placeholder when you create a package.
+   * @title Path
+   */
+  path: string;
+};
+
+type PackagePackageDir = {
   /**
    * The ancestor that’s the immediate parent of the version that you’re creating. The package version ID to supply starts with '05i'.
    * @title Ancestor ID
@@ -61,12 +76,7 @@ export type PackageDir = {
      */
     permissionSetLicenses: string[] | string;
   };
-  /**
-   * If you have specified more than one path, include this parameter for the default path to indicate which is the default package directory.
-   * @title default
-   * @default true
-   */
-  default?: boolean;
+
   /**
    * Reference an external .json file to specify the features and org preferences required for the metadata of your package, such as the scratch org definition.
    * @title Definition File
@@ -86,7 +96,7 @@ export type PackageDir = {
    * The package name you specified when creating the package.
    * @title Package Identifier
    */
-  package?: string;
+  package: string;
   /**
    * Additional access that should be granted to the user while deploying package metadata, available in Salesforce API version 61.0 and above
    * @title Package Metadata Access
@@ -102,11 +112,7 @@ export type PackageDir = {
      */
     permissionSetLicenses: string | string[];
   };
-  /**
-   * If you don’t specify a path, the Salesforce CLI uses a placeholder when you create a package.
-   * @title Path
-   */
-  path: string;
+
   /**
    * The post install script.
    * @title Post Install Script
@@ -147,7 +153,7 @@ export type PackageDir = {
    * Version numbers are formatted as major.minor.patch.build. For example, 1.2.1.8.
    * @title Version Number
    */
-  versionNumber?: string;
+  versionNumber: string;
   /**
    * Metadata not meant to be packaged, but deployed when testing packaged metadata
    * @title Unpackaged Metadata
@@ -171,4 +177,11 @@ export type PackageDir = {
      */
     path: string;
   };
+
+  /**
+   * @deprecated
+   */
+  functions?: string[];
 };
+
+export type PackageDir = BasePackageDir | (BasePackageDir & PackagePackageDir);

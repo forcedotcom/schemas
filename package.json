@@ -8,7 +8,7 @@
     "*.schema.json"
   ],
   "scripts": {
-    "build": "node ./scripts/build.js",
+    "build": "ts-json-schema-generator --path src/sfdx-project/sfdxProjectJson.ts --type ProjectJson --out compiled/sfdx-project.schema.json -f tsconfig.json --no-top-ref --id http://schemas.salesforce.com/sfdx-project.json; cp compiled/sfdx-project.schema.json sfdx-project.schema.json",
     "features-update": "node ./scripts/update-scratch-def-features.js",
     "settings-update": "node ./scripts/update-scratch-def-settings.js",
     "commit-init": "commitizen init cz-conventional-changelog --save-dev --save-exact --force",
