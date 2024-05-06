@@ -66,4 +66,6 @@ export type ProjectJson = {
    * @title Replacements for metadata that are executed during deployments"
    */
   replacements?: Replacements[];
+  /** @deprecated only works with deprecated commands.  See https://github.com/forcedotcom/cli/discussions/2402  */
+  pushPackageDirectoriesSequentially?: boolean;
 };
