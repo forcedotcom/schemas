@@ -48,7 +48,8 @@ type BasePackageDir = {
   path: string;
 };
 
-type PackagePackageDir = {
+/** has the "full" info used for packaging. */
+export type PackagePackageDir = {
   /**
    * The ancestor that’s the immediate parent of the version that you’re creating. The package version ID to supply starts with '05i'.
    * @title Ancestor ID
