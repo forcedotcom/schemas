@@ -1,3 +1,12 @@
+## [1.8.1](https://github.com/forcedotcom/schemas/compare/1.8.0...1.8.1) (2024-05-14)
+
+
+### Bug Fixes
+
+* revert gha changes ([#86](https://github.com/forcedotcom/schemas/issues/86)) ([52bff04](https://github.com/forcedotcom/schemas/commit/52bff043283c1d68c6774150e2d816c33588022f))
+
+
+
 # [1.8.0](https://github.com/forcedotcom/schemas/compare/1.7.0...1.8.0) (2024-05-14)
 
 
