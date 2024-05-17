@@ -809,7 +809,7 @@
     },
     "registryPresets": {
       "$ref": "#/definitions/RegistryPresets",
-      "description": "filenames from https://github.com/forcedotcom/source-deploy-retrieve/tree/main/src/registry/presets",
+      "deprecated": "use `sourceBehaviorOptions`\nfilenames from https://github.com/forcedotcom/source-deploy-retrieve/tree/main/src/registry/presets",
       "title": "Custom predefined presets for decomposing metadata types"
     },
     "replacements": {
@@ -834,6 +834,11 @@
       "description": "The API version that the source is compatible with. By default it matches the API version.",
       "title": "Source API Version",
       "type": "string"
+    },
+    "sourceBehaviorOptions": {
+      "$ref": "#/definitions/RegistryPresets",
+      "description": "filenames from https://github.com/forcedotcom/source-deploy-retrieve/tree/main/src/registry/presets",
+      "title": "Custom predefined presets for decomposing metadata types"
     }
   },
   "required": ["packageDirectories"],
