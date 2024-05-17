@@ -1,6 +1,6 @@
 {
   "name": "@salesforce/schemas",
-  "version": "1.8.1",
+  "version": "1.9.0",
   "description": "This repository contains the spec and schema for the Scratch Org Definition Configuration file and `sfdx-project.json` file.",
   "main": "lib/index.js",
   "files": [

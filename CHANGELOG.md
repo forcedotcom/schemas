@@ -1,3 +1,12 @@
+# [1.9.0](https://github.com/forcedotcom/schemas/compare/1.8.1...1.9.0) (2024-05-17)
+
+
+### Features
+
+* rename-presets-property ([#87](https://github.com/forcedotcom/schemas/issues/87)) ([fc86397](https://github.com/forcedotcom/schemas/commit/fc86397cde8cc8da2fbcee34e129d0e3765d11ca))
+
+
+
 ## [1.8.1](https://github.com/forcedotcom/schemas/compare/1.8.0...1.8.1) (2024-05-14)
 
 
