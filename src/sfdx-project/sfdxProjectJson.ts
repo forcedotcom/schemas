@@ -55,10 +55,16 @@ export type ProjectJson = {
    */
   packageAliases?: { [k: string]: string };
   /**
+   * @deprecated use `sourceBehaviorOptions`
    * filenames from https://github.com/forcedotcom/source-deploy-retrieve/tree/main/src/registry/presets
    * @title Custom predefined presets for decomposing metadata types
    */
   registryPresets?: RegistryPresets;
+  /**
+   * filenames from https://github.com/forcedotcom/source-deploy-retrieve/tree/main/src/registry/presets
+   * @title Custom predefined presets for decomposing metadata types
+   */
+  sourceBehaviorOptions?: RegistryPresets;
   // TODO: does this belong here or in SDR?  This should be the simplified, "public" version of the registry props.  Only allow things we want people to do
   registryCustomizations?: MetadataRegistry;
   /**
