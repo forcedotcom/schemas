@@ -140,6 +140,14 @@ export type PackagePackageDir = BasePackageDir & {
    * @title Uninstall Script
    */
   uninstallScript?: string;
+
+  /**
+   * Set to true if only specifing direct dependencies and the transitive (i.e., indirect) dependencies should be calculated by Salesforce.
+   * @title Use Transitive Dependencies
+   * @default false
+   */
+  useTransitiveDependencies?: boolean;
+
   /**
    * Human readable version information, format not specified.
    * @title Version Description
