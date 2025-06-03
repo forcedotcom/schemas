@@ -146,7 +146,7 @@ export type PackagePackageDir = BasePackageDir & {
    * @title Use Transitive Dependencies
    * @default false
    */
-  useTransitiveDependencies?: boolean;
+  calculateTransitiveDependencies?: boolean;
 
   /**
    * Human readable version information, format not specified.
