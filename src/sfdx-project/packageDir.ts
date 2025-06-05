@@ -143,7 +143,7 @@ export type PackagePackageDir = BasePackageDir & {
 
   /**
    * Set to true if only specifing direct package dependencies and the transitive (i.e., indirect) dependencies should be calculated by Salesforce.
-   * @title Use Transitive Dependencies
+   * @title Calculate Transitive Dependencies
    * @default false
    */
   calculateTransitiveDependencies?: boolean;
