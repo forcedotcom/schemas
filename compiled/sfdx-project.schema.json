@@ -225,6 +225,12 @@
           "required": ["permissionSets", "permissionSetLicenses"],
           "type": "object"
         },
+        "calculateTransitiveDependencies": {
+          "default": false,
+          "description": "Set to true if only specifing direct package dependencies and the transitive (i.e., indirect) dependencies should be calculated by Salesforce.",
+          "title": "Use Transitive Dependencies",
+          "type": "boolean"
+        },
         "default": {
           "default": true,
           "description": "If you have specified more than one path, include this parameter for the default path to indicate which is the default package directory.",

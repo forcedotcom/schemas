@@ -32,6 +32,7 @@
       "definitionFile": "config/scratch-org-def.json",
       "ancestorId": "3",
       "includeProfileUserLicenses": false,
+      "calculateTransitiveDependencies": true,
       "dependencies": [
         {
           "package": "Expense Manager - Util",
