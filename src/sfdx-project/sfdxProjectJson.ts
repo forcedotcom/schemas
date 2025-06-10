@@ -2,6 +2,7 @@ import { PackageDir } from "./packageDir";
 import { RegistryPresets } from "./registryPresets";
 import { MetadataRegistry } from "./registryVariants";
 import { Replacements } from "./replacements";
+import { BundleEntry } from "./bundleEntry";
 
 /**
  * The properties and shape of the SFDX project
@@ -21,7 +22,7 @@ export type ProjectJson = {
    */
   packageDirectories: PackageDir[];
   /**
-   * A namespace is an alphanumeric identifier that distinguishes your package and its contents from other packages in your customer’s org. For steps on how to register a namespace and link it to your Dev Hub org, see Create and Register Your Namespace for Second-Generation Managed Packages on developer.salesforce.com. If you’re creating an unlocked package, you can create it without a namespace.
+   * A namespace is an alphanumeric identifier that distinguishes your package and its contents from other packages in your customer's org. For steps on how to register a namespace and link it to your Dev Hub org, see Create and Register Your Namespace for Second-Generation Managed Packages on developer.salesforce.com. If you're creating an unlocked package, you can create it without a namespace.
    * @title Namespace
    */
   namespace?: string;
@@ -54,6 +55,19 @@ export type ProjectJson = {
    * @title Aliases for packaging ids
    */
   packageAliases?: { [k: string]: string };
+
+  /**
+   * Package bundle entries for managing package bundles.
+   * @title Package Bundles
+   */
+  packageBundles?: BundleEntry[];
+
+  /**
+   * Aliases for package bundles.
+   * @title Package Bundle Aliases
+   */
+  packageBundleAliases?: Record<string, string | string[]>;
+
   /**
    * @deprecated use `sourceBehaviorOptions`
    * filenames from https://github.com/forcedotcom/source-deploy-retrieve/tree/main/src/registry/presets

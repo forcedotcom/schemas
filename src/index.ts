@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 export { ProjectJson } from "./sfdx-project/sfdxProjectJson";
+export { BundleEntry } from "./sfdx-project/bundleEntry";
 export {
   PackageDir,
   PackageDirDependency,
