@@ -23,7 +23,7 @@
           "type": "string"
         },
         "versionNumber": {
-          "description": "The version number in the format major.minor.patch.build (e.g., 1.0.0.1).",
+          "description": "The version number in the format major.minor (e.g., 1.0).",
           "title": "Version Number",
           "type": "string"
         }

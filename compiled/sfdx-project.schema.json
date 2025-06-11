@@ -23,12 +23,16 @@
           "type": "string"
         },
         "versionNumber": {
-          "description": "The version number in the format major.minor.patch.build (e.g., 1.0.0.1).",
+          "description": "The version number in the format major.minor (e.g., 1.0).",
           "title": "Version Number",
           "type": "string"
         }
       },
-      "required": ["name", "versionName", "versionNumber"],
+      "required": [
+        "name",
+        "versionName",
+        "versionNumber"
+      ],
       "type": "object"
     },
     "MetadataRegistry": {
@@ -78,7 +82,10 @@
                     "$ref": "#/definitions/alias-147831185-257-1138-147831185-0-1202"
                   }
                 },
-                "required": ["types", "suffixes"],
+                "required": [
+                  "types",
+                  "suffixes"
+                ],
                 "type": "object"
               },
               "directoryName": {
@@ -116,15 +123,24 @@
                     "type": "string"
                   },
                   "decomposition": {
-                    "enum": ["topLevel", "folderPerType"],
+                    "enum": [
+                      "topLevel",
+                      "folderPerType"
+                    ],
                     "type": "string"
                   },
                   "transformer": {
-                    "enum": ["decomposed", "staticResource", "standard"],
+                    "enum": [
+                      "decomposed",
+                      "staticResource",
+                      "standard"
+                    ],
                     "type": "string"
                   }
                 },
-                "required": ["adapter"],
+                "required": [
+                  "adapter"
+                ],
                 "type": "object"
               },
               "strictDirectoryName": {
@@ -149,13 +165,22 @@
                 "type": "string"
               }
             },
-            "required": ["id", "name", "directoryName"],
+            "required": [
+              "id",
+              "name",
+              "directoryName"
+            ],
             "type": "object"
           },
           "type": "object"
         }
       },
-      "required": ["types", "suffixes", "strictDirectoryNames", "childTypes"],
+      "required": [
+        "types",
+        "suffixes",
+        "strictDirectoryNames",
+        "childTypes"
+      ],
       "type": "object"
     },
     "PackageDir": {
@@ -176,7 +201,9 @@
               "type": "string"
             }
           },
-          "required": ["path"],
+          "required": [
+            "path"
+          ],
           "type": "object"
         },
         {
@@ -198,7 +225,9 @@
           "type": "string"
         }
       },
-      "required": ["package"],
+      "required": [
+        "package"
+      ],
       "type": "object"
     },
     "PackagePackageDir": {
@@ -250,7 +279,10 @@
               "title": "Permission Sets"
             }
           },
-          "required": ["permissionSets", "permissionSetLicenses"],
+          "required": [
+            "permissionSets",
+            "permissionSetLicenses"
+          ],
           "type": "object"
         },
         "default": {
@@ -324,7 +356,10 @@
               "title": "Permission Sets"
             }
           },
-          "required": ["permissionSets", "permissionSetLicenses"],
+          "required": [
+            "permissionSets",
+            "permissionSetLicenses"
+          ],
           "title": "Package Metadata Access",
           "type": "object"
         },
@@ -364,7 +399,9 @@
               "type": "string"
             }
           },
-          "required": ["path"],
+          "required": [
+            "path"
+          ],
           "title": "Seed Metadata",
           "type": "object"
         },
@@ -383,7 +420,9 @@
               "type": "string"
             }
           },
-          "required": ["path"],
+          "required": [
+            "path"
+          ],
           "title": "Unpackaged Metadata",
           "type": "object"
         },
@@ -403,7 +442,11 @@
           "type": "string"
         }
       },
-      "required": ["package", "path", "versionNumber"],
+      "required": [
+        "package",
+        "path",
+        "versionNumber"
+      ],
       "type": "object"
     },
     "RegistryPresets": {
@@ -431,7 +474,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -443,7 +489,11 @@
               "type": "string"
             }
           },
-          "required": ["filename", "replaceWithFile", "stringToReplace"],
+          "required": [
+            "filename",
+            "replaceWithFile",
+            "stringToReplace"
+          ],
           "type": "object"
         },
         {
@@ -466,7 +516,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -478,7 +531,11 @@
               "type": "string"
             }
           },
-          "required": ["filename", "replaceWithEnv", "stringToReplace"],
+          "required": [
+            "filename",
+            "replaceWithEnv",
+            "stringToReplace"
+          ],
           "type": "object"
         },
         {
@@ -501,7 +558,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -510,7 +570,11 @@
               "type": "string"
             }
           },
-          "required": ["filename", "regexToReplace", "replaceWithFile"],
+          "required": [
+            "filename",
+            "regexToReplace",
+            "replaceWithFile"
+          ],
           "type": "object"
         },
         {
@@ -536,7 +600,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -545,7 +612,11 @@
               "type": "string"
             }
           },
-          "required": ["filename", "regexToReplace", "replaceWithEnv"],
+          "required": [
+            "filename",
+            "regexToReplace",
+            "replaceWithEnv"
+          ],
           "type": "object"
         },
         {
@@ -565,7 +636,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -577,7 +651,11 @@
               "type": "string"
             }
           },
-          "required": ["glob", "replaceWithFile", "stringToReplace"],
+          "required": [
+            "glob",
+            "replaceWithFile",
+            "stringToReplace"
+          ],
           "type": "object"
         },
         {
@@ -600,7 +678,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -612,7 +693,11 @@
               "type": "string"
             }
           },
-          "required": ["glob", "replaceWithEnv", "stringToReplace"],
+          "required": [
+            "glob",
+            "replaceWithEnv",
+            "stringToReplace"
+          ],
           "type": "object"
         },
         {
@@ -635,7 +720,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -644,7 +732,11 @@
               "type": "string"
             }
           },
-          "required": ["glob", "regexToReplace", "replaceWithFile"],
+          "required": [
+            "glob",
+            "regexToReplace",
+            "replaceWithFile"
+          ],
           "type": "object"
         },
         {
@@ -670,7 +762,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -679,7 +774,11 @@
               "type": "string"
             }
           },
-          "required": ["glob", "regexToReplace", "replaceWithEnv"],
+          "required": [
+            "glob",
+            "regexToReplace",
+            "replaceWithEnv"
+          ],
           "type": "object"
         }
       ]
@@ -710,7 +809,10 @@
                 "$ref": "#/definitions/alias-147831185-257-1138-147831185-0-1202"
               }
             },
-            "required": ["types", "suffixes"],
+            "required": [
+              "types",
+              "suffixes"
+            ],
             "type": "object"
           },
           "directoryName": {
@@ -748,15 +850,24 @@
                 "type": "string"
               },
               "decomposition": {
-                "enum": ["topLevel", "folderPerType"],
+                "enum": [
+                  "topLevel",
+                  "folderPerType"
+                ],
                 "type": "string"
               },
               "transformer": {
-                "enum": ["decomposed", "staticResource", "standard"],
+                "enum": [
+                  "decomposed",
+                  "staticResource",
+                  "standard"
+                ],
                 "type": "string"
               }
             },
-            "required": ["adapter"],
+            "required": [
+              "adapter"
+            ],
             "type": "object"
           },
           "strictDirectoryName": {
@@ -781,7 +892,11 @@
             "type": "string"
           }
         },
-        "required": ["id", "name", "directoryName"],
+        "required": [
+          "id",
+          "name",
+          "directoryName"
+        ],
         "type": "object"
       },
       "type": "object"
@@ -895,7 +1010,9 @@
       "title": "Custom predefined presets for decomposing metadata types"
     }
   },
-  "required": ["packageDirectories"],
+  "required": [
+    "packageDirectories"
+  ],
   "title": "Salesforce DX Project File",
   "type": "object"
 }
