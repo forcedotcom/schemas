@@ -3,6 +3,38 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "additionalProperties": false,
   "definitions": {
+    "BundleEntry": {
+      "additionalProperties": false,
+      "description": "Represents an entry in a package bundle, containing version and descriptive information.",
+      "properties": {
+        "name": {
+          "description": "The name of the bundle.",
+          "title": "Bundle Name",
+          "type": "string"
+        },
+        "versionDescription": {
+          "description": "Human readable version information, format not specified.",
+          "title": "Version Description",
+          "type": "string"
+        },
+        "versionName": {
+          "description": "Human readable name for the version.",
+          "title": "Version Name",
+          "type": "string"
+        },
+        "versionNumber": {
+          "description": "The version number in the format major.minor (e.g., 1.0).",
+          "title": "Version Number",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "versionName",
+        "versionNumber"
+      ],
+      "type": "object"
+    },
     "MetadataRegistry": {
       "additionalProperties": false,
       "properties": {
@@ -884,7 +916,7 @@
       "type": "string"
     },
     "namespace": {
-      "description": "A namespace is an alphanumeric identifier that distinguishes your package and its contents from other packages in your customer’s org. For steps on how to register a namespace and link it to your Dev Hub org, see Create and Register Your Namespace for Second-Generation Managed Packages on developer.salesforce.com. If you’re creating an unlocked package, you can create it without a namespace.",
+      "description": "A namespace is an alphanumeric identifier that distinguishes your package and its contents from other packages in your customer's org. For steps on how to register a namespace and link it to your Dev Hub org, see Create and Register Your Namespace for Second-Generation Managed Packages on developer.salesforce.com. If you're creating an unlocked package, you can create it without a namespace.",
       "title": "Namespace",
       "type": "string"
     },
@@ -900,6 +932,32 @@
       "description": "The Salesforce CLI updates this file with the aliases when you create a package or package version. You can also manually update this section for existing packages or package versions. You can use the alias instead of the cryptic package ID when running CLI force:package commands.",
       "title": "Aliases for packaging ids",
       "type": "object"
+    },
+    "packageBundleAliases": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        ]
+      },
+      "description": "Aliases for package bundles.",
+      "title": "Package Bundle Aliases",
+      "type": "object"
+    },
+    "packageBundles": {
+      "description": "Package bundle entries for managing package bundles.",
+      "items": {
+        "$ref": "#/definitions/BundleEntry"
+      },
+      "title": "Package Bundles",
+      "type": "array"
     },
     "packageDirectories": {
       "$comment": "The properties ancestorId & ancestorVersion cannot be included together, but this schema optimizes for VS Code code completion rather than pure validation.",

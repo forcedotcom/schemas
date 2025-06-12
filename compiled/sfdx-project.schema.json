@@ -3,6 +3,38 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "additionalProperties": false,
   "definitions": {
+    "BundleEntry": {
+      "additionalProperties": false,
+      "description": "Represents an entry in a package bundle, containing version and descriptive information.",
+      "properties": {
+        "name": {
+          "description": "The name of the bundle.",
+          "title": "Bundle Name",
+          "type": "string"
+        },
+        "versionDescription": {
+          "description": "Human readable version information, format not specified.",
+          "title": "Version Description",
+          "type": "string"
+        },
+        "versionName": {
+          "description": "Human readable name for the version.",
+          "title": "Version Name",
+          "type": "string"
+        },
+        "versionNumber": {
+          "description": "The version number in the format major.minor (e.g., 1.0).",
+          "title": "Version Number",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "versionName",
+        "versionNumber"
+      ],
+      "type": "object"
+    },
     "MetadataRegistry": {
       "additionalProperties": false,
       "properties": {
@@ -50,7 +82,10 @@
                     "$ref": "#/definitions/alias-147831185-257-1138-147831185-0-1202"
                   }
                 },
-                "required": ["types", "suffixes"],
+                "required": [
+                  "types",
+                  "suffixes"
+                ],
                 "type": "object"
               },
               "directoryName": {
@@ -88,15 +123,24 @@
                     "type": "string"
                   },
                   "decomposition": {
-                    "enum": ["topLevel", "folderPerType"],
+                    "enum": [
+                      "topLevel",
+                      "folderPerType"
+                    ],
                     "type": "string"
                   },
                   "transformer": {
-                    "enum": ["decomposed", "staticResource", "standard"],
+                    "enum": [
+                      "decomposed",
+                      "staticResource",
+                      "standard"
+                    ],
                     "type": "string"
                   }
                 },
-                "required": ["adapter"],
+                "required": [
+                  "adapter"
+                ],
                 "type": "object"
               },
               "strictDirectoryName": {
@@ -121,13 +165,22 @@
                 "type": "string"
               }
             },
-            "required": ["id", "name", "directoryName"],
+            "required": [
+              "id",
+              "name",
+              "directoryName"
+            ],
             "type": "object"
           },
           "type": "object"
         }
       },
-      "required": ["types", "suffixes", "strictDirectoryNames", "childTypes"],
+      "required": [
+        "types",
+        "suffixes",
+        "strictDirectoryNames",
+        "childTypes"
+      ],
       "type": "object"
     },
     "PackageDir": {
@@ -148,7 +201,9 @@
               "type": "string"
             }
           },
-          "required": ["path"],
+          "required": [
+            "path"
+          ],
           "type": "object"
         },
         {
@@ -170,7 +225,9 @@
           "type": "string"
         }
       },
-      "required": ["package"],
+      "required": [
+        "package"
+      ],
       "type": "object"
     },
     "PackagePackageDir": {
@@ -222,7 +279,10 @@
               "title": "Permission Sets"
             }
           },
-          "required": ["permissionSets", "permissionSetLicenses"],
+          "required": [
+            "permissionSets",
+            "permissionSetLicenses"
+          ],
           "type": "object"
         },
         "calculateTransitiveDependencies": {
@@ -302,7 +362,10 @@
               "title": "Permission Sets"
             }
           },
-          "required": ["permissionSets", "permissionSetLicenses"],
+          "required": [
+            "permissionSets",
+            "permissionSetLicenses"
+          ],
           "title": "Package Metadata Access",
           "type": "object"
         },
@@ -342,7 +405,9 @@
               "type": "string"
             }
           },
-          "required": ["path"],
+          "required": [
+            "path"
+          ],
           "title": "Seed Metadata",
           "type": "object"
         },
@@ -361,7 +426,9 @@
               "type": "string"
             }
           },
-          "required": ["path"],
+          "required": [
+            "path"
+          ],
           "title": "Unpackaged Metadata",
           "type": "object"
         },
@@ -381,7 +448,11 @@
           "type": "string"
         }
       },
-      "required": ["package", "path", "versionNumber"],
+      "required": [
+        "package",
+        "path",
+        "versionNumber"
+      ],
       "type": "object"
     },
     "RegistryPresets": {
@@ -409,7 +480,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -421,7 +495,11 @@
               "type": "string"
             }
           },
-          "required": ["filename", "replaceWithFile", "stringToReplace"],
+          "required": [
+            "filename",
+            "replaceWithFile",
+            "stringToReplace"
+          ],
           "type": "object"
         },
         {
@@ -444,7 +522,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -456,7 +537,11 @@
               "type": "string"
             }
           },
-          "required": ["filename", "replaceWithEnv", "stringToReplace"],
+          "required": [
+            "filename",
+            "replaceWithEnv",
+            "stringToReplace"
+          ],
           "type": "object"
         },
         {
@@ -479,7 +564,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -488,7 +576,11 @@
               "type": "string"
             }
           },
-          "required": ["filename", "regexToReplace", "replaceWithFile"],
+          "required": [
+            "filename",
+            "regexToReplace",
+            "replaceWithFile"
+          ],
           "type": "object"
         },
         {
@@ -514,7 +606,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -523,7 +618,11 @@
               "type": "string"
             }
           },
-          "required": ["filename", "regexToReplace", "replaceWithEnv"],
+          "required": [
+            "filename",
+            "regexToReplace",
+            "replaceWithEnv"
+          ],
           "type": "object"
         },
         {
@@ -543,7 +642,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -555,7 +657,11 @@
               "type": "string"
             }
           },
-          "required": ["glob", "replaceWithFile", "stringToReplace"],
+          "required": [
+            "glob",
+            "replaceWithFile",
+            "stringToReplace"
+          ],
           "type": "object"
         },
         {
@@ -578,7 +684,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -590,7 +699,11 @@
               "type": "string"
             }
           },
-          "required": ["glob", "replaceWithEnv", "stringToReplace"],
+          "required": [
+            "glob",
+            "replaceWithEnv",
+            "stringToReplace"
+          ],
           "type": "object"
         },
         {
@@ -613,7 +726,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -622,7 +738,11 @@
               "type": "string"
             }
           },
-          "required": ["glob", "regexToReplace", "replaceWithFile"],
+          "required": [
+            "glob",
+            "regexToReplace",
+            "replaceWithFile"
+          ],
           "type": "object"
         },
         {
@@ -648,7 +768,10 @@
                     "type": "string"
                   }
                 },
-                "required": ["env", "value"],
+                "required": [
+                  "env",
+                  "value"
+                ],
                 "type": "object"
               },
               "type": "array"
@@ -657,7 +780,11 @@
               "type": "string"
             }
           },
-          "required": ["glob", "regexToReplace", "replaceWithEnv"],
+          "required": [
+            "glob",
+            "regexToReplace",
+            "replaceWithEnv"
+          ],
           "type": "object"
         }
       ]
@@ -688,7 +815,10 @@
                 "$ref": "#/definitions/alias-147831185-257-1138-147831185-0-1202"
               }
             },
-            "required": ["types", "suffixes"],
+            "required": [
+              "types",
+              "suffixes"
+            ],
             "type": "object"
           },
           "directoryName": {
@@ -726,15 +856,24 @@
                 "type": "string"
               },
               "decomposition": {
-                "enum": ["topLevel", "folderPerType"],
+                "enum": [
+                  "topLevel",
+                  "folderPerType"
+                ],
                 "type": "string"
               },
               "transformer": {
-                "enum": ["decomposed", "staticResource", "standard"],
+                "enum": [
+                  "decomposed",
+                  "staticResource",
+                  "standard"
+                ],
                 "type": "string"
               }
             },
-            "required": ["adapter"],
+            "required": [
+              "adapter"
+            ],
             "type": "object"
           },
           "strictDirectoryName": {
@@ -759,7 +898,11 @@
             "type": "string"
           }
         },
-        "required": ["id", "name", "directoryName"],
+        "required": [
+          "id",
+          "name",
+          "directoryName"
+        ],
         "type": "object"
       },
       "type": "object"
@@ -773,7 +916,7 @@
       "type": "string"
     },
     "namespace": {
-      "description": "A namespace is an alphanumeric identifier that distinguishes your package and its contents from other packages in your customer’s org. For steps on how to register a namespace and link it to your Dev Hub org, see Create and Register Your Namespace for Second-Generation Managed Packages on developer.salesforce.com. If you’re creating an unlocked package, you can create it without a namespace.",
+      "description": "A namespace is an alphanumeric identifier that distinguishes your package and its contents from other packages in your customer's org. For steps on how to register a namespace and link it to your Dev Hub org, see Create and Register Your Namespace for Second-Generation Managed Packages on developer.salesforce.com. If you're creating an unlocked package, you can create it without a namespace.",
       "title": "Namespace",
       "type": "string"
     },
@@ -789,6 +932,32 @@
       "description": "The Salesforce CLI updates this file with the aliases when you create a package or package version. You can also manually update this section for existing packages or package versions. You can use the alias instead of the cryptic package ID when running CLI force:package commands.",
       "title": "Aliases for packaging ids",
       "type": "object"
+    },
+    "packageBundleAliases": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        ]
+      },
+      "description": "Aliases for package bundles.",
+      "title": "Package Bundle Aliases",
+      "type": "object"
+    },
+    "packageBundles": {
+      "description": "Package bundle entries for managing package bundles.",
+      "items": {
+        "$ref": "#/definitions/BundleEntry"
+      },
+      "title": "Package Bundles",
+      "type": "array"
     },
     "packageDirectories": {
       "$comment": "The properties ancestorId & ancestorVersion cannot be included together, but this schema optimizes for VS Code code completion rather than pure validation.",
@@ -847,7 +1016,9 @@
       "title": "Custom predefined presets for decomposing metadata types"
     }
   },
-  "required": ["packageDirectories"],
+  "required": [
+    "packageDirectories"
+  ],
   "title": "Salesforce DX Project File",
   "type": "object"
 }
