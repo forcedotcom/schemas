@@ -1,0 +1,235 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/MetadataRegistry",
+  "definitions": {
+    "MetadataRegistry": {
+      "type": "object",
+      "properties": {
+        "types": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "directoryName": {
+                "type": "string"
+              },
+              "suffix": {
+                "type": "string"
+              },
+              "strictDirectoryName": {
+                "type": "boolean"
+              },
+              "ignoreParsedFullName": {
+                "type": "boolean"
+              },
+              "folderContentType": {
+                "type": "string"
+              },
+              "folderType": {
+                "type": "string"
+              },
+              "xmlElementName": {
+                "type": "string"
+              },
+              "uniqueIdElement": {
+                "type": "string"
+              },
+              "isAddressable": {
+                "type": "boolean"
+              },
+              "unaddressableWithoutParent": {
+                "type": "boolean"
+              },
+              "supportsWildcardAndName": {
+                "type": "boolean"
+              },
+              "supportsPartialDelete": {
+                "type": "boolean"
+              },
+              "aliasFor": {
+                "type": "string"
+              },
+              "children": {
+                "type": "object",
+                "properties": {
+                  "types": {
+                    "$ref": "#/definitions/alias-1220290513-257-1164-1220290513-0-1228"
+                  },
+                  "suffixes": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  },
+                  "directories": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": ["types", "suffixes"],
+                "additionalProperties": false
+              },
+              "strategies": {
+                "type": "object",
+                "properties": {
+                  "adapter": {
+                    "type": "string",
+                    "enum": [
+                      "mixedContent",
+                      "matchingContentFile",
+                      "decomposed",
+                      "bundle",
+                      "default"
+                    ]
+                  },
+                  "transformer": {
+                    "type": "string",
+                    "enum": ["decomposed", "staticResource", "standard"]
+                  },
+                  "decomposition": {
+                    "type": "string",
+                    "enum": ["topLevel", "folderPerType"]
+                  }
+                },
+                "required": ["adapter"],
+                "additionalProperties": false
+              }
+            },
+            "required": ["id", "name", "directoryName"],
+            "additionalProperties": false
+          }
+        },
+        "suffixes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "strictDirectoryNames": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "childTypes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["types", "suffixes", "strictDirectoryNames", "childTypes"],
+      "additionalProperties": false
+    },
+    "alias-1220290513-257-1164-1220290513-0-1228": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "directoryName": {
+            "type": "string"
+          },
+          "suffix": {
+            "type": "string"
+          },
+          "strictDirectoryName": {
+            "type": "boolean"
+          },
+          "ignoreParsedFullName": {
+            "type": "boolean"
+          },
+          "folderContentType": {
+            "type": "string"
+          },
+          "folderType": {
+            "type": "string"
+          },
+          "xmlElementName": {
+            "type": "string"
+          },
+          "uniqueIdElement": {
+            "type": "string"
+          },
+          "isAddressable": {
+            "type": "boolean"
+          },
+          "unaddressableWithoutParent": {
+            "type": "boolean"
+          },
+          "supportsWildcardAndName": {
+            "type": "boolean"
+          },
+          "supportsPartialDelete": {
+            "type": "boolean"
+          },
+          "aliasFor": {
+            "type": "string"
+          },
+          "children": {
+            "type": "object",
+            "properties": {
+              "types": {
+                "$ref": "#/definitions/alias-1220290513-257-1164-1220290513-0-1228"
+              },
+              "suffixes": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              },
+              "directories": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": ["types", "suffixes"],
+            "additionalProperties": false
+          },
+          "strategies": {
+            "type": "object",
+            "properties": {
+              "adapter": {
+                "type": "string",
+                "enum": [
+                  "mixedContent",
+                  "matchingContentFile",
+                  "decomposed",
+                  "bundle",
+                  "default"
+                ]
+              },
+              "transformer": {
+                "type": "string",
+                "enum": ["decomposed", "staticResource", "standard"]
+              },
+              "decomposition": {
+                "type": "string",
+                "enum": ["topLevel", "folderPerType"]
+              }
+            },
+            "required": ["adapter"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["id", "name", "directoryName"],
+        "additionalProperties": false
+      }
+    }
+  }
+}
