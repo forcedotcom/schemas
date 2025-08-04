@@ -35,7 +35,7 @@ Run the `features-update` and `settings-update` scripts on every major release a
 
 ## Generating Schema from TS files
 
-the /src folder contains the TS type used to generate the [`replacements`](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm?q=replacements) project property.
+The `/src` folder contains the TS type used to generate the [`replacements`](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm?q=replacements) project property.
 
 You can define (or import and re-export) TS types and then use [this extension](https://marketplace.visualstudio.com/items?itemName=marcoq.vscode-typescript-to-json-schema). It adds a "Generate JSON Schema from type" action to your palette.
 
