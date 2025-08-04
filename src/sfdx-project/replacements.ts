@@ -20,7 +20,11 @@ type ReplaceWith =
       replaceWithFile: string;
       replaceWithEnv?: never;
     }
-  | { replaceWithEnv: string; replaceWithFile?: never };
+  | {
+      replaceWithEnv: string;
+      replaceWithFile?: never;
+      allowUnsetEnvVariable?: boolean;
+    };
 
 type EnvConditional = {
   env: string;
