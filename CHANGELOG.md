@@ -1,3 +1,7 @@
+## [1.9.1](https://github.com/forcedotcom/schemas/compare/1.9.0...1.9.1) (2025-06-30)
+
+
+
 # [1.9.0](https://github.com/forcedotcom/schemas/compare/1.8.1...1.9.0) (2024-05-17)
 
 

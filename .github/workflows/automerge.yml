@@ -1,0 +1,13 @@
+name: automerge
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '07 2,5,8,11 * * *'
+
+jobs:
+  automerge:
+    uses: salesforcecli/github-workflows/.github/workflows/automerge.yml@main
+    secrets: 
+      SVC_CLI_BOT_GITHUB_TOKEN: ${{ secrets.IDEE_GH_TOKEN }}
+    with:
+      mergeMethod: squash
