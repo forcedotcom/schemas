@@ -1,3 +1,12 @@
+# [1.10.0](https://github.com/forcedotcom/schemas/compare/1.9.1...1.10.0) (2025-08-29)
+
+
+### Features
+
+* **sfdxjson:** created bundle entry ([#90](https://github.com/forcedotcom/schemas/issues/90)) ([#92](https://github.com/forcedotcom/schemas/issues/92)) ([1cc530c](https://github.com/forcedotcom/schemas/commit/1cc530c6530748cef0316e589e7524c5ab3ac614))
+
+
+
 ## [1.9.1](https://github.com/forcedotcom/schemas/compare/1.9.0...1.9.1) (2025-06-30)
 
 
