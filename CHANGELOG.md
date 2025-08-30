@@ -1,3 +1,12 @@
+## [1.10.1](https://github.com/forcedotcom/schemas/compare/1.10.0...1.10.1) (2025-08-30)
+
+
+### Bug Fixes
+
+* **deps:** bump ws from 5.2.3 to 5.2.4 ([#94](https://github.com/forcedotcom/schemas/issues/94)) ([3210a34](https://github.com/forcedotcom/schemas/commit/3210a3412b9b58977d5b72daf8d1f35f65f3dd07))
+
+
+
 # [1.10.0](https://github.com/forcedotcom/schemas/compare/1.9.1...1.10.0) (2025-08-29)
 
 
