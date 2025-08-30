@@ -1,3 +1,12 @@
+## [1.10.2](https://github.com/forcedotcom/schemas/compare/1.10.1...1.10.2) (2025-08-30)
+
+
+### Bug Fixes
+
+* **deps:** bump @babel/traverse from 7.9.0 to 7.28.3 ([#93](https://github.com/forcedotcom/schemas/issues/93)) ([0e7771f](https://github.com/forcedotcom/schemas/commit/0e7771ffa0f76caa7c0df0bb3e3071f5ce7272b8))
+
+
+
 ## [1.10.1](https://github.com/forcedotcom/schemas/compare/1.10.0...1.10.1) (2025-08-30)
 
 
