@@ -15,7 +15,7 @@ const SFDX_DEV_URL =
 
 const reportPayload = shell
   .exec(`curl ${SFDX_DEV_URL}`, {
-    silent: true
+    silent: true,
   })
   .stdout.trim();
 
@@ -30,34 +30,34 @@ let featureSet = new Set();
 let anyOfArray = [];
 
 console.log(
-  "Start processing report JSON to update scratch definition features:"
+  "Start processing report JSON to update scratch definition features:",
 );
 
-entries.forEach(item => {
+entries.forEach((item) => {
   if (item.hasOwnProperty("children") && Array.isArray(item.children)) {
     const firstLevelChildren = item.children;
-    firstLevelChildren.forEach(childItem => {
+    firstLevelChildren.forEach((childItem) => {
       if (
         childItem.hasOwnProperty("children") &&
         Array.isArray(childItem.children)
       ) {
         const secondLevelChildren = childItem.children;
-        secondLevelChildren.forEach(secLevelItem => {
+        secondLevelChildren.forEach((secLevelItem) => {
           if (
             secLevelItem.id.startsWith(
-              "sfdx_dev_scratch_orgs_def_file_config_values-sfdx_dev_scratch_orgs_def_file_config_values"
+              "sfdx_dev_scratch_orgs_def_file_config_values-sfdx_dev_scratch_orgs_def_file_config_values",
             )
           ) {
-            secLevelItem.children.forEach(feature => {
+            secLevelItem.children.forEach((feature) => {
               if (feature.text.endsWith(":<value>")) {
                 const patternVal = `^(${feature.text.replace(
                   ":<value>",
-                  ""
+                  "",
                 )}:[0-9]+$)`;
                 anyOfArray.push({
                   type: "string",
                   title: feature.text,
-                  pattern: patternVal
+                  pattern: patternVal,
                 });
               } else {
                 featureSet.add(feature.text);
@@ -77,7 +77,7 @@ anyOfArray.push({ type: "string", enum: Array.from(featureSet).sort() });
 const scratchSchemaDefPath = join(
   __dirname,
   "..",
-  "project-scratch-def.schema.json"
+  "project-scratch-def.schema.json",
 );
 const scratchDef = JSON.parse(fs.readFileSync(scratchSchemaDefPath));
 scratchDef.definitions.features.items.anyOf = anyOfArray;
@@ -90,14 +90,14 @@ const prettierExecutable = join(
   "..",
   "node_modules",
   ".bin",
-  "prettier"
+  "prettier",
 );
 
 shell.exec(
   `${prettierExecutable} --config .prettierrc --write "${scratchSchemaDefPath}"`,
   {
-    cwd: join(__dirname, "..")
-  }
+    cwd: join(__dirname, ".."),
+  },
 );
 
 console.log(`Successfully updated features for ${scratchSchemaDefPath}`);

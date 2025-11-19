@@ -49,6 +49,7 @@ const BasePackageDirPropsSchema = z.object({
     ),
   path: z
     .string()
+    .meta({ title: "Path" })
     .describe(
       "If you don't specify a path, the Salesforce CLI uses a placeholder when you create a package.",
     ),
@@ -62,12 +63,14 @@ const PackagePackageDirSchema = BasePackageDirPropsSchema.extend({
   ancestorId: z
     .string()
     .optional()
+    .meta({ title: "Ancestor ID" })
     .describe(
       "The ancestor that's the immediate parent of the version that you're creating. The package version ID to supply starts with '05i'.",
     ),
   ancestorVersion: z
     .string()
     .optional()
+    .meta({ title: "Ancestor Version" })
     .describe(
       "The ancestor that's the immediate parent of the version that you're creating. The ancestor version uses the format major.minor.patch.build.",
     ),
@@ -75,11 +78,13 @@ const PackagePackageDirSchema = BasePackageDirPropsSchema.extend({
     .object({
       permissionSets: z
         .union([z.array(z.string()), z.string()])
+        .meta({ title: "Permission Sets" })
         .describe(
           "The list of permission sets to enable while running Apex tests",
         ),
       permissionSetLicenses: z
         .union([z.array(z.string()), z.string()])
+        .meta({ title: "Permission Set Licenses" })
         .describe(
           "The list of permission sets licenses to enable while running Apex tests",
         ),
@@ -91,6 +96,7 @@ const PackagePackageDirSchema = BasePackageDirPropsSchema.extend({
   definitionFile: z
     .string()
     .optional()
+    .meta({ title: "Definition File" })
     .describe(
       "Reference an external .json file to specify the features and org preferences required for the metadata of your package, such as the scratch org definition.",
     ),
@@ -104,59 +110,85 @@ const PackagePackageDirSchema = BasePackageDirPropsSchema.extend({
     .boolean()
     .default(false)
     .optional()
+    .meta({ title: "Include Profile User Licenses" })
     .describe(
       "Whether to include <userLicense> elements in profile metadata. Defaults to false.",
     ),
   package: z
     .string()
+    .meta({ title: "Package Identifier" })
     .describe("The package name you specified when creating the package."),
   packageMetadataAccess: z
     .object({
       permissionSets: z
         .union([z.string(), z.array(z.string())])
+        .meta({ title: "Permission Sets" })
         .describe(
           "The list of permission sets to enable while deploying package metadata",
         ),
       permissionSetLicenses: z
         .union([z.string(), z.array(z.string())])
+        .meta({ title: "Permission Set Licenses" })
         .describe(
           "The list of permission set licenses to enable while deploying package metadata",
         ),
     })
     .optional()
+    .meta({ title: "Package Metadata Access" })
     .describe(
       "Additional access that should be granted to the user while deploying package metadata, available in Salesforce API version 61.0 and above",
     ),
-  postInstallScript: z.string().optional().describe("The post install script."),
-  postInstallUrl: z.string().optional().describe("The post install url."),
-  releaseNotesUrl: z.string().optional().describe("The release notes url."),
+  postInstallScript: z
+    .string()
+    .optional()
+    .meta({ title: "Post Install Script" })
+    .describe("The post install script."),
+  postInstallUrl: z
+    .string()
+    .optional()
+    .meta({ title: "Post Install Url" })
+    .describe("The post install url."),
+  releaseNotesUrl: z
+    .string()
+    .optional()
+    .meta({ title: "Release Notes Url" })
+    .describe("The release notes url."),
   scopeProfiles: z
     .boolean()
     .default(false)
     .optional()
+    .meta({ title: "Scope Profiles" })
     .describe(
       "Determines whether to include profile settings from only the directory being packaged (true), or whether to include profile settings from all package directories (false). If not specified, the default is false.",
     ),
-  uninstallScript: z.string().optional().describe("The uninstall script."),
+  uninstallScript: z
+    .string()
+    .optional()
+    .meta({ title: "Uninstall Script" })
+    .describe("The uninstall script."),
   calculateTransitiveDependencies: z
     .boolean()
     .default(false)
     .optional()
+    .meta({ title: "Calculate Transitive Dependencies" })
     .describe(
       "Set to true if only specifing direct package dependencies and the transitive (i.e., indirect) dependencies should be calculated by Salesforce.",
     ),
   versionDescription: z
     .string()
     .optional()
+    .meta({ title: "Version Description" })
     .describe("Human readable version information, format not specified."),
   versionName: z
     .string()
     .optional()
+    .meta({ title: "Version Name" })
     .describe(
       "If not specified, the CLI uses versionNumber as the version name.",
     ),
   versionNumber: z
     .string()
+    .meta({ title: "Version Number" })
     .describe(
       "Version numbers are formatted as major.minor.patch.build. For example, 1.2.1.8. Required when package is specified.",
     ),
@@ -164,11 +196,13 @@ const PackagePackageDirSchema = BasePackageDirPropsSchema.extend({
     .object({
       path: z
         .string()
+        .meta({ title: "Path" })
         .describe(
           "The path name of the package directory containing the unpackaged metadata",
         ),
     })
     .optional()
+    .meta({ title: "Unpackaged Metadata" })
     .describe(
       "Metadata not meant to be packaged, but deployed when testing packaged metadata",
     ),
@@ -176,11 +210,13 @@ const PackagePackageDirSchema = BasePackageDirPropsSchema.extend({
     .object({
       path: z
         .string()
+        .meta({ title: "Path" })
         .describe(
           "The path name of the package directory containing the seed metadata",
         ),
     })
     .optional()
+    .meta({ title: "Seed Metadata" })
     .describe(
       "Metadata not meant to be packaged, but deployed before deploying packaged metadata",
     ),

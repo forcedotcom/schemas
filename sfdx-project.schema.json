@@ -7,6 +7,7 @@
       "type": "string"
     },
     "packageDirectories": {
+      "title": "Package Directories",
       "description": "Package directories indicate which directories to target when syncing source to and from the scratch org. These directories can contain source from your managed package, unmanaged package, or unpackaged source, for example, ant tool or change set.",
       "minItems": 1,
       "type": "array",
@@ -21,6 +22,7 @@
                 "type": "boolean"
               },
               "path": {
+                "title": "Path",
                 "description": "If you don't specify a path, the Salesforce CLI uses a placeholder when you create a package.",
                 "type": "string"
               }
@@ -39,14 +41,17 @@
                 "type": "boolean"
               },
               "path": {
+                "title": "Path",
                 "description": "If you don't specify a path, the Salesforce CLI uses a placeholder when you create a package.",
                 "type": "string"
               },
               "ancestorId": {
+                "title": "Ancestor ID",
                 "description": "The ancestor that's the immediate parent of the version that you're creating. The package version ID to supply starts with '05i'.",
                 "type": "string"
               },
               "ancestorVersion": {
+                "title": "Ancestor Version",
                 "description": "The ancestor that's the immediate parent of the version that you're creating. The ancestor version uses the format major.minor.patch.build.",
                 "type": "string"
               },
@@ -55,6 +60,7 @@
                 "type": "object",
                 "properties": {
                   "permissionSets": {
+                    "title": "Permission Sets",
                     "description": "The list of permission sets to enable while running Apex tests",
                     "anyOf": [
                       {
@@ -69,6 +75,7 @@
                     ]
                   },
                   "permissionSetLicenses": {
+                    "title": "Permission Set Licenses",
                     "description": "The list of permission sets licenses to enable while running Apex tests",
                     "anyOf": [
                       {
@@ -90,6 +97,7 @@
                 "additionalProperties": false
               },
               "definitionFile": {
+                "title": "Definition File",
                 "description": "Reference an external .json file to specify the features and org preferences required for the metadata of your package, such as the scratch org definition.",
                 "type": "string"
               },
@@ -116,19 +124,23 @@
                 }
               },
               "includeProfileUserLicenses": {
+                "title": "Include Profile User Licenses",
                 "description": "Whether to include <userLicense> elements in profile metadata. Defaults to false.",
                 "default": false,
                 "type": "boolean"
               },
               "package": {
+                "title": "Package Identifier",
                 "description": "The package name you specified when creating the package.",
                 "type": "string"
               },
               "packageMetadataAccess": {
+                "title": "Package Metadata Access",
                 "description": "Additional access that should be granted to the user while deploying package metadata, available in Salesforce API version 61.0 and above",
                 "type": "object",
                 "properties": {
                   "permissionSets": {
+                    "title": "Permission Sets",
                     "description": "The list of permission sets to enable while deploying package metadata",
                     "anyOf": [
                       {
@@ -143,6 +155,7 @@
                     ]
                   },
                   "permissionSetLicenses": {
+                    "title": "Permission Set Licenses",
                     "description": "The list of permission set licenses to enable while deploying package metadata",
                     "anyOf": [
                       {
@@ -164,48 +177,59 @@
                 "additionalProperties": false
               },
               "postInstallScript": {
+                "title": "Post Install Script",
                 "description": "The post install script.",
                 "type": "string"
               },
               "postInstallUrl": {
+                "title": "Post Install Url",
                 "description": "The post install url.",
                 "type": "string"
               },
               "releaseNotesUrl": {
+                "title": "Release Notes Url",
                 "description": "The release notes url.",
                 "type": "string"
               },
               "scopeProfiles": {
+                "title": "Scope Profiles",
                 "description": "Determines whether to include profile settings from only the directory being packaged (true), or whether to include profile settings from all package directories (false). If not specified, the default is false.",
                 "default": false,
                 "type": "boolean"
               },
               "uninstallScript": {
+                "title": "Uninstall Script",
                 "description": "The uninstall script.",
                 "type": "string"
               },
               "calculateTransitiveDependencies": {
+                "title": "Calculate Transitive Dependencies",
                 "description": "Set to true if only specifing direct package dependencies and the transitive (i.e., indirect) dependencies should be calculated by Salesforce.",
                 "default": false,
                 "type": "boolean"
               },
               "versionDescription": {
+                "title": "Version Description",
                 "description": "Human readable version information, format not specified.",
                 "type": "string"
               },
               "versionName": {
+                "title": "Version Name",
                 "description": "If not specified, the CLI uses versionNumber as the version name.",
                 "type": "string"
               },
               "versionNumber": {
+                "title": "Version Number",
                 "description": "Version numbers are formatted as major.minor.patch.build. For example, 1.2.1.8. Required when package is specified.",
                 "type": "string"
               },
               "unpackagedMetadata": {
+                "title": "Unpackaged Metadata",
                 "description": "Metadata not meant to be packaged, but deployed when testing packaged metadata",
                 "type": "object",
                 "properties": {
                   "path": {
+                    "title": "Path",
                     "description": "The path name of the package directory containing the unpackaged metadata",
                     "type": "string"
                   }
@@ -216,10 +240,12 @@
                 "additionalProperties": false
               },
               "seedMetadata": {
+                "title": "Seed Metadata",
                 "description": "Metadata not meant to be packaged, but deployed before deploying packaged metadata",
                 "type": "object",
                 "properties": {
                   "path": {
+                    "title": "Path",
                     "description": "The path name of the package directory containing the seed metadata",
                     "type": "string"
                   }
@@ -252,11 +278,13 @@
       "type": "string"
     },
     "sourceApiVersion": {
+      "title": "Source API Version",
       "description": "The API version that the source is compatible with. By default it matches the API version.",
       "default": "48.0",
       "type": "string"
     },
     "sfdcLoginUrl": {
+      "title": "SFDC Login URL",
       "description": "The login URL that the force:auth commands use. If not specified, the default is login.salesforce.com. Override the default value if you want users to authorize to a specific Salesforce instance. For example, if you want to authorize into a sandbox org, set this parameter to test.salesforce.com.",
       "type": "string"
     },
@@ -270,6 +298,7 @@
       "type": "number"
     },
     "plugins": {
+      "title": "CLI Plugins custom settings",
       "description": "Salesforce CLI plugin configurations used with this project.",
       "type": "object",
       "propertyNames": {
@@ -278,6 +307,7 @@
       "additionalProperties": {}
     },
     "packageAliases": {
+      "title": "Aliases for packaging ids",
       "description": "The Salesforce CLI updates this file with the aliases when you create a package or package version. You can also manually update this section for existing packages or package versions. You can use the alias instead of the cryptic package ID when running CLI force:package commands.",
       "type": "object",
       "propertyNames": {
@@ -288,25 +318,30 @@
       }
     },
     "packageBundles": {
+      "title": "Package Bundles",
       "description": "Package bundle entries for managing package bundles.",
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
           "name": {
+            "title": "Bundle Name",
             "description": "The name of the bundle.",
             "type": "string"
           },
           "versionName": {
+            "title": "Version Name",
             "description": "Human readable name for the version.",
             "type": "string"
           },
           "versionNumber": {
+            "title": "Version Number",
             "description": "The version number in the format major.minor (e.g., 1.0).",
             "type": "string",
             "pattern": "^\\d+\\.\\d+$"
           },
           "versionDescription": {
+            "title": "Version Description",
             "description": "Human readable version information, format not specified.",
             "type": "string"
           }
@@ -320,6 +355,7 @@
       }
     },
     "packageBundleAliases": {
+      "title": "Package Bundle Aliases",
       "description": "Aliases for package bundles.",
       "type": "object",
       "propertyNames": {
@@ -340,6 +376,7 @@
       }
     },
     "registryPresets": {
+      "title": "Custom predefined presets for decomposing metadata types",
       "description": "@deprecated use `sourceBehaviorOptions`. Filenames from https://github.com/forcedotcom/source-deploy-retrieve/tree/main/src/registry/presets",
       "type": "array",
       "items": {
@@ -347,6 +384,7 @@
       }
     },
     "sourceBehaviorOptions": {
+      "title": "Custom predefined presets for decomposing metadata types",
       "description": "Filenames from https://github.com/forcedotcom/source-deploy-retrieve/tree/main/src/registry/presets",
       "type": "array",
       "items": {
@@ -396,6 +434,7 @@
       "additionalProperties": false
     },
     "replacements": {
+      "title": "Replacements for metadata that are executed during deployments",
       "description": "The Salesforce CLI will conditionally replace portions of your metadata during a deployment",
       "type": "array",
       "items": {
@@ -737,6 +776,7 @@
   ],
   "additionalProperties": false,
   "$id": "http://schemas.salesforce.com/sfdx-project.json",
+  "title": "Salesforce DX Project File",
   "definitions": {
     "__schema0": {
       "type": "object",

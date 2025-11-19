@@ -15,7 +15,7 @@ const SFDX_DEV_URL =
 
 const reportPayload = shell
   .exec(`curl ${SFDX_DEV_URL} -v`, {
-    silent: true
+    silent: true,
   })
   .stdout.trim();
 
@@ -29,25 +29,25 @@ const entries = report.toc;
 let propertiesObj = { properties: {} };
 
 console.log(
-  "Start processing report JSON to update scratch definition features:"
+  "Start processing report JSON to update scratch definition features:",
 );
 
-entries.forEach(item => {
+entries.forEach((item) => {
   if (item.hasOwnProperty("children") && Array.isArray(item.children)) {
     const firstLevelChildren = item.children;
-    firstLevelChildren.forEach(childItem => {
+    firstLevelChildren.forEach((childItem) => {
       if (
         childItem.hasOwnProperty("children") &&
         Array.isArray(childItem.children)
       ) {
         const secondLevelChildren = childItem.children;
-        secondLevelChildren.forEach(secLevelItem => {
+        secondLevelChildren.forEach((secLevelItem) => {
           if (
             secLevelItem.hasOwnProperty("children") &&
             Array.isArray(secLevelItem.children)
           ) {
             const thirdLevelChildren = secLevelItem.children;
-            thirdLevelChildren.forEach(thirdLevelItem => {
+            thirdLevelChildren.forEach((thirdLevelItem) => {
               if (
                 thirdLevelItem.hasOwnProperty("text") &&
                 thirdLevelItem.text.endsWith("Settings")
@@ -60,7 +60,7 @@ entries.forEach(item => {
                 propertiesObj.properties[fixSettingName] = {
                   type: "object",
                   title: thirdLevelItem.text,
-                  description: `For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/${docUri}`
+                  description: `For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/${docUri}`,
                 };
               }
             });
@@ -72,13 +72,13 @@ entries.forEach(item => {
 });
 
 console.log(
-  `Processed settings : ${Object.keys(propertiesObj.properties).length}`
+  `Processed settings : ${Object.keys(propertiesObj.properties).length}`,
 );
 
 const scratchSchemaDefPath = join(
   __dirname,
   "..",
-  "project-scratch-def.schema.json"
+  "project-scratch-def.schema.json",
 );
 const scratchDef = JSON.parse(fs.readFileSync(scratchSchemaDefPath));
 scratchDef.definitions.settings.properties = propertiesObj.properties;
@@ -91,15 +91,15 @@ const prettierExecutable = join(
   "..",
   "node_modules",
   ".bin",
-  "prettier"
+  "prettier",
 );
 
 console.log("Reformat contents of:");
 shell.exec(
   `${prettierExecutable} --config .prettierrc --write "${scratchSchemaDefPath}"`,
   {
-    cwd: join(__dirname, "..")
-  }
+    cwd: join(__dirname, ".."),
+  },
 );
 
 console.log(`Successfully updated settings for ${scratchSchemaDefPath}`);

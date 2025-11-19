@@ -20,6 +20,7 @@ const projectSchema = z.toJSONSchema(ProjectJsonSchema, {
     if (ctx.path.length === 0) {
       ctx.jsonSchema.$schema = schemaSchema;
       ctx.jsonSchema.$id = "http://schemas.salesforce.com/sfdx-project.json";
+      ctx.jsonSchema.title = "Salesforce DX Project File";
     }
   },
 });

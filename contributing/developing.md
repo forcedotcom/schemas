@@ -27,11 +27,9 @@ yarn install
 ### Merging between branches
 
 - We try to limit merge commits as much as possible.
-
   - They are usually only ok when done by our release automation.
 
 - _Topic_ branches are:
-
   1. based on `main` and will be
   1. squash-merged into `main`.
 

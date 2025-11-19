@@ -11,15 +11,23 @@ import { z } from "zod";
  * Represents an entry in a package bundle, containing version and descriptive information.
  */
 export const BundleEntrySchema = z.object({
-  name: z.string().describe("The name of the bundle."),
-  versionName: z.string().describe("Human readable name for the version."),
+  name: z
+    .string()
+    .meta({ title: "Bundle Name" })
+    .describe("The name of the bundle."),
+  versionName: z
+    .string()
+    .meta({ title: "Version Name" })
+    .describe("Human readable name for the version."),
   versionNumber: z
     .string()
     .regex(/^\d+\.\d+$/)
+    .meta({ title: "Version Number" })
     .describe("The version number in the format major.minor (e.g., 1.0)."),
   versionDescription: z
     .string()
     .optional()
+    .meta({ title: "Version Description" })
     .describe("Human readable version information, format not specified."),
 });
 
