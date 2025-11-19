@@ -1,32 +1,13 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://schemas.salesforce.com/project-scratch-def.json",
-  "title": "Scratch Org Definition Configuration",
-  "description": "The scratch org definition file contains the configuration values that determine the shape of the scratch org.",
   "type": "object",
-  "required": ["edition"],
-  "additionalProperties": true,
   "properties": {
-    "orgName": { "$ref": "#/definitions/orgName" },
-    "edition": { "$ref": "#/definitions/edition" },
-    "country": { "$ref": "#/definitions/country" },
-    "username": { "$ref": "#/definitions/username" },
-    "adminEmail": { "$ref": "#/definitions/adminEmail" },
-    "description": { "$ref": "#/definitions/description" },
-    "hasSampleData": { "$ref": "#/definitions/hasSampleData" },
-    "language": { "$ref": "#/definitions/language" },
-    "features": { "$ref": "#/definitions/features" },
-    "template": { "$ref": "#/definitions/template" },
-    "settings": { "$ref": "#/definitions/settings" },
-    "release": { "$ref": "#/definitions/release" }
-  },
-  "definitions": {
     "orgName": {
-      "type": "string",
-      "title": "Organization Name",
-      "description": "The name of the scratch org."
+      "description": "The name of the scratch org.",
+      "type": "string"
     },
     "edition": {
+      "description": "The Salesforce edition of the scratch org.",
       "type": "string",
       "enum": [
         "Developer",
@@ -40,322 +21,256 @@
       ]
     },
     "country": {
-      "title": "Country",
-      "type": "string",
       "description": "Dev Hub's country. If you want to override this value, enter the two-character, upper-case ISO-3166 country code (Alpha-2 code). You can find a full list of these codes at several sites, such as: https://www.iso.org/obp/ui/#search. This value sets the locale of the scratch org.",
+      "type": "string",
       "maxLength": 2
     },
     "username": {
-      "title": "Username",
-      "type": "string",
-      "description": "A user name formatted like test-unique_identifier@orgName.net."
+      "description": "A user name formatted like test-unique_identifier@orgName.net.",
+      "type": "string"
     },
     "adminEmail": {
-      "title": "Administrator Email Address",
-      "type": "string",
-      "description": "Email address of the Dev Hub user making the scratch org creation request."
+      "description": "Email address of the Dev Hub user making the scratch org creation request.",
+      "type": "string"
     },
     "description": {
-      "title": "Description of the Org",
-      "type": "string",
-      "description": "The description is a good way to document the scratch org’s purpose. You can view or edit the description in the Dev Hub. From App Launcher, select Scratch Org Info or Active Scratch Orgs, then click the scratch org number."
-    },
-    "template": {
-      "title": "Template ID",
-      "type": "string",
-      "description": "The template id for the scratch org shape. (Pilot)"
-    },
-    "language": {
-      "title": "Default Language",
-      "type": "string",
-      "description": "Default language for the country. To override the language set by the Dev Hub locale, see Supported Languages (https://help.salesforce.com/articleView?id=faq_getstart_what_languages_does.htm&type=5&language=en_US) for the codes to use in this field.",
-      "maxLength": 5
-    },
-    "release": {
-      "title": "Release",
-      "type": "string",
-      "description": "Same Salesforce release as the Dev Hub org. Options are preview or previous. Can use only during Salesforce release transition periods.",
-      "enum": ["preview", "previous"]
+      "description": "The description is a good way to document the scratch org's purpose. You can view or edit the description in the Dev Hub. From App Launcher, select Scratch Org Info or Active Scratch Orgs, then click the scratch org number.",
+      "type": "string"
     },
     "hasSampleData": {
-      "type": "boolean",
-      "title": "Include Sample Data",
       "description": "Valid values are true and false. False is the default, which creates an org without sample data.",
-      "default": "false"
+      "default": false,
+      "type": "boolean"
+    },
+    "language": {
+      "description": "Default language for the country. To override the language set by the Dev Hub locale, see Supported Languages (https://help.salesforce.com/articleView?id=faq_getstart_what_languages_does.htm&type=5&language=en_US) for the codes to use in this field.",
+      "type": "string",
+      "maxLength": 5
     },
     "features": {
+      "description": "Features to enable in the scratch org.",
       "type": "array",
       "items": {
         "anyOf": [
           {
-            "type": "string",
-            "title": "AddCustomApps:<value>",
-            "pattern": "^(AddCustomApps:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "AddCustomObjects:<value>",
-            "pattern": "^(AddCustomObjects:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "AddCustomRelationships:<value>",
-            "pattern": "^(AddCustomRelationships:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "AddCustomTabs:<value>",
-            "pattern": "^(AddCustomTabs:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "AddDataComCRMRecordCredit:<value>",
-            "pattern": "^(AddDataComCRMRecordCredit:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "AddInsightsQueryLimit:<value>",
-            "pattern": "^(AddInsightsQueryLimit:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "AdditionalFieldHistory:<value>",
-            "pattern": "^(AdditionalFieldHistory:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "AssetScheduling:<value>",
-            "pattern": "^(AssetScheduling:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "CalloutSizeMB:<value>",
-            "pattern": "^(CalloutSizeMB:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "ConcStreamingClients:<value>",
-            "pattern": "^(ConcStreamingClients:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "ConsolePersistenceInterval:<value>",
-            "pattern": "^(ConsolePersistenceInterval:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "EmpPublishRateLimit:<value>",
-            "pattern": "^(EmpPublishRateLimit:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "EncryptionStatisticsInterval:<value>",
-            "pattern": "^(EncryptionStatisticsInterval:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "EncryptionSyncInterval:<value>",
-            "pattern": "^(EncryptionSyncInterval:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "FieldService:<value>",
-            "pattern": "^(FieldService:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "FieldServiceDispatcherUser:<value>",
-            "pattern": "^(FieldServiceDispatcherUser:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "FieldServiceMobileUser:<value>",
-            "pattern": "^(FieldServiceMobileUser:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "FieldServiceSchedulingUser:<value>",
-            "pattern": "^(FieldServiceSchedulingUser:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "FinancialServicesCommunityUser:<value>",
-            "pattern": "^(FinancialServicesCommunityUser:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "FinancialServicesInsuranceUser:<value>",
-            "pattern": "^(FinancialServicesInsuranceUser:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "FinancialServicesUser:<value>",
-            "pattern": "^(FinancialServicesUser:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "GenStreamingEventsPerDay:<value>",
-            "pattern": "^(GenStreamingEventsPerDay:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "HoursBetweenCoverageJob:<value>",
-            "pattern": "^(HoursBetweenCoverageJob:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "LoyaltyMaximumPartners:<value>",
-            "pattern": "^(LoyaltyMaximumPartners:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "LoyaltyMaximumPrograms:<value>",
-            "pattern": "^(LoyaltyMaximumPrograms:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "LoyaltyMaxOrderLinePerHour:<value>",
-            "pattern": "^(LoyaltyMaxOrderLinePerHour:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "LoyaltyMaxProcExecPerHour:<value>",
-            "pattern": "^(LoyaltyMaxProcExecPerHour:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "LoyaltyMaxTransactions:<value>",
-            "pattern": "^(LoyaltyMaxTransactions:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MaxActiveDPEDefs:<value>",
-            "pattern": "^(MaxActiveDPEDefs:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MaxApexCodeSize:<value>",
-            "pattern": "^(MaxApexCodeSize:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MaxCustomLabels:<value>",
-            "pattern": "^(MaxCustomLabels:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MaxDatasetLinksPerDT:<value>",
-            "pattern": "^(MaxDatasetLinksPerDT:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MaxDataSourcesPerDPE:<value>",
-            "pattern": "^(MaxDataSourcesPerDPE:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MaxDecisionTableAllowed:<value>",
-            "pattern": "^(MaxDecisionTableAllowed:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MaxFavoritesAllowed:<value>",
-            "pattern": "^(MaxFavoritesAllowed:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MaxFieldsPerNode:<value>",
-            "pattern": "^(MaxFieldsPerNode:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MaxInputColumnsPerDT:<value>",
-            "pattern": "^(MaxInputColumnsPerDT:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MaxLoyaltyProcessRules:<value>",
-            "pattern": "^(MaxLoyaltyProcessRules:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MaxNodesPerDPE:<value>",
-            "pattern": "^(MaxNodesPerDPE:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MaxNoOfLexThemesAllowed:<value>",
-            "pattern": "^(MaxNoOfLexThemesAllowed:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MaxOutputColumnsPerDT:<value>",
-            "pattern": "^(MaxOutputColumnsPerDT:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MaxSourceObjectPerDSL:<value>",
-            "pattern": "^(MaxSourceObjectPerDSL:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MaxStreamingTopics:<value>",
-            "pattern": "^(MaxStreamingTopics:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MaxUserNavItemsAllowed:<value>",
-            "pattern": "^(MaxUserNavItemsAllowed:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MaxUserStreamingChannels:<value>",
-            "pattern": "^(MaxUserStreamingChannels:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MaxWritebacksPerDPE:<value>",
-            "pattern": "^(MaxWritebacksPerDPE:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MedVisDescriptorLimit:<value>",
-            "pattern": "^(MedVisDescriptorLimit:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "MobileExtMaxFileSizeMB:<value>",
-            "pattern": "^(MobileExtMaxFileSizeMB:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "NumPlatformEvents:<value>",
-            "pattern": "^(NumPlatformEvents:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "PlatformConnect:<value>",
-            "pattern": "^(PlatformConnect:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "PlatformEventsPerDay:<value>",
-            "pattern": "^(PlatformEventsPerDay:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "StreamingEventsPerDay:<value>",
-            "pattern": "^(StreamingEventsPerDay:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "SubPerStreamingChannel:<value>",
-            "pattern": "^(SubPerStreamingChannel:[0-9]+$)"
-          },
-          {
-            "type": "string",
-            "title": "SubPerStreamingTopic:<value>",
-            "pattern": "^(SubPerStreamingTopic:[0-9]+$)"
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^AddCustomApps:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^AddCustomObjects:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^AddCustomRelationships:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^AddCustomTabs:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^AddDataComCRMRecordCredit:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^AddInsightsQueryLimit:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^AdditionalFieldHistory:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^AssetScheduling:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^CalloutSizeMB:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^ConcStreamingClients:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^ConsolePersistenceInterval:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^EmpPublishRateLimit:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^EncryptionStatisticsInterval:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^EncryptionSyncInterval:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^FieldService:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^FieldServiceDispatcherUser:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^FieldServiceMobileUser:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^FieldServiceSchedulingUser:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^FinancialServicesCommunityUser:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^FinancialServicesInsuranceUser:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^FinancialServicesUser:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^GenStreamingEventsPerDay:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^HoursBetweenCoverageJob:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^LoyaltyMaximumPartners:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^LoyaltyMaximumPrograms:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^LoyaltyMaxOrderLinePerHour:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^LoyaltyMaxProcExecPerHour:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^LoyaltyMaxTransactions:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MaxActiveDPEDefs:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MaxApexCodeSize:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MaxCustomLabels:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MaxDatasetLinksPerDT:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MaxDataSourcesPerDPE:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MaxDecisionTableAllowed:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MaxFavoritesAllowed:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MaxFieldsPerNode:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MaxInputColumnsPerDT:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MaxLoyaltyProcessRules:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MaxNodesPerDPE:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MaxNoOfLexThemesAllowed:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MaxOutputColumnsPerDT:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MaxSourceObjectPerDSL:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MaxStreamingTopics:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MaxUserNavItemsAllowed:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MaxUserStreamingChannels:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MaxWritebacksPerDPE:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MedVisDescriptorLimit:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^MobileExtMaxFileSizeMB:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^NumPlatformEvents:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^PlatformConnect:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^PlatformEventsPerDay:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^StreamingEventsPerDay:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^SubPerStreamingChannel:[0-9]+$"
+              },
+              {
+                "type": "string",
+                "pattern": "^SubPerStreamingTopic:[0-9]+$"
+              }
+            ]
           },
           {
             "type": "string",
@@ -518,580 +433,943 @@
         ]
       }
     },
+    "template": {
+      "description": "The template id for the scratch org shape. (Pilot)",
+      "type": "string"
+    },
     "settings": {
+      "description": "Settings for the scratch org.",
       "type": "object",
       "properties": {
         "accountSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_accountsettings.htm",
           "type": "object",
-          "title": "AccountSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_accountsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "accountInsightsSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_accountinsightssettings.htm",
           "type": "object",
-          "title": "AccountInsightsSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_accountinsightssettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "accountIntelligenceSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_accountintelligencesettings.htm",
           "type": "object",
-          "title": "AccountIntelligenceSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_accountintelligencesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "actionsSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_actionssettings.htm",
           "type": "object",
-          "title": "ActionsSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_actionssettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "activitiesSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_activitiessettings.htm",
           "type": "object",
-          "title": "ActivitiesSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_activitiessettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "addressSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_addresssettings.htm",
           "type": "object",
-          "title": "AddressSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_addresssettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "aIReplyRecommendationsSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_aireplyrecommendationssettings.htm",
           "type": "object",
-          "title": "AIReplyRecommendationsSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_aireplyrecommendationssettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "analyticsSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_analyticssettings.htm",
           "type": "object",
-          "title": "AnalyticsSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_analyticssettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "apexSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_apexsettings.htm",
           "type": "object",
-          "title": "ApexSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_apexsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "appAnalyticsSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_appanalyticssettings.htm",
           "type": "object",
-          "title": "AppAnalyticsSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_appanalyticssettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "appExperienceSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_appexperiencesettings.htm",
           "type": "object",
-          "title": "AppExperienceSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_appexperiencesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "automatedContactsSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_automatedcontactssettings.htm",
           "type": "object",
-          "title": "AutomatedContactsSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_automatedcontactssettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "botSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_botsettings.htm",
           "type": "object",
-          "title": "BotSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_botsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "businessHoursSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_businesshourssettings.htm",
           "type": "object",
-          "title": "BusinessHoursSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_businesshourssettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "campaignSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_campaignsettings.htm",
           "type": "object",
-          "title": "CampaignSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_campaignsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "einsteinAgentSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_einsteinagentsettings.htm",
           "type": "object",
-          "title": "EinsteinAgentSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_einsteinagentsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "caseSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_casesettings.htm",
           "type": "object",
-          "title": "CaseSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_casesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "chatterAnswersSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_chatteranswerssettings.htm",
           "type": "object",
-          "title": "ChatterAnswersSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_chatteranswerssettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "chatterEmailsMDSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_chatteremailmdsettings.htm",
           "type": "object",
-          "title": "ChatterEmailsMDSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_chatteremailmdsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "chatterSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_chattersettings.htm",
           "type": "object",
-          "title": "ChatterSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_chattersettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "communitiesSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_communitiessettings.htm",
           "type": "object",
-          "title": "CommunitiesSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_communitiessettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "companySettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_companyprofilesettings.htm",
           "type": "object",
-          "title": "CompanySettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_companyprofilesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "connectedAppSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_connectedappsettings.htm",
           "type": "object",
-          "title": "ConnectedAppSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_connectedappsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "contentSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_contentsettings.htm",
           "type": "object",
-          "title": "ContentSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_contentsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "contractSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_contractsettings.htm",
           "type": "object",
-          "title": "ContractSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_contractsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "conversationalIntelligenceSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_conversationalintelligencesettings.htm",
           "type": "object",
-          "title": "ConversationalIntelligenceSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_conversationalintelligencesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "currencySettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_currencysettings.htm",
           "type": "object",
-          "title": "CurrencySettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_currencysettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "customAddressFieldSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_customaddressfieldsettings.htm",
           "type": "object",
-          "title": "CustomAddressFieldSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_customaddressfieldsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "dataDotComSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_datadotcomsettings.htm",
           "type": "object",
-          "title": "DataDotComSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_datadotcomsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "deploymentSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_deploymentsettings.htm",
           "type": "object",
-          "title": "DeploymentSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_deploymentsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "devHubSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_devhubsettings.htm",
           "type": "object",
-          "title": "DevHubSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_devhubsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "eACSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_eacsettings.htm",
           "type": "object",
-          "title": "EACSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_eacsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "emailAdministrationSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_emailadministrationsettings.htm",
           "type": "object",
-          "title": "EmailAdministrationSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_emailadministrationsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "emailIntegrationSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_emailintegrationsettings.htm",
           "type": "object",
-          "title": "EmailIntegrationSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_emailintegrationsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "emailTemplateSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_emailtemplatesettings.htm",
           "type": "object",
-          "title": "EmailTemplateSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_emailtemplatesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "employeeUserSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_employeeusersettings.htm",
           "type": "object",
-          "title": "EmployeeUserSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_employeeusersettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "enhancedNotesSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_enhancednotessettings.htm",
           "type": "object",
-          "title": "EnhancedNotesSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_enhancednotessettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "encryptionKeySettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_encryptionkeysettings.htm",
           "type": "object",
-          "title": "EncryptionKeySettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_encryptionkeysettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "entitlementSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_entitlementsettings.htm",
           "type": "object",
-          "title": "EntitlementSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_entitlementsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "eventSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_eventsettings.htm",
           "type": "object",
-          "title": "EventSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_eventsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "experienceBundleSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_experiencebundlesettings.htm",
           "type": "object",
-          "title": "ExperienceBundleSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_experiencebundlesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "externalServicesSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_externalservicessettings.htm",
           "type": "object",
-          "title": "ExternalServicesSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_externalservicessettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "fieldServiceSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_fieldservicesettings.htm",
           "type": "object",
-          "title": "FieldServiceSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_fieldservicesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "filesConnectSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_filesconnectsettings.htm",
           "type": "object",
-          "title": "FilesConnectSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_filesconnectsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "fileUploadAndDownloadSecuritySettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_fileuploadanddownloadsecuritysettings.htm",
           "type": "object",
-          "title": "FileUploadAndDownloadSecuritySettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_fileuploadanddownloadsecuritysettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "flowSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_flowsettings.htm",
           "type": "object",
-          "title": "FlowSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_flowsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "forecastingObjectListSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_forecastingobjectlistsettings.htm",
           "type": "object",
-          "title": "ForecastingObjectListSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_forecastingobjectlistsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "forecastingSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_forecastingsettings.htm",
           "type": "object",
-          "title": "ForecastingSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_forecastingsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "highVelocitySalesSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_highvelocitysalessettings.htm",
           "type": "object",
-          "title": "HighVelocitySalesSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_highvelocitysalessettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "ideasSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_ideassettings.htm",
           "type": "object",
-          "title": "IdeasSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_ideassettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "iframeWhiteListUrlSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_iframewhitelisturlsettings.htm",
           "type": "object",
-          "title": "IframeWhiteListUrlSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_iframewhitelisturlsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "industriesLoyaltySettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/industriesloyaltysettings_metadata_api.htm",
           "type": "object",
-          "title": "IndustriesLoyaltySettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/industriesloyaltysettings_metadata_api.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "industriesSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_industriessettings.htm",
           "type": "object",
-          "title": "IndustriesSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_industriessettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "inventorySettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_inventorysettings.htm",
           "type": "object",
-          "title": "InventorySettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_inventorysettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "invocableActionSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_invocableactionsettings.htm",
           "type": "object",
-          "title": "InvocableActionSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_invocableactionsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "ioTSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_iotsettings.htm",
           "type": "object",
-          "title": "IoTSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_iotsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "knowledgeSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_knowledgesettings.htm",
           "type": "object",
-          "title": "KnowledgeSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_knowledgesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "languageSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_languagesettings.htm",
           "type": "object",
-          "title": "LanguageSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_languagesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "leadConfigSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_leadconfigsettings.htm",
           "type": "object",
-          "title": "LeadConfigSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_leadconfigsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "leadConvertSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_leadconvertsettings.htm",
           "type": "object",
-          "title": "LeadConvertSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_leadconvertsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "liveAgentSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_liveagentsettings.htm",
           "type": "object",
-          "title": "LiveAgentSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_liveagentsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "lightningExperienceSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_lightningexperiencesettings.htm",
           "type": "object",
-          "title": "LightningExperienceSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_lightningexperiencesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "liveMessageSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_livemessagesettings.htm",
           "type": "object",
-          "title": "LiveMessageSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_livemessagesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "macroSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_macrosettings.htm",
           "type": "object",
-          "title": "MacroSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_macrosettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "mailMergeSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_mailmergesettings.htm",
           "type": "object",
-          "title": "MailMergeSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_mailmergesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "mapAndLocationSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_mapandlocationsettings.htm",
           "type": "object",
-          "title": "MapAndLocationSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_mapandlocationsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "meetingsSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_meetingssettings.htm",
           "type": "object",
-          "title": "MeetingsSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_meetingssettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "mobileSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_mobilesettings.htm",
           "type": "object",
-          "title": "MobileSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_mobilesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "myDomainSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_mydomainsettings.htm",
           "type": "object",
-          "title": "MyDomainSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_mydomainsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "nameSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_namesettings.htm",
           "type": "object",
-          "title": "NameSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_namesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "notificationsSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_notificationssettings.htm",
           "type": "object",
-          "title": "NotificationsSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_notificationssettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "oauthOidcSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_oauthoidcsettings.htm",
           "type": "object",
-          "title": "OauthOidcSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_oauthoidcsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "omniChannelSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_omnichannelsettings.htm",
           "type": "object",
-          "title": "OmniChannelSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_omnichannelsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "opportunityInsightsSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_opportunityinsightssettings.htm",
           "type": "object",
-          "title": "OpportunityInsightsSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_opportunityinsightssettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "opportunitySettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_opportunityssettings.htm",
           "type": "object",
-          "title": "OpportunitySettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_opportunityssettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "opportunityScoreSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_opportunityscoresettings.htm",
           "type": "object",
-          "title": "OpportunityScoreSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_opportunityscoresettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "orderManagementSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_ordermanagementsettings.htm",
           "type": "object",
-          "title": "OrderManagementSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_ordermanagementsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "orderSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_ordersettings.htm",
           "type": "object",
-          "title": "OrderSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_ordersettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "orgPreferenceSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_orgpreferencesettings.htm",
           "type": "object",
-          "title": "OrgPreferenceSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_orgpreferencesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "orgSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_orgsettings.htm",
           "type": "object",
-          "title": "OrgSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_orgsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "partyDataModelSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_partydatamodelsettings.htm",
           "type": "object",
-          "title": "PartyDataModelSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_partydatamodelsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "pardotSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_pardotsettings.htm",
           "type": "object",
-          "title": "PardotSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_pardotsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "pardotEinsteinSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_pardoteinsteinsettings.htm",
           "type": "object",
-          "title": "PardotEinsteinSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_pardoteinsteinsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "pathAssistantSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_pathassistantsettings.htm",
           "type": "object",
-          "title": "PathAssistantSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_pathassistantsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "picklistSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_picklistsettings.htm",
           "type": "object",
-          "title": "PicklistSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_picklistsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "platformEncryptionSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_platformencryptionsettings.htm",
           "type": "object",
-          "title": "PlatformEncryptionSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_platformencryptionsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "predictionBuilderSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_predictionbuildersettings.htm",
           "type": "object",
-          "title": "PredictionBuilderSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_predictionbuildersettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "privacySettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_privacysettings.htm",
           "type": "object",
-          "title": "PrivacySettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_privacysettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "productSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_productsettings.htm",
           "type": "object",
-          "title": "ProductSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_productsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "quoteSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_quotessettings.htm",
           "type": "object",
-          "title": "QuoteSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_quotessettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "realTimeEventSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_realtimeeventsettings.htm",
           "type": "object",
-          "title": "RealTimeEventSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_realtimeeventsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "recordPageSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_recordpagesettings.htm",
           "type": "object",
-          "title": "RecordPageSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_recordpagesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "retailExecutionSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/metadata_api_retexset.htm",
           "type": "object",
-          "title": "RetailExecutionSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/metadata_api_retexset.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "sandboxSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_sandboxsettings.htm",
           "type": "object",
-          "title": "SandboxSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_sandboxsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "schemaSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_schemasettings.htm",
           "type": "object",
-          "title": "SchemaSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_schemasettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "searchSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_searchsettings.htm",
           "type": "object",
-          "title": "SearchSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_searchsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "securitySettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_securitysettings.htm",
           "type": "object",
-          "title": "SecuritySettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_securitysettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "serviceCloudVoiceSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_servicecloudvoicesettings.htm",
           "type": "object",
-          "title": "ServiceCloudVoiceSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_servicecloudvoicesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "serviceSetupAssistantSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_servicesetupassistantsettings.htm",
           "type": "object",
-          "title": "ServiceSetupAssistantSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_servicesetupassistantsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "sharingSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_sharingsettings.htm",
           "type": "object",
-          "title": "SharingSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_sharingsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "siteSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_sitesettings.htm",
           "type": "object",
-          "title": "SiteSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_sitesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "socialCustomerServiceSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_socialcustomerservicesettings.htm",
           "type": "object",
-          "title": "SocialCustomerServiceSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_socialcustomerservicesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "socialProfileSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_socialprofilesettings.htm",
           "type": "object",
-          "title": "SocialProfileSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_socialprofilesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "surveySettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_surveysettings.htm",
           "type": "object",
-          "title": "SurveySettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_surveysettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "territory2Settings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_territory2settings.htm",
           "type": "object",
-          "title": "Territory2Settings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_territory2settings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "trailheadSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_trailheadsettings.htm",
           "type": "object",
-          "title": "TrailheadSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_trailheadsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "trialOrgSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_trialorgsettings.htm",
           "type": "object",
-          "title": "TrialOrgSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_trialorgsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "userEngagementSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_userengagementsettings.htm",
           "type": "object",
-          "title": "UserEngagementSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_userengagementsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "userInterfaceSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_userinterfacesettings.htm",
           "type": "object",
-          "title": "UserInterfaceSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_userinterfacesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "userManagementSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_usermanagementsettings.htm",
           "type": "object",
-          "title": "UserManagementSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_usermanagementsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "voiceSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_voicesettings.htm",
           "type": "object",
-          "title": "VoiceSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_voicesettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "warrantyLifeCycleMgmtSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_mfg_warrantylifecyclemgmtsettings.htm",
           "type": "object",
-          "title": "WarrantyLifeCycleMgmtSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_mfg_warrantylifecyclemgmtsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "workDotComSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_WorkDotComSettings.htm",
           "type": "object",
-          "title": "WorkDotComSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_WorkDotComSettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         },
         "workforceEngagementSettings": {
+          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_workforceengagementsettings.htm",
           "type": "object",
-          "title": "WorkforceEngagementSettings",
-          "description": "For more details go to https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_workforceengagementsettings.htm"
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
         }
-      }
+      },
+      "additionalProperties": {}
+    },
+    "release": {
+      "description": "Same Salesforce release as the Dev Hub org. Options are preview or previous. Can use only during Salesforce release transition periods.",
+      "type": "string",
+      "enum": [
+        "preview",
+        "previous"
+      ]
     }
-  }
+  },
+  "required": [
+    "edition"
+  ],
+  "additionalProperties": {},
+  "$id": "https://schemas.salesforce.com/project-scratch-def.json",
+  "title": "Scratch Org Definition Configuration",
+  "description": "The scratch org definition file contains the configuration values that determine the shape of the scratch org."
 }

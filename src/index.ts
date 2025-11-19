@@ -1,23 +1,36 @@
-import fs from "node:fs";
-import path from "node:path";
-
+// Export TypeScript types (inferred from Zod schemas)
 export { ProjectJson } from "./sfdx-project/sfdxProjectJson";
 export { BundleEntry } from "./sfdx-project/bundleEntry";
 export {
   PackageDir,
   PackageDirDependency,
-  PackagePackageDir
+  PackagePackageDir,
 } from "./sfdx-project/packageDir";
+export { ScratchOrgDef } from "./project-scratch-def/scratchOrgDef";
+export { Features } from "./project-scratch-def/features";
+export { Settings } from "./project-scratch-def/settings";
 
-/** TS really doesn't want us to export things with hyphens.  I tried to statically export the 2 top-level json files
- * but that was throwing compiler errors.  So I kept the original code from index.js to dynamically find and export the schemas.
- */
-const schemas = fs
-  .readdirSync(__dirname)
-  .filter(filename => filename.endsWith("schema.json"));
+// Export Zod schemas for runtime validation
+export { ProjectJsonSchema } from "./sfdx-project/sfdxProjectJson";
+export { BundleEntrySchema } from "./sfdx-project/bundleEntry";
+export {
+  PackageDirSchema,
+  PackageDirDependencySchema,
+} from "./sfdx-project/packageDir";
+export { ReplacementsSchema } from "./sfdx-project/replacements";
+export { RegistryPresetsSchema } from "./sfdx-project/registryPresets";
+export { MetadataRegistrySchema } from "./sfdx-project/registryVariants";
+export { ScratchOrgDefSchema } from "./project-scratch-def/scratchOrgDef";
+export { FeaturesSchema } from "./project-scratch-def/features";
+export { SettingsSchema } from "./project-scratch-def/settings";
 
-for (const schema of schemas) {
-  exports[path.basename(schema, ".schema.json")] = path.resolve(
-    path.join(__dirname, schema)
-  );
-}
+// preferred: direct json exports
+import projectSchema from "../sfdx-project.schema.json";
+import scratchDefSchema from "../project-scratch-def.schema.json";
+
+export { projectSchema, scratchDefSchema };
+// Maintain backwards compatibility with dynamic exports
+export {
+  projectSchema as "sfdx-project",
+  scratchDefSchema as "project-scratch-def",
+};

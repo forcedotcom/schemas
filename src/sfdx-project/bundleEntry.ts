@@ -5,31 +5,22 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { z } from "zod";
+
 /**
  * Represents an entry in a package bundle, containing version and descriptive information.
  */
-export type BundleEntry = {
-  /**
-   * The name of the bundle.
-   * @title Bundle Name
-   */
-  name: string;
+export const BundleEntrySchema = z.object({
+  name: z.string().describe("The name of the bundle."),
+  versionName: z.string().describe("Human readable name for the version."),
+  versionNumber: z
+    .string()
+    .regex(/^\d+\.\d+$/)
+    .describe("The version number in the format major.minor (e.g., 1.0)."),
+  versionDescription: z
+    .string()
+    .optional()
+    .describe("Human readable version information, format not specified."),
+});
 
-  /**
-   * Human readable name for the version.
-   * @title Version Name
-   */
-  versionName: string;
-
-  /**
-   * The version number in the format major.minor (e.g., 1.0).
-   * @title Version Number
-   */
-  versionNumber: string;
-
-  /**
-   * Human readable version information, format not specified.
-   * @title Version Description
-   */
-  versionDescription?: string;
-} 
+export type BundleEntry = z.infer<typeof BundleEntrySchema>;

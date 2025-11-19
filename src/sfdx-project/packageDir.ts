@@ -26,171 +26,174 @@
 
   */
 
-export type PackageDirDependency = {
-  [k: string]: unknown;
-  package: string;
-  versionNumber?: string;
-  branch?: string;
-};
+import { z } from "zod";
 
-/** type required just for projects, regardless of 1gp/2gp package use */
-type BasePackageDir = {
-  /**
-   * If you have specified more than one path, include this parameter for the default path to indicate which is the default package directory.
-   * @title default
-   * @default true
-   */
-  default?: boolean;
-  /**
-   * If you don’t specify a path, the Salesforce CLI uses a placeholder when you create a package.
-   * @title Path
-   */
-  path: string;
-};
+export const PackageDirDependencySchema = z
+  .object({
+    package: z.string(),
+    versionNumber: z.string().optional(),
+    branch: z.string().optional(),
+  })
+  .catchall(z.unknown());
 
-/** has the "full" info used for packaging. */
-export type PackagePackageDir = BasePackageDir & {
-  /**
-   * The ancestor that’s the immediate parent of the version that you’re creating. The package version ID to supply starts with '05i'.
-   * @title Ancestor ID
-   */
-  ancestorId?: string;
-  /**
-   * The ancestor that’s the immediate parent of the version that you’re creating. The ancestor version uses the format major.minor.patch.build.
-   * @title Ancestor Version
-   */
-  ancestorVersion?: string;
+export type PackageDirDependency = z.infer<typeof PackageDirDependencySchema>;
 
-  /**
-   * Additional access that should be granted to the user when running package Apex tests
-   *
-   */
-  apexTestAccess?: {
-    /**
-     * The list of permission sets to enable while running Apex tests
-     * @title Permission Sets
-     */
-    permissionSets: string[] | string;
-    /**
-     * The list of permission sets licenses to enable while running Apex tests
-     * @title Permission Set Licenses
-     */
-    permissionSetLicenses: string[] | string;
-  };
+/** Base properties for all package directories */
+const BasePackageDirPropsSchema = z.object({
+  default: z
+    .boolean()
+    .default(true)
+    .optional()
+    .describe(
+      "If you have specified more than one path, include this parameter for the default path to indicate which is the default package directory.",
+    ),
+  path: z
+    .string()
+    .describe(
+      "If you don't specify a path, the Salesforce CLI uses a placeholder when you create a package.",
+    ),
+});
 
-  /**
-   * Reference an external .json file to specify the features and org preferences required for the metadata of your package, such as the scratch org definition.
-   * @title Definition File
-   */
-  definitionFile?: string;
-  /**
-   * To specify dependencies for 2GP within the same Dev Hub, use either the package version alias or a combination of the package name and the version number.
-   */
-  dependencies?: PackageDirDependency[];
-  /**
-   * Whether to include <userLicense> elements in profile metadata. Defaults to false.
-   * @title Include Profile User Licenses
-   * @default false
-   */
-  includeProfileUserLicenses?: boolean;
-  /**
-   * The package name you specified when creating the package.
-   * @title Package Identifier
-   */
-  package: string;
-  /**
-   * Additional access that should be granted to the user while deploying package metadata, available in Salesforce API version 61.0 and above
-   * @title Package Metadata Access
-   */
-  packageMetadataAccess?: {
-    /** The list of permission sets to enable while deploying package metadata
-     * @title Permission Sets
-     */
-    permissionSets: string | string[];
-    /**
-     * The list of permission set licenses to enable while deploying package metadata
-     * @title Permission Set Licenses
-     */
-    permissionSetLicenses: string | string[];
-  };
+/** Package directory without package (simple) */
+const BasePackageDirSchema = BasePackageDirPropsSchema;
 
-  /**
-   * The post install script.
-   * @title Post Install Script
-   */
-  postInstallScript?: string;
-  /**
-   * The post install url.
-   * @title Post Install Url
-   */
-  postInstallUrl?: string;
-  /**
-   * The release notes url.
-   * @title Release Notes Url
-   */
-  releaseNotesUrl?: string;
-  /**
-   * Determines whether to include profile settings from only the directory being packaged (true), or whether to include profile settings from all package directories (false). If not specified, the default is false.
-   * @title Scope Profiles
-   * @default false
-   */
-  scopeProfiles?: boolean;
-  /**
-   * The uninstall script.
-   * @title Uninstall Script
-   */
-  uninstallScript?: string;
+/** Package directory with package (requires versionNumber) */
+const PackagePackageDirSchema = BasePackageDirPropsSchema.extend({
+  ancestorId: z
+    .string()
+    .optional()
+    .describe(
+      "The ancestor that's the immediate parent of the version that you're creating. The package version ID to supply starts with '05i'.",
+    ),
+  ancestorVersion: z
+    .string()
+    .optional()
+    .describe(
+      "The ancestor that's the immediate parent of the version that you're creating. The ancestor version uses the format major.minor.patch.build.",
+    ),
+  apexTestAccess: z
+    .object({
+      permissionSets: z
+        .union([z.array(z.string()), z.string()])
+        .describe(
+          "The list of permission sets to enable while running Apex tests",
+        ),
+      permissionSetLicenses: z
+        .union([z.array(z.string()), z.string()])
+        .describe(
+          "The list of permission sets licenses to enable while running Apex tests",
+        ),
+    })
+    .optional()
+    .describe(
+      "Additional access that should be granted to the user when running package Apex tests",
+    ),
+  definitionFile: z
+    .string()
+    .optional()
+    .describe(
+      "Reference an external .json file to specify the features and org preferences required for the metadata of your package, such as the scratch org definition.",
+    ),
+  dependencies: z
+    .array(PackageDirDependencySchema)
+    .optional()
+    .describe(
+      "To specify dependencies for 2GP within the same Dev Hub, use either the package version alias or a combination of the package name and the version number.",
+    ),
+  includeProfileUserLicenses: z
+    .boolean()
+    .default(false)
+    .optional()
+    .describe(
+      "Whether to include <userLicense> elements in profile metadata. Defaults to false.",
+    ),
+  package: z
+    .string()
+    .describe("The package name you specified when creating the package."),
+  packageMetadataAccess: z
+    .object({
+      permissionSets: z
+        .union([z.string(), z.array(z.string())])
+        .describe(
+          "The list of permission sets to enable while deploying package metadata",
+        ),
+      permissionSetLicenses: z
+        .union([z.string(), z.array(z.string())])
+        .describe(
+          "The list of permission set licenses to enable while deploying package metadata",
+        ),
+    })
+    .optional()
+    .describe(
+      "Additional access that should be granted to the user while deploying package metadata, available in Salesforce API version 61.0 and above",
+    ),
+  postInstallScript: z.string().optional().describe("The post install script."),
+  postInstallUrl: z.string().optional().describe("The post install url."),
+  releaseNotesUrl: z.string().optional().describe("The release notes url."),
+  scopeProfiles: z
+    .boolean()
+    .default(false)
+    .optional()
+    .describe(
+      "Determines whether to include profile settings from only the directory being packaged (true), or whether to include profile settings from all package directories (false). If not specified, the default is false.",
+    ),
+  uninstallScript: z.string().optional().describe("The uninstall script."),
+  calculateTransitiveDependencies: z
+    .boolean()
+    .default(false)
+    .optional()
+    .describe(
+      "Set to true if only specifing direct package dependencies and the transitive (i.e., indirect) dependencies should be calculated by Salesforce.",
+    ),
+  versionDescription: z
+    .string()
+    .optional()
+    .describe("Human readable version information, format not specified."),
+  versionName: z
+    .string()
+    .optional()
+    .describe(
+      "If not specified, the CLI uses versionNumber as the version name.",
+    ),
+  versionNumber: z
+    .string()
+    .describe(
+      "Version numbers are formatted as major.minor.patch.build. For example, 1.2.1.8. Required when package is specified.",
+    ),
+  unpackagedMetadata: z
+    .object({
+      path: z
+        .string()
+        .describe(
+          "The path name of the package directory containing the unpackaged metadata",
+        ),
+    })
+    .optional()
+    .describe(
+      "Metadata not meant to be packaged, but deployed when testing packaged metadata",
+    ),
+  seedMetadata: z
+    .object({
+      path: z
+        .string()
+        .describe(
+          "The path name of the package directory containing the seed metadata",
+        ),
+    })
+    .optional()
+    .describe(
+      "Metadata not meant to be packaged, but deployed before deploying packaged metadata",
+    ),
+  functions: z.array(z.string()).optional().describe("@deprecated"),
+});
 
-  /**
-   * Set to true if only specifing direct package dependencies and the transitive (i.e., indirect) dependencies should be calculated by Salesforce.
-   * @title Calculate Transitive Dependencies
-   * @default false
-   */
-  calculateTransitiveDependencies?: boolean;
+// Use union with strict schemas to generate proper JSON Schema anyOf
+// Base schema has only path+default, Package schema has all package fields
+// This generates JSON Schema with proper required fields and additionalProperties: false
+export const PackageDirSchema = z.union([
+  BasePackageDirSchema.strict(),
+  PackagePackageDirSchema.strict(),
+]);
 
-  /**
-   * Human readable version information, format not specified.
-   * @title Version Description
-   */
-  versionDescription?: string;
-  /**
-   * If not specified, the CLI uses versionNumber as the version name.
-   * @title Version Name
-   */
-  versionName?: string;
-  /**
-   * Version numbers are formatted as major.minor.patch.build. For example, 1.2.1.8.
-   * @title Version Number
-   */
-  versionNumber: string;
-  /**
-   * Metadata not meant to be packaged, but deployed when testing packaged metadata
-   * @title Unpackaged Metadata
-   */
-  unpackagedMetadata?: {
-    /**
-     * The path name of the package directory containing the unpackaged metadata
-     * @title Path
-     */
-    path: string;
-  };
-  /**
-   * Metadata not meant to be packaged, but deployed before deploying packaged metadata
-   * @title Seed Metadata
-   *
-   */
-  seedMetadata?: {
-    /**
-     * The path name of the package directory containing the seed metadata
-     * @title Path
-     */
-    path: string;
-  };
-
-  /**
-   * @deprecated
-   */
-  functions?: string[];
-};
-
-export type PackageDir = BasePackageDir | PackagePackageDir;
+export type PackagePackageDir = z.infer<typeof PackagePackageDirSchema>;
+export type PackageDir = z.infer<typeof PackageDirSchema>;

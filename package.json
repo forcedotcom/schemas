@@ -3,6 +3,15 @@
   "version": "1.10.3",
   "description": "This repository contains the spec and schema for the Scratch Org Definition Configuration file and `sfdx-project.json` file.",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./sfdx-project.schema.json": "./sfdx-project.schema.json",
+    "./project-scratch-def.schema.json": "./project-scratch-def.schema.json"
+  },
   "files": [
     "index.js",
     "*.schema.json",
@@ -28,6 +37,9 @@
     "url": "https://github.com/forcedotcom/schemas/issues"
   },
   "homepage": "https://github.com/forcedotcom/schemas#readme",
+  "dependencies": {
+    "zod": "^4.1.12"
+  },
   "devDependencies": {
     "@commitlint/cli": "^7",
     "@commitlint/config-conventional": "^7",
@@ -38,19 +50,15 @@
     "cz-conventional-changelog": "^2.1.0",
     "husky": "^3.0.2",
     "jest": "^24.8.0",
-    "prettier": "^1.18.2",
+    "prettier": "^3.6.2",
     "shelljs": "0.8.5",
-    "ts-json-schema-generator": "^1.5.1",
-    "typescript": "^5.4.5"
+    "typescript": "^5.9.3"
   },
   "husky": {
     "hooks": {
       "pre-commit": "yarn run prettier && yarn test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
-  },
-  "volta": {
-    "node": "12.4.0"
   },
   "config": {
     "commitizen": {

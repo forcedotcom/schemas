@@ -1,91 +1,90 @@
-import { PackageDir } from "./packageDir";
-import { RegistryPresets } from "./registryPresets";
-import { MetadataRegistry } from "./registryVariants";
-import { Replacements } from "./replacements";
-import { BundleEntry } from "./bundleEntry";
+import { z } from "zod";
+import { PackageDirSchema } from "./packageDir";
+import { RegistryPresetsSchema } from "./registryPresets";
+import { MetadataRegistrySchema } from "./registryVariants";
+import { ReplacementsSchema } from "./replacements";
+import { BundleEntrySchema } from "./bundleEntry";
 
 /**
  * The properties and shape of the SFDX project
- * @title Salesforce DX Project File
  */
-export type ProjectJson = {
-  /**
-   * The name of your Salesforce project.
-   * @title name
-   */
-  name?: string;
-  /**
-   * Package directories indicate which directories to target when syncing source to and from the scratch org. These directories can contain source from your managed package, unmanaged package, or unpackaged source, for example, ant tool or change set.
-   * @title Package Directories
-   * @comment The properties ancestorId & ancestorVersion cannot be included together, but this schema optimizes for VS Code code completion rather than pure validation.
-   * @minItems 1
-   */
-  packageDirectories: PackageDir[];
-  /**
-   * A namespace is an alphanumeric identifier that distinguishes your package and its contents from other packages in your customer's org. For steps on how to register a namespace and link it to your Dev Hub org, see Create and Register Your Namespace for Second-Generation Managed Packages on developer.salesforce.com. If you're creating an unlocked package, you can create it without a namespace.
-   * @title Namespace
-   */
-  namespace?: string;
-  /**
-   * The API version that the source is compatible with. By default it matches the API version.
-   * @default '48.0'
-   * @title Source API Version
-   */
-  sourceApiVersion?: string;
-  /**
-   * The login URL that the force:auth commands use. If not specified, the default is login.salesforce.com. Override the default value if you want users to authorize to a specific Salesforce instance. For example, if you want to authorize into a sandbox org, set this parameter to test.salesforce.com.
-   * @title SFDC Login URL
-   */
-  sfdcLoginUrl?: string;
-  /** The url that is used when creating new scratch orgs. This is typically only used for testing prerelease environments. */
-  signupTargetLoginUrl?: string;
-  /**
-   * By default, the OAuth port is 1717. However, change this port if this port is already in use, and you plan to create a connected app in your Dev Hub org to support JWT-based authorization.
-   * @default 1717
-   */
-  oauthLocalPort?: number;
-  /**
-   * Salesforce CLI plugin configurations used with this project.
-   * @title CLI Plugins custom settings
-   */
-  plugins?: { [k: string]: unknown };
+export const ProjectJsonSchema = z.object({
+  name: z.string().optional().describe("The name of your Salesforce project."),
+  packageDirectories: z
+    .array(PackageDirSchema)
+    .min(1)
+    .describe(
+      "Package directories indicate which directories to target when syncing source to and from the scratch org. These directories can contain source from your managed package, unmanaged package, or unpackaged source, for example, ant tool or change set.",
+    ),
+  namespace: z
+    .string()
+    .optional()
+    .describe(
+      "A namespace is an alphanumeric identifier that distinguishes your package and its contents from other packages in your customer's org. For steps on how to register a namespace and link it to your Dev Hub org, see Create and Register Your Namespace for Second-Generation Managed Packages on developer.salesforce.com. If you're creating an unlocked package, you can create it without a namespace.",
+    ),
+  sourceApiVersion: z
+    .string()
+    .default("48.0")
+    .optional()
+    .describe(
+      "The API version that the source is compatible with. By default it matches the API version.",
+    ),
+  sfdcLoginUrl: z
+    .string()
+    .optional()
+    .describe(
+      "The login URL that the force:auth commands use. If not specified, the default is login.salesforce.com. Override the default value if you want users to authorize to a specific Salesforce instance. For example, if you want to authorize into a sandbox org, set this parameter to test.salesforce.com.",
+    ),
+  signupTargetLoginUrl: z
+    .string()
+    .optional()
+    .describe(
+      "The url that is used when creating new scratch orgs. This is typically only used for testing prerelease environments.",
+    ),
+  oauthLocalPort: z
+    .number()
+    .default(1717)
+    .optional()
+    .describe(
+      "By default, the OAuth port is 1717. However, change this port if this port is already in use, and you plan to create a connected app in your Dev Hub org to support JWT-based authorization.",
+    ),
+  plugins: z
+    .record(z.string(), z.unknown())
+    .optional()
+    .describe("Salesforce CLI plugin configurations used with this project."),
+  packageAliases: z
+    .record(z.string(), z.string())
+    .optional()
+    .describe(
+      "The Salesforce CLI updates this file with the aliases when you create a package or package version. You can also manually update this section for existing packages or package versions. You can use the alias instead of the cryptic package ID when running CLI force:package commands.",
+    ),
+  packageBundles: z
+    .array(BundleEntrySchema)
+    .optional()
+    .describe("Package bundle entries for managing package bundles."),
+  packageBundleAliases: z
+    .record(z.string(), z.union([z.string(), z.array(z.string())]))
+    .optional()
+    .describe("Aliases for package bundles."),
+  registryPresets: RegistryPresetsSchema.optional().describe(
+    "@deprecated use `sourceBehaviorOptions`. Filenames from https://github.com/forcedotcom/source-deploy-retrieve/tree/main/src/registry/presets",
+  ),
+  sourceBehaviorOptions: RegistryPresetsSchema.optional().describe(
+    "Filenames from https://github.com/forcedotcom/source-deploy-retrieve/tree/main/src/registry/presets",
+  ),
+  registryCustomizations: MetadataRegistrySchema.optional(),
+  replacements: z
+    .array(ReplacementsSchema)
+    .optional()
+    .describe(
+      "The Salesforce CLI will conditionally replace portions of your metadata during a deployment",
+    ),
+  pushPackageDirectoriesSequentially: z
+    .boolean()
+    .optional()
+    .describe(
+      "@deprecated only works with deprecated commands. See https://github.com/forcedotcom/cli/discussions/2402",
+    ),
+});
 
-  /**
-   * The Salesforce CLI updates this file with the aliases when you create a package or package version. You can also manually update this section for existing packages or package versions. You can use the alias instead of the cryptic package ID when running CLI force:package commands.
-   * @title Aliases for packaging ids
-   */
-  packageAliases?: { [k: string]: string };
-
-  /**
-   * Package bundle entries for managing package bundles.
-   * @title Package Bundles
-   */
-  packageBundles?: BundleEntry[];
-
-  /**
-   * Aliases for package bundles.
-   * @title Package Bundle Aliases
-   */
-  packageBundleAliases?: Record<string, string | string[]>;
-
-  /**
-   * @deprecated use `sourceBehaviorOptions`
-   * filenames from https://github.com/forcedotcom/source-deploy-retrieve/tree/main/src/registry/presets
-   * @title Custom predefined presets for decomposing metadata types
-   */
-  registryPresets?: RegistryPresets;
-  /**
-   * filenames from https://github.com/forcedotcom/source-deploy-retrieve/tree/main/src/registry/presets
-   * @title Custom predefined presets for decomposing metadata types
-   */
-  sourceBehaviorOptions?: RegistryPresets;
-  // TODO: does this belong here or in SDR?  This should be the simplified, "public" version of the registry props.  Only allow things we want people to do
-  registryCustomizations?: MetadataRegistry;
-  /**
-   * The Salesforce CLI will conditionally replace portions of your metadata during a deployment"
-   * @title Replacements for metadata that are executed during deployments"
-   */
-  replacements?: Replacements[];
-  /** @deprecated only works with deprecated commands.  See https://github.com/forcedotcom/cli/discussions/2402  */
-  pushPackageDirectoriesSequentially?: boolean;
-};
+export type ProjectJson = z.infer<typeof ProjectJsonSchema>;
