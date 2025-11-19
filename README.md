@@ -43,10 +43,6 @@ Run `yarn build` to:
 2. Generate JSON Schema files from Zod schemas
 3. Output schemas to root and `/lib` directories
 
-### Updating project-scratch-def.schema.json
-
-Run the `features-update` and `settings-update` scripts on every major release and open a PR with the new changes against the `main` branch to keep the schema files up to date with the latest Salesforce metadata settings.
-
 ## Bugs and Feedback
 
 To report issues or feedback with the schemas, open a bug on [GitHub](https://github.com/forcedotcom/schemas/issues).
