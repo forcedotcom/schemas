@@ -8,7 +8,11 @@ import { SettingsSchema } from "./settings";
  */
 export const ScratchOrgDefSchema = z
   .object({
-    orgName: z.string().optional().describe("The name of the scratch org."),
+    orgName: z
+      .string()
+      .optional()
+      .describe("The name of the scratch org.")
+      .meta({ title: "Organization Name" }),
     edition: z
       .enum([
         "Developer",
@@ -39,34 +43,39 @@ export const ScratchOrgDefSchema = z
       .optional()
       .describe(
         "Email address of the Dev Hub user making the scratch org creation request.",
-      ),
+      )
+      .meta({ title: "Administrator Email Address" }),
     description: z
       .string()
       .optional()
       .describe(
         "The description is a good way to document the scratch org's purpose. You can view or edit the description in the Dev Hub. From App Launcher, select Scratch Org Info or Active Scratch Orgs, then click the scratch org number.",
-      ),
+      )
+      .meta({ title: "Description of the Org" }),
     hasSampleData: z
       .boolean()
       .default(false)
       .optional()
       .describe(
         "Valid values are true and false. False is the default, which creates an org without sample data.",
-      ),
+      )
+      .meta({ title: "Include Sample Data" }),
     language: z
       .string()
       .max(5)
       .optional()
       .describe(
         "Default language for the country. To override the language set by the Dev Hub locale, see Supported Languages (https://help.salesforce.com/articleView?id=faq_getstart_what_languages_does.htm&type=5&language=en_US) for the codes to use in this field.",
-      ),
+      )
+      .meta({ title: "Default Language" }),
     features: FeaturesSchema.optional().describe(
       "Features to enable in the scratch org.",
     ),
     template: z
       .string()
       .optional()
-      .describe("The template id for the scratch org shape. (Pilot)"),
+      .describe("The template id for the scratch org shape. (Pilot)")
+      .meta({ title: "Template ID" }),
     settings: SettingsSchema.optional().describe(
       "Settings for the scratch org.",
     ),
