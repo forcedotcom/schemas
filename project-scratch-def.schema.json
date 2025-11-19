@@ -3,7 +3,6 @@
   "type": "object",
   "properties": {
     "orgName": {
-      "title": "Organization Name",
       "description": "The name of the scratch org.",
       "type": "string"
     },
@@ -31,23 +30,19 @@
       "type": "string"
     },
     "adminEmail": {
-      "title": "Administrator Email Address",
       "description": "Email address of the Dev Hub user making the scratch org creation request.",
       "type": "string"
     },
     "description": {
-      "title": "Description of the Org",
       "description": "The description is a good way to document the scratch org's purpose. You can view or edit the description in the Dev Hub. From App Launcher, select Scratch Org Info or Active Scratch Orgs, then click the scratch org number.",
       "type": "string"
     },
     "hasSampleData": {
-      "title": "Include Sample Data",
       "description": "Valid values are true and false. False is the default, which creates an org without sample data.",
       "default": false,
       "type": "boolean"
     },
     "language": {
-      "title": "Default Language",
       "description": "Default language for the country. To override the language set by the Dev Hub locale, see Supported Languages (https://help.salesforce.com/articleView?id=faq_getstart_what_languages_does.htm&type=5&language=en_US) for the codes to use in this field.",
       "type": "string",
       "maxLength": 5
@@ -493,7 +488,6 @@
       }
     },
     "template": {
-      "title": "Template ID",
       "description": "The template id for the scratch org shape. (Pilot)",
       "type": "string"
     },
